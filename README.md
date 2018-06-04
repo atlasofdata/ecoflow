@@ -19,6 +19,8 @@ Here is a description of the data format for the API
 - color
 - size
 
+Google sheet for data collection : https://docs.google.com/spreadsheets/d/1x1EFzd6-BMDOttio02Rhbc8lPX3NnsT15BJuyvIs4mY/edit#gid=0
+
 ## Data sources
 
 - Geoportal 
