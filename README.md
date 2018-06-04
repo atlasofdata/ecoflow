@@ -2,7 +2,7 @@
 
 Visualization of the flows between main data producers
 
-### Data format (API)
+## Data format (API)
 
 Here is a description of the data format for the API
 
@@ -19,7 +19,12 @@ Here is a description of the data format for the API
 - color
 - size
 
-### Visualization examples
+## Data sources
+
+- Geoportal 
+- 
+
+## Visualization examples
 
 ##### Interactive 3D Globe + network flows
 
