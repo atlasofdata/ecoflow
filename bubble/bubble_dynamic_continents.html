@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <header>IPCC contributors</header>
+    <style>
+    canvas{width:100%;height:100%}
+    body{
+    font-family:Monospace;
+    background-color:#fff;
+    color:#000;
+    margin:0px;
+    overflow:hidden;
+    }
+    #info{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+    display:block;
+    }
+    #info a, .button{color:#f00;font-weight:bold;text-decoration:underline;cursor:pointer}
+    #footer{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+    display:block;
+    }
+    </style>
+    <div id="info">
+      IPCC CONTRIBUTORS
+      <br>
+      <span id="ar2" class="button">AR2</span>
+      <span id="ar3" class="button">AR3</span>
+      <span id="ar4" class="button">AR4</span>
+      <span id="ar5" class="button">AR5</span>
+      <span id="ar6" class="button">AR6</span>
+    </div>
+
+    <svg width="850" height="850" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+
+      var continents = {
+      "Australia": "Oceania",
+      "New Zealand": "Oceania",
+      "Tonga": "Oceania",
+      "Fiji": "Oceania",
+      "Samoa": "Oceania",
+      "Kiribati": "Oceania",
+      "Palau": "Oceania",
+      "Cook Islands": "Oceania",
+      "Solomon Islands": "Oceania",
+      "South Africa": "Africa",
+      "Seychelles": "Africa",
+      "Sudan": "Africa",
+      "Morocco": "Africa",
+      "Zambia": "Africa",
+      "Senegal": "Africa",
+      "Egypt": "Africa",
+      "Nigeria": "Africa",
+      "Ghana": "Africa",
+      "Botswana": "Africa",
+      "Tanzania": "Africa",
+      "Zimbabwe": "Africa",
+      "Tunisia": "Africa",
+      "Gambia": "Africa",
+      "Niger": "Africa",
+      "Algeria": "Africa",
+      "Benin" : "Africa",
+      "Uganda": "Africa",
+      "Ethiopia": "Africa",
+      "Guinea": "Africa",
+      "Cameroon": "Africa",
+      "Kenya": "Africa",
+      "Swaziland": "Africa",
+      "Malawi" : "Africa",
+      "Mali" : "Africa",
+      "Sierra Leone" : "Africa",
+      "Somaliland" : "Africa",
+      "Mozambique": "Africa",
+      "Mauritius": "Africa",
+      "Mauritania": "Africa",
+      "Eritrea": "Africa",
+      "Togo": "Africa",
+      "Madagascar": "Africa",
+      "China": "Asia",
+      "India": "Asia",
+      "Japan": "Asia",
+      "South Korea" : "Asia",
+      "Republic of Korea": "Asia",
+      "South Ossetia" : "Asia",
+      "Hong Kong" : "Asia",
+      "Bangladesh": "Asia",
+      "Philippines": "Asia",
+      "Malaysia": "Asia",
+      "Iran": "Asia",
+      "Maldives": "Asia",
+      "Turkmenistan" : "Asia",
+      "Northern Cyprus" : "Asia",
+      "Sri Lanka": "Asia",
+      "Indonesia": "Asia",
+      "Tajikistan": "Asia",
+      "Nepal": "Asia",
+      "Thailand": "Asia",
+      "Pakistan": "Asia",
+      "United Arab Emirates" : "Asia",
+      "Saudi Arabia" : "Asia",
+      "Vietnam" : "Asia",
+      "Singapore" : "Asia",
+      "Israel" : "Asia",
+      "Kazakhstan" : "Asia",
+      "Uzbekistan" : "Asia",
+      "Turkey": "Asia",
+      "Argentina": "America",
+      "USA": "America",
+      "Canada": "America",
+      "Ecuador": "America",
+      "Bahamas": "America",
+      "Brazil": "America",
+      "Mexico": "America",
+      "Chile": "America",
+      "Cuba": "America",
+      "Bolivia": "America",
+      "Colombia": "America",
+      "Trinidad and Tobago": "America",
+      "Peru": "America",
+      "Costa Rica": "America",
+      "Guatemala": "America",
+      "Jamaica": "America",
+      "Dominican Republic": "America",
+      "El Salvador": "America",
+      "Venezuela": "America",
+      "Barbados": "America",
+      "Uruguay": "America",
+      "Germany": "Europe",
+      "Albania": "Europe",
+      "France": "Europe",
+      "UK": "Europe",
+      "Netherlands": "Europe",
+      "Switzerland": "Europe",
+      "Czech Republic" : "Europe",
+      "Russia": "Europe",
+      "Spain": "Europe",
+      "Norway": "Europe",
+      "Malta": "Europe",
+      "Italy": "Europe",
+      "Sweden": "Europe",
+      "Austria": "Europe",
+      "Belgium": "Europe",
+      "Hungary": "Europe",
+      "Finland": "Europe",
+      "Denmark": "Europe",
+      "Portugal": "Europe",
+      "Ukraine": "Europe",
+      "Greece": "Europe",
+      "Romania": "Europe",
+      "Poland": "Europe",
+      "Moldova": "Europe",
+      "Estonia": "Europe",
+      "Slovenia": "Europe",
+      "Montenegro": "Europe",
+      "Bulgaria": "Europe",
+      "Iceland": "Europe",
+      "Belarus": "Europe",
+      "Slovakia": "Europe",
+      "Ireland": "Europe",
+      "Monaco": "Europe",
+      "Lithuania": "Europe",
+      "Serbia": "Europe",
+      "Latvia": "Europe",
+      "Yugoslavia" : "Europe",
+     }
+
+    function color_from_continents(t){
+      if (continents[t] == "Europe"){
+        return "green"
+      }
+      else if (continents[t] == "Africa"){
+        return "blue"
+      }
+      else if (continents[t] == "Asia"){
+        return "red"
+      }
+      else if (continents[t] == "Oceania"){
+        return "yellow"
+      }
+      else if (continents[t] == "America"){
+        return "orange"
+      }
+      else{
+        return "purple"
+      }
+    }
+
+    function continents_to_number(t){
+      if (t == "Europe"){
+        return 1
+      }
+       if (t == "Africa"){
+        return 2
+      }
+       if (t == "Asia"){
+        return 3
+      }
+       if (t == "Oceania"){
+        return 4
+      }
+       if (t == "America"){
+        return 5
+      }
+    }
+
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height"),
+        padding = 1.5, // separation between same-color nodes
+        clusterPadding = 6, // separation between different-color nodes
+        maxRadius = 12;
+
+    var format = d3.format(",d");
+
+    var csv  = "ar5_countries.csv"
+
+    function display(){
+
+      d3.select('svg').selectAll("*").remove() 
+
+      d3.text(csv, function(error, text) {
+
+        if (error) throw error;
+        var colNames = "value,id\n" + text;
+        var data = d3.csv.parse(colNames);
+        data.forEach(function(d) {
+          d.value = +d.value
+          d.group = continents_to_number(continents[d.id]);
+        });
+
+      console.log(data)
+
+      var cs = [];
+        data.forEach(function(d){
+                if(!cs.contains(d.group)) {
+                    cs.push(d.group);
+                }
+        });
+
+      // console.log(cs)
+
+      var n = data.length, // total number of nodes
+          m = cs.length; // number of distinct clusters
+      
+      //create clusters and nodes
+      var clusters = new Array(m);
+      var nodes = [];
+      for (var i = 0; i<n; i++){
+          nodes.push(create_nodes(data,i));
+      }
+
+      // console.log(nodes)
+
+      var force = d3.layout.force()
+          .nodes(nodes)
+          .size([width, height])
+          .gravity(.02)
+          .charge(0)
+          .on("tick", tick)
+          .start();
+
+      var node = svg.selectAll("circle")
+          .data(nodes)
+          .enter().append("g").call(force.drag);
+
+      console.log(node)
+
+      node.append("circle")
+          .style("fill", function (d) {
+          return color_from_continents(d.id);
+          })
+          .attr("r", function(d){return d.radius})
+
+      node.append("text")
+           .append("tspan")
+            .text(function(d) { 
+              return d.id ; })
+            .attr("x", function(d){ return 0; })
+            .attr("y", function(d){ return d.value > 1 ? - d.radius/4 : - d.radius/2; })
+            .attr("text-anchor", "middle")
+            .style("font-size", function(d) { return d.value > 6 ? ((2 * d.radius - 10) /5 + "px") :  '12px'; })  
+           .append("tspan")
+            .text(function(d){
+              return format(d.value) 
+              ;
+            }) 
+            .attr("x", function(d){ return 0; })
+            .attr("y", function(d){ return d.value > 1 ?  d.radius/4 :  d.radius/2; })
+            .attr("text-anchor", "middle")
+            .style("font-size", function(d) { return d.value > 6 ? ((2 * d.radius - 10) / 5 + "px") :  '12px'; });  
+          // .attr("dy", ".3em")
+          // .style("text-anchor", "middle")
+          // .text(function(d) { return d.value; });
+
+
+      function create_nodes(data,node_counter) {
+
+        var i = cs.indexOf(data[node_counter].group),
+            r = Math.sqrt((i + 1) / m * -Math.log(Math.random())) * maxRadius,
+            d = {
+              cluster: i,
+              value: data[node_counter].value,
+              radius: Math.sqrt(data[node_counter].value)*8,
+              id: data[node_counter].id,
+              x: Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random(),
+              y: Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random()
+            };
+        if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
+        return d;
+      };
+
+      function tick(e) {
+        node.each(cluster(10 * e.alpha * e.alpha))
+            .each(collide(.5))
+        .attr("transform", function (d) {
+            var k = "translate(" + d.x + "," + d.y + ")";
+            return k;
+        })
+      }
+
+      // Move d to be adjacent to the cluster node.
+      function cluster(alpha) {
+          return function (d) {
+              var cluster = clusters[d.cluster];
+              if (cluster === d) return;
+              var x = d.x - cluster.x,
+                  y = d.y - cluster.y,
+                  l = Math.sqrt(x * x + y * y),
+                  r = d.radius + cluster.radius;
+              if (l != r) {
+                  l = (l - r) / l * alpha;
+                  d.x -= x *= l;
+                  d.y -= y *= l;
+                  cluster.x += x;
+                  cluster.y += y;
+              }
+          };
+      }
+
+        
+
+      // Resolves collisions between d and all other circles.
+      function collide(alpha) {
+          var quadtree = d3.geom.quadtree(nodes);
+          return function (d) {
+              var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
+                  nx1 = d.x - r,
+                  nx2 = d.x + r,
+                  ny1 = d.y - r,
+                  ny2 = d.y + r;
+              quadtree.visit(function (quad, x1, y1, x2, y2) {
+                  if (quad.point && (quad.point !== d)) {
+                      var x = d.x - quad.point.x,
+                          y = d.y - quad.point.y,
+                          l = Math.sqrt(x * x + y * y),
+                          r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
+                      if (l < r) {
+                          l = (l - r) / l * alpha;
+                          d.x -= x *= l;
+                          d.y -= y *= l;
+                          quad.point.x += x;
+                          quad.point.y += y;
+                      }
+                  }
+                  return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+              });
+          };
+      }
+    });
+  }
+      Array.prototype.contains = function(v) {
+          for(var i = 0; i < this.length; i++) {
+              if(this[i] === v) return true;
+          }
+          return false;
+      };
+
+
+    display()
+
+    document.getElementById("ar2").addEventListener('click',function(){
+      csv = "ar2_countries.csv"
+      display();
+    },false)
+
+    document.getElementById("ar3").addEventListener('click',function(){
+      csv = "ar3_countries.csv"
+      display();
+    },false)
+
+    document.getElementById("ar4").addEventListener('click',function(){
+      csv = "ar4_countries.csv"
+      display();
+    },false)
+
+    document.getElementById("ar5").addEventListener('click',function(){
+      csv = "ar5_countries.csv"
+      display();
+    },false)
+
+    document.getElementById("ar6").addEventListener('click',function(){
+      csv = "ar6_countries.csv"
+      display();
+    },false)
+   
+    </script>
+
+  </body>
