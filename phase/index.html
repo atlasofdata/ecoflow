@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<header><title>phase first try</title></header>
+<!-- <svg width="1024" height="728"></svg> -->
+<style>
+    canvas{width:100%;height:100%}
+    body{
+    font-family:Monospace;
+    background-color:#fff;
+    color:#000;
+    margin:0px;
+    overflow:hidden;
+    }
+    #info{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+    display:block;
+    }
+    #info a, .button{color:#f00;font-weight:bold;text-decoration:underline;cursor:pointer}
+    #info b, .button{color:#0f0;font-weight:bold;text-decoration:underline;cursor:pointer}
+    #info c, .button{color:#00f;font-weight:bold;text-decoration:underline;cursor:pointer}
+    #info d, .button{color:#fff;font-weight:bold;}
+    #pileups{
+    position:absolute;
+    top:200px;
+    width:100%;
+    text-align:left;
+    z-index:100;
+    display:block;
+    }
+    #footer{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+    display:block;
+    }
+  </style>
+<body>
+  <div id="info">
+    <a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - phase portrait (# publications, publication velocities) - <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Pascal Carrivain</a> <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Titouan Poisson</a> <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Clément Renaud</a> & <a href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener">Stéphane Grumbach</a>
+    <br><d target="_blank" rel="noopener">data : </d>
+    <c href="https://www.ncdc.noaa.gov/snow-and-ice" target="_blank" rel="noopener">ice surface data</c>
+    <b href="https://www.worldbank.org" target="_blank" rel="noopener">forest coverage data</b>
+    <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener"> temperatures anomalies data</a>
+    <br>click to change year, click to change keyword
+    <br><span class="button" style="font-size:15px;color:#f00" id="yearm1">year-1</span>,
+    <span class="button" style="font-size:15px;color:#f00" id="yearp1">year+1</span>,
+    <span class="button" style="font-size:15px;color:#f00" id="pkeyword">previous keyword</span>
+    <span class="button" style="font-size:15px;color:#f00" id="nkeyword">next keyword</span>
+  </div>
+  <footer id="footer">
+    <span id="year" style="font-size:20px;color:#000">?</span>,
+    <span id="ice surface (million of km2)" style="font-size:20px;color:#00f">?</span>,
+    <span id="forest_coverage" style="font-size:20px;color:#0f0">?</span>,
+    <span id="tanom_land" style="font-size:20px;color:#f00">?</span>,
+    <span id="tanom_ocean" style="font-size:20px;color:#f00">?</span>
+  </footer>
+  <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+  <!-- <script type="text/javascript" src="https://d3js.org/d3-selection-multi.v1.min.js"></script> -->
+  <div id="container"></div>
+  <script src="./js/phase.js" charset="utf-8"></script>
+</body>
+</html>
