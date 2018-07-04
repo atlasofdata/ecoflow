@@ -1,34 +1,23 @@
 # Ecoflow
 
-Visualization of the flows between main data producers
+Several vizualisation about the network of actors around ecosystemic data
 
-## Data format (API)
+## Bubbles
 
-Here is a description of the data format for the API
+Visualisation of the nationality of IPCC Assessment Reports' authors (D3js)
+Source : Assessment reports www.ipcc.ch
 
-##### Nodes
+## Timeline
 
-- name
-- weight ()
-- color
+Timeline of the important dates in the creation of the network (TimelineJS)
 
-##### Edges
+Data source : https://docs.google.com/spreadsheets/d/17VXBJT7ugC3AhQIGnLCwZFvi4qT2vIjFSIRmjjtKt-E/edit?usp=sharing
 
-- source
-- target
-- color
-- size
 
-Google sheet for data collection : https://docs.google.com/spreadsheets/d/1x1EFzd6-BMDOttio02Rhbc8lPX3NnsT15BJuyvIs4mY/edit?usp=sharing
+## Interactive 3D Globe + network flows
 
-## Data sources
-
-- Geoportal 
-- 
-
-## Visualization examples
-
-##### Interactive 3D Globe + network flows
+3D representation of bibliometric data around climate
+Source : PubMed
 
 - three.js : https://codepen.io/Flamov/pen/MozgXb?editors=0010
 - cesium JS
