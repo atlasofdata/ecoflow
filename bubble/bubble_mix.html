@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
-    <header>IPCC contributors</header>
+    <header>
+      <div id="info">
+        <h1> IPCC CONTRIBUTORS </h1>
+        <span id="ar2" class="button">AR2</span>
+        <span id="ar3" class="button">AR3</span>
+        <span id="ar4" class="button">AR4</span>
+        <span id="ar5" class="button">AR5</span>
+        <span id="ar6" class="button">AR6</span>
+        <br>
+        <h1 id = "h1_date"> Assessment Report 2 1995 </h1>
+      </div>
+      
+    </header>
     <style>
     canvas{width:100%;height:100%}
+ /*   header{
+      position:relative;
+      bottom:10px;
+      width:100%;
+      text-align:center;
+      z-index:100;
+      display:block;
+    }*/
     body{
-    font-family:Monospace;
-    background-color:#fff;
-    color:#000;
-    margin:0px;
-    overflow:hidden;
+      font-family:Monospace;
+      background-color:#fff;
+      color:#000;
+      margin:0px;
+      overflow:hidden;
     }
     #info{
-    position:absolute;
-    top:10px;
-    width:100%;
-    text-align:center;
-    z-index:100;
-    display:block;
+      position:relative;
+      top:10px;
+      width:100%;
+      text-align:center;
+      z-index:100;
+      display:block;
     }
-    #info a, .button{color:#f00;font-weight:bold;text-decoration:underline;cursor:pointer}
+    #info a, .button{color:#f00;font-weight:bold;text-decoration:underline;cursor:pointer;font-size: 25px;}
     #footer{
-    position:absolute;
-    bottom:10px;
-    width:100%;
-    text-align:center;
-    z-index:100;
-    display:block;
+      position:relative;
+      bottom:10px;
+      width:100%;
+      text-align:center;
+      z-index:100;
+      display:block;
     }
+    #
     </style>
-    <div id="info">
-      IPCC CONTRIBUTORS
-      <br>
-      <span id="ar2" class="button">AR2</span>
-      <span id="ar3" class="button">AR3</span>
-      <span id="ar4" class="button">AR4</span>
-      <span id="ar5" class="button">AR5</span>
-      <span id="ar6" class="button">AR6</span>
-    </div>
 
-    <svg width="850" height="850" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
+    <div id="viz" style="text-align:center;">
+      <svg width="850" height="850" font-family="sans-serif" font-size="10" text-anchor="middle" ></svg>
+    </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
@@ -95,6 +109,7 @@
       "Republic of Korea": "Asia",
       "South Ossetia" : "Asia",
       "Hong Kong" : "Asia",
+      "Mongolia" : "Asia",
       "Bangladesh": "Asia",
       "Philippines": "Asia",
       "Malaysia": "Asia",
@@ -179,24 +194,44 @@
 
     function color_from_continents(t){
       if (continents[t] == "Europe"){
-        return "green"
+        return "rgb(157, 232, 160)"
       }
       else if (continents[t] == "Africa"){
-        return "blue"
+        return "rgb(161, 232, 255)"
       }
       else if (continents[t] == "Asia"){
-        return "red"
+        return "rgb(255, 105, 109)"
       }
       else if (continents[t] == "Oceania"){
-        return "yellow"
+        return "rgb(255, 247, 117)"
       }
       else if (continents[t] == "America"){
-        return "orange"
+        return "rgb(255, 191, 91)"
       }
       else{
         return "purple"
       }
     }
+
+    /// Function to display date
+    function date(){
+      if (csv == 'ar2_countries.csv'){
+        document.getElementById("h1_date").innerHTML = "Assessment Report 2 1995";
+      }
+      if (csv == 'ar3_countries.csv'){
+        document.getElementById("h1_date").innerHTML = "Assessment Report 3 2001";
+      }
+      if (csv == 'ar4_countries.csv'){
+        document.getElementById("h1_date").innerHTML = "Assessment Report 4 2007";
+      }
+      if (csv == 'ar5_countries.csv'){
+        document.getElementById("h1_date").innerHTML = "Assessment Report 5 2014";
+      }
+      if (csv == 'ar6_countries.csv'){
+        document.getElementById("h1_date").innerHTML = "Assessment Report 6 2021";
+      }
+    }
+
 
     var svg = d3.select("svg"),
         width = +svg.attr("width"),
@@ -210,11 +245,13 @@
         .size([width, height])
         .padding(1.5);
 
-    var csv  = "ar5_countries.csv"
+    var csv  = "ar2_countries.csv"
 
     function display(){
 
-      d3.select('svg').selectAll("*").remove()  
+      d3.select('svg').selectAll("*").remove() 
+
+      date()
 
       d3.csv(csv, 
         function(d) {
@@ -236,7 +273,6 @@
                 d.class = id.slice(i + 1);
               }
             });
-        // console.log(root)
 
         var node = svg.selectAll(".node")
           .data(pack(root).leaves())
@@ -248,7 +284,7 @@
         node.append("circle")
             .attr("id", function(d) { return d.id; })
             .attr("r", function(d) { return d.r; })
-            .style("fill", function(d) {  return color_from_continents(d.id); });
+            .style("fill", function(d) {  return d3.color(color_from_continents(d.id)); });
 
         node.append("clipPath")
             .attr("id", function(d) { return "clip-" + d.id; })
