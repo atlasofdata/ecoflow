@@ -5,6 +5,7 @@ Several vizualisation about the network of actors around ecosystemic data
 ## Bubbles
 
 Visualisation of the nationality of IPCC Assessment Reports' authors (D3js)
+
 Source : Assessment reports www.ipcc.ch
 
 ## Timeline
@@ -17,6 +18,7 @@ Data source : https://docs.google.com/spreadsheets/d/17VXBJT7ugC3AhQIGnLCwZFvi4q
 ## Interactive 3D Globe + network flows
 
 3D representation of bibliometric data around climate
+
 Source : PubMed
 
 - three.js : https://codepen.io/Flamov/pen/MozgXb?editors=0010
