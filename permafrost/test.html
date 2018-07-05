@@ -69,8 +69,8 @@ d3.csv("stations_calm_orgs.csv",
                 .attr('class', 'rect')
                 // .attr("transform", function(d) { return "translate(" + projection([d.longitude,d.latitude]) + ")"; })
                 .attr("r", 1)
-                .attr("x",function(d){ console.log(d.longitude); return projection([d.longitude,d.latitude][0])})
-                .attr("y",function(d){ return projection([d.longitude,d.latitude][1])})
+                .attr("x",function(d){ return projection([d.longitude,d.latitude])[0]})
+                .attr("y",function(d){ return projection([d.longitude,d.latitude])[1]})
                 // .attr("x",10)
                 // .attr("y",10)
                 .attr('width', 0)
@@ -100,7 +100,7 @@ d3.csv("stations_calm_orgs.csv",
 
                 var node = d3.select(this); 
             // This is each individual element in the loop. 
-          
+                console.log(node)
                 context.fillStyle = node.attr('fillStyle'); 
             // Here you retrieve the colour from the individual in-memory node and set the fillStyle for the canvas paint
 
@@ -112,19 +112,6 @@ d3.csv("stations_calm_orgs.csv",
 
         databind(data);
         draw();
-
-        // var station = canvas.selectAll("circle")
-        //     .data(data)
-        //     .enter()
-        //       .append("g")
-        //       .attr("class", "circle")
-              // .attr("transform", function(d) { return "translate(" + projection([d.longitude,d.latitude]) + ")"; });
-
-        // console.log(station)
-
-        // station.append("circle")
-            // .attr("r", 100)
-            // .style("fill", "red");
         }
     );
 
