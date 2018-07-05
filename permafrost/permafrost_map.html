@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;background: #fcfcfa; }
+    
+  </style>
+</head>
+
+<body>
+<script>
+
+  
+/* Set up */
+/* ====== */
+  
+  
+var width = 960,
+    height = 500,
+    margin = { top: 30, right: 30, bottom: 30, left: 30 },
+    originalScale = height / 2.1,
+    scale = originalScale,
+    translation = [width / 2, height / 2],
+    scaleChange,
+    rotation;
+
+var sphere = {type: 'Sphere'};
+
+var graticule = d3.geoGraticule();
+
+
+// set up the main canvas and the projection
+
+var svg = d3.select('body')
+  .append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+  .append('g')
+    .attr('transform', 'translate(' + margin.top + ', ' + margin.left + ')');
+
+
+var projection = d3.geoOrthographic()
+    .scale(scale) 
+    .translate(translation)
+    .clipAngle(90);
+
+var path = d3.geoPath()
+    .projection(projection)
+    .pointRadius(1);
+
+
+
+/* Data load */
+/* ========= */
+
+
+d3.queue()
+  .defer(d3.csv, 'stations_calm_orgs.csv')
+  .defer(d3.csv, 'stations_bore_orgs.csv')
+  .defer(d3.json, 'world-110m.json')
+  .await(load);
+
+
+function load(error, stations_calm, stations_bore, world) {
+  console.log(world)
+  if (error) { console.log(error); }
+
+  var land = topojson.feature(world, world.objects.countries),
+      grid = graticule();
+
+
+  var outerArray_calm = [];
+  stations_calm.forEach(function(el) {
+    var innerArray_calm = [+el.longitude, +el.latitude];
+    outerArray_calm.push(innerArray_calm);
+  });
+
+  var outerArray_bore = [];
+  stations_bore.forEach(function(el) {
+    var innerArray_bore = [+el.longitude, +el.latitude];
+    outerArray_bore.push(innerArray_bore);
+  });
+
+
+  var points_calm = { 
+    type: "MultiPoint", 
+    coordinates: outerArray_calm
+  }; 
+
+  var points_bore = { 
+    type: "MultiPoint", 
+    coordinates: outerArray_bore
+  }; 
+
+  // console.log(land);
+  // console.log(points);
+
+
+  
+  // Draw the world 
+
+  var outline = svg
+    .append('path')
+      .datum(sphere)
+      .classed('world', true)
+      .attr('id', 'sphere')
+      .attr('d', path)
+      .attr('fill', 'none')
+      .attr('stroke', '#ccc')
+      .attr('stroke-width', 1);
+
+  var gridlines = svg.selectAll('.grid')
+      .data([grid])
+      .enter()
+    .append('path')
+      .classed('world', true)
+      .classed('grid', true)
+      .attr('d', path)
+      .attr('fill', 'none')
+      .attr('stroke', '#ddd')
+      .attr('stroke-width', 1);
+
+  var world = svg.selectAll('.countries')
+      .data([land])
+      .enter()
+    .append('path')
+      .classed('world', true)
+      .classed('countries', true)
+      .attr('d', path)
+      .attr('fill', '#ccc')
+      .attr('stroke', '#fff')
+      .attr('stroke-width', 1);
+
+
+  // Draw the cities 
+
+  var stations_calm = svg.selectAll('.stations_calm')
+      .data([points_calm])
+      .enter()
+    .append('path')
+      .classed('stations_calm', true)
+      .attr('d', path)
+      .attr('fill', 'tomato');
+
+  var stations_bore = svg.selectAll('.stations_bore')
+      .data([points_bore])
+      .enter()
+    .append('path')
+      .classed('stations_bore', true)
+      .attr('d', path)
+      .attr('fill', 'blue');
+
+
+
+  // Zoom and pan set-up 
+
+  var zoom = d3.zoom()
+    .scaleExtent([0.5, 4])
+    .on("zoom", zoomed)
+
+  d3.select('svg').call(zoom);
+
+  var previousScaleFactor = 1; 
+
+  function zoomed() {
+    var dx = d3.event.sourceEvent.movementX;
+    var dy = d3.event.sourceEvent.movementY;
+
+    var event = d3.event.sourceEvent.type;
+    
+    
+    if (event === 'wheel') {
+      
+      scaleFactor = d3.event.transform.k; 
+      scaleChange = scaleFactor - previousScaleFactor;
+      scale = scale + scaleChange * originalScale;
+      projection.scale(scale);
+      previousScaleFactor = scaleFactor;
+
+      d3.selectAll('.world').attr('d', path);
+      d3.selectAll('.stations_calm').attr('d', path);
+      d3.selectAll('.stations_bore').attr('d', path);
+
+    } else {
+
+      var r = projection.rotate();
+      rotation = [r[0] + dx * 0.4, r[1] - dy * 0.5, r[2]];
+      projection.rotate(rotation);
+
+      d3.selectAll('.world').attr('d', path);
+      d3.selectAll('.stations_calm').attr('d', path);
+      d3.selectAll('.stations_bore').attr('d', path);
+
+    }
+  
+  } // zoomed()
+
+} // load()
+
+  
+</script>
+</body>
