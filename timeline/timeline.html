@@ -6,9 +6,18 @@
 
 <!-- Loads time js -->
 <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+
+<header>
+	<h1 align="center"> The advent of earth global monitoring </h1>
+	<a id = "button_prez" class="button">Presentation</a>
+	<a id = "button_full" class="button">Full timeline</a>
+</header>
+<body>
 <div id='timeline-embed' style="width: 100%; height: 600px"></div>
-
-
 
 
 <!-- Creates timeline -->
@@ -21,6 +30,29 @@ var options = {
     timenav_position : "bottom"
   }
 
-timeline = new TL.Timeline('timeline-embed',
-  'https://docs.google.com/spreadsheets/d/17VXBJT7ugC3AhQIGnLCwZFvi4qT2vIjFSIRmjjtKt-E/edit#gid=0',options);
+ function display_timeline(sheet){
+ 	timeline = new TL.Timeline('timeline-embed',sheet,options)
+ }
+
+
+var sheet_prez = 'https://docs.google.com/spreadsheets/d/1eKI8KfNVylcjPe9JREWhBLQMwWIRQA1xGbx8-41t7tc/edit#gid=0'
+var sheet_full = 'https://docs.google.com/spreadsheets/d/17VXBJT7ugC3AhQIGnLCwZFvi4qT2vIjFSIRmjjtKt-E/edit#gid=0'
+
+// Display timeline
+
+display_timeline(sheet_full)
+
+// Link button
+document.getElementById("button_prez").addEventListener('click',function(){
+	$('timeline-embed').empty()	
+	display_timeline(sheet_prez);
+},false)
+
+document.getElementById("button_full").addEventListener('click',function(){
+	$('timeline-embed').empty()
+ 	display_timeline(sheet_full);
+},false)
+
+;
 </script>
+</body>
