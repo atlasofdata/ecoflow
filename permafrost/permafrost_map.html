@@ -3,11 +3,22 @@
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="d3.legend.min.js"></script>
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 
   <style>
     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;background: #fcfcfa; }
     
+    .legend rect {
+      fill:white;
+      stroke:black;
+      opacity:0.8;}
+    
   </style>
+
+  <h1 align="center">Permafrost Actors Network</h1>
 </head>
 
 <body>
@@ -51,6 +62,10 @@ var path = d3.geoPath()
     .projection(projection)
     .pointRadius(1);
 
+var path_orgs = d3.geoPath()
+    .projection(projection)
+    .pointRadius(3)
+
 
 
 /* Data load */
@@ -60,11 +75,12 @@ var path = d3.geoPath()
 d3.queue()
   .defer(d3.csv, 'stations_calm_orgs.csv')
   .defer(d3.csv, 'stations_bore_orgs.csv')
+  .defer(d3.csv, 'orgs_geo.csv')
   .defer(d3.json, 'world-110m.json')
   .await(load);
 
 
-function load(error, stations_calm, stations_bore, world) {
+function load(error, stations_calm, stations_bore, orgs, world) {
   console.log(world)
   if (error) { console.log(error); }
 
@@ -84,6 +100,14 @@ function load(error, stations_calm, stations_bore, world) {
     outerArray_bore.push(innerArray_bore);
   });
 
+  var outerArray_orgs = [];
+  orgs.forEach(function(el) {
+    var innerArray_orgs = [+el.lng, +el.lat];
+    outerArray_orgs.push(innerArray_orgs);
+  });
+
+  console.log(outerArray_orgs)
+
 
   var points_calm = { 
     type: "MultiPoint", 
@@ -95,9 +119,19 @@ function load(error, stations_calm, stations_bore, world) {
     coordinates: outerArray_bore
   }; 
 
+  var points_orgs = { 
+    type: "MultiPoint", 
+    coordinates: outerArray_orgs
+  }; 
+
+
+  var div = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
+
   // console.log(land);
   // console.log(points);
-
 
   
   // Draw the world 
@@ -135,15 +169,16 @@ function load(error, stations_calm, stations_bore, world) {
       .attr('stroke-width', 1);
 
 
-  // Draw the cities 
+  // Draw the stations and organisations
 
   var stations_calm = svg.selectAll('.stations_calm')
       .data([points_calm])
       .enter()
+    .append('g')
     .append('path')
       .classed('stations_calm', true)
       .attr('d', path)
-      .attr('fill', 'tomato');
+      .attr('fill', 'tomato')
 
   var stations_bore = svg.selectAll('.stations_bore')
       .data([points_bore])
@@ -151,9 +186,56 @@ function load(error, stations_calm, stations_bore, world) {
     .append('path')
       .classed('stations_bore', true)
       .attr('d', path)
-      .attr('fill', 'blue');
+      .attr('fill', 'blue')
+
+  var orgs = svg.selectAll('.orgs')
+      .data([points_orgs])
+      .enter()
+    .append('path')
+      .classed('orgs', true)
+      .attr('d', path_orgs)
+      .attr('fill', 'yellow')
+     //  .on("mouseover", function(d) {
+     //    console.log(d.coordinates[0])
+     //   div.transition()
+     //     .duration(200)
+     //     .style("opacity", .9);
+     //   div.html("")
+     //     .style("left", (d3.event.pageX) + "px")
+     //     .style("top", (d3.event.pageY - 28) + "px");
+     //   })
+     // .on("mouseout", function(d) {
+     //   div.transition()
+     //     .duration(500)
+     //     .style("opacity", 0);
+     //   });
 
 
+  // Add legend
+
+           
+var ordinal = d3.scaleOrdinal()
+  .domain(["Borehole Stations", "CALM stations", "Organizations"])
+  .range([ "blue", "tomato", "yellow"]);
+
+svg.append("g")
+  .attr("class", "legendOrdinal")
+  .attr("transform", "translate(20,20)");
+
+var legendOrdinal = d3.legendColor()
+  //d3 symbol creates a path-string, for example
+  //"M0,-8.059274488676564L9.306048591020996,
+  //8.059274488676564 -9.306048591020996,8.059274488676564Z"
+  .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
+  .shapePadding(10)
+  //use cellFilter to hide the "e" cell
+  .cellFilter(function(d){ return d.label !== "e" })
+  .scale(ordinal);
+
+svg.select(".legendOrdinal")
+  .call(legendOrdinal);
+          
+        
 
   // Zoom and pan set-up 
 
@@ -183,6 +265,7 @@ function load(error, stations_calm, stations_bore, world) {
       d3.selectAll('.world').attr('d', path);
       d3.selectAll('.stations_calm').attr('d', path);
       d3.selectAll('.stations_bore').attr('d', path);
+      d3.selectAll('.orgs').attr('d', path_orgs);
 
     } else {
 
@@ -193,10 +276,13 @@ function load(error, stations_calm, stations_bore, world) {
       d3.selectAll('.world').attr('d', path);
       d3.selectAll('.stations_calm').attr('d', path);
       d3.selectAll('.stations_bore').attr('d', path);
+      d3.selectAll('.orgs').attr('d', path_orgs);
 
     }
   
   } // zoomed()
+
+
 
 } // load()
 
