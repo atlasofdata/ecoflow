@@ -43,7 +43,10 @@
     }
 
     .questions {
-      list-style: none
+      list-style: none;
+    }
+    .questions li {
+      margin-bottom: .5rem
     }
     .examples {
       text-align: center;
@@ -59,42 +62,30 @@
     <section id="home-header">
       <img src="img/1024px-Global_Seed_Vault_(cropped).jpg" alt="">
       <h1>
-        Data Melt
+        Global Warming and Data Melt
       </h1>
-      <div class="row">
-        <div class="one-half column">
-          <h4>
-            An attempt to visualize how flows of data relates to our planet ecosystem.
-          </h4>
-          <p>
-            A project by
-            <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Pascal Carrivain</a>,
-            <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Titouan Poisson</a>,
-            <a href="clement.renaud@ens-lyon.fr" target="_blank" rel="noopener">Clément Renaud</a> &
-            <a href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener">Stéphane Grumbach</a>
-            at <a href="https://ixxi.fr">IXXI</a>
-            in Lyon, 2018.
-          </p>
-        </div>
-        <div class="one-half column">
-          <p>
-            Data collection and analysis are the main ways by which we explore the current changes of our climate and Earth's activity. The following page is a the results of a preliminary inquiry around of the following questions:
-          </p>
-          <ul class="questions">
-            <li>What sort of data is used to know how climate is changing? </li>
-            <li>Where does it come from? </li>
-            <li>How is it produced? </li>
-            <li>How it is sold?</li>
-            <li>How can we access it?</li>
-          </ul>
-
-      </div>
+      <h4>
+        An attempt to visualize how flows of data relates to our planet ecosystem.
+      </h4>
+      <p>
+        Data collection and analysis are the main ways by which we explore the current changes of our climate and Earth's activity. The following page is a the results of a preliminary inquiry to draw a picture of the inner workings of climate data.
+      </p>
+      <p>
+        A project by
+        <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Pascal Carrivain</a>,
+        <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Titouan Poisson</a>,
+        <a href="clement.renaud@ens-lyon.fr" target="_blank" rel="noopener">Clément Renaud</a> &
+        <a href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener">Stéphane Grumbach</a>
+        at <a href="https://ixxi.fr">IXXI</a>
+        in Lyon, 2018.
+      </p>
     </section>
 
     <section>
       <h2>The data landscape</h2>
       <p>
-        Information about activity of our planet comes in all forms and shapes. It is produced and used by thousands of actors for multiple purposes, with a vast set of common or diverging interests.
+        Information about activity of our planet comes in all forms and shapes. It is produced and used by thousands of actors for multiple purposes.
+        The methods, tools, motivations and methods behind the production of climate data are driven by common or diverging interests (strategic, commercial, scientific, etc).
       </p>
       <div class="row examples">
         <div class="one-half column">
@@ -126,7 +117,7 @@
 
       <h3>Methodology : data sources and visualization</h3>
       <p>
-        Take inventory of the different forms taken by data on Earth will be an impossible task. Data avaibility is sporadic and many interesting information does not exist under a structure or even well-defined format. Here, we select a few examples and approaches to provide a first set of insights and help us refine a larger and more systematic approach for this investigation.
+        Take inventory of the different forms taken by data on Earth will be an impossible task. Data avaibility is sporadic and many interesting information does not exist under a  well-structured format. In this research, we select a few examples and approaches to provide a first set of insights that will help us refine a larger and more systematic approach for this ongoing investigation.
       </p>
 
       <div class="row">
@@ -181,29 +172,36 @@
     </section>
     <section>
       <h2>Academic exchanges</h2>
-      <p>Scholars are shaping discussions surrounding climate change. What are the main topics? How have they evolved over time? </p>
-      <h2>PubMed</h2>
-      <p>PubMed is a database with advanced search engine to request medicine and health publications.</p>
-      <a class="button" href="https://www.ncbi.nlm.nih.gov/pubmed">visit the PubMed website</a>
+      <h5>
+        Scholars are shaping discussions surrounding climate change.
+        <br>
+        What are the main topics of discussions? How have they evolved over time?
+     </h5>
       <div class="row">
-        <div class="viz one-half column">
-          <h3>Hot topics</h3>
+        <div class="one-third column">
+          <img style="max-width:70%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png" alt="">
           <p>
-            Phase portrait of the publications.
+            <br>
+            We use data from <a href="https://www.ncbi.nlm.nih.gov/pubmed">PubMed</a>, a database with advanced search engine to request medicine and health publications, to explore the scientific publications.
           </p>
-          <a class="button" href="./phase/index.html">See the viz</a>
         </div>
-
-        <div class="viz one-half column">
-          <h3>Interactive Globe</h3>
+        <div class="one-third column">
+          <h4>Hot topics</h4>
           <p>
-            Worldwide collaboration on IPCC main keywords.
+            A phase portrait of topics contained in publications over several years.
           </p>
-          <a class="button" href="./globe/index.html">See the viz</a>
+          <a class="button" href="./phase/index.html">
+            See the topics
+          </a>
+        </div>
+        <div class="viz one-third column">
+          <h4>Collaborations</h4>
+          <p>
+            A glimpse at scientific collaboration worldwide based on IPCC main keywords.
+          </p>
+          <a class="button" href="./globe/index.html">See the Globe</a>
         </div>
       </div>
-
-
     </section>
 
     <section>
@@ -236,7 +234,8 @@
 
 
     </section>
-
+    <hr>
+    <p>This work was first presented on July 9th, 2018 at the <a href="http://barthes.enssib.fr/ECV-2018/">École d'été de cartographie et visualisation</a> at ENSSIB, Lyon.</p>
   </div>
 {% include footer.html %}
 <!-- End Document
