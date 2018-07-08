@@ -1,18 +1,88 @@
+<!-- python3 -m http.server, localhost: -->
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8">
   <header><title>globe first try</title></header>
   <style>
-    body{margin:0;}
     canvas{width:100%;height:100%}
+    body{
+    font-family:Monospace;
+    background-color:#000;
+    color:#fff;
+    margin:0px;
+    overflow:hidden;
+    }
+    #info{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+    display:block;
+    }
+    #pileups{
+    position:absolute;
+    top:200px;
+    width:100%;
+    text-align:left;
+    z-index:100;
+    display:block;
+    }
+    #keywords{
+    position:absolute;
+    top:100px;
+    width:100%;
+    text-align:right;
+    z-index:100;
+    display:block;
+    }
+    #footer{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+    display:block;
+    }
   </style>
   <body>
+    <div id="info">
+    made with <a href="http://threejs.org" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>three.js</a> - # publications with keyword in the title - <t href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener" style='color:#fff;font-weight:bold'>Pascal Carrivain</t>, <t href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener" style='color:#fff;font-weight:bold'>Titouan Poisson</t>, <t href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener" style='color:#fff;font-weight:bold'>Clément Renaud</t> & <t href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener" style='color:#fff;font-weight:bold'>Stéphane Grumbach</t>
+    <br><a target="_blank" rel="noopener" style='color:#fff;font-weight:bold'>data : </a>
+    <a href="https://www.ncbi.nlm.nih.gov/pubmed" target="_blank" rel="noopener" style='color:#f0f;font-weight:bold;cursor:pointer;text-decoration:underline'>pubmed</a>
+    <a href="https://www.ncdc.noaa.gov/snow-and-ice" target="_blank" rel="noopener" style='color:#00f;font-weight:bold;cursor:pointer;text-decoration:underline'>ice surface data</a>
+    <a href="https://www.worldbank.org" target="_blank" rel="noopener" style='color:#0f0;font-weight:bold;cursor:pointer;text-decoration:underline'>forest coverage data</a>
+    <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>temperatures anomalies data</a>
+    <br>click to change year, click to change keyword, drag to spin the globe, wheel to zoom in/out
+    <br><span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="yearm1">year-1</span>,
+    <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="yearp1">year+1</span>,
+    <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="pkeyword">previous keyword</span>
+    <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="nkeyword">next keyword</span>
+    <div id="WORD" style="font-size:40px;color:#00f">?</div>
+    <div id="YEAR" style="font-size:40px;color:#00f">?</div>
+    </div>
+    <div id="pileups">
+      <!-- <span id="pileups" style="font-weight:bold;font-size:30px;color:#f00"></span> -->
+      <span id="pileups" style="font-weight:bold;font-size:30px"></span>
+    </div>
+    <div id="keywords">
+      <span id="keywords" style="font-weight:bold;font-size:10px;color:#fff"></span>
+    </div>
+    <footer id="footer">
+      <span id="publications" style="font-size:20px;color:#fff">?</span>,
+      <span id="ice surface (million of km2)" style="font-size:20px;color:#0099ff">?</span>,
+      <span id="forest_coverage" style="font-size:20px;color:#0f0">?</span>,
+      <span id="tanom_land" style="font-size:20px;color:#f00">?</span>,
+      <span id="tanom_ocean" style="font-size:20px;color:#00f">?</span>
+    </footer>
     <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
-    <script src="https://threejs.org/build/three.js"></script>
     <!-- <script src="http://api.geodab.eu/download/giapi/lib/min/giapi.min.js"></script> -->
+    <!-- <script src="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"></script> -->
+    <!-- <script src="https://threejs.org/build/Detector.js"></script> -->
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/examples/js/renderers/Projector.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"></script>
     <div id="container"></div>
-    <script src="./js/globe.js" charset="utf-8"></script>
+    <script src="./js/globe_callback_words3.js" charset="utf-8"></script>
   </body>
 </html>
