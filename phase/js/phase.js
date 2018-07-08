@@ -76,10 +76,10 @@ var v_shift=resY-dY-resy;
 var pscale=d3.scale.linear().domain([xmin,xmax]).range([0,resx]);
 var vscale=d3.scale.linear().domain([ymin,ymax]).range([resy,0]);
 var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
-var vaxis=d3.svg.axis().scale(vscale).orient("left");
+var vaxis=d3.svg.axis().scale(vscale).orient("left").ticks(4,d3.format(",d"));
 function graph_vp(){
-    paxis=d3.svg.axis().scale(pscale).orient("top");
-    vaxis=d3.svg.axis().scale(vscale).orient("left");
+    paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
+    vaxis=d3.svg.axis().scale(vscale).orient("left").ticks(4,d3.format(",d"));
     svgContainer.append("g")
 	.attr("class","x axis")
 	.attr("transform","translate("+[p_shift,v_shift]+")")
