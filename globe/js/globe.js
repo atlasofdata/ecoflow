@@ -1,5 +1,5 @@
 console.clear();
-  
+
 var count=[],delta_count=[],pt=new THREE.Vector3(),group_length,n_points=1000,pairwize=[],pileups=[],group_mesh=new THREE.Group(),group_links=new THREE.Group(),group_pileups=new THREE.Group();
 var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
 const ZoomSensitivity=0.0001;
@@ -79,23 +79,23 @@ function requestJSON(callback){
 	    callback(xhr.response);
 	}
     };
-    xhr.open('GET','http://localhost:8000/globe/data/all.json',true);
+    xhr.open('GET','./data/all.json',true);
     // xhr.setRequestHeader('Access-Control-Allow-Methods','GET'); -->
     // xhr.setRequestHeader('Content-Type','application/json'); -->
     xhr.send(null);
 };
 
 function readJSON(data){
-    
+
     data_json=data;
-    
+
     // reading the # of publications per year -->
     n_publications=data_json['publications'].length;
     for(var i=0;i<n_publications;i++) publications.push(0);
     for(var i=0;i<n_publications;i++) if(data_json['publications'][i]['year']>=min_year) publications[data_json['publications'][i]['year']-min_year]=data_json['publications'][i]['value'];
     for(var t=0;t<n_year;t++)	mean_publications+=publications[t]/n_year;
     document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-    
+
     // reading the keywords -->
     n_words=data_json['keywords'].length;
     for(var i=0;i<n_words;i++) words.push(data_json['keywords'][i]['id']);
@@ -114,7 +114,7 @@ function readJSON(data){
     }
     word=words[i_word];
     document.getElementById('WORD').innerHTML=word;
-    
+
     // initial year -->
     for(var w=0;w<n_words;w++){
 	pairwize.push(data_json[words[w]]['links'].length);
@@ -144,7 +144,7 @@ function readJSON(data){
     for(var i=0;i<global_surface_ice.length;i++){
 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
-    
+
     // making the countries (http://www.csgnetwork.com/llinfotable.html) SOUTH:- NORTH:+ and WEST:- EAST:+ -->
     n_countries=data_json['nodes'].length;
     console.log(n_countries);
@@ -174,7 +174,7 @@ function readJSON(data){
 
     data_json_w=data_json[word];
     console.log(data_json_w);
-    
+
     globe.add(group_links);
     globe.add(group_pileups);
     globe.add(group_mesh);
@@ -385,7 +385,7 @@ function change_links(){
 	    source=data_json['nodes'][data_json_w['links'][ii]['source']]['id'];
 	    target=data_json['nodes'][data_json_w['links'][ii]['target']]['id'];
       	    group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
-	    group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume[i],segments0,rings0),group_links.children[i].material));       
+	    group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume[i],segments0,rings0),group_links.children[i].material));
 	    group_length+=1;
         }
 	group_links.children[i].name=source.concat(' with ',target.concat(' : ',data_json_w['links'][ii]['value'].toString()));
