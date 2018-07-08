@@ -33,13 +33,20 @@
       margin: 3em 0;
     }
     section {
-      margin-bottom: 10em
+      margin-bottom: 6em
     }
     img {
       max-width: 100%
     }
     .viz img {
       max-height: 8em;
+    }
+
+    .questions {
+      list-style: none
+    }
+    .examples {
+      text-align: center;
     }
   </style>
 
@@ -51,18 +58,102 @@
   <div class="container">
     <section id="home-header">
       <img src="img/1024px-Global_Seed_Vault_(cropped).jpg" alt="">
+      <h1>
+        Data Melt
+      </h1>
       <div class="row">
         <div class="one-half column">
-          <h1>Ecoflow</h1>
+          <h4>
+            An attempt to visualize how flows of data relates to our planet ecosystem.
+          </h4>
           <p>
-            <em>Ecoflow</em> is an attempt to visualize how data flows relates to our planet ecosystem.
+            A project by
+            <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Pascal Carrivain</a>,
+            <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Titouan Poisson</a>,
+            <a href="clement.renaud@ens-lyon.fr" target="_blank" rel="noopener">Clément Renaud</a> &
+            <a href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener">Stéphane Grumbach</a>
+            at <a href="https://ixxi.fr">IXXI</a>
+            in Lyon, 2018.
           </p>
+        </div>
+        <div class="one-half column">
           <p>
-            A project by <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Pascal Carrivain</a>, <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Titouan Poisson</a>, <a href="clement.renaud@ens-lyon.fr" target="_blank" rel="noopener">Clément Renaud</a> & <a href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener">Stéphane Grumbach</a> at <a href="https://ixxi.fr">IXXI</a>.
+            Data collection and analysis are the main ways by which we explore the current changes of our climate and Earth's activity. The following page is a the results of a preliminary inquiry around of the following questions:
+          </p>
+          <ul class="questions">
+            <li>What sort of data is used to know how climate is changing? </li>
+            <li>Where does it come from? </li>
+            <li>How is it produced? </li>
+            <li>How it is sold?</li>
+            <li>How can we access it?</li>
+          </ul>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>The data landscape</h2>
+      <p>
+        Information about activity of our planet comes in all forms and shapes. It is produced and used by thousands of actors for multiple purposes, with a vast set of common or diverging interests.
+      </p>
+      <div class="row examples">
+        <div class="one-half column">
+          <figure>
+            <figcaption>
+              Land surface temperature
+              <br>
+              <small>
+                Source: <a href="https://earthobservatory.nasa.gov/images/91517">NASA</a>
+              </small>
+            </figcaption>
+            <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/91000/91517/globallsta_tmo_2017360.jpg" alt="">
+          </figure>
+        </div>
+        <div class="one-half column">
+          <figure>
+            <figcaption>
+              Birds Migrations routes
+              <br>
+              <small>Source: Cornell University</small>
+            </figcaption>
+            <img src="https://files.allaboutbirds.net/wp-content/uploads/2016/01/la-sorte-map-118-spp-64-725.gif" alt="Bird Migration">
+          </figure>
+        </div>
+      </div>
+
+    </section>
+    <section>
+
+      <h3>Methodology : data sources and visualization</h3>
+      <p>
+        Take inventory of the different forms taken by data on Earth will be an impossible task. Data avaibility is sporadic and many interesting information does not exist under a structure or even well-defined format. Here, we select a few examples and approaches to provide a first set of insights and help us refine a larger and more systematic approach for this investigation.
+      </p>
+
+      <div class="row">
+        <div class="one-third column">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVKSURBVGhD7ZpnqBxVGIZvTNRoFLvYwYIFBXuIP/yhxgoKQmwxYgmxl2iMJSbBllixl8QuorFEhURFNFFR7L0FSYyKLVjSE3vJ8yz3w2Ehe+fszO7OD194YHfZnXO+mXO+draroHrDLnAsXAaT4HWYDd/BPPgHfu1+/QXMgGkwAc6FQ2FDaLs2g/PgaVgI/5bETLgLBsHK0BKtAEfC8/A3ZCfwOTwEl8AQGABbwPqwOih/vxZsCtvA/nAaXA/PwiLIXnMu3Aw7QGk6ED6BGOQ3eBSOho2hDPWB3eF8+AhiLG/a3VBonDXhSYiLfgXexbWh1doRboffwbGXwvGQrPUgnsICOAdWgnZrK3gM4mbqUHLLx6zn8YezYDvotM6EP8E5DfWDPDoV/MEccMNWRcPAec2HXMv7HfAHh9XeVUt6Ted2Yu1dA/UCN5iP0SVWNWmAhtxWe9dAa4BfNBqv6gcVk3vF+T1Ye9dAYYjoaqskV8h7kGzIEtgeqqLxEHNLMkRM9PaDTmpFMMHMziu3IT6NCER/wZ3QiQz1AHgfnMcvMLn7dW5DjOZ6sDEQgUjjboFdoZVaBQbDdHBc+RIsF/w82ZDQtvAExEXFxG4cmMWuBkW1ORwH94NjxzgGP0sGjVOFDAntBDfBDxADiU/sA3ApXgGmEAfDPuDT80aYBO4BA8FAa+5mLHgOvoHs9eRNOB1M/bMqxZCQm8/U/mowJ4ulV4SfwUx7OFivLE+lGlKvfrAbWHiNhnvApWg64Z39EEx7XgaLKGuZG+EM8IZsDe7HPEo2RKK6q5JGQLIhVmtVUl/4FJINMXm0/q6CXHpWjDG3JEPEIHQEdFLuQfdVdl65DbGrMbH7tbh5210p2nlxc9srcA7GlHu7X+c2JLzWyWBE9zPdrBfQ09iYa5XsFxhDst0UPZ/erZD7Nce6A7Lxwi6iT8yW0CZQRNEKsuv4DPwBMc63cAL4dFQpccQOo7mXDbkYKDA6vwAabEphdDeCm8LsCUb0Q8BY41M2vXkE3oXFkL2WSapdTPemniqrUgOiHsQAOBKeAr+bnUgzfAZm2MdAoyw72RB7unnlfjHp2xdOgmvAZaenmQpGeDEFfwCsLcwAjoL+kNLwSzZE2tFRTNUFkGyI67hKMmXyWCLZEDedrrYK0rN59hJzSzJEdLn69E5qHfBgKDuvpM1uw9j+lu9fgXbnXTbNrU9+Audg7DL9TzIk3K+xIC6kUXofg2CUnq3QlnApfA2OK9bvG0GhOOI5yeVgAhkX9ok9Dnb+LIEj8jYjN/FBcCW8AbEKxLTdQBoqJSDqjo3Kr0EMFHjY+TFYrhpHrGWMKR7F+VTFaG9VeBGYAXiXTQjrj/KM9PeB2UD9DcptiCmzXzT7bSTPCD1BcsBwic1ibvUq2EnUSzqH5SkMMbD2qDipTTkbcXm4xDyR9Wm4TG4F63cj/MNgtL8OjE+ngJmANySl62+u59yuqr3rQdFhvKH2rjpyaZsNOzdvQo8yIXTDSaerw5BZsAmqRugQ8nZdukaBP9KYsVDEKxWV9c5b4HysEj0gTdLFEK5Qj9TudMVWrEE56pXvYWdoSvr3qJnFQsiUZV1olVza/uvBfz/EuMasDaCQTBVsjNnWjAvrMl8En9re0Mhl9iQrT7MFY0t99WnMsmdcqvyji4HNMtTMODug6FFeAv8Yo/u9EM4CDzDFilLDrwU9o+ce9WWu2CTXTTe9jFKkKzR1cMC3wf+n1E8oLz/CFLD5YMXY0dNk3aH//NkL7HoYFP23kB17A6EHRD4lveHZcDh4cGNK9L/+U1fXMgdpImwKkOSJAAAAAElFTkSuQmCC">
+          <h5>Databases</h5>
+          <p>
+            We use existing databases to extract information and consider the avaibility of information.
+          </p>
+        </div>
+        <div class="one-third column">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS/SURBVGhD7Zh5qFVVFIdfozZYkc2RFUSZDUQDZTZKUUlF/yUOJEERBVlENlNBGGojzRaNlE00KioliEhiNKARRSVNNNigjTRqfd9+d+H2vHffOcq773nh/ODjnr3PPufsYa21174dtWrV6nftApNgauO6LXUG/AL/NZgNbafd4FuIQchX0FbaqPG7AzwKq8GBLIW20VHwHhyXSp06ET6Eh1OpDeQKfA7O/iq4GwaBGgD7dF5u2BoIOrODWA4OxOtP4RTYILUrnAqG1adAU/oH7PjvcCAcDu806vSRa6FftS2cA7fA6/Ad2Llm2Da0O8QA5QXYE/pce4FmkndUVsIC0Acmwq9g/UOQ6w6w/kuIAdn2UtgU+kx2zI8bNq+C06E4o7eDbT6CLa1oaA/4EzSrI2FfmAW2lbfgMGi5tgPt3ZkcYkU3OgZ0avE614NghzWnXGfDN+A9330bbA0t08Xgx15Opa7aCj4B22hCuQ6Cf8EB6vhFOUkPQGyUn4Gr3RK9D35kVCp11TTwvoNxULnmgfceSaXmchU/ANvKs2BELGpnOBrGQ26+pToefLEztbEVBe0Hf4MzeoIVmc4Cn/0Z8mw30paiNofrQX/yuZ/gQrga3oUIJMEhUFkzwId8WXeaCd5/IpXWyN37Y/Cee0xIpzZgmKo0k5MzH6LDedg2SsaA9LFK2gn+Ame8u2U+DXyhq3EP3A/60wFwBXjPCOaglDPuIKx/2ooe5KqdCz+C7eVJUJ5nLF+TShV0JfjA86m0tjaD3Kab8TgMA3UjWGcKv70VFeRkxnOLrUDnQ7y7VPqDuZEPnGxFQW5k3gvc6W8CB/19oy7nawhfMqVZF5lg+g7NSoXfvpFKJTJC2dhIVHROU5UfIDrp/pC38VrzugiegfxQdR+sq9z5nQSf3xFMd7zW7Er1Ctg4d9TQZIiOSRWn2x/Og2J4rirPMH5rRCqtcfgeTVS7dBPT0Z2BXB5b3eXd4HRYX3YztFoRHSekUmc4tjw8lZoootFrqbS2poP3HgMTSQfloF0lTa5ViqTT76iYRDfGpjoWbORybmJFQx5djel/QORcoyHsdwVcB9tAb8uN0W88l0qdgcWyv01laHUnt+FLYJQx5EU0mgIhzdCIZH3kSzqhMT6Otr0hI6fv1qSUK2G5bD9Kp7rfwMZFPFhtAYboOY26F8FIZY4UR1sjmyl/b2S0e4Pv1MmVvmF5SSqVyHODO7a+4l85+of+4AtMP/wnxOsvII8eB4MDixXyJHk5rG/EUpp4mLDh1+95rY82y926SFOLxvn5WxxY/ndPrkPhVYi2njAvgypZ62Aw6JhEegjLN1k3RBXpiwe3ShoDpuOukHKDskOanulDmY6A+FdFzGrNy8aC90wk7bRHZfOpSDaLhMnqr8qd3fLIVKogd2cfML12hkz+lDORR7UyeY7Qp8LkekIzehPugnHgJDp53nOFDMOatOULoJIiKgWGZWdyfWWafgPYobdhGSwEk8BLwAH731hRZ0Lej+BWKJX/GBYf9OPW97VclblwL7g6Htw8Slc6KRpS80GYKrRyB2+ZTgIHYApt6t7dcbcttAg80PSHKfWa3DvuhKGpVKtWrVq1atWq1cfq6PgfH/yK4Bb2aKEAAAAASUVORK5CYII=">
+          <h5>Data collection</h5>
+          <p>
+            We manually collect, aggregate and structure information about existing organizations and stakeholders of climate data.
+          </p>
+        </div>
+        <div class="one-third column">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJNSURBVGhD7Zo7Ly1RGIZ36RLXUuW4VIJWjlNx/sERtyho/AAhVJR0p+T8EhGljohTClEIIpGgQsn7zJhkjLlYkz1X8yRPrFkzs9daY3+z1jezaxUVxaJJ/pK/PVLHvkLQLs/la4BnkmNyz4S8l35XvkU+yj/WVs6ZlZd20Rf2cUyq9Mpxu2g13iyj6v7KqIFwDHAO5/IZzuDC6mIzJpfsYu2f7JJRdbsyaiAcA5zDuXwGnwVhdanCVYwaiHOlU2NO7tjFLzMjb+2iL+wzHQh9oC+x4XvKv9gEvssv8kjue6TuSfZIE+gDfYmNO4hNGJIbcsvjuhyWptQ12LMkk2DPJXGCPQkyCfYkyCzY600V7KWgQ07LRbkt997LC7JPpkW/pE3apg/0hTKrgk4ZSqMkKbqTFx6v5bOMM6GZQhusDq6ktx8P739DM80RSRYXdIf4L5mdk2ZVHtvFT5Cc0cef1lYA5NQcFMSB3LSLibImaSsI+khfA6kGUmeqgTg4wU5A+UGwszxPmhV5Yhc/8aVgd26/zi3O7Y0kKRqQSTMoudXTprcf9I0+NshQeHg2Jb0T4rz8IdOiW9Kmd0Jksi7EA75EKM2isTTL+NIkVqVJdUvDtw928glmZ5bjbpclD+9MySTYeRzKCuBQ+j0yJWEynVgzCXZSUZYWQfAQm9nZhEyCPZevFdzBXugXPe5g5yryPY2qy+WrtzjQeNRAnA7mGl498wq61dr6CHXsm7S2cg65Aj8KIIvz81S2yULAw7NR6fcTjsjMrqIiN9Rqb/eWtguKQ8JPAAAAAElFTkSuQmCC">
+          <h5>Visualization</h5>
+          <p>
+            We use different technics of mapping and visualization to produce representations of the observed phenomenons (exchanges, flows, circulations, etc)
           </p>
         </div>
       </div>
     </section>
+
     <section>
       <h2>The business of climate data</h2>
       <h5>
