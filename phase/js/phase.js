@@ -145,7 +145,7 @@ function readJSON(data){
 	myButton.style.cursor='pointer';
 	myButton.id=word;
 	myButton.innerHTML=word;
-	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate' || word==='climate_change' || word==='coral' || word==='greenhouse_effect' || word==='greenhouse_gas' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='permafrost' || word==='pollution' || word==='soil_permafrost'){
+	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate_change' || word==='coral' || word==='drought' || word==='greenhouse_effect' || word==='greenhouse_gas' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='permafrost' || word==='pollution'){
 	    myButtonFontSize[word]='20px';
 	    myButton.style.fontSize='20px';
 	    document.getElementById('footer').appendChild(myButton);
