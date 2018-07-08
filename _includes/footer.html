@@ -1,0 +1,99 @@
+<style>
+
+  .site-header {
+    display:none;
+  }
+
+  footer {
+    background: black;
+    color: white;
+    padding: 30px 0;
+  }
+
+  footer .column {
+    float: left;
+    margin-bottom: 15px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  footer h2 a {
+    text-decoration: none;
+  }
+
+  .footer-col-wrapper {
+    font-size: 15px;
+    color: #828282;
+    margin-left: -15px;
+  }
+
+  footer ul {
+    list-style: none;
+  }
+
+  .contact-list {
+    color : white
+  }
+
+  .contact-list a {
+    color : #ccc;
+  }
+
+  .contact-list a:hover {
+    color : white;
+  }
+
+  #sponsors {
+    text-align: right;
+  }
+
+  #sponsors img {
+    max-height: 5em
+  }
+
+</style>
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="container">
+    <h2 class="footer-heading">
+      <a href="/">
+        {{ site.title | escape }}
+      </a>
+    </h2>
+    <div class="row">
+      <div class="one-third column footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            <p>{{- site.description | escape -}}</p>
+          </li>
+          {%- if site.email -%}
+          <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="one-third column footer-col-2">
+        <div >
+
+        </div>
+      </div>
+
+      <div class="one-third column footer-col-3">
+        <ul id="sponsors" class="contact-list">
+          <li>
+            <a href="http://www.ixxi.fr">
+              <img src="/img/ixxi_logo_white.png" alt="logo ">
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
