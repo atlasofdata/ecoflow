@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <!-- Loads timeline css -->
 <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
 
@@ -11,12 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 
-<header>
-	<h1 align="center"> The advent of earth global monitoring </h1>
-	<a id = "button_prez" class="button">Presentation</a>
-	<a id = "button_full" class="button">Full timeline</a>
-</header>
-<body>
+<a id="button_prez" class="button">Highlights</a>
+<a id="button_full" class="button">Full story</a>
 <div id='timeline-embed' style="width: 100%; height: 600px"></div>
 
 
@@ -44,8 +37,8 @@ display_timeline(sheet_full)
 
 // Link button
 document.getElementById("button_prez").addEventListener('click',function(){
-	$('timeline-embed').empty()	
-	display_timeline(sheet_prez);
+	$('timeline-embed').empty()
+  	display_timeline(sheet_prez);
 },false)
 
 document.getElementById("button_full").addEventListener('click',function(){
@@ -55,4 +48,3 @@ document.getElementById("button_full").addEventListener('click',function(){
 
 ;
 </script>
-</body>
