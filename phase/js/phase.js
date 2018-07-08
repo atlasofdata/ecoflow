@@ -75,7 +75,7 @@ var p_shift=1.5*dX;
 var v_shift=resY-dY-resy;
 var pscale=d3.scale.linear().domain([xmin,xmax]).range([0,resx]);
 var vscale=d3.scale.linear().domain([ymin,ymax]).range([resy,0]);
-var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(6,d3.format(",d"));
+var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
 var vaxis=d3.svg.axis().scale(vscale).orient("left");
 function graph_vp(){
     paxis=d3.svg.axis().scale(pscale).orient("top");
