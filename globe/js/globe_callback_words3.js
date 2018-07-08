@@ -128,6 +128,18 @@ function readJSON(data){
     }
     word=words[i_word];
     document.getElementById('WORD').innerHTML=word;
+    document.getElementById('footer').appendChild(document.createElement('br'));
+    for(var i=min_year;i<=max_year;i++){
+	myButton=document.createElement('span');
+	myButton.className='button';
+	myButton.style.color=colors[i%n_colors];
+	myButton.style.cursor='pointer';
+	myButton.id=i.toString();
+	myButton.innerHTML=i.toString();
+	myButton.style.fontSize='20px';
+	document.getElementById('footer').appendChild(myButton);
+	document.getElementById(i.toString()).addEventListener('click',click_year,false);
+    }
     
     // initial year
     for(var w=0;w<n_words;w++){
@@ -495,6 +507,12 @@ function update(){
     requestAnimationFrame(update);
     render();
 };
+function click_year(e){
+    change_year(parseInt(e.target.id)-year);
+    list_pileups_year();
+    list_pairwize_year();
+    change_links();
+}
 // year - 1
 document.getElementById('yearm1').addEventListener('click',function(){
     change_year(-1);
