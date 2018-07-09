@@ -459,14 +459,16 @@ function OnMouseUp(e){
     raycaster.setFromCamera(mouse2D,camera);
     intersects=raycaster.intersectObjects(group_pileups.children);
     if(intersects.length>0){
-	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	// intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	intersects[0].object.material.linewidth=5.0;
 	text_buffer=intersects[0].object.name;
 	text_buffer.fontcolor(Math.random()*0xffffff);
 	text=text.concat(text_buffer,'<br>');
     }
     intersects=raycaster.intersectObjects(group_links.children);
     if(intersects.length>0){
-	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	// intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	intersects[0].object.material.linewidth=5.0;
 	text_buffer=intersects[0].object.name;
 	text_buffer.fontcolor(Math.random()*0xffffff);
 	text=text.concat(text_buffer,'<br>');
