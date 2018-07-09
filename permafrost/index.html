@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
+  <title>Data Meltdown | Permafrost</title>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js"></script>
   <script src="d3.legend.min.js"></script>
@@ -10,12 +11,12 @@
 
   <style>
     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;background: #fcfcfa; }
-    
+
     .legend rect {
       fill:white;
       stroke:black;
       opacity:0.8;}
-    
+
   </style>
 
   <h1 align="center">Permafrost Actors Network</h1>
@@ -24,11 +25,11 @@
 <body>
 <script>
 
-  
+
 /* Set up */
 /* ====== */
-  
-  
+
+
 var width = 960,
     height = 500,
     margin = { top: 30, right: 30, bottom: 30, left: 30 },
@@ -54,7 +55,7 @@ var svg = d3.select('body')
 
 
 var projection = d3.geoOrthographic()
-    .scale(scale) 
+    .scale(scale)
     .translate(translation)
     .clipAngle(90);
 
@@ -109,20 +110,20 @@ function load(error, stations_calm, stations_bore, orgs, world) {
   console.log(outerArray_orgs)
 
 
-  var points_calm = { 
-    type: "MultiPoint", 
+  var points_calm = {
+    type: "MultiPoint",
     coordinates: outerArray_calm
-  }; 
+  };
 
-  var points_bore = { 
-    type: "MultiPoint", 
+  var points_bore = {
+    type: "MultiPoint",
     coordinates: outerArray_bore
-  }; 
+  };
 
-  var points_orgs = { 
-    type: "MultiPoint", 
+  var points_orgs = {
+    type: "MultiPoint",
     coordinates: outerArray_orgs
-  }; 
+  };
 
 
   var div = d3.select("body").append("div")
@@ -133,8 +134,8 @@ function load(error, stations_calm, stations_bore, orgs, world) {
   // console.log(land);
   // console.log(points);
 
-  
-  // Draw the world 
+
+  // Draw the world
 
   var outline = svg
     .append('path')
@@ -213,7 +214,7 @@ function load(error, stations_calm, stations_bore, orgs, world) {
 
   // Add legend
 
-           
+
 var ordinal = d3.scaleOrdinal()
   .domain(["Borehole Stations", "CALM stations", "Organizations"])
   .range([ "blue", "tomato", "yellow"]);
@@ -234,10 +235,10 @@ var legendOrdinal = d3.legendColor()
 
 svg.select(".legendOrdinal")
   .call(legendOrdinal);
-          
-        
 
-  // Zoom and pan set-up 
+
+
+  // Zoom and pan set-up
 
   var zoom = d3.zoom()
     .scaleExtent([0.5, 4])
@@ -245,18 +246,18 @@ svg.select(".legendOrdinal")
 
   d3.select('svg').call(zoom);
 
-  var previousScaleFactor = 1; 
+  var previousScaleFactor = 1;
 
   function zoomed() {
     var dx = d3.event.sourceEvent.movementX;
     var dy = d3.event.sourceEvent.movementY;
 
     var event = d3.event.sourceEvent.type;
-    
-    
+
+
     if (event === 'wheel') {
-      
-      scaleFactor = d3.event.transform.k; 
+
+      scaleFactor = d3.event.transform.k;
       scaleChange = scaleFactor - previousScaleFactor;
       scale = scale + scaleChange * originalScale;
       projection.scale(scale);
@@ -279,18 +280,18 @@ svg.select(".legendOrdinal")
       d3.selectAll('.orgs').attr('d', path_orgs);
 
     }
-  
+
   } // zoomed()
 
 
 
 } // load()
 
-  
+
 </script>
 </body>
 <footer>
-<dl> 
+<dl>
   <dt>Data sources</dt>
     <dd><a href = "http://gtnpdatabase.org/">Global Terrestrial Network for Permafrost - Database</a></dd>
     <dd><a href="https://ipa.arcticportal.org/">International Permafrost Association</a></dd>

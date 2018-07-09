@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Data Meltdown | IPCC</title>
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
@@ -18,9 +19,9 @@
     <br>
     <h2 id = "h1_date"> Assessment Report 2 1995 </h2>
   </div>
-  
+
 </header>
- 
+
 <style>
 canvas{width:100%;height:100%}
 /*   header{
@@ -256,15 +257,15 @@ body{
 
     function display(){
 
-      d3.select('svg').selectAll("*").remove() 
+      d3.select('svg').selectAll("*").remove()
 
       date()
 
-      d3.csv(csv, 
+      d3.csv(csv,
         function(d) {
           d.value = +d.value;
           if (d.value) return d;
-        }, 
+        },
         function(error, data) {
         if (error) throw error;
 
@@ -300,27 +301,27 @@ body{
 
         node.append("text")
             .append("tspan")
-              .text(function(d) { 
+              .text(function(d) {
               return d.id; })
             .attr("x", function(d){ return 0; })
               .attr("y", function(d){ return d.value > 1 ? - d.r/4 : - d.r/2; })
               .attr("text-anchor", "middle")
-              .style("font-size", function(d) { return d.value > 6 ? ((2 * d.r - 10) /5 + "px") :  '12px'; })  
+              .style("font-size", function(d) { return d.value > 6 ? ((2 * d.r - 10) /5 + "px") :  '12px'; })
             .append("tspan")
               .text(function(d){
                 return format(d.value) ;
-              }) 
+              })
               .attr("x", function(d){ return 0; })
               .attr("y", function(d){ return d.value > 1 ? d.r/4 : d.r/2; })
               .attr("text-anchor", "middle")
-              .style("font-size", function(d) { return d.value > 6 ? ((2 * d.r - 10) / 5 + "px") :  '12px'; });   
+              .style("font-size", function(d) { return d.value > 6 ? ((2 * d.r - 10) / 5 + "px") :  '12px'; });
 
-            
+
 
         node.append("title")
             .text(function(d) { return d.id + "\n" + format(d.value); })
 
-            
+
       });
 
     }
@@ -351,7 +352,7 @@ body{
       csv = "ar6_countries.csv"
       display();
     },false)
-   
+
     </script>
 
   </body>
