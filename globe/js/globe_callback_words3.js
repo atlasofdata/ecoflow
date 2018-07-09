@@ -295,30 +295,37 @@ function change_links(){
 	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	    vS_length+=1;
 	}
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length());
 	vS[i].multiplyScalar(radius);
+	// vS[i].setX(radius*vS[i].x);
+	// vS[i].setY(radius*vS[i].y);
+	// vS[i].setZ(radius*vS[i].z);
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],radius,(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length(),vS[i].length(),vT[i].length());
 	vT[i].multiplyScalar(radius+5.0*data_json_w['pileups'][ii]['value']);
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],5.0*data_json_w['pileups'][ii]['value'],(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length());
 	// Lines
 	if(i<n_lines){
 	    lines[i].vertices[0].copy(vS[i]);
 	    lines[i].vertices[1].copy(vT[i]);
 	}else{
 	    lines.push(new THREE.Geometry());
-	    // lines[i].vertices.push(vS[i]);
-	    // lines[i].vertices.push(vT[i]);
 	    lines[i].vertices.push(new THREE.Vector3(vS[i].x,vS[i].y,vS[i].z));
 	    lines[i].vertices.push(new THREE.Vector3(vT[i].x,vT[i].y,vT[i].z));
 	    n_lines+=1;
 	}
+	lines[i].verticesNeedUpdate=true;
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],5.0*data_json_w['pileups'][ii]['value'],(new THREE.Vector3(lines[i].vertices[0].x-lines[i].vertices[1].x,lines[i].vertices[0].y-lines[i].vertices[1].y,lines[i].vertices[0].z-lines[i].vertices[1].z)).length());
 	source=data_json_w['pileups'][ii]['country'];
 	if(i<group_length){
+	    // if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']]);
 	    group_pileups.children[i].geometry=lines[i];
-            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff});
-            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00});
-            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff});
+            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff,linewidth:2.5});
+            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00,linewidth:2.5});
+            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff,linewidth:2.5});
 	}else{
-            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff})));
-            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00})));
-            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff})));
+            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff,linewidth:2.5})));
+            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00,linewidth:2.5})));
+            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff,linewidth:2.5})));
 	    group_length+=1;
 	}
 	group_pileups.children[i].name=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'].concat(' : ',ii.toString());
