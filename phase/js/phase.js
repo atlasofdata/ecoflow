@@ -7,9 +7,9 @@ var n_year,min_year=1990,max_year=2018,year=min_year,min_radius=10000.0,max_radi
 var keywords=[],p=[],v=[],radius=[],sort_radius=[],fRadius=160.0,indexes=[],index,v_mean=0.0,v_var=0.0,v_min=10000.0,v_max=-v_min,p_min=10000.0,p_max=-p_min;
 var t,k,t0,k0,i0,min_distance,distance,p1;
 var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,publications=[],n_publications,words=[];
-var word,old_word='',start=1;
+var word,old_word='',old_i_word=-1,start=1;
 var stroke_width=2.5;
-var myButton,myButtonFontSize='10px';
+var myButton,myButtonFontSize=[];
 var transition=[],inc;
 var x_max_scale,y_max_scale;
 
@@ -67,6 +67,13 @@ function graph_pt(){
 	.attr("transform","translate("+[x_shift,y_shift]+")")
 	.attr("id","graph_y_pt")
 	.call(yaxis);
+    svgContainer.append('text')
+	.attr('x',x_shift)
+	.attr('y',resY-0.75*dY)
+	.style('font-size','20px')
+    	.style('font-weight','bold')
+	.attr('id','text_pt')
+	.text('timeline evolution of the # publications');
 };
 
 // creating a second sub-graph
@@ -75,11 +82,11 @@ var p_shift=1.5*dX;
 var v_shift=resY-dY-resy;
 var pscale=d3.scale.linear().domain([xmin,xmax]).range([0,resx]);
 var vscale=d3.scale.linear().domain([ymin,ymax]).range([resy,0]);
-var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(6,d3.format(",d"));
-var vaxis=d3.svg.axis().scale(vscale).orient("left");
+var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
+var vaxis=d3.svg.axis().scale(vscale).orient("left").ticks(4,d3.format(",d"));
 function graph_vp(){
-    paxis=d3.svg.axis().scale(pscale).orient("top");
-    vaxis=d3.svg.axis().scale(vscale).orient("left");
+    paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
+    vaxis=d3.svg.axis().scale(vscale).orient("left").ticks(4,d3.format(",d"));
     svgContainer.append("g")
 	.attr("class","x axis")
 	.attr("transform","translate("+[p_shift,v_shift]+")")
@@ -90,6 +97,13 @@ function graph_vp(){
 	.attr("transform","translate("+[p_shift,v_shift]+")")
 	.attr("id","graph_y_vp")
 	.call(vaxis);
+    svgContainer.append('text')
+	.attr('x',p_shift)
+	.attr('y',resY-0.75*dY)
+	.style('font-size','20px')
+	.style('font-weight','bold')
+	.attr('id','text_vp')
+	.text('phase portrait (# publications,velocity)');
 };
 
 // graph of the pudmed
@@ -145,17 +159,20 @@ function readJSON(data){
 	myButton.style.cursor='pointer';
 	myButton.id=word;
 	myButton.innerHTML=word;
-	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='coral' || word==='malaria' || word==='climate' || word==='climate_change' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='pollution' || word==='soil_permafrost'){
-	    myButton.style.fontSize=2*myButtonFontSize;
+	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate_change' || word==='coral' || word==='drought' || word==='greenhouse_effect' || word==='greenhouse_gas' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='permafrost' || word==='pollution'){
+	    myButtonFontSize[word]='20px';
+	    myButton.style.fontSize='20px';
 	    document.getElementById('footer').appendChild(myButton);
 	}else{
 	    inc+=1;
-	    myButton.style.fontSize=myButtonFontSize;
+	    myButtonFontSize[word]='10px';
+	    myButton.style.fontSize='10px';
 	    document.getElementById('info').appendChild(myButton);
 	    if(inc%18===0) document.getElementById('info').appendChild(document.createElement('br'));
 	}
 	document.getElementById(word).addEventListener('click',highlight,false);
     }
+    console.log(myButtonFontSize);
 
     // temperatures anomalies
     document.getElementById('year').innerHTML=year.toString();
@@ -300,10 +317,11 @@ svgContainer.on("click",function(){
 	}// Fi distance
     }// Rof i
     transition=[];
-    if(k0!=-1 && t0!=-1 && min_distance<=(xScale(max_radius)*fRadius)){
+    if(k0!=-1 && t0!=-1 && min_distance<=(xScale(max_radius)/fRadius)){
 	for(var i=0;i<n_year;i++) transition.push(0);
-	if(old_word!='') document.getElementById(old_word).style.fontSize=myButtonFontSize;
+	if(old_word!='') document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
 	document.getElementById(data_json['title'][i0]['keyword']).style.fontSize='30px';
+	document.getElementById(data_json['title'][i0]['keyword']).style.textDecoration='underline';
 	for(var i=0;i<n_title;i++){
 	    k=data_json['keywords'][data_json['title'][i]['keyword']];
 	    if(k===k0){
@@ -315,6 +333,7 @@ svgContainer.on("click",function(){
 		    .attr("cy",yScale(v[index]))
 		    .attr("r",xScale(radius[index])/fRadius)
 		    .style("fill",colors[k%n_colors])
+		    .style("opacity",0.5)
 		    .style("stroke","black")
 		    .style("stroke-width",stroke_width)
 		    .attr("id",'sc'+index.toString());
@@ -334,12 +353,13 @@ svgContainer.on("click",function(){
 	year_publications(transition,n_year);
 	publications_velocities(transition,n_year);
 	old_word=data_json['title'][i0]['keyword'];
+	for(var i=0;i<n_keywords;i++) if(Object.keys(data_json['keywords'])[i]===old_word) old_word_i=i;
     }// Fi k0 t0 min_distance
 });
 
 // deleting text on mouse out	      
 svgContainer.on("mouseout",function(){
-    back_to_scale();
+    // back_to_scale();
     if(k0!=-1 && t0!=-1){
 	cleaning(old_word);
 	for(var i=0;i<n_title;i++){
@@ -361,17 +381,17 @@ svgContainer.on("mouseout",function(){
 
 // all keywords
 document.getElementById('clear_keywords').addEventListener('click',function(){
-    back_to_scale();
+    // back_to_scale();
     cleaning(old_word);
 },false);
 
-// back to normal scale
-function back_to_scale(){
-    xScale=d3.scale.linear().domain([xmin,xmax]).range([dX,resX-dX]);
-    xAxis=d3.svg.axis().scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
-    yScale=d3.scale.linear().domain([ymin,ymax]).range([resY-dY,dY]);
-    yAxis=d3.svg.axis().scale(yScale).orient("left");
-}
+// // back to normal scale
+// function back_to_scale(){
+//     xScale=d3.scale.linear().domain([xmin,xmax]).range([dX,resX-dX]);
+//     xAxis=d3.svg.axis().scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
+//     yScale=d3.scale.linear().domain([ymin,ymax]).range([resY-dY,dY]);
+//     yAxis=d3.svg.axis().scale(yScale).orient("left");
+// }
 
 // highlighting a keyword on mouse click
 function highlight(e){
@@ -396,6 +416,7 @@ function highlight(e){
 	if(data_json['title'][i]['keyword']===e.target.id){
 	    // e.target.style.fontWeight='bold';
 	    e.target.style.fontSize='30px';
+	    e.target.style.textDecoration='underline';
 	    k=data_json['keywords'][e.target.id];
 	    t=data_json['title'][i]['year']-min_year;
 	    index=t*n_keywords+k;
@@ -406,6 +427,7 @@ function highlight(e){
 		.attr("cy",yScale(v[index]))
 		.attr("r",xScale(radius[index])/fRadius)
 		.style("fill",colors[k%n_colors])
+		.style("opacity",0.5)
 		.style("stroke","black")
 		.style("stroke-width",stroke_width)
 		.attr("id",'sc'+(index.toString()));
@@ -434,6 +456,7 @@ function highlight(e){
     year_publications(transition,n_year);
     publications_velocities(transition,n_year);
     old_word=e.target.id;
+    for(var i=0;i<n_keywords;i++) if(Object.keys(data_json['keywords'])[i]===old_word) old_word_i=i;
 };
 
 // # publications as a function of year
@@ -497,12 +520,13 @@ function publications_velocities(list,n_list){
 
 function cleaning(w){
     if(w!=''){
-	document.getElementById(w).style.fontSize=myButtonFontSize;
 	k=data_json['keywords'][w];
+	document.getElementById(w).style.fontSize=myButtonFontSize[w];
+	document.getElementById(w).style.textDecoration='none';
 	for(var i=min_year;i<=max_year;i++){
 	    t=i-min_year;
 	    index=t*n_keywords+k;
-	    document.getElementById(old_word).style.fontSize=myButtonFontSize;
+	    document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
 	    d3.select('#t'+(index.toString())).remove();
 	    d3.select('#sc'+(index.toString())).remove();
 	    d3.select('#sct'+(index.toString())).remove();
@@ -512,6 +536,8 @@ function cleaning(w){
 	d3.select('#graph_y_pt').remove();
 	d3.select('#graph_x_vp').remove();
 	d3.select('#graph_y_vp').remove();
+	d3.select('#text_pt').remove();
+	d3.select('#text_vp').remove();
     }
 };
 
