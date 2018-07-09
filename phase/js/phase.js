@@ -67,6 +67,13 @@ function graph_pt(){
 	.attr("transform","translate("+[x_shift,y_shift]+")")
 	.attr("id","graph_y_pt")
 	.call(yaxis);
+    svgContainer.append('text')
+	.attr('x',x_shift)
+	.attr('y',resY-0.75*dY)
+	.style('font-size','20px')
+    	.style('font-weight','bold')
+	.attr('id','text_pt')
+	.text('timeline evolution of the # publications');
 };
 
 // creating a second sub-graph
@@ -90,6 +97,13 @@ function graph_vp(){
 	.attr("transform","translate("+[p_shift,v_shift]+")")
 	.attr("id","graph_y_vp")
 	.call(vaxis);
+    svgContainer.append('text')
+	.attr('x',p_shift)
+	.attr('y',resY-0.75*dY)
+	.style('font-size','20px')
+	.style('font-weight','bold')
+	.attr('id','text_vp')
+	.text('phase portrait (# publications,velocity)');
 };
 
 // graph of the pudmed
@@ -303,10 +317,11 @@ svgContainer.on("click",function(){
 	}// Fi distance
     }// Rof i
     transition=[];
-    if(k0!=-1 && t0!=-1 && min_distance<=(xScale(max_radius)*fRadius)){
+    if(k0!=-1 && t0!=-1 && min_distance<=(xScale(max_radius)/fRadius)){
 	for(var i=0;i<n_year;i++) transition.push(0);
 	if(old_word!='') document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
 	document.getElementById(data_json['title'][i0]['keyword']).style.fontSize='30px';
+	document.getElementById(data_json['title'][i0]['keyword']).style.textDecoration='underline';
 	for(var i=0;i<n_title;i++){
 	    k=data_json['keywords'][data_json['title'][i]['keyword']];
 	    if(k===k0){
@@ -318,6 +333,7 @@ svgContainer.on("click",function(){
 		    .attr("cy",yScale(v[index]))
 		    .attr("r",xScale(radius[index])/fRadius)
 		    .style("fill",colors[k%n_colors])
+		    .style("opacity",0.5)
 		    .style("stroke","black")
 		    .style("stroke-width",stroke_width)
 		    .attr("id",'sc'+index.toString());
@@ -400,6 +416,7 @@ function highlight(e){
 	if(data_json['title'][i]['keyword']===e.target.id){
 	    // e.target.style.fontWeight='bold';
 	    e.target.style.fontSize='30px';
+	    e.target.style.textDecoration='underline';
 	    k=data_json['keywords'][e.target.id];
 	    t=data_json['title'][i]['year']-min_year;
 	    index=t*n_keywords+k;
@@ -410,6 +427,7 @@ function highlight(e){
 		.attr("cy",yScale(v[index]))
 		.attr("r",xScale(radius[index])/fRadius)
 		.style("fill",colors[k%n_colors])
+		.style("opacity",0.5)
 		.style("stroke","black")
 		.style("stroke-width",stroke_width)
 		.attr("id",'sc'+(index.toString()));
@@ -504,6 +522,7 @@ function cleaning(w){
     if(w!=''){
 	k=data_json['keywords'][w];
 	document.getElementById(w).style.fontSize=myButtonFontSize[w];
+	document.getElementById(w).style.textDecoration='none';
 	for(var i=min_year;i<=max_year;i++){
 	    t=i-min_year;
 	    index=t*n_keywords+k;
@@ -517,6 +536,8 @@ function cleaning(w){
 	d3.select('#graph_y_pt').remove();
 	d3.select('#graph_x_vp').remove();
 	d3.select('#graph_y_vp').remove();
+	d3.select('#text_pt').remove();
+	d3.select('#text_vp').remove();
     }
 };
 
