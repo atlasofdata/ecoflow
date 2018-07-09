@@ -5,7 +5,7 @@ var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
 const ZoomSensitivity=0.0001;
 var vS=[],vT=[],vS_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,lines=[],n_lines,material,weight0=20.0,source=0,target=0;
 var paths=new THREE.CurvePath();
-const radius0=2.5,segments0=32,rings0=32;
+const radius0=2.5,segments0=16,rings0=16;
 var min_year=2010,max_year=2018,n_year=max_year-min_year+1,year=min_year,n_countries=0,theta,bn=[],bn_length;
 var group_text=new THREE.Group();
 var loader_font=new THREE.FontLoader();
