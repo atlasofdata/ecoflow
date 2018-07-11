@@ -10,8 +10,19 @@ var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,publications=[]
 var word,old_word='',old_i_word=-1,start=1;
 var stroke_width=2.5;
 var myButton,myButtonFontSize=[];
-var transition=[],inc;
-var x_max_scale,y_max_scale;
+var transition=[],pi=[],vi=[],wi=[],Rg2,angle,inc;
+var x_scale_min,x_scale_max,y_scale_min,y_scale_max;
+var p_scale_min,p_scale_max,v_scale_min,v_scale_max;
+
+// var colors=["#f2d9d9","#d6e0f5","#ffcce0","#ffeecc","#ccffcc","#ffffcc","#ffe6cc","#ccccff","#e6ccff","#d6f5d6","#ffebcc","#ccddff","#ffccff","#cce6ff"];
+var colors=["#6666ff","#d98c8c","#66ff66","#ff66a3","#66ccff","#ffc266","#996600","#ffb366","#8585e0","#ff66ff","#a3a3c2","#ff8c66","#b366ff","#006699","#cc99ff","#669900","#ccccff","#ff5050","#9933ff","#33cc33","#0099cc"];
+var n_colors=colors.length;
+
+// https://www.ncdc.noaa.gov/cag/global/time-series/globe/land/ytd/12/1990-2018.json
+var temp_anom_land={"description":{"title":"Global Land Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"1990":"0.58","1991":"0.52","1992":"0.25","1993":"0.33","1994":"0.44","1995":"0.75","1996":"0.34","1997":"0.67","1998":"0.94","1999":"0.78","2000":"0.62","2001":"0.81","2002":"0.92","2003":"0.88","2004":"0.79","2005":"1.03","2006":"0.90","2007":"1.08","2008":"0.85","2009":"0.87","2010":"1.07","2011":"0.89","2012":"0.90","2013":"0.98","2014":"1.00","2015":"1.34","2016":"1.44","2017":"1.31"}};
+
+// https://www.ncdc.noaa.gov/cag/global/time-series/globe/ocean/ytd/12/1990-2018.json
+var temp_anom_ocean={"description":{"title":"Global Ocean Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"1990":"0.37","1991":"0.35","1992":"0.25","1993":"0.26","1994":"0.30","1995":"0.34","1996":"0.31","1997":"0.45","1998":"0.51","1999":"0.31","2000":"0.35","2001":"0.44","2002":"0.48","2003":"0.51","2004":"0.49","2005":"0.51","2006":"0.50","2007":"0.43","2008":"0.42","2009":"0.55","2010":"0.56","2011":"0.46","2012":"0.51","2013":"0.55","2014":"0.64","2015":"0.74","2016":"0.76","2017":"0.67"}};
 
 var svgContainer=d3.select("body")
 	.append("svg")
@@ -45,7 +56,7 @@ svgContainer.append("text")
     .attr("class","y label")
     .attr("text-anchor","end")
     .attr("x",dX)
-    .attr("y",resY-0.9*dY)
+    .attr("y",resY-0.8*dY)
     .text("publications velocity");
 
 // creating sub-graph
@@ -121,18 +132,6 @@ function requestJSON(callback){
     xhr.send(null);
 };
 
-// var colors=["#f2d9d9","#d6e0f5","#ffcce0","#ffeecc","#ccffcc","#ffffcc","#ffe6cc","#ccccff","#e6ccff","#d6f5d6","#ffebcc","#ccddff","#ffccff","#cce6ff"];
-var colors=["#6666ff","#d98c8c","#66ff66","#ff66a3","#66ccff","#ffc266","#996600","#ffb366","#8585e0","#ff66ff","#a3a3c2","#ff8c66","#b366ff","#006699","#cc99ff","#669900","#ccccff","#ff5050","#9933ff","#33cc33","#0099cc"];
-var n_colors=colors.length;
-
-// https://www.ncdc.noaa.gov/cag/global/time-series/globe/land/ytd/12/1990-2018.json
-
-var temp_anom_land={"description":{"title":"Global Land Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"1990":"0.58","1991":"0.52","1992":"0.25","1993":"0.33","1994":"0.44","1995":"0.75","1996":"0.34","1997":"0.67","1998":"0.94","1999":"0.78","2000":"0.62","2001":"0.81","2002":"0.92","2003":"0.88","2004":"0.79","2005":"1.03","2006":"0.90","2007":"1.08","2008":"0.85","2009":"0.87","2010":"1.07","2011":"0.89","2012":"0.90","2013":"0.98","2014":"1.00","2015":"1.34","2016":"1.44","2017":"1.31"}};
-
-// https://www.ncdc.noaa.gov/cag/global/time-series/globe/ocean/ytd/12/1990-2018.json
-
-var temp_anom_ocean={"description":{"title":"Global Ocean Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"1990":"0.37","1991":"0.35","1992":"0.25","1993":"0.26","1994":"0.30","1995":"0.34","1996":"0.31","1997":"0.45","1998":"0.51","1999":"0.31","2000":"0.35","2001":"0.44","2002":"0.48","2003":"0.51","2004":"0.49","2005":"0.51","2006":"0.50","2007":"0.43","2008":"0.42","2009":"0.55","2010":"0.56","2011":"0.46","2012":"0.51","2013":"0.55","2014":"0.64","2015":"0.74","2016":"0.76","2017":"0.67"}};
-
 // reading json file
 function readJSON(data){
 
@@ -150,7 +149,6 @@ function readJSON(data){
     // list of keywords
     words=Object.keys(data_json['keywords']);
     words.sort();
-    inc=0;
     for(var i=0;i<n_keywords;i++){
 	word=words[i];
 	myButton=document.createElement('span');
@@ -162,17 +160,28 @@ function readJSON(data){
 	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate_change' || word==='coral' || word==='drought' || word==='greenhouse_effect' || word==='greenhouse_gas' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='permafrost' || word==='pollution'){
 	    myButtonFontSize[word]='20px';
 	    myButton.style.fontSize='20px';
-	    document.getElementById('footer').appendChild(myButton);
 	}else{
-	    inc+=1;
 	    myButtonFontSize[word]='10px';
 	    myButton.style.fontSize='10px';
-	    document.getElementById('info').appendChild(myButton);
-	    if(inc%18===0) document.getElementById('info').appendChild(document.createElement('br'));
 	}
+	document.getElementById('leftCol').appendChild(myButton);
+	document.getElementById('leftCol').appendChild(document.createElement('br'));
 	document.getElementById(word).addEventListener('click',highlight,false);
     }
     console.log(myButtonFontSize);
+    // list of years
+    for(var y=min_year;y<=max_year;y++){
+	myButton=document.createElement('span');
+	myButton.className='button';
+	myButton.style.color=colors[(y-min_year)%n_colors];
+	myButton.style.cursor='pointer';
+	myButton.id=y.toString();
+	myButton.innerHTML=y.toString();
+	myButton.style.fontSize='10px';
+	document.getElementById('rightCol').appendChild(myButton);
+	document.getElementById('rightCol').appendChild(document.createElement('br'));
+	document.getElementById(y.toString()).addEventListener('click',change_year,false);
+    }
 
     // temperatures anomalies
     document.getElementById('year').innerHTML=year.toString();
@@ -205,6 +214,12 @@ function readJSON(data){
 	p.push(0.0);
 	v.push(0.0);
 	radius.push(0.0);
+    }
+    for(var i=0;i<n_year;i++){
+	transition.push(0);
+	pi.push(0.0);
+	vi.push(0.0);
+	wi.push(0.0);
     }
     console.log(n_title);
     console.log(min_year);
@@ -264,32 +279,36 @@ function readJSON(data){
     }
 };// reading the json file
 
-// year+1
-document.getElementById('yearp1').addEventListener('click',function(){
-    year+=1;
-    if(year>2018) year=min_year;
-    document.getElementById('year').innerHTML=year.toString();
-    document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
-    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
-},false);
-// year-1
-document.getElementById('yearm1').addEventListener('click',function(){
-    year-=1;
-    if(year<1990) year=2018;
-    document.getElementById('year').innerHTML=year.toString();
-    document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
-    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
-},false);
+// // year+1
+// document.getElementById('yearp1').addEventListener('click',function(){
+//     year+=1;
+//     if(year>2018) year=min_year;
+//     document.getElementById('year').innerHTML=year.toString();
+//     document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
+//     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
+//     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
+//     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
+//     for(var i=0;i<global_surface_ice.length;i++){
+// 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
+//     }
+// },false);
+// // year-1
+// document.getElementById('yearm1').addEventListener('click',function(){
+//     year-=1;
+//     if(year<1990) year=2018;
+//     document.getElementById('year').innerHTML=year.toString();
+//     document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
+//     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
+//     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
+//     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
+//     for(var i=0;i<global_surface_ice.length;i++){
+// 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
+//     }
+// },false);
+// // all keywords
+// document.getElementById('clear_keywords').addEventListener('click',function(){
+//     cleaning(old_word);
+// },false);
 
 // writing text on mouse over
 // svgContainer.on("mouseover",function(){
@@ -307,7 +326,6 @@ svgContainer.on("click",function(){
 	index=t*n_keywords+k;
 	x0=xScale(p[index]);
 	y0=yScale(v[index]);
-	// console.log([x0,y0,p1[0],p1[1]]);
 	distance=Math.sqrt((p1[0]-x0)*(p1[0]-x0)+(p1[1]-y0)*(p1[1]-y0));
 	if(distance<min_distance){
 	    t0=t;
@@ -316,102 +334,119 @@ svgContainer.on("click",function(){
 	    min_distance=distance;
 	}// Fi distance
     }// Rof i
-    transition=[];
     if(k0!=-1 && t0!=-1 && min_distance<=(xScale(max_radius)/fRadius)){
-	for(var i=0;i<n_year;i++) transition.push(0);
-	if(old_word!='') document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
-	document.getElementById(data_json['title'][i0]['keyword']).style.fontSize='30px';
-	document.getElementById(data_json['title'][i0]['keyword']).style.textDecoration='underline';
-	for(var i=0;i<n_title;i++){
-	    k=data_json['keywords'][data_json['title'][i]['keyword']];
-	    if(k===k0){
-		t=data_json['title'][i]['year']-min_year;
-		index=t*n_keywords+k;
-		transition[t]=index;
-		svgContainer.append("circle")
-		    .attr("cx",xScale(p[index]))
-		    .attr("cy",yScale(v[index]))
-		    .attr("r",xScale(radius[index])/fRadius)
-		    .style("fill",colors[k%n_colors])
-		    .style("opacity",0.5)
-		    .style("stroke","black")
-		    .style("stroke-width",stroke_width)
-		    .attr("id",'sc'+index.toString());
-		svgContainer.append("text")
-		    .attr({
-			id:"t"+t+"k"+k,
-			x:xScale(p[index]),
-			y:yScale(v[index])
-		    });
-		    // .text(((data_json['title'][i]['value']/publications[t]).toString()).concat(' in ',data_json['title'][i]['year'].toString()));
-	    }else{
-		t=data_json['title'][i]['year']-min_year;
-		index=t*n_keywords+k;
-		d3.select('#c'+(index.toString())).style("fill","none");
-	    }// Fi k
-	}// Rof i
-	year_publications(transition,n_year);
-	publications_velocities(transition,n_year);
-	old_word=data_json['title'][i0]['keyword'];
-	for(var i=0;i<n_keywords;i++) if(Object.keys(data_json['keywords'])[i]===old_word) old_word_i=i;
+	console.log(event);
+	event.target.id=Object.keys(data_json['keywords'])[k0];
+	console.log(event);
+	highlight(event);
+	// if(old_word!='') document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
+	// document.getElementById(data_json['title'][i0]['keyword']).style.fontSize='30px';
+	// document.getElementById(data_json['title'][i0]['keyword']).style.textDecoration='underline';
+	// for(var i=0;i<n_title;i++){
+	//     k=data_json['keywords'][data_json['title'][i]['keyword']];
+	//     if(k===k0){
+	// 	t=data_json['title'][i]['year']-min_year;
+	// 	index=t*n_keywords+k;
+	// 	transition[t]=index;
+	// 	svgContainer.append("circle")
+	// 	    .attr("cx",xScale(p[index]))
+	// 	    .attr("cy",yScale(v[index]))
+	// 	    .attr("r",xScale(radius[index])/fRadius)
+	// 	    .style("fill",colors[k%n_colors])
+	// 	    .style("opacity",0.5)
+	// 	    .style("stroke","black")
+	// 	    .style("stroke-width",stroke_width)
+	// 	    .attr("id",'sc'+index.toString());
+	// 	svgContainer.append("text")
+	// 	    .attr({
+	// 		id:"t"+t+"k"+k,
+	// 		x:xScale(p[index]),
+	// 		y:yScale(v[index])
+	// 	    });
+	// 	    // .text(((data_json['title'][i]['value']/publications[t]).toString()).concat(' in ',data_json['title'][i]['year'].toString()));
+	//     }// Fi k
+	// }// Rof i
+	// year_publications(transition,n_year);
+	// publications_velocities(transition,n_year);
+	// old_word=data_json['title'][i0]['keyword'];
+	// for(var i=0;i<n_keywords;i++) if(Object.keys(data_json['keywords'])[i]===old_word) old_word_i=i;
     }// Fi k0 t0 min_distance
 });
 
-// deleting text on mouse out	      
-svgContainer.on("mouseout",function(){
-    // back_to_scale();
-    if(k0!=-1 && t0!=-1){
-	cleaning(old_word);
-	for(var i=0;i<n_title;i++){
-	    k=data_json['keywords'][data_json['title'][i]['keyword']];
-	    if(k===k0){
-		t=data_json['title'][i]['year']-min_year;
-		index=t*n_keywords+k;
-		d3.select("#t"+t+"k"+k).remove();
-		d3.select('#sc'+(index.toString())).remove();
-		d3.select('#sct'+(index.toString())).remove();
-	    }else{
-		t=data_json['title'][i]['year']-min_year;
-		index=t*n_keywords+k;
-		d3.select('#c'+(index.toString())).style("fill",colors[(index%n_keywords)%n_colors]);
-	    }
-	}
+// // deleting text on mouse out	      
+// svgContainer.on("mouseout",function(){
+//     if(k0!=-1 && t0!=-1){
+// 	cleaning(old_word);
+// 	for(var i=0;i<n_title;i++){
+// 	    k=data_json['keywords'][data_json['title'][i]['keyword']];
+// 	    if(k===k0){
+// 		t=data_json['title'][i]['year']-min_year;
+// 		index=t*n_keywords+k;
+// 		d3.select("#t"+t+"k"+k).remove();
+// 		d3.select('#sc'+(index.toString())).remove();
+// 		d3.select('#sct'+(index.toString())).remove();
+// 	    }else{
+// 		t=data_json['title'][i]['year']-min_year;
+// 		index=t*n_keywords+k;
+// 		d3.select('#c'+(index.toString())).style("fill",colors[(index%n_keywords)%n_colors]);
+// 	    }
+// 	}
+//     }
+// });
+
+// change year on mouse click
+function change_year(e){
+    document.getElementById('year').innerHTML=e.target.id;
+    year=parseInt(e.target.id);
+    document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
+    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
+    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
+    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
+    for(var i=0;i<global_surface_ice.length;i++){
+	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
-});
+}
 
-// all keywords
-document.getElementById('clear_keywords').addEventListener('click',function(){
-    // back_to_scale();
-    cleaning(old_word);
-},false);
-
-// // back to normal scale
-// function back_to_scale(){
-//     xScale=d3.scale.linear().domain([xmin,xmax]).range([dX,resX-dX]);
-//     xAxis=d3.svg.axis().scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
-//     yScale=d3.scale.linear().domain([ymin,ymax]).range([resY-dY,dY]);
-//     yAxis=d3.svg.axis().scale(yScale).orient("left");
-// }
+// calculating the gyration tensor in (v,p) space
+function Rg2_vp(p,v,w,W){
+    var vmoy=0.0;
+    var pmoy=0.0;
+    var v_length=v.length;
+    var norm=0.0;
+    for(var i=0;i<v_length;i++){
+	vmoy+=v[i]*(1.0*(1-W)+w[i]*W);
+	pmoy+=p[i]*(1.0*(1-W)+w[i]*W);
+	norm+=1.0*(1-W)+w[i]*W;
+    }
+    vmoy/=norm;
+    pmoy/=norm;
+    var Rg2=[];
+    Rg2.push(0.0);
+    for(var i=0;i<v_length;i++) Rg2[0]+=(p[i]-pmoy)*(p[i]-pmoy)*(1.0*(1-W)+w[i]*W);
+    Rg2.push(0.0);
+    for(var i=0;i<v_length;i++) Rg2[1]+=(p[i]-pmoy)*(v[i]-vmoy)*(1.0*(1-W)+w[i]*W);
+    Rg2.push(0.0);
+    for(var i=0;i<v_length;i++) Rg2[2]+=(v[i]-vmoy)*(v[i]-vmoy)*(1.0*(1-W)+w[i]*W);
+    for(var i=0;i<3;i++) Rg2[i]/=norm;
+    var a=Rg2[0];
+    var b=Rg2[1];
+    var c=Rg2[2];
+    var D=a*a-2.0*a*c+c*c+4.0*b*b;
+    var l1=(a+c-Math.sqrt(D))/2.0;
+    var l2=(a+c+Math.sqrt(D))/2.0;
+    var c1x=-(-a+c+Math.sqrt(D))/(2.0*b);
+    var c1y=1.0;
+    var c2x=-(-a+c-Math.sqrt(D))/(2.0*b);
+    var c2y=1.0;
+    var n1=Math.sqrt(c1x*c1x+c1y*c1y);
+    var n2=Math.sqrt(c2x*c2x+c2y*c2y);
+    return [pmoy,vmoy,l1,c1x/n1,c1y/n1,l2,c2x/n2,c2y/n2];
+};
 
 // highlighting a keyword on mouse click
 function highlight(e){
     console.log(e.target.id);
     cleaning(old_word);
-    transition=[];
-    for(var i=0;i<n_year;i++) transition.push(0);
-    // x_scale_max=0.0;
-    // y_scale_min=1000.0;
-    // y_scale_max=-y_scale_min;
-    // for(var i=0;i<n_title;i++){
-    // 	if(data_json['title'][i]['keyword']===e.target.id){
-    // 	    k=data_json['keywords'][e.target.id];
-    // 	    t=data_json['title'][i]['year']-min_year;
-    // 	    index=t*n_keywords+k;
-    // 	    x_scale_max=Math.max(x_scale_max,p[index]);
-    // 	    y_scale_min=Math.min(y_scale_min,v[index]);
-    // 	    y_scale_max=Math.max(y_scale_max,v[index]);
-    // 	}
-    // }
     for(var i=0;i<n_title;i++){
 	if(data_json['title'][i]['keyword']===e.target.id){
 	    // e.target.style.fontWeight='bold';
@@ -421,6 +456,9 @@ function highlight(e){
 	    t=data_json['title'][i]['year']-min_year;
 	    index=t*n_keywords+k;
 	    transition[t]=index;
+	    pi[t]=p[index];
+	    vi[t]=v[index];
+	    wi[t]=radius[index];
 	    // stroking the selection
 	    svgContainer.append("circle")
 		.attr("cx",xScale(p[index]))
@@ -441,6 +479,98 @@ function highlight(e){
 		// .text((data_json['title'][i]['value'].toString()).concat(' in ',data_json['title'][i]['year'].toString()));
 	}// Fi target
     }// Rof i
+    // creating the v(p) and the p(t) graphs
+    year_publications(transition,n_year);
+    publications_velocities(transition,n_year);
+    // drawing the gyration tensor in the (p,v) space
+    Rg2=Rg2_vp(pi,vi,wi,0);
+    angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
+    var n1=-Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min);
+    var x1=n1*Math.cos(angle);
+    var y1=n1*Math.sin(angle);
+    var x2=-n1*Math.cos(angle);
+    var y2=-n1*Math.sin(angle);
+    svgContainer.append('line')
+	.attr('x1',p_shift+pscale(Rg2[0])+x1)
+        .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
+        .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	.style('stroke',colors[k%n_colors])
+	.style('stroke-width',3)
+	.attr('id','sl1');
+    n1=Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min);
+    x1=-n1*Math.sin(angle);
+    y1=n1*Math.cos(angle);
+    x2=n1*Math.sin(angle);
+    y2=-n1*Math.cos(angle);
+    svgContainer.append('line')
+	.attr('x1',p_shift+pscale(Rg2[0])+x1)
+        .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
+        .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	.style('stroke',colors[k%n_colors])
+	.style('stroke-width',3)
+	.attr('id','sl2');
+    Rg2=Rg2_vp(pi,vi,wi,1);
+    angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
+    var n1=-Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min);
+    var x1=n1*Math.cos(angle);
+    var y1=n1*Math.sin(angle);
+    var x2=-n1*Math.cos(angle);
+    var y2=-n1*Math.sin(angle);
+    svgContainer.append('line')
+	.attr('x1',p_shift+pscale(Rg2[0])+x1)
+        .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
+        .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	.style('stroke','black')
+	.style('stroke-width',3)
+	.attr('id','sl3');
+    n1=Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min);
+    x1=-n1*Math.sin(angle);
+    y1=n1*Math.cos(angle);
+    x2=n1*Math.sin(angle);
+    y2=-n1*Math.cos(angle);
+    svgContainer.append('line')
+	.attr('x1',p_shift+pscale(Rg2[0])+x1)
+        .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
+        .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	.style('stroke','black')
+	.style('stroke-width',3)
+	.attr('id','sl4');
+    // svgContainer.append('ellipse')
+    // 	.attr("cx",p_shift+pscale(Rg2[0]))
+    // 	.attr("cy",v_shift+vscale(Rg2[1]))
+    //     .attr("rx",Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min))
+    // 	.attr("ry",Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min))
+    // 	.style("fill",'none')
+    // 	.style("stroke","black")
+    // 	.style("stroke-width",stroke_width)
+    // 	.attr('transform','rotate('+angle+')')
+    // 	.attr('id','se1');
+    // svgContainer.append("ellipse")
+    // 	.attr('cx',p_shift+pscale(Rg2[0]))
+    // 	.attr('cy',v_shift+vscale(Rg2[4]))
+    // 	.attr('rx',xScale(2.0*Math.sqrt(Rg2[1])))
+    // 	.attr('ry',yScale(2.0*Math.sqrt(Rg2[5])))
+    // 	.style('fill','none')
+    // 	.style('opacity',0.66)
+    // 	.style("stroke","black")
+    // 	.style("stroke-width",stroke_width)
+    // 	.attr('transform','rotate('+angle+')')
+    // 	.attr('id','se2');
+    // svgContainer.append("ellipse")
+    // 	.attr('cx',p_shift+pscale(Rg2[0]))
+    // 	.attr('cy',v_shift+vscale(Rg2[4]))
+    // 	.attr('rx',xScale(3.0*Math.sqrt(Rg2[1])))
+    // 	.attr('ry',yScale(3.0*Math.sqrt(Rg2[5])))
+    // 	.style('fill','none')
+    // 	.style('opacity',0.33)
+    // 	.style("stroke","black")
+    // 	.style("stroke-width",stroke_width)
+    // 	.attr('transform','rotate('+angle+')')
+    // 	.attr("id",'se3');
     // xScale=d3.scale.linear().domain([0,x_scale_max]).range([dX,resX-dX]);
     // xAxis=d3.svg.axis().scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
     // yScale=d3.scale.linear().domain([y_scale_min,y_scale_max]).range([resY-dY,dY]);
@@ -453,8 +583,6 @@ function highlight(e){
     // svgContainer.select("y axis").call(yAxis);
     // svgContainer.selectAll(".g.x.axis").call(xAxis);
     // svgContainer.selectAll(".g.y.axis").call(yAxis);
-    year_publications(transition,n_year);
-    publications_velocities(transition,n_year);
     old_word=e.target.id;
     for(var i=0;i<n_keywords;i++) if(Object.keys(data_json['keywords'])[i]===old_word) old_word_i=i;
 };
@@ -487,21 +615,21 @@ function year_publications(list,n_list){
 
 // publication velocities as a function of # publications (phase portrait)
 function publications_velocities(list,n_list){
-    x_scale_min=1e10;
-    x_scale_max=-x_scale_min;
-    y_scale_min=1e10;
-    y_scale_max=-y_scale_min;
+    p_scale_min=1e10;
+    p_scale_max=-p_scale_min;
+    v_scale_min=1e10;
+    v_scale_max=-v_scale_min;
     for(var i=0;i<n_list;i++){
 	index=list[i];
 	t=(index-index%n_keywords)/n_keywords;
 	k=index%n_keywords;
-	x_scale_min=Math.min(x_scale_min,p[index]);
-	x_scale_max=Math.max(x_scale_max,p[index]);
-	y_scale_min=Math.min(y_scale_min,v[index]);
-	y_scale_max=Math.max(y_scale_max,v[index]);
+	p_scale_min=Math.min(p_scale_min,p[index]);
+	p_scale_max=Math.max(p_scale_max,p[index]);
+	v_scale_min=Math.min(v_scale_min,v[index]);
+	v_scale_max=Math.max(v_scale_max,v[index]);
     }
-    pscale.domain([x_scale_min,x_scale_max]);
-    vscale.domain([y_scale_min,y_scale_max]);
+    pscale.domain([p_scale_min,p_scale_max]);
+    vscale.domain([v_scale_min,v_scale_max]);
     graph_vp();
     for(var i=0;i<n_list;i++){
 	index=list[i];
@@ -536,6 +664,14 @@ function cleaning(w){
 	d3.select('#graph_y_pt').remove();
 	d3.select('#graph_x_vp').remove();
 	d3.select('#graph_y_vp').remove();
+	d3.select('#se1').remove();
+	d3.select('#se2').remove();
+	d3.select('#se3').remove();
+	d3.selectAll('line').remove();
+	// d3.select('#sl1').remove();
+	// d3.select('#sl2').remove();
+	// d3.select('#sl3').remove();
+	// d3.select('#sl4').remove();
 	d3.select('#text_pt').remove();
 	d3.select('#text_vp').remove();
     }
