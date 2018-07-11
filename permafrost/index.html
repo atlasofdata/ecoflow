@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
+  <title>Data Meltdown | Permafrost</title>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js"></script>
   <script src="d3.legend.min.js"></script>
@@ -10,7 +11,7 @@
 
   <style>
     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0;background: #fcfcfa; }
-    
+
     .legend rect {
       fill:white;
       stroke:black;
@@ -55,7 +56,7 @@
     pointer-events: none;     
     }
 
-    
+
   </style>
 
   <h1 align="center">Permafrost Actors Network</h1>
@@ -64,11 +65,11 @@
 <body>
 <script>
 
-  
+
 /* Set up */
 /* ====== */
-  
-  
+
+
 var width = 960,
     height = 500,
     margin = { top: 30, right: 30, bottom: 30, left: 30 },
@@ -142,12 +143,11 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
   var land = topojson.feature(world, world.objects.countries),
       grid = graticule();
 
-  // for information with mouse
   var div = d3.select("body").append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-  // Draw the world 
+// Draw the world 
   var outline = svg
     .append('path')
       .datum(sphere)
@@ -327,9 +327,27 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
   svg.select(".legendOrdinal")
     .call(legendOrdinal);
             
-        
 
-  // Zoom and pan set-up 
+  var ordinal = d3.scaleOrdinal()
+    .domain(["Borehole Stations", "CALM stations", "Organizations"])
+    .range([ "blue", "tomato", "yellow"]);
+
+  svg.append("g")
+    .attr("class", "legendOrdinal")
+    .attr("transform", "translate(20,20)");
+
+  var legendOrdinal = d3.legendColor()
+    .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
+    .shapePadding(10)
+    .cellFilter(function(d){ return d.label !== "e" })
+    .scale(ordinal);
+
+  svg.select(".legendOrdinal")
+    .call(legendOrdinal);
+
+
+
+  // Zoom and pan set-up
 
   var zoom = d3.zoom()
     .scaleExtent([0.5, 4])
@@ -337,18 +355,18 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
 
   d3.select('svg').call(zoom);
 
-  var previousScaleFactor = 1; 
+  var previousScaleFactor = 1;
 
   function zoomed() {
     var dx = d3.event.sourceEvent.movementX;
     var dy = d3.event.sourceEvent.movementY;
 
     var event = d3.event.sourceEvent.type;
-    
-    
+
+
     if (event === 'wheel') {
-      
-      scaleFactor = d3.event.transform.k; 
+
+      scaleFactor = d3.event.transform.k;
       scaleChange = scaleFactor - previousScaleFactor;
       scale_globe = scale_globe + scaleChange * originalScale;
       scale_sky = scale_sky + scaleChange * originalScale*1.2;
@@ -386,7 +404,7 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
           return fade_at_edge(d)})
 
     }
-  
+
   } // zoomed()
 
 } // load()
@@ -427,11 +445,11 @@ function fade_at_edge(d) {
 }
 
 
-  
+
 </script>
 </body>
 <footer>
-<dl> 
+<dl>
   <dt>Data sources</dt>
     <dd><a href = "http://gtnpdatabase.org/">Global Terrestrial Network for Permafrost - Database</a></dd>
     <dd><a href="https://ipa.arcticportal.org/">International Permafrost Association</a></dd>

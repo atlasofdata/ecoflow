@@ -5,8 +5,8 @@ var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
 const ZoomSensitivity=0.0001;
 var vS=[],vT=[],vS_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,lines=[],n_lines,material,weight0=20.0,source=0,target=0;
 var paths=new THREE.CurvePath();
-const radius0=2.5,segments0=32,rings0=32;
-var min_year=2010,max_year=2018,n_year=max_year-min_year+1,year=min_year,n_countries=0,theta,bn=new THREE.Vector3();
+const radius0=2.5,segments0=16,rings0=16;
+var min_year=2010,max_year=2018,n_year=max_year-min_year+1,year=min_year,n_countries=0,theta,bn=[],bn_length;
 var group_text=new THREE.Group();
 var loader_font=new THREE.FontLoader();
 var mesh_country,country,material_country,publications=[],n_publications,mean_publications=0;
@@ -35,24 +35,24 @@ var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0
 camera.position.set(Xcamera,Ycamera,Zcamera);
 camera.lookAt(new THREE.Vector3(0,0,0));
 scene.add(camera);
-// make light -->
+// make light
 var DirectionalLight=new THREE.DirectionalLight(0xffffff,1);
 DirectionalLight.position.set(camera.position);
 DirectionalLight.lookAt(new THREE.Vector3(0,0,0));
 scene.add(DirectionalLight);
-// make render -->
+// make render
 var renderer=new THREE.WebGLRenderer({antialias:true});
 var container=document.getElementById('container');
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth,window.innerHeight);
 container.appendChild(renderer.domElement);
-// make globe -->
+// make globe
 const radius=200,segments=128,rings=128;
 var globe=new THREE.Group();
-// Loading the world map texture -->
+// Loading the world map texture
 var loader=new THREE.TextureLoader();
 loader.crossOrigin="";
-// loader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Simple_world_map.svg/2000px-Simple_world_map.svg.png',
+// loader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Simple_world_map.svg/2000px-Simple_world_map.svg.png',function(texture){
 loader.load('https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg',function(texture){
     var sphere=new THREE.SphereGeometry(radius,segments,rings);
     // var material=new THREE.MeshBasicMaterial({map:texture,overdraw:0.5});
@@ -64,10 +64,10 @@ globe.position.set(0,0,0);
 
 // https://www.ncdc.noaa.gov/cag/global/time-series/globe/land/ytd/12/2000-2018.json?trend=true&trend_base=10&firsttrendyear=1880&lasttrendyear=2017
 var temp_anom_land={"description":{"title":"Global Land Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"2000":"0.62","2001":"0.81","2002":"0.92","2003":"0.88","2004":"0.79","2005":"1.03","2006":"0.90","2007":"1.08","2008":"0.85","2009":"0.87","2010":"1.07","2011":"0.89","2012":"0.90","2013":"0.98","2014":"1.00","2015":"1.34","2016":"1.44","2017":"1.31"}};
-// https://www.ncdc.noaa.gov/cag/global/time-series/globe/ocean/ytd/12/2000-2018.json?trend=true&trend_base=10&firsttrendyear=1880&lasttrendyear=2017 -->
+// https://www.ncdc.noaa.gov/cag/global/time-series/globe/ocean/ytd/12/2000-2018.json?trend=true&trend_base=10&firsttrendyear=1880&lasttrendyear=2017
 var temp_anom_ocean={"description":{"title":"Global Ocean Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"2000":"0.35","2001":"0.44","2002":"0.48","2003":"0.51","2004":"0.49","2005":"0.51","2006":"0.50","2007":"0.43","2008":"0.42","2009":"0.55","2010":"0.56","2011":"0.46","2012":"0.51","2013":"0.55","2014":"0.64","2015":"0.74","2016":"0.76","2017":"0.67"}};
 
-// graph of the pudmed -->
+// graph of the pudmed
 function requestJSON(callback){
     var xhr=new XMLHttpRequest();
     xhr.responseType='json';
@@ -77,8 +77,8 @@ function requestJSON(callback){
 	}
     };
     xhr.open('GET','./data/all.json',true);
-    // xhr.setRequestHeader('Access-Control-Allow-Methods','GET'); -->
-    // xhr.setRequestHeader('Content-Type','application/json'); -->
+    // xhr.setRequestHeader('Access-Control-Allow-Methods','GET');
+    // xhr.setRequestHeader('Content-Type','application/json');
     xhr.send(null);
 };
 
@@ -86,27 +86,27 @@ function readJSON(data){
     
     data_json=data;
     
-    // reading the # of publications per year -->
+    // reading the # of publications per year
     n_publications=data_json['publications'].length;
     for(var i=0;i<n_publications;i++) publications.push(0);
     for(var i=0;i<n_publications;i++) if(data_json['publications'][i]['year']>=min_year) publications[data_json['publications'][i]['year']-min_year]=data_json['publications'][i]['value'];
     for(var t=0;t<n_year;t++)	mean_publications+=publications[t]/n_year;
     document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
     
-    // reading the keywords -->
+    // reading the keywords
     n_words=data_json['keywords'].length;
     for(var i=0;i<n_words;i++) words.push(data_json['keywords'][i]['id']);
     for(var i=0;i<n_words;i++){
 	word=words[i];
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color='#fff';
+	myButton.style.color=colors[i%n_colors];
 	myButton.style.cursor='pointer';
 	myButton.id=word;
 	myButton.innerHTML=word;
 	myButton.style.fontSize=2*myButtonFontSize;
 	document.getElementById('keywords').appendChild(myButton);
-	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='coral' || word==='malaria' || word==='climate' || word==='climate_change' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='permafrost' || word==='pollution' || word==='soil_permafrost'){
+	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate' || word==='climate_change' || word==='coral' || word==='deforestation' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='pollution' || word==='soil_permafrost'){
 	    myButton.style.fontSize=2*myButtonFontSize;
 	    document.getElementById('footer').appendChild(myButton);
 	}else{
@@ -128,8 +128,20 @@ function readJSON(data){
     }
     word=words[i_word];
     document.getElementById('WORD').innerHTML=word;
+    document.getElementById('footer').appendChild(document.createElement('br'));
+    for(var i=min_year;i<=max_year;i++){
+	myButton=document.createElement('span');
+	myButton.className='button';
+	myButton.style.color=colors[i%n_colors];
+	myButton.style.cursor='pointer';
+	myButton.id=i.toString();
+	myButton.innerHTML=i.toString();
+	myButton.style.fontSize='20px';
+	document.getElementById('footer').appendChild(myButton);
+	document.getElementById(i.toString()).addEventListener('click',click_year,false);
+    }
     
-    // initial year -->
+    // initial year
     for(var w=0;w<n_words;w++){
 	pairwize.push(data_json[words[w]]['links'].length);
 	pileups.push(data_json[words[w]]['pileups'].length);
@@ -141,7 +153,7 @@ function readJSON(data){
     document.getElementById('YEAR').innerHTML=year.toString();
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    // calculing the forest coverage -->
+    // calculing the forest coverage
     for(var i=0;i<n_year;i++){
 	forest_coverage.push(0.0);
 	n_forest_coverage.push(0);
@@ -153,13 +165,13 @@ function readJSON(data){
     }
     for(var i=0;i<n_forests;i++) forest_coverage[i]/=n_forest_coverage[i];
     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json -->
+    // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json
     global_surface_ice=data_json['ice'];
     for(var i=0;i<global_surface_ice.length;i++){
 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
     
-    // making the countries (http://www.csgnetwork.com/llinfotable.html) SOUTH:- NORTH:+ and WEST:- EAST:+ -->
+    // making the countries (http://www.csgnetwork.com/llinfotable.html) SOUTH:- NORTH:+ and WEST:- EAST:+
     n_countries=data_json['nodes'].length;
     console.log(n_countries);
     console.log(n_countries*(n_countries-1)/2);
@@ -167,7 +179,7 @@ function readJSON(data){
     console.log(pileups);
     for(var i=0;i<n_countries;i++){
 	LATi=0.5*Math.PI-data_json['LL'][i]['lat']*Math.PI/180.0;
-	LONi=0.5*Math.PI+data_json['LL'][i]['lon']*Math.PI/180.0;// I do not understand the 0.5*Math.PI but at least it works -->
+	LONi=0.5*Math.PI+data_json['LL'][i]['lon']*Math.PI/180.0;// I do not understand the 0.5*Math.PI but at least it works
 	rC=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius+radius0);
 	if(i>=(n_countries-2)) country=new THREE.SphereGeometry(radius0,segments0,rings0);
 	else country=new THREE.SphereGeometry(radius0,segments0,radius0);
@@ -197,14 +209,14 @@ function readJSON(data){
     list_pairwize_year();
     change_links();
     update();
-};// Ending readJSON -->
+};// Ending readJSON
 
 document.addEventListener('mousemove',RotateOnMouseMove);
 document.addEventListener('mousedown',OnMouseDown);
 document.addEventListener('mouseup',OnMouseUp);
 document.addEventListener('mouseup',function(e){DraggingMouse=false;});
 document.addEventListener('mousewheel',ZoomOnMouseWheel);
-// document.addEventListener('keyup',MoveOnKeyboardKeys); -->
+// document.addEventListener('keyup',MoveOnKeyboardKeys);
 document.getElementById('pkeyword').addEventListener('click',function(){
     change_keyword(-1);
     list_pileups_year();
@@ -226,51 +238,51 @@ function change_keyword(dw){
     data_json_w=data_json[word];
     initializing_description();
 };
-// changing year -->
-// function MoveOnKeyboardKeys(e){ -->
-// switch(e.keyCode){ -->
-// case 37: -->
-// year-=1; -->
-// break; -->
-// case 39: -->
-// year+=1; -->
-// break; -->
-// case 65: -->
-// year+=1; -->
-// break; -->
-// case 90: -->
-// year-=1; -->
-// break; -->
-// case 81: -->
-// i_word+=1; -->
-// break; -->
-// case 83: -->
-// i_word-=1; -->
-// break; -->
-// }; -->
-// i_word=Math.min(n_words-1,Math.max(0,i_word)); -->
-// word=words[i_word]; -->
-// document.getElementById('WORD').innerHTML=word; -->
-// data_json_w=data_json[word]; -->
-// if(year>max_year) year=min_year; -->
-// if(year<min_year) year=max_year; -->
-// document.getElementById('YEAR').innerHTML=year.toString(); -->
-// document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString()); -->
-// initializing_description(); -->
-// list_pileups_year(); -->
-// list_pairwize_year(); -->
-// change_links(); -->
-// }; -->
+// changing year
+// function MoveOnKeyboardKeys(e){
+// switch(e.keyCode){
+// case 37:
+// year-=1;
+// break;
+// case 39:
+// year+=1;
+// break;
+// case 65:
+// year+=1;
+// break;
+// case 90:
+// year-=1;
+// break;
+// case 81:
+// i_word+=1;
+// break;
+// case 83:
+// i_word-=1;
+// break;
+// };
+// i_word=Math.min(n_words-1,Math.max(0,i_word));
+// word=words[i_word];
+// document.getElementById('WORD').innerHTML=word;
+// data_json_w=data_json[word];
+// if(year>max_year) year=min_year;
+// if(year<min_year) year=max_year;
+// document.getElementById('YEAR').innerHTML=year.toString();
+// document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
+// initializing_description();
+// list_pileups_year();
+// list_pairwize_year();
+// change_links();
+// };
 
-// making the new links and the new pileups -->
+// making the new links and the new pileups
 function change_links(){
-    // making the pileup for each country -->
+    // making the pileup for each country
     group_length=group_pileups.children.length;
     vS_length=vS.length;
     n_lines=lines.length;
     for(var i=0;i<n_pileups_year;i++){
 	ii=pileups_year[i];
-	source=data_json['LL'][data_json_w['pileups'][ii]['country']];// Starting and target points -->
+	source=data_json['LL'][data_json_w['pileups'][ii]['country']];// Starting and target points
 	LATi=0.5*Math.PI-source['lat']*Math.PI/180.0;
 	LONi=0.5*Math.PI+source['lon']*Math.PI/180.0;
 	if(i<vS_length){
@@ -283,28 +295,37 @@ function change_links(){
 	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	    vS_length+=1;
 	}
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length());
 	vS[i].multiplyScalar(radius);
+	// vS[i].setX(radius*vS[i].x);
+	// vS[i].setY(radius*vS[i].y);
+	// vS[i].setZ(radius*vS[i].z);
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],radius,(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length(),vS[i].length(),vT[i].length());
 	vT[i].multiplyScalar(radius+5.0*data_json_w['pileups'][ii]['value']);
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],5.0*data_json_w['pileups'][ii]['value'],(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length());
 	// Lines
 	if(i<n_lines){
-	    lines[i].vertices[0]=vS[i];
-	    lines[i].vertices[1]=vT[i];
+	    lines[i].vertices[0].copy(vS[i]);
+	    lines[i].vertices[1].copy(vT[i]);
 	}else{
 	    lines.push(new THREE.Geometry());
-	    lines[i].vertices.push(vS[i]);
-	    lines[i].vertices.push(vT[i]);
+	    lines[i].vertices.push(new THREE.Vector3(vS[i].x,vS[i].y,vS[i].z));
+	    lines[i].vertices.push(new THREE.Vector3(vT[i].x,vT[i].y,vT[i].z));
 	    n_lines+=1;
 	}
+	lines[i].verticesNeedUpdate=true;
+	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],5.0*data_json_w['pileups'][ii]['value'],(new THREE.Vector3(lines[i].vertices[0].x-lines[i].vertices[1].x,lines[i].vertices[0].y-lines[i].vertices[1].y,lines[i].vertices[0].z-lines[i].vertices[1].z)).length());
 	source=data_json_w['pileups'][ii]['country'];
 	if(i<group_length){
+	    // if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']]);
 	    group_pileups.children[i].geometry=lines[i];
-            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff});
-            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00});
-            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff});
+            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff,linewidth:2.5});
+            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00,linewidth:2.5});
+            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff,linewidth:2.5});
 	}else{
-            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff})));
-            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00})));
-            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff})));
+            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff,linewidth:2.5})));
+            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00,linewidth:2.5})));
+            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff,linewidth:2.5})));
 	    group_length+=1;
 	}
 	group_pileups.children[i].name=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'].concat(' : ',ii.toString());
@@ -320,9 +341,11 @@ function change_links(){
     n_volume=volume.length;
     vS_length=vS.length;
     mST_length=mST.length;
+    bn_length=bn.length;
     // cvS_length=cvS.length;
     // cvT_length=cvT.length;
     for(var i=0;i<(vS_length-mST_length);i++) mST.push(new THREE.Vector3());
+    for(var i=0;i<(vS_length-bn_length);i++) bn.push(new THREE.Vector3());
     // for(var i=0;i<(vS_length-cvS_length);i++) cvS.push(new THREE.Vector3());
     // for(var i=0;i<(vS_length-cvT_length);i++) cvT.push(new THREE.Vector3());
     for(var i=0;i<n_pairwize_year;i++){
@@ -356,22 +379,23 @@ function change_links(){
         }else{
 	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	    // cvT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+	    bn.push(new THREE.Vector3());
 	}
 	if(i>=vS_length) vS_length+=1;
 	if(i<n_volume) volume[i]=weight0*Math.cbrt(3.0*data_json_w['links'][ii]['value']/(4.0*Math.PI));
 	else volume.push(weight0*Math.cbrt(3.0*data_json_w['links'][ii]['value']/(4.0*Math.PI)));
 	// mid-point
 	theta=Math.acos(vS[i].x*vT[i].x+vS[i].y*vT[i].y+vS[i].z*vT[i].z);
-	bn.setX(vS[i].y*vT[i].z-vS[i].z*vT[i].y);
-	bn.setY(vS[i].z*vT[i].x-vS[i].x*vT[i].z);
-	bn.setZ(vS[i].x*vT[i].y-vS[i].y*vT[i].x);
-	bn.normalize();
+	bn[i].setX(vS[i].y*vT[i].z-vS[i].z*vT[i].y);
+	bn[i].setY(vS[i].z*vT[i].x-vS[i].x*vT[i].z);
+	bn[i].setZ(vS[i].x*vT[i].y-vS[i].y*vT[i].x);
+	bn[i].normalize();
 	weighti=radius*theta/radius;
-	// cvS[i].applyAxisAngle(bn,0.33*theta);
+	// cvS[i].applyAxisAngle(bn[i],0.33*theta);
 	// cvS[i].multiplyScalar(radius*(1.0+weighti));
-	// cvT[i].applyAxisAngle(bn,0.66*theta);
+	// cvT[i].applyAxisAngle(bn[i],0.66*theta);
 	// cvT[i].multiplyScalar(radius*(1.0+weighti));
-	mST[i].applyAxisAngle(bn,0.5*theta);
+	mST[i].applyAxisAngle(bn[i],0.5*theta);
 	mST[i].multiplyScalar(radius*(1.0+weighti));
 	vS[i].multiplyScalar(radius);
 	vT[i].multiplyScalar(radius);
@@ -435,14 +459,16 @@ function OnMouseUp(e){
     raycaster.setFromCamera(mouse2D,camera);
     intersects=raycaster.intersectObjects(group_pileups.children);
     if(intersects.length>0){
-	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	// intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	intersects[0].object.material.linewidth=5.0;
 	text_buffer=intersects[0].object.name;
 	text_buffer.fontcolor(Math.random()*0xffffff);
 	text=text.concat(text_buffer,'<br>');
     }
     intersects=raycaster.intersectObjects(group_links.children);
     if(intersects.length>0){
-	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	// intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	intersects[0].object.material.linewidth=5.0;
 	text_buffer=intersects[0].object.name;
 	text_buffer.fontcolor(Math.random()*0xffffff);
 	text=text.concat(text_buffer,'<br>');
@@ -490,6 +516,12 @@ function update(){
     requestAnimationFrame(update);
     render();
 };
+function click_year(e){
+    change_year(parseInt(e.target.id)-year);
+    list_pileups_year();
+    list_pairwize_year();
+    change_links();
+}
 // year - 1
 document.getElementById('yearm1').addEventListener('click',function(){
     change_year(-1);
@@ -538,7 +570,7 @@ function highlight(e){
     data_json_w=data_json[word];
     document.getElementById('WORD').innerHTML=word;
     initializing_description();
-    e.target.style.fontSize='30px';
+    // e.target.style.fontSize='30px';
     list_pileups_year();
     list_pairwize_year();
     change_links();

@@ -42,6 +42,11 @@
       max-height: 8em;
     }
 
+    #timeline {
+      width: 100%;
+      height:100%;
+    }
+
     .questions {
       list-style: none;
     }
@@ -62,23 +67,15 @@
     <section id="home-header">
       <img src="img/1024px-Global_Seed_Vault_(cropped).jpg" alt="">
       <h1>
-        Global Warming and Data Melt
+        Global Warming and Data Meltdown
       </h1>
       <h4>
-        An attempt to visualize how flows of data relates to our planet ecosystem.
+        An attempt to visualize flows of data related to our planet ecosystem.
       </h4>
       <p>
         Data collection and analysis are the main ways by which we explore the current changes of our climate and Earth's activity. The following page is a the results of a preliminary inquiry to draw a picture of the inner workings of climate data.
       </p>
-      <p>
-        A project by
-        <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Pascal Carrivain</a>,
-        <a href="pascal.carrivain@ens-lyon.fr" target="_blank" rel="noopener">Titouan Poisson</a>,
-        <a href="clement.renaud@ens-lyon.fr" target="_blank" rel="noopener">Clément Renaud</a> &
-        <a href="stephane.grumbach@ens-lyon.fr" target="_blank" rel="noopener">Stéphane Grumbach</a>
-        at <a href="https://ixxi.fr">IXXI</a>
-        in Lyon, 2018.
-      </p>
+      {% include credits.html%}
     </section>
 
     <section>
@@ -143,6 +140,14 @@
           </p>
         </div>
       </div>
+    </section>
+
+    <section>
+    	<h2> The advent of earth global monitoring </h2>
+      <p>
+        A timeline representing major milestones in the creation of a network of actors related ro ecosystemic data.
+      </p>
+      {% include timeline.html %}
     </section>
 
     <section>
@@ -235,6 +240,7 @@
 
     </section>
     <hr>
+    {% include credits.html%}
     <p>This work was first presented on July 9th, 2018 at the <a href="http://barthes.enssib.fr/ECV-2018/">École d'été de cartographie et visualisation</a> at ENSSIB, Lyon.</p>
   </div>
 {% include footer.html %}
