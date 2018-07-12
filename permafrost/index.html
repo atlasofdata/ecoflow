@@ -71,7 +71,7 @@
 
 
 var width = 960,
-    height = 500,
+    height = 600,
     margin = { top: 30, right: 30, bottom: 30, left: 30 },
     originalScale = height / 2.1,
     scale_globe = originalScale,
@@ -112,7 +112,7 @@ var path = d3.geoPath()
     .pointRadius(2);
 
 // for organisations
-var scale_org = d3.scaleSqrt().domain([1,200]).range([3,15])
+var scale_org = d3.scaleSqrt().domain([1,200]).range([4,19])
 
 var path_orgs = d3.geoPath()
     .projection(projection)
@@ -236,16 +236,18 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
     .attr('fill', 'yellow')
     .attr('name', function(d){ return d.name})
     .on("click", function(d) {
-     div.transition()
+      display_arcs(d.geometry.properties.id_orga)
+      div.transition()
        .duration(200)
        .style("opacity", .9);
-     div.html("Name : " + d.geometry.properties.name + "<br>" + "Stations : " + d.geometry.properties.size)
+      div.html("Name : " + d.geometry.properties.name + "<br>" + "Stations : " + d.geometry.properties.size)
        .style('width', d.geometry.properties.name.length)
-       .style("left", 100 + "px")   
+       .style("left", 50 + "px")   
        .style("top", 300 + "px");
    })
-   .on("mouseout", function(d) {
-     div.transition()
+    .on("mouseout", function(d) {
+      display_arcs()
+      div.transition()
        .duration(3000)
        .style("opacity", 0);
      });
@@ -253,9 +255,72 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
 
   // Draw arcs between stations and organizations
 
-  var links_calm = [];
+  function display_arcs(id_sel){
 
-  stations_calm_csv.forEach(function(a) {
+    d3.selectAll('.links_calm').remove()
+    d3.selectAll('.links_bore').remove()
+
+    if (id_sel != undefined){
+
+      var links_calm = [];
+
+      stations_calm_csv.forEach(function(a) {
+
+          id = a.id_orga;
+          if (id_sel == id){
+            var source = [a.longitude, a .latitude];      
+            var target = [orgs_csv[id-1]['longitude'],orgs_csv[id-1]['latitude']];
+
+            links_calm.push({
+            source: source,
+            target: target
+              });
+      }
+      });
+
+      var arcs_calm = svg.selectAll('.links_calm')
+        .data(links_calm)
+        .enter()
+      .append('path')
+        .classed('links_calm', true)
+        // .attr("class","arc") 
+        .attr("d", function(d) { return swoosh(flying_arc(d)) })
+        .style("opacity", function(d) {
+              return fade_at_edge(d)
+        })
+
+
+      var links_bore = [];
+
+      stations_bore_csv.forEach(function(a) {
+
+      id = a.id_orga;
+          if (id_sel == id){
+            var source = [a.longitude, a .latitude];      
+            var target = [orgs_csv[id-1]['longitude'],orgs_csv[id-1]['latitude']];
+
+            links_bore.push({
+            source: source,
+            target: target
+              });
+      }
+      });
+
+      var arcs_bore = svg.selectAll('.links_bore')
+        .data(links_bore)
+        .enter()
+      .append('path')
+        .classed('links_bore', true)
+        // .attr("class","arc") 
+        .attr("d", function(d) { return swoosh(flying_arc(d))})
+        .style("opacity", function(d) {return fade_at_edge(d)})
+
+    }
+
+    else{
+      var links_calm = [];
+
+      stations_calm_csv.forEach(function(a) {
 
       id = a.id_orga
       var source = [a.longitude, a .latitude];      
@@ -265,47 +330,48 @@ function load(error, stations_calm_csv, stations_bore_csv, orgs_csv, world) {
         source: source,
         target: target
       });
-  });
+      });
 
-  var arcs_calm = svg.selectAll('.links_calm')
-      .data(links_calm)
-      .enter()
-    .append('path')
-      .classed('links_calm', true)
-      // .attr("class","arc") 
-      .attr("d", function(d) { return swoosh(flying_arc(d)) })
-      .style("opacity", function(d) {
-            return fade_at_edge(d)
-        })
+      var arcs_calm = svg.selectAll('.links_calm')
+        .data(links_calm)
+        .enter()
+      .append('path')
+        .classed('links_calm', true)
+        // .attr("class","arc") 
+        .attr("d", function(d) { return swoosh(flying_arc(d)) })
+        .style("opacity", function(d) {
+              return fade_at_edge(d)
+      })
 
 
-  var links_bore = [];
+      var links_bore = [];
 
-  stations_bore_csv.forEach(function(a) {
+      stations_bore_csv.forEach(function(a) {
 
-      id = a.id_orga
-      if (id != ""){
-        var source = [a.longitude, a .latitude];      
-        var target = [orgs_csv[id-1]['longitude'],orgs_csv[id-1]['latitude']]
+          id = a.id_orga
+          if (id != ""){
+            var source = [a.longitude, a .latitude];      
+            var target = [orgs_csv[id-1]['longitude'],orgs_csv[id-1]['latitude']]
 
-        links_bore.push({
-          source: source,
-          target: target
-        });
-      }
-      
-  });
+            links_bore.push({
+              source: source,
+              target: target
+            });
+          }     
+      });
 
-  var arcs_bore = svg.selectAll('.links_bore')
-      .data(links_bore)
-      .enter()
-    .append('path')
-      .classed('links_bore', true)
-      // .attr("class","arc") 
-      .attr("d", function(d) { return swoosh(flying_arc(d)) })
-      .style("opacity", function(d) {
-            return fade_at_edge(d)
-        })
+      var arcs_bore = svg.selectAll('.links_bore')
+          .data(links_bore)
+          .enter()
+        .append('path')
+          .classed('links_bore', true)
+          // .attr("class","arc") 
+          .attr("d", function(d) { return swoosh(flying_arc(d))})
+          .style("opacity", function(d) {return fade_at_edge(d)})
+        } 
+  }
+
+  display_arcs()
 
 
   // Add legend
