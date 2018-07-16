@@ -22,7 +22,8 @@
     }
     #pileups{
     position:absolute;
-    top:200px;
+    left:78%;
+    top:400px;
     width:100%;
     text-align:left;
     z-index:100;
@@ -43,7 +44,29 @@
     text-align:center;
     z-index:100;
     display:block;
+    background-color:lightgray;
+    color:black;
     }
+    .leftCol{
+    left:-100px;
+    display:block;
+    position:absolute;
+    width:150px;
+    overflow:hidden;
+    top:125px;
+    bottom:125px;
+    }
+    .leftCol:hover{left:0px;overflow:scroll;}
+    .rightCol{
+    left:99.5%;
+    display:block;
+    position:absolute;
+    width:150px;
+    overflow:hidden;
+    top:125px;
+    bottom:300px;
+    }
+    .rightCol:hover{left:97%;overflow-y:scroll;}
   </style>
   <body>
     <div id="info">
@@ -51,13 +74,9 @@
     <br><a target="_blank" rel="noopener" style='color:#fff;font-weight:bold'>data : </a>
     <a href="https://www.ncbi.nlm.nih.gov/pubmed" target="_blank" rel="noopener" style='color:#f0f;font-weight:bold;cursor:pointer;text-decoration:underline'>pubmed</a>
     <a href="https://www.ncdc.noaa.gov/snow-and-ice" target="_blank" rel="noopener" style='color:#00f;font-weight:bold;cursor:pointer;text-decoration:underline'>ice surface data</a>
-    <a href="https://www.worldbank.org" target="_blank" rel="noopener" style='color:#0f0;font-weight:bold;cursor:pointer;text-decoration:underline'>forest coverage data</a>
+    <a href="https://www.worldbank.org" target="_blank" rel="noopener" style='color:darkgreen;font-weight:bold;cursor:pointer;text-decoration:underline'>forest coverage data</a>
     <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>temperatures anomalies data</a>
-    <br>click to change year, click to change keyword, drag to spin the globe, wheel to zoom in/out
-    <br><span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="yearm1">year-1</span>,
-    <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="yearp1">year+1</span>,
-    <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="pkeyword">previous keyword</span>
-    <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="nkeyword">next keyword</span>
+    <br>drag to spin the globe, wheel to zoom in/out
     <div id="WORD" style="font-size:40px;color:#00f">?</div>
     <div id="YEAR" style="font-size:40px;color:#00f">?</div>
     </div>
@@ -69,12 +88,16 @@
       <span id="keywords" style="font-weight:bold;font-size:10px;color:#fff"></span>
     </div>
     <footer id="footer">
-      <span id="publications" style="font-size:20px;color:#fff">?</span>,
+      <span id="publications" style="font-size:20px;color:#000">?</span>,
       <span id="ice surface (million of km2)" style="font-size:20px;color:#0099ff">?</span>,
-      <span id="forest_coverage" style="font-size:20px;color:#0f0">?</span>,
+      <span id="forest_coverage" style="font-size:20px;color:darkgreen">?</span>,
       <span id="tanom_land" style="font-size:20px;color:#f00">?</span>,
       <span id="tanom_ocean" style="font-size:20px;color:#00f">?</span>
     </footer>
+    <div id='leftCol' class='leftCol'>
+    </div>
+    <div id='rightCol' class='rightCol'>
+    </div>
     <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
     <!-- <script src="http://api.geodab.eu/download/giapi/lib/min/giapi.min.js"></script> -->
     <!-- <script src="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"></script> -->

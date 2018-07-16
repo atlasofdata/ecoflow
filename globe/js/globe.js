@@ -1,533 +1,405 @@
-console.clear();
+<!-- python3 -m http.server, localhost: -->
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8">
+  <header><title>globe first try</title></header>
+  <style>
+    body{margin:0;}
+    canvas{width:100%;height:100%}
+  </style>
+  <body>
+    <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
+    <!-- <script src="http://api.geodab.eu/download/giapi/lib/min/giapi.min.js"></script> -->
+    <!-- <script src="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"></script> -->
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <div id="container"></div>
+    <script type="text/javascript">
+      
+      <!-- <\!-- <\\!-- jQuery.crossOrigin=""; -\\-> -\-> -->
+      <!-- <\!-- <\\!-- jQuery.getJSON("http://stats.oecd.org/sdmx-json/data/QNA/AUS+CAN.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2010-M1&endTime=2017-M12",function(data){ -\\-> -\-> -->
+      <!-- <\!-- jQuery.getJSON("http://stats.oecd.org/sdmx-json/data/QNA/AUS+CAN.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2010-Q1&endTime=2017-Q1",function(data){ -\-> -->
+      <!-- <\!-- <\\!-- jQuery.getJSON("http://stats.oecd.org/restsdmx/sdmx.ashx/GetData/QNA/AUS+CAN.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2010-M1&endTime=2017-M12&format=compact_v2",function(data){ -\\-> -\-> -->
+      <!-- <\!-- console.log(data); -\-> -->
+      <!-- <\!-- console.log(data.getElementById('links')); -\-> -->
+      <!-- <\!-- } -\-> -->
+      <!-- <\!-- ); -\-> -->
+      <!-- <\!-- jQuery.getJSON("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=climate&field=title&datatype=pdat&mindate=2010/01/01&maxdate=2017/01/01&ad=china&retmode=json",function(data){ -\-> -->
+      <!-- jQuery.getJSON("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&term=climate&field=title&datatype=pdat&mindate=2010&maxdate=2017&retmode=json",function(data){ -->
+      <!-- jQuery.each(data,function(index,value){ -->
+      <!-- console.log(index); -->
+      <!-- console.log(value); -->
+      <!-- }) -->
+      <!-- }); -->
+      
+      console.clear();
+      
+      <!-- graph of the pudmed -->
+      var data_graph_pubmed;
+      jQuery.getJSON("http://localhost:8000/climate/climate.json",function(data){console.log(data);data_graph_pubmed=data;});
+      setTimeout(function(){},3000);
+      console.log(data_graph_pubmed);
 
-var count=[],delta_count=[],pt=new THREE.Vector3(),group_length,n_points=1000,pairwize=[],pileups=[],group_mesh=new THREE.Group(),group_links=new THREE.Group(),group_pileups=new THREE.Group();
-var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
-const ZoomSensitivity=0.0001;
-var vS=[],vT=[],vS_length,mST=[],cvS=[],cvT=[],geometry,lines=[],n_lines,material,weight0=20.0,source=0,target=0;
-var paths=new THREE.CurvePath();
-const radius0=2.5,segments0=64,rings0=64;
-var min_year=2010,max_year=2018,n_year=max_year-min_year+1,year=min_year,n_countries=0,theta,bn=new THREE.Vector3();
-var group_text=new THREE.Group();
-var loader_font=new THREE.FontLoader();
-var mesh_country,country,material_country,publications=[],n_publications,mean_publications=0;
-var rC=new THREE.Vector3(),LATi=0.0,LONi=0.0,index;
-var mesh_text;
-var i_word=0,n_words,words=[];
-var text='',text_buffer='',list_keywords='',intersects;
-var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,volume=[],n_volume;
-var myButton,myButtonFontSize='10px';
-var data_json,data_json_w,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,ii,n_curves,n_count;
+      <!-- var data_graph_pubmed={"links": [{"source": 0, "time": 2012, "value": 1, "target": 1}, {"source": 0, "time": 2015, "value": 3, "target": 1}, {"source": 0, "time": 2012, "value": 6, "target": 2}, {"source": 0, "time": 2015, "value": 27, "target": 2}, {"source": 0, "time": 2012, "value": 3, "target": 3}, {"source": 0, "time": 2015, "value": 7, "target": 3}, {"source": 0, "time": 2012, "value": 3, "target": 4}, {"source": 0, "time": 2015, "value": 10, "target": 4}, {"source": 0, "time": 2012, "value": 3, "target": 5}, {"source": 0, "time": 2015, "value": 8, "target": 5}, {"source": 0, "time": 2012, "value": 1, "target": 6}, {"source": 0, "time": 2015, "value": 3, "target": 6}, {"source": 0, "time": 2012, "value": 4, "target": 7}, {"source": 0, "time": 2015, "value": 6, "target": 7}, {"source": 0, "time": 2012, "value": 1, "target": 8}, {"source": 0, "time": 2015, "value": 3, "target": 8}, {"source": 0, "time": 2012, "value": 4, "target": 9}, {"source": 0, "time": 2015, "value": 19, "target": 9}, {"source": 0, "time": 2003, "value": 1, "target": 10}, {"source": 0, "time": 2006, "value": 2, "target": 10}, {"source": 0, "time": 2012, "value": 3, "target": 10}, {"source": 0, "time": 2015, "value": 14, "target": 10}, {"source": 0, "time": 2015, "value": 3, "target": 12}, {"source": 0, "time": 2012, "value": 1, "target": 13}, {"source": 0, "time": 2015, "value": 1, "target": 13}, {"source": 0, "time": 2012, "value": 2, "target": 15}, {"source": 0, "time": 2015, "value": 6, "target": 15}, {"source": 0, "time": 2012, "value": 4, "target": 16}, {"source": 0, "time": 2015, "value": 6, "target": 16}, {"source": 0, "time": 2012, "value": 2, "target": 18}, {"source": 0, "time": 2015, "value": 10, "target": 18}, {"source": 0, "time": 2012, "value": 1, "target": 19}, {"source": 0, "time": 2015, "value": 2, "target": 19}, {"source": 0, "time": 2012, "value": 5, "target": 20}, {"source": 0, "time": 2015, "value": 7, "target": 20}, {"source": 0, "time": 2012, "value": 8, "target": 21}, {"source": 0, "time": 2015, "value": 26, "target": 21}, {"source": 1, "time": 2012, "value": 3, "target": 2}, {"source": 1, "time": 2015, "value": 10, "target": 2}, {"source": 1, "time": 2012, "value": 3, "target": 3}, {"source": 1, "time": 2015, "value": 5, "target": 3}, {"source": 1, "time": 2012, "value": 3, "target": 4}, {"source": 1, "time": 2015, "value": 7, "target": 4}, {"source": 1, "time": 2012, "value": 1, "target": 5}, {"source": 1, "time": 2015, "value": 2, "target": 5}, {"source": 1, "time": 2015, "value": 1, "target": 6}, {"source": 1, "time": 2012, "value": 1, "target": 7}, {"source": 1, "time": 2015, "value": 3, "target": 7}, {"source": 1, "time": 2012, "value": 1, "target": 8}, {"source": 1, "time": 2015, "value": 1, "target": 8}, {"source": 1, "time": 2012, "value": 3, "target": 9}, {"source": 1, "time": 2015, "value": 8, "target": 9}, {"source": 1, "time": 2012, "value": 2, "target": 10}, {"source": 1, "time": 2015, "value": 6, "target": 10}, {"source": 1, "time": 2012, "value": 1, "target": 13}, {"source": 1, "time": 2015, "value": 1, "target": 13}, {"source": 1, "time": 2012, "value": 2, "target": 14}, {"source": 1, "time": 2015, "value": 2, "target": 14}, {"source": 1, "time": 2012, "value": 1, "target": 15}, {"source": 1, "time": 2015, "value": 2, "target": 15}, {"source": 1, "time": 2012, "value": 3, "target": 16}, {"source": 1, "time": 2015, "value": 3, "target": 16}, {"source": 1, "time": 2012, "value": 1, "target": 17}, {"source": 1, "time": 2015, "value": 4, "target": 17}, {"source": 1, "time": 2015, "value": 1, "target": 18}, {"source": 1, "time": 2012, "value": 4, "target": 20}, {"source": 1, "time": 2015, "value": 8, "target": 20}, {"source": 1, "time": 2012, "value": 6, "target": 21}, {"source": 1, "time": 2015, "value": 12, "target": 21}, {"source": 2, "time": 2012, "value": 6, "target": 3}, {"source": 2, "time": 2015, "value": 20, "target": 3}, {"source": 2, "time": 2012, "value": 12, "target": 4}, {"source": 2, "time": 2015, "value": 41, "target": 4}, {"source": 2, "time": 2012, "value": 34, "target": 5}, {"source": 2, "time": 2015, "value": 69, "target": 5}, {"source": 2, "time": 2012, "value": 1, "target": 6}, {"source": 2, "time": 2015, "value": 2, "target": 6}, {"source": 2, "time": 2009, "value": 1, "target": 7}, {"source": 2, "time": 2012, "value": 5, "target": 7}, {"source": 2, "time": 2015, "value": 15, "target": 7}, {"source": 2, "time": 2012, "value": 4, "target": 8}, {"source": 2, "time": 2015, "value": 6, "target": 8}, {"source": 2, "time": 2009, "value": 1, "target": 9}, {"source": 2, "time": 2012, "value": 15, "target": 9}, {"source": 2, "time": 2015, "value": 37, "target": 9}, {"source": 2, "time": 2012, "value": 19, "target": 10}, {"source": 2, "time": 2015, "value": 46, "target": 10}, {"source": 2, "time": 2012, "value": 5, "target": 12}, {"source": 2, "time": 2015, "value": 7, "target": 12}, {"source": 2, "time": 2012, "value": 2, "target": 13}, {"source": 2, "time": 2015, "value": 3, "target": 13}, {"source": 2, "time": 2012, "value": 3, "target": 14}, {"source": 2, "time": 2015, "value": 4, "target": 14}, {"source": 2, "time": 2012, "value": 8, "target": 15}, {"source": 2, "time": 2015, "value": 14, "target": 15}, {"source": 2, "time": 2012, "value": 13, "target": 16}, {"source": 2, "time": 2015, "value": 25, "target": 16}, {"source": 2, "time": 2012, "value": 4, "target": 17}, {"source": 2, "time": 2015, "value": 8, "target": 17}, {"source": 2, "time": 2012, "value": 9, "target": 18}, {"source": 2, "time": 2015, "value": 26, "target": 18}, {"source": 2, "time": 2015, "value": 2, "target": 19}, {"source": 2, "time": 2009, "value": 1, "target": 20}, {"source": 2, "time": 2012, "value": 16, "target": 20}, {"source": 2, "time": 2015, "value": 25, "target": 20}, {"source": 2, "time": 1997, "value": 1, "target": 21}, {"source": 2, "time": 2000, "value": 1, "target": 21}, {"source": 2, "time": 2009, "value": 2, "target": 21}, {"source": 2, "time": 2012, "value": 37, "target": 21}, {"source": 2, "time": 2015, "value": 102, "target": 21}, {"source": 3, "time": 1994, "value": 1, "target": 4}, {"source": 3, "time": 2012, "value": 4, "target": 4}, {"source": 3, "time": 2015, "value": 15, "target": 4}, {"source": 3, "time": 2012, "value": 5, "target": 5}, {"source": 3, "time": 2015, "value": 11, "target": 5}, {"source": 3, "time": 2012, "value": 4, "target": 6}, {"source": 3, "time": 2015, "value": 6, "target": 6}, {"source": 3, "time": 2012, "value": 4, "target": 7}, {"source": 3, "time": 2015, "value": 5, "target": 7}, {"source": 3, "time": 2012, "value": 1, "target": 8}, {"source": 3, "time": 2015, "value": 7, "target": 8}, {"source": 3, "time": 2012, "value": 8, "target": 9}, {"source": 3, "time": 2015, "value": 14, "target": 9}, {"source": 3, "time": 2012, "value": 9, "target": 10}, {"source": 3, "time": 2015, "value": 13, "target": 10}, {"source": 3, "time": 2012, "value": 3, "target": 12}, {"source": 3, "time": 2015, "value": 4, "target": 12}, {"source": 3, "time": 2012, "value": 1, "target": 14}, {"source": 3, "time": 2015, "value": 1, "target": 14}, {"source": 3, "time": 2012, "value": 6, "target": 15}, {"source": 3, "time": 2015, "value": 9, "target": 15}, {"source": 3, "time": 2012, "value": 6, "target": 16}, {"source": 3, "time": 2015, "value": 9, "target": 16}, {"source": 3, "time": 2012, "value": 2, "target": 17}, {"source": 3, "time": 2015, "value": 9, "target": 17}, {"source": 3, "time": 2012, "value": 1, "target": 18}, {"source": 3, "time": 2015, "value": 5, "target": 18}, {"source": 3, "time": 2012, "value": 1, "target": 19}, {"source": 3, "time": 2012, "value": 5, "target": 20}, {"source": 3, "time": 2015, "value": 12, "target": 20}, {"source": 3, "time": 1994, "value": 1, "target": 21}, {"source": 3, "time": 1997, "value": 1, "target": 21}, {"source": 3, "time": 2012, "value": 13, "target": 21}, {"source": 3, "time": 2015, "value": 36, "target": 21}, {"source": 4, "time": 2012, "value": 18, "target": 5}, {"source": 4, "time": 2015, "value": 40, "target": 5}, {"source": 4, "time": 2012, "value": 2, "target": 6}, {"source": 4, "time": 2015, "value": 4, "target": 6}, {"source": 4, "time": 2012, "value": 11, "target": 7}, {"source": 4, "time": 2015, "value": 12, "target": 7}, {"source": 4, "time": 2012, "value": 6, "target": 8}, {"source": 4, "time": 2015, "value": 13, "target": 8}, {"source": 4, "time": 2012, "value": 16, "target": 9}, {"source": 4, "time": 2015, "value": 34, "target": 9}, {"source": 4, "time": 2012, "value": 20, "target": 10}, {"source": 4, "time": 2015, "value": 45, "target": 10}, {"source": 4, "time": 2012, "value": 1, "target": 11}, {"source": 4, "time": 2012, "value": 1, "target": 12}, {"source": 4, "time": 2015, "value": 4, "target": 12}, {"source": 4, "time": 2012, "value": 1, "target": 13}, {"source": 4, "time": 2015, "value": 4, "target": 13}, {"source": 4, "time": 2012, "value": 4, "target": 14}, {"source": 4, "time": 2015, "value": 4, "target": 14}, {"source": 4, "time": 2012, "value": 8, "target": 15}, {"source": 4, "time": 2015, "value": 9, "target": 15}, {"source": 4, "time": 2012, "value": 4, "target": 16}, {"source": 4, "time": 2015, "value": 9, "target": 16}, {"source": 4, "time": 2012, "value": 5, "target": 17}, {"source": 4, "time": 2015, "value": 10, "target": 17}, {"source": 4, "time": 2012, "value": 5, "target": 18}, {"source": 4, "time": 2015, "value": 17, "target": 18}, {"source": 4, "time": 2012, "value": 4, "target": 19}, {"source": 4, "time": 2015, "value": 8, "target": 19}, {"source": 4, "time": 2009, "value": 1, "target": 20}, {"source": 4, "time": 2012, "value": 6, "target": 20}, {"source": 4, "time": 2015, "value": 18, "target": 20}, {"source": 4, "time": 1994, "value": 1, "target": 21}, {"source": 4, "time": 1997, "value": 2, "target": 21}, {"source": 4, "time": 2006, "value": 2, "target": 21}, {"source": 4, "time": 2009, "value": 3, "target": 21}, {"source": 4, "time": 2012, "value": 42, "target": 21}, {"source": 4, "time": 2015, "value": 109, "target": 21}, {"source": 5, "time": 2012, "value": 8, "target": 7}, {"source": 5, "time": 2015, "value": 17, "target": 7}, {"source": 5, "time": 2012, "value": 5, "target": 8}, {"source": 5, "time": 2015, "value": 14, "target": 8}, {"source": 5, "time": 2012, "value": 7, "target": 9}, {"source": 5, "time": 2015, "value": 29, "target": 9}, {"source": 5, "time": 2012, "value": 14, "target": 10}, {"source": 5, "time": 2015, "value": 42, "target": 10}, {"source": 5, "time": 2012, "value": 3, "target": 12}, {"source": 5, "time": 2015, "value": 5, "target": 12}, {"source": 5, "time": 2012, "value": 1, "target": 13}, {"source": 5, "time": 2015, "value": 4, "target": 13}, {"source": 5, "time": 2012, "value": 1, "target": 14}, {"source": 5, "time": 2015, "value": 2, "target": 14}, {"source": 5, "time": 2012, "value": 5, "target": 15}, {"source": 5, "time": 2015, "value": 10, "target": 15}, {"source": 5, "time": 2012, "value": 8, "target": 16}, {"source": 5, "time": 2015, "value": 22, "target": 16}, {"source": 5, "time": 2012, "value": 4, "target": 17}, {"source": 5, "time": 2015, "value": 5, "target": 17}, {"source": 5, "time": 2012, "value": 3, "target": 18}, {"source": 5, "time": 2015, "value": 13, "target": 18}, {"source": 5, "time": 2012, "value": 3, "target": 19}, {"source": 5, "time": 2015, "value": 8, "target": 19}, {"source": 5, "time": 2012, "value": 1, "target": 20}, {"source": 5, "time": 2015, "value": 15, "target": 20}, {"source": 5, "time": 2012, "value": 58, "target": 21}, {"source": 5, "time": 2015, "value": 156, "target": 21}, {"source": 6, "time": 2012, "value": 1, "target": 7}, {"source": 6, "time": 2015, "value": 2, "target": 7}, {"source": 6, "time": 2012, "value": 1, "target": 9}, {"source": 6, "time": 2015, "value": 3, "target": 9}, {"source": 6, "time": 2012, "value": 2, "target": 10}, {"source": 6, "time": 2015, "value": 8, "target": 10}, {"source": 6, "time": 2015, "value": 1, "target": 12}, {"source": 6, "time": 2012, "value": 1, "target": 15}, {"source": 6, "time": 2015, "value": 1, "target": 15}, {"source": 6, "time": 2012, "value": 1, "target": 17}, {"source": 6, "time": 2015, "value": 2, "target": 17}, {"source": 6, "time": 2012, "value": 1, "target": 18}, {"source": 6, "time": 2015, "value": 2, "target": 18}, {"source": 6, "time": 2012, "value": 1, "target": 20}, {"source": 6, "time": 2015, "value": 4, "target": 20}, {"source": 6, "time": 2012, "value": 3, "target": 21}, {"source": 6, "time": 2015, "value": 8, "target": 21}, {"source": 7, "time": 2012, "value": 8, "target": 8}, {"source": 7, "time": 2015, "value": 10, "target": 8}, {"source": 7, "time": 2009, "value": 1, "target": 9}, {"source": 7, "time": 2012, "value": 14, "target": 9}, {"source": 7, "time": 2015, "value": 25, "target": 9}, {"source": 7, "time": 2012, "value": 14, "target": 10}, {"source": 7, "time": 2015, "value": 29, "target": 10}, {"source": 7, "time": 2012, "value": 1, "target": 11}, {"source": 7, "time": 2015, "value": 3, "target": 11}, {"source": 7, "time": 2015, "value": 1, "target": 14}, {"source": 7, "time": 2012, "value": 8, "target": 15}, {"source": 7, "time": 2015, "value": 13, "target": 15}, {"source": 7, "time": 2012, "value": 2, "target": 16}, {"source": 7, "time": 2015, "value": 1, "target": 16}, {"source": 7, "time": 2015, "value": 2, "target": 17}, {"source": 7, "time": 2012, "value": 7, "target": 18}, {"source": 7, "time": 2015, "value": 17, "target": 18}, {"source": 7, "time": 2012, "value": 3, "target": 19}, {"source": 7, "time": 2015, "value": 2, "target": 19}, {"source": 7, "time": 2009, "value": 1, "target": 20}, {"source": 7, "time": 2012, "value": 12, "target": 20}, {"source": 7, "time": 2015, "value": 19, "target": 20}, {"source": 7, "time": 2012, "value": 17, "target": 21}, {"source": 7, "time": 2015, "value": 42, "target": 21}, {"source": 8, "time": 2012, "value": 7, "target": 9}, {"source": 8, "time": 2015, "value": 15, "target": 9}, {"source": 8, "time": 2012, "value": 8, "target": 10}, {"source": 8, "time": 2015, "value": 26, "target": 10}, {"source": 8, "time": 2012, "value": 1, "target": 12}, {"source": 8, "time": 2012, "value": 1, "target": 13}, {"source": 8, "time": 2015, "value": 2, "target": 13}, {"source": 8, "time": 2012, "value": 1, "target": 14}, {"source": 8, "time": 2015, "value": 1, "target": 14}, {"source": 8, "time": 2012, "value": 5, "target": 15}, {"source": 8, "time": 2015, "value": 16, "target": 15}, {"source": 8, "time": 2012, "value": 1, "target": 16}, {"source": 8, "time": 2015, "value": 4, "target": 16}, {"source": 8, "time": 2012, "value": 1, "target": 17}, {"source": 8, "time": 2015, "value": 3, "target": 17}, {"source": 8, "time": 2012, "value": 6, "target": 18}, {"source": 8, "time": 2015, "value": 17, "target": 18}, {"source": 8, "time": 2012, "value": 1, "target": 19}, {"source": 8, "time": 2015, "value": 6, "target": 19}, {"source": 8, "time": 2012, "value": 7, "target": 20}, {"source": 8, "time": 2015, "value": 13, "target": 20}, {"source": 8, "time": 2012, "value": 8, "target": 21}, {"source": 8, "time": 2015, "value": 18, "target": 21}, {"source": 9, "time": 1997, "value": 1, "target": 10}, {"source": 9, "time": 2012, "value": 22, "target": 10}, {"source": 9, "time": 2015, "value": 75, "target": 10}, {"source": 9, "time": 2015, "value": 1, "target": 11}, {"source": 9, "time": 2012, "value": 1, "target": 12}, {"source": 9, "time": 2015, "value": 2, "target": 12}, {"source": 9, "time": 2015, "value": 3, "target": 13}, {"source": 9, "time": 2012, "value": 1, "target": 14}, {"source": 9, "time": 2015, "value": 5, "target": 14}, {"source": 9, "time": 2012, "value": 19, "target": 15}, {"source": 9, "time": 2015, "value": 38, "target": 15}, {"source": 9, "time": 2012, "value": 5, "target": 16}, {"source": 9, "time": 2015, "value": 10, "target": 16}, {"source": 9, "time": 2012, "value": 3, "target": 17}, {"source": 9, "time": 2015, "value": 9, "target": 17}, {"source": 9, "time": 2012, "value": 13, "target": 18}, {"source": 9, "time": 2015, "value": 25, "target": 18}, {"source": 9, "time": 2015, "value": 4, "target": 19}, {"source": 9, "time": 2003, "value": 1, "target": 20}, {"source": 9, "time": 2009, "value": 2, "target": 20}, {"source": 9, "time": 2012, "value": 21, "target": 20}, {"source": 9, "time": 2015, "value": 46, "target": 20}, {"source": 9, "time": 2009, "value": 2, "target": 21}, {"source": 9, "time": 2012, "value": 29, "target": 21}, {"source": 9, "time": 2015, "value": 74, "target": 21}, {"source": 10, "time": 2015, "value": 1, "target": 11}, {"source": 10, "time": 2012, "value": 5, "target": 12}, {"source": 10, "time": 2015, "value": 7, "target": 12}, {"source": 10, "time": 2015, "value": 2, "target": 13}, {"source": 10, "time": 2012, "value": 2, "target": 14}, {"source": 10, "time": 2015, "value": 8, "target": 14}, {"source": 10, "time": 2012, "value": 22, "target": 15}, {"source": 10, "time": 2015, "value": 46, "target": 15}, {"source": 10, "time": 2009, "value": 1, "target": 16}, {"source": 10, "time": 2012, "value": 9, "target": 16}, {"source": 10, "time": 2015, "value": 17, "target": 16}, {"source": 10, "time": 2012, "value": 5, "target": 17}, {"source": 10, "time": 2015, "value": 16, "target": 17}, {"source": 10, "time": 2009, "value": 1, "target": 18}, {"source": 10, "time": 2012, "value": 18, "target": 18}, {"source": 10, "time": 2015, "value": 56, "target": 18}, {"source": 10, "time": 2012, "value": 5, "target": 19}, {"source": 10, "time": 2015, "value": 18, "target": 19}, {"source": 10, "time": 2012, "value": 20, "target": 20}, {"source": 10, "time": 2015, "value": 49, "target": 20}, {"source": 10, "time": 2012, "value": 32, "target": 21}, {"source": 10, "time": 2015, "value": 93, "target": 21}, {"source": 11, "time": 2015, "value": 1, "target": 15}, {"source": 11, "time": 2015, "value": 1, "target": 20}, {"source": 11, "time": 2012, "value": 1, "target": 21}, {"source": 11, "time": 2015, "value": 2, "target": 21}, {"source": 12, "time": 2015, "value": 1, "target": 13}, {"source": 12, "time": 2015, "value": 1, "target": 14}, {"source": 12, "time": 2012, "value": 3, "target": 15}, {"source": 12, "time": 2015, "value": 4, "target": 15}, {"source": 12, "time": 2012, "value": 4, "target": 16}, {"source": 12, "time": 2015, "value": 4, "target": 16}, {"source": 12, "time": 2012, "value": 1, "target": 17}, {"source": 12, "time": 2015, "value": 3, "target": 17}, {"source": 12, "time": 2012, "value": 2, "target": 18}, {"source": 12, "time": 2015, "value": 2, "target": 18}, {"source": 12, "time": 2015, "value": 1, "target": 19}, {"source": 12, "time": 2012, "value": 2, "target": 20}, {"source": 12, "time": 2015, "value": 3, "target": 20}, {"source": 12, "time": 1997, "value": 1, "target": 21}, {"source": 12, "time": 2012, "value": 5, "target": 21}, {"source": 12, "time": 2015, "value": 15, "target": 21}, {"source": 13, "time": 2012, "value": 1, "target": 14}, {"source": 13, "time": 2015, "value": 1, "target": 14}, {"source": 13, "time": 2015, "value": 3, "target": 15}, {"source": 13, "time": 2015, "value": 1, "target": 17}, {"source": 13, "time": 2015, "value": 1, "target": 19}, {"source": 13, "time": 2012, "value": 1, "target": 20}, {"source": 13, "time": 2015, "value": 2, "target": 20}, {"source": 13, "time": 2012, "value": 2, "target": 21}, {"source": 13, "time": 2015, "value": 4, "target": 21}, {"source": 14, "time": 2012, "value": 1, "target": 15}, {"source": 14, "time": 2015, "value": 3, "target": 15}, {"source": 14, "time": 2012, "value": 1, "target": 16}, {"source": 14, "time": 2015, "value": 1, "target": 16}, {"source": 14, "time": 2012, "value": 1, "target": 17}, {"source": 14, "time": 2015, "value": 1, "target": 17}, {"source": 14, "time": 2012, "value": 1, "target": 18}, {"source": 14, "time": 2015, "value": 3, "target": 18}, {"source": 14, "time": 2012, "value": 2, "target": 20}, {"source": 14, "time": 2015, "value": 3, "target": 20}, {"source": 14, "time": 2012, "value": 8, "target": 21}, {"source": 14, "time": 2015, "value": 10, "target": 21}, {"source": 14, "time": 2009, "value": 1, "target": 23}, {"source": 15, "time": 2012, "value": 3, "target": 16}, {"source": 15, "time": 2015, "value": 7, "target": 16}, {"source": 15, "time": 2009, "value": 1, "target": 17}, {"source": 15, "time": 2012, "value": 5, "target": 17}, {"source": 15, "time": 2015, "value": 4, "target": 17}, {"source": 15, "time": 2012, "value": 10, "target": 18}, {"source": 15, "time": 2015, "value": 23, "target": 18}, {"source": 15, "time": 2009, "value": 1, "target": 19}, {"source": 15, "time": 2012, "value": 3, "target": 19}, {"source": 15, "time": 2015, "value": 4, "target": 19}, {"source": 15, "time": 2012, "value": 12, "target": 20}, {"source": 15, "time": 2015, "value": 31, "target": 20}, {"source": 15, "time": 2009, "value": 1, "target": 21}, {"source": 15, "time": 2012, "value": 14, "target": 21}, {"source": 15, "time": 2015, "value": 28, "target": 21}, {"source": 16, "time": 2012, "value": 3, "target": 17}, {"source": 16, "time": 2015, "value": 4, "target": 17}, {"source": 16, "time": 2009, "value": 1, "target": 18}, {"source": 16, "time": 2012, "value": 3, "target": 18}, {"source": 16, "time": 2015, "value": 2, "target": 18}, {"source": 16, "time": 2012, "value": 1, "target": 19}, {"source": 16, "time": 2015, "value": 2, "target": 19}, {"source": 16, "time": 2012, "value": 4, "target": 20}, {"source": 16, "time": 2015, "value": 8, "target": 20}, {"source": 16, "time": 2012, "value": 12, "target": 21}, {"source": 16, "time": 2015, "value": 29, "target": 21}, {"source": 17, "time": 2015, "value": 3, "target": 18}, {"source": 17, "time": 2015, "value": 1, "target": 19}, {"source": 17, "time": 2012, "value": 4, "target": 20}, {"source": 17, "time": 2015, "value": 9, "target": 20}, {"source": 17, "time": 1997, "value": 1, "target": 21}, {"source": 17, "time": 2000, "value": 3, "target": 21}, {"source": 17, "time": 2003, "value": 1, "target": 21}, {"source": 17, "time": 2006, "value": 2, "target": 21}, {"source": 17, "time": 2009, "value": 6, "target": 21}, {"source": 17, "time": 2012, "value": 15, "target": 21}, {"source": 17, "time": 2015, "value": 31, "target": 21}, {"source": 18, "time": 2012, "value": 3, "target": 19}, {"source": 18, "time": 2015, "value": 5, "target": 19}, {"source": 18, "time": 2012, "value": 12, "target": 20}, {"source": 18, "time": 2015, "value": 21, "target": 20}, {"source": 18, "time": 2006, "value": 1, "target": 21}, {"source": 18, "time": 2009, "value": 1, "target": 21}, {"source": 18, "time": 2012, "value": 13, "target": 21}, {"source": 18, "time": 2015, "value": 41, "target": 21}, {"source": 19, "time": 2012, "value": 3, "target": 20}, {"source": 19, "time": 2015, "value": 5, "target": 20}, {"source": 19, "time": 1997, "value": 1, "target": 21}, {"source": 19, "time": 2000, "value": 1, "target": 21}, {"source": 19, "time": 2009, "value": 1, "target": 21}, {"source": 19, "time": 2012, "value": 5, "target": 21}, {"source": 19, "time": 2015, "value": 13, "target": 21}, {"source": 20, "time": 2012, "value": 23, "target": 21}, {"source": 20, "time": 2015, "value": 49, "target": 21}], "nodes": [{"group": 0, "id": "africa"}, {"group": 1, "id": "argentina"}, {"group": 2, "id": "australia"}, {"group": 3, "id": "brazil"}, {"group": 4, "id": "canada"}, {"group": 5, "id": "china"}, {"group": 6, "id": "colombia"}, {"group": 7, "id": "denmark"}, {"group": 8, "id": "finland"}, {"group": 9, "id": "france"}, {"group": 10, "id": "germany"}, {"group": 11, "id": "iceland"}, {"group": 12, "id": "india"}, {"group": 13, "id": "iran"}, {"group": 14, "id": "israel"}, {"group": 15, "id": "italy"}, {"group": 16, "id": "japan"}, {"group": 17, "id": "mexico"}, {"group": 18, "id": "netherlands"}, {"group": 19, "id": "russia"}, {"group": 20, "id": "spain"}, {"group": 21, "id": "usa"}, {"group": 22, "id": "facebook"}, {"group": 23, "id": "google"}]}; -->
+      
+      var Xcamera=0.0;
+      var Ycamera=0.0;
+      var Zcamera=1000.0;
+      var Rcamera=Math.sqrt(Xcamera*Xcamera+Ycamera*Ycamera+Zcamera*Zcamera);
+      
+      <!-- make render -->
+      var renderer=new THREE.WebGLRenderer({antialias:true});
+      var container=document.getElementById('container');
+      renderer.setSize(window.innerWidth,window.innerHeight);
+      container.appendChild(renderer.domElement);
+      
+      <!-- make scene -->
+      var scene=new THREE.Scene();
+      scene.background=new THREE.Color(0x000000);
+      
+      <!-- make camera -->
+      var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,10000);
+      camera.position.set(Xcamera,Ycamera,Zcamera);
+      camera.lookAt(new THREE.Vector3(0,0,0));
+      scene.add(camera);
+      
+      <!-- make light -->
+      var light=new THREE.PointLight(0xffffff);
+      light.position.set(camera.position);
+      light.lookAt(new THREE.Vector3(0,0,0));
+      scene.add(light);
 
-initializing_description();
+      <!-- make globe -->
+      const radius=200;
+      const radius0=radius/40.0;
+      const segments=100;
+      const rings=100;
+      const segments0=10;
+      const rings0=10;
+      const n_points=100;
+      var globe=new THREE.Group();
+      <!-- Loading the world map texture -->
+      var loader=new THREE.TextureLoader();
+      loader.crossOrigin="";
+      loader.load("https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg",
+      <!-- loader.load("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Simple_world_map.svg/2000px-Simple_world_map.svg.png", -->
+      function(texture){
+      var sphere=new THREE.SphereGeometry(radius,segments,rings);
+      <!-- var material=new THREE.MeshBasicMaterial({map:texture,overdraw:0.5}); -->
+      var material=new THREE.MeshBasicMaterial({map:texture,wireframe:false});
+      var mesh=new THREE.Mesh(sphere,material);
+      globe.add(mesh);
+      },
+      function(error){console.log(error)}
+      );
+      globe.position.set(0,0,0);
 
-var colors=["#6666ff","#d98c8c","#66ff66","#ff66a3","#66ccff","#ffc266","#996600","#ffb366","#8585e0","#ff66ff","#a3a3c2","#ff8c66","#b366ff","#006699","#cc99ff","#669900","#ccccff","#ff5050","#9933ff","#33cc33","#0099cc"];
-var n_colors=colors.length;
+      <!-- initial time -->
+      var pairwize=data_graph_pubmed['links'].length;
+      var min_time=3000;
+      for(var i=0;i<pairwize;i++) min_time=Math.min(min_time,data_graph_pubmed['links'][i]['time']);
+      var time=min_time;
+      console.log(min_time);
+      
+      <!-- making the countries (http://www.csgnetwork.com/llinfotable.html) SOUTH:- NORTH:+ and WEST:- EAST:+ -->
+      var LL={"countries":
+      [
+      {"id":"africa","lat":-17.43,"lon":31.02},
+      {"id":"argentina","lat":-36.3,"lon":-60.0},
+      {"id":"australia","lat":-35.15,"lon":149.08},
+      {"id":"brazil","lat":-15.47,"lon":-47.55},
+      {"id":"canada","lat":45.27,"lon":-75.42},
+      {"id":"chile","lat":33.24,"lon":-70.40},
+      {"id":"china","lat":39.55,"lon":116.2},
+      {"id":"colombia","lat":4.34,"lon":-74.0},
+      {"id":"denmark","lat":55.41,"lon":12.34},
+      {"id":"finland","lat":60.15,"lon":25.03},
+      {"id":"france","lat":48.5,"lon":2.2},
+      {"id":"germany","lat":52.3,"lon":13.25},
+      {"id":"iceland","lat":64.1,"lon":-21.57},
+      {"id":"india","lat":28.37,"lon":77.13},
+      {"id":"iran","lat":35.44,"lon":51.3},
+      {"id":"israel","lat":31.47,"lon":35.12},
+      {"id":"italy","lat":41.54,"lon":12.29},
+      {"id":"japan","lat":35.41,"lon":139.46},
+      {"id":"mexico","lat":19.2,"lon":-99.1},
+      {"id":"netherlands","lat":52.23,"lon":4.54},
+      {"id":"russia","lat":55.45,"lon":37.35},
+      {"id":"spain","lat":40.25,"lon":-3.45},
+      {"id":"usa","lat":39.91,"lon":-77.02},
+      {"id":"facebook","lat":37.27,"lon":-122.1},
+      {"id":"google","lat":37.23,"lon":-122.02}
+      ]
+      };
+      var n_countries=LL['countries'].length;
+      for(var i=0;i<n_countries;i++){
+		      var LATi=0.5*Math.PI-LL['countries'][i]['lat']*Math.PI/180.0;
+		      var LONi=0.5*Math.PI+LL['countries'][i]['lon']*Math.PI/180.0;<!-- I do not understand the 0.5*Math.PI but at least it works -->
+		      var rC=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius);
+		      if(data_graph_pubmed['nodes'][i]['id']=='facebook' || data_graph_pubmed['nodes'][i]['id']=='google') var country=new THREE.SphereGeometry(2.0,segments0,rings0);
+		      else var country=new THREE.SphereGeometry(radius0,segments0,radius0);
+		      if(data_graph_pubmed['nodes'][i]['id']=='facebook') var material_country=new THREE.MeshBasicMaterial({color:0x0000ff});
+		      else{
+		      if(data_graph_pubmed['nodes'][i]['id']=='google') var material_country=new THREE.MeshBasicMaterial({color:0x00ff00});
+		      else var material_country=new THREE.MeshBasicMaterial({color:0xff0000});
+		      }
+		      var mesh_country=new THREE.Mesh(country,material_country);
+		      mesh_country.position.set(rC.x,rC.y,rC.z);
+		      globe.add(mesh_country);
+		      }
 
-// make scene
-var scene=new THREE.Scene();
-scene.background=new THREE.Color(0x000000);
-// make camera
-var Xcamera=0.0;
-var Ycamera=0.0;
-var Zcamera=1000.0;
-var Rcamera=Math.sqrt(Xcamera*Xcamera+Ycamera*Ycamera+Zcamera*Zcamera);
-var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,10000);
-camera.position.set(Xcamera,Ycamera,Zcamera);
-camera.lookAt(new THREE.Vector3(0,0,0));
-scene.add(camera);
-// make light -->
-var DirectionalLight=new THREE.DirectionalLight(0xffffff,1);
-DirectionalLight.position.set(camera.position);
-DirectionalLight.lookAt(new THREE.Vector3(0,0,0));
-scene.add(DirectionalLight);
-// make render -->
-var renderer=new THREE.WebGLRenderer({antialias:true});
-var container=document.getElementById('container');
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth,window.innerHeight);
-container.appendChild(renderer.domElement);
-// make globe -->
-const radius=200,segments=128,rings=128;
-var globe=new THREE.Group();
-// Loading the world map texture -->
-var loader=new THREE.TextureLoader();
-loader.crossOrigin="";
-// loader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Simple_world_map.svg/2000px-Simple_world_map.svg.png',
-loader.load('https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg',
-	    function(texture){
-		var sphere=new THREE.SphereGeometry(radius,segments,rings);
-		// var material=new THREE.MeshBasicMaterial({map:texture,overdraw:0.5});
-		var material=new THREE.MeshBasicMaterial({map:texture,wireframe:false});
-		var mesh=new THREE.Mesh(sphere,material);
-		globe.add(mesh);
-	    },
-	    function(error){console.log(error)}
-	   );
-globe.position.set(0,0,0);
+	var vS,vT,cvS=new THREE.Vector3(),cvT=new THREE.Vector3(),geometry,material,min_weight=1000000,weighti=0.0,source=0,target=0;
+	var paths=new THREE.CurvePath();
+	console.log(n_countries);
+	console.log(n_countries*(n_countries-1)/2);
+	console.log(pairwize);
+	for(var i=0;i<pairwize;i++) min_weight=Math.min(min_weight,data_graph_pubmed['links'][i]['value']);
+	<!-- making the time text -->
+	var loader=new THREE.FontLoader();
+	var group_text=new THREE.Group();
+	loader.load("https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",<!-- loader.load("https://threejs.org/examples/fonts/optimer_bold.typeface.json", -->
+	function(font){
+	var geometry=new THREE.TextGeometry((time.toString()).concat(" ",(time+3).toString()),{
+	font:font,
+	size:160,
+	height:5,
+	curveSegments:12,
+	bevelEnabled:true,
+	bevelThickness:10,
+	bevelSize:8,
+	bevelSegments:5
+	});
+	var mesh_text=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:0xffffff}));
+	mesh_text.position.set(-1000.0,500.0,0.0);
+	group_text.add(mesh_text);
+	},
+	function(error){
+	console.log(error);
+	});
+	scene.add(group_text);
+	
+	<!-- making the paths between countries -->
+	var group_links=new THREE.Group();
+	var j=0;
+	for(var i=0;i<pairwize;i++){
+			if(data_graph_pubmed['links'][i]['time']==time){
+			<!-- Starting and target points -->
+			source=data_graph_pubmed['links'][i]['source'];
+			target=data_graph_pubmed['links'][i]['target'];
+			var LATi=0.5*Math.PI-LL['countries'][source]['lat']*Math.PI/180.0;
+			var LONi=0.5*Math.PI+LL['countries'][source]['lon']*Math.PI/180.0;
+			var vS=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius);
+			var LATi=0.5*Math.PI-LL['countries'][target]['lat']*Math.PI/180.0;
+			var LONi=0.5*Math.PI+LL['countries'][target]['lon']*Math.PI/180.0;
+			var vT=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius);
+			<!-- weighti=Math.log(data_graph_pubmed['links'][i]['value'])/Math.log(10.0); -->
+			<!-- weighti=0.5*data_graph_pubmed['links'][i]['value']; -->
+			weighti=Math.log(data_graph_pubmed['links'][i]['value'])/Math.log(2.0)+0.5;
+			<!-- mid-point -->
+			cvS=new THREE.Vector3(vS.x+0.25*(vT.x-vS.x),vS.y+0.25*(vT.y-vS.y),vS.z+0.25*(vT.z-vS.z));
+			cvS.normalize();
+			cvS.multiplyScalar(radius*(1.0+weighti));
+			cvT=new THREE.Vector3(vS.x+0.75*(vT.x-vS.x),vS.y+0.75*(vT.y-vS.y),vS.z+0.75*(vT.z-vS.z));
+			cvT.normalize();
+			cvT.multiplyScalar(radius*(1.0+weighti));
+			<!-- Bezier curves -->
+			paths.add(new THREE.CubicBezierCurve3(vS,cvS,cvT,vT));
+      			geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[j].getPoints(n_points));
+			j=j+1;
+			target=data_graph_pubmed['nodes'][data_graph_pubmed['links'][i]['target']]['id'];
+			source=data_graph_pubmed['nodes'][data_graph_pubmed['links'][i]['source']]['id'];
+      			if(target=='facebook' || source=='facebook') group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:0x0000ff})));
+			else{
+			if(target=='google' || source=='google') group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:0x00ff00})));
+			else group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:0xff0000})));
+			}
+			}
+      }
+      var time0=j;
 
-// https://www.ncdc.noaa.gov/cag/global/time-series/globe/land/ytd/12/2000-2018.json?trend=true&trend_base=10&firsttrendyear=1880&lasttrendyear=2017
-var temp_anom_land={"description":{"title":"Global Land Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"2000":"0.62","2001":"0.81","2002":"0.92","2003":"0.88","2004":"0.79","2005":"1.03","2006":"0.90","2007":"1.08","2008":"0.85","2009":"0.87","2010":"1.07","2011":"0.89","2012":"0.90","2013":"0.98","2014":"1.00","2015":"1.34","2016":"1.44","2017":"1.31"}};
-// https://www.ncdc.noaa.gov/cag/global/time-series/globe/ocean/ytd/12/2000-2018.json?trend=true&trend_base=10&firsttrendyear=1880&lasttrendyear=2017 -->
-var temp_anom_ocean={"description":{"title":"Global Ocean Temperature Anomalies, January-December","units":"Degrees Celsius","base_period":"1901-2000","missing":-999},"data":{"2000":"0.35","2001":"0.44","2002":"0.48","2003":"0.51","2004":"0.49","2005":"0.51","2006":"0.50","2007":"0.43","2008":"0.42","2009":"0.55","2010":"0.56","2011":"0.46","2012":"0.51","2013":"0.55","2014":"0.64","2015":"0.74","2016":"0.76","2017":"0.67"}};
+      <!-- making the moving points -->
+      var spherei=new THREE.SphereGeometry(radius0,segments0,rings0);
+      var materiali=new THREE.MeshBasicMaterial({color:0xff00ff});
+      var group_mesh=new THREE.Group();
+      for(var i=0;i<pairwize;i++) if(data_graph_pubmed['links'][i]['time']==time) group_mesh.add(new THREE.Mesh(spherei,materiali));
+      globe.add(group_links);
+      globe.add(group_mesh);
+      scene.add(globe);
 
-// graph of the pudmed -->
-function requestJSON(callback){
-    var xhr=new XMLHttpRequest();
-    xhr.responseType='json';
-    xhr.onreadystatechange=function(){
-	if(xhr.readyState===4 && (xhr.status===200 || xhr.status===0)){
-	    callback(xhr.response);
-	}
-    };
-    xhr.open('GET','./data/all.json',true);
-    // xhr.setRequestHeader('Access-Control-Allow-Methods','GET'); -->
-    // xhr.setRequestHeader('Content-Type','application/json'); -->
-    xhr.send(null);
-};
+      var count=1,delta_count=1,pt=new THREE.Vector3(),group_length=0;
+      
+      function render(){
+		      if(count==n_points) delta_count=-1;
+		      if(count==0) delta_count=1;
+		      var j=0;
+		      for(var i=0;i<pairwize;i++){
+		      if(data_graph_pubmed['links'][i]['time']==time){
+		      if(j<group_mesh.children.length){
+		      paths.curves[j].getPoint(count/n_points,pt);
+		      group_mesh.children[j].position.set(pt.x,pt.y,pt.z);
+		      }else{
+		      paths.curves[j].getPoint(count/n_points,pt);
+		      group_mesh.add(new THREE.Mesh(spherei,materiali));
+		      group_mesh.children[j].position.set(pt.x,pt.y,pt.z);
+		      }  
+		      j=j+1;
+		      }
+		      }
+		      group_length=group_mesh.children.length;
+		      for(var i=(group_length-1);i>=j;i--){
+		      scene.remove(group_mesh.children[i]);
+		      group_mesh.remove(group_mesh.children[i]);
+		      }
+		      renderer.render(scene,camera);
+		      count=count+delta_count;
+      };
+		      
+      function update(){
+      requestAnimationFrame(update);
+      render();
+      };
+      update();
+      
+      const ZoomSensitivity=0.0001;
+      
+      <!-- Rotating mouse -->
+      CumThetaX=0;
+      CumThetaY=0;
+      var PreviousMouseX=0.0;
+      var PreviousMouseY=0.0;
+      var DraggingMouse=false;
+      function OnMouseDown(e){
+      DraggingMouse=true;
+      PreviousMouseX=e.clientX;
+      PreviousMouseY=e.clientY;
+      }
+      function RotateOnMouseMove(e){
+      if(DraggingMouse){
+      thetaX=Math.sign(e.clientX-PreviousMouseX)*0.075;
+      thetaY=Math.sign(e.clientY-PreviousMouseY)*0.075;
+      CumThetaX+=thetaX;
+      CumThetaY+=thetaY;
+      globe.rotation.x+=thetaY;
+      globe.rotation.y+=thetaX;
+      PreviousMouseX=e.clientX;
+      PreviousMouseY=e.clientY;
+      }
+      }
+      
+      <!-- changing time -->
+      function MoveOnKeyboardKeys(e){
+      switch(e.keyCode){
+      case 37:
+      time-=3;
+      break;
+      case 39:
+      time+=3;
+      break;
+      case 65:
+      time+=3;
+      break;
+      case 90:
+      time-=3;
+      break;
+      }
+      time=Math.min(2015,Math.max(min_time,time));
+      scene.remove(group_text.children[0]);
+      group_text.remove(group_text.children[0]);
+      loader.load("https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",<!-- loader.load("https://threejs.org/examples/fonts/optimer_bold.typeface.json", -->
+      function(font){
+      var geometry=new THREE.TextGeometry((time.toString()).concat(" ",(time+3).toString()),{
+      font:font,
+      size:160,
+      height:5,
+      curveSegments:12,
+      bevelEnabled:true,
+      bevelThickness:10,
+      bevelSize:8,
+      bevelSegments:5
+      });
+      var mesh_text=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:0xffffff}));
+      mesh_text.position.set(-1000.0,500.0,0.0);
+      group_text.add(mesh_text);
+      },
+      function(error){
+      console.log(error);
+      });
+      var j=0;
+      for(var i=0;i<pairwize;i++){
+		      if(data_graph_pubmed['links'][i]['time']==time){
+		      <!-- Starting and target points -->
+		      source=data_graph_pubmed['links'][i]['source'];
+		      target=data_graph_pubmed['links'][i]['target'];
+		      var LATi=0.5*Math.PI-LL['countries'][source]['lat']*Math.PI/180.0;
+		      var LONi=0.5*Math.PI+LL['countries'][source]['lon']*Math.PI/180.0;
+		      var vS=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius);
+		      var LATi=0.5*Math.PI-LL['countries'][target]['lat']*Math.PI/180.0;
+		      var LONi=0.5*Math.PI+LL['countries'][target]['lon']*Math.PI/180.0;
+		      var vT=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius);
+		      <!-- weighti=Math.log(data_graph_pubmed['links'][i]['value'])/Math.log(10.0); -->
+		      <!-- weighti=0.5*data_graph_pubmed['links'][i]['value']; -->
+		      weighti=Math.log(data_graph_pubmed['links'][i]['value'])/Math.log(2.0)+0.5;
+		      <!-- mid-point -->
+		      cvS=new THREE.Vector3(vS.x+0.25*(vT.x-vS.x),vS.y+0.25*(vT.y-vS.y),vS.z+0.25*(vT.z-vS.z));
+		      cvS.normalize();
+		      cvS.multiplyScalar(radius*(1.0+weighti));
+		      cvT=new THREE.Vector3(vS.x+0.75*(vT.x-vS.x),vS.y+0.75*(vT.y-vS.y),vS.z+0.75*(vT.z-vS.z));
+		      cvT.normalize();
+		      cvT.multiplyScalar(radius*(1.0+weighti));
+		      <!-- Bezier curves -->
+		      if(j<group_links.children.length){
+			     paths.curves[j]=new THREE.CubicBezierCurve3(vS,cvS,cvT,vT);
+      			     group_links.children[j].geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[j].getPoints(n_points));
+			     target=data_graph_pubmed['nodes'][data_graph_pubmed['links'][i]['target']]['id'];
+			     source=data_graph_pubmed['nodes'][data_graph_pubmed['links'][i]['source']]['id'];
+      			     if(target=='facebook' || source=='facebook') group_links.children[j].material=new THREE.LineBasicMaterial({color:0x0000ff});
+			     else{
+			     if(target=='google' || source=='google') group_links.children[j].material=new THREE.LineBasicMaterial({color:0x00ff00});
+			     else group_links.children[j].material=new THREE.LineBasicMaterial({color:0xff0000});
+			     }
+		      }else{
+			     if(j<paths.curves.length) paths.curves[j]=new THREE.CubicBezierCurve3(vS,cvS,cvT,vT);
+			     else paths.add(new THREE.CubicBezierCurve3(vS,cvS,cvT,vT));
+      			     geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[j].getPoints(n_points));
+			     target=data_graph_pubmed['nodes'][data_graph_pubmed['links'][i]['target']]['id'];
+			     source=data_graph_pubmed['nodes'][data_graph_pubmed['links'][i]['source']]['id'];
+      			     if(target=='facebook' || source=='facebook') group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:0x0000ff})));
+			     else{
+			     if(target=='google' || source=='google') group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:0x00ff00})));
+			     else group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:0xff0000})));
+		             }
+		      }
+		      j=j+1;
+		      }
+		      }
+		      time1=j;
+		      group_length=group_links.children.length;
+		      for(var i=(group_length-1);i>=j;i--){
+		      scene.remove(group_links.children[i]);
+		      group_links.remove(group_links.children[i]);
+		      }
+                      time0=time1;
+       console.log(e.keyCode);
+       console.log(time);console.log(group_links.children.length);
+       count=1;
+       };
 
-function readJSON(data){
+      <!-- Zooming mouse -->
+      function ZoomOnMouseWheel(e){
+      <!-- console.log(e.wheelDelta); -->
+      <!-- camera.fov+=e.wheelDelta*ZoomSensitivity; -->
+      <!-- camera.projectionMatrix=new THREE.Matrix4().makePerspective(camera.fov,window.innerWidth/window.innerHeight,camera.near,camera.far); -->
+      camera.position.set(camera.position.x,camera.position.y,camera.position.z-Math.sign(camera.position.z)*e.wheelDelta);
+      camera.lookAt(new THREE.Vector3(0,0,0));
+      };
 
-    data_json=data;
+      document.addEventListener('mousemove',RotateOnMouseMove);
+      document.addEventListener('mousedown',OnMouseDown);
+      document.addEventListener('mouseup',function(e){DraggingMouse=false;});
+      document.addEventListener('mousewheel',ZoomOnMouseWheel);
+      document.addEventListener('keyup',MoveOnKeyboardKeys);
+      <!-- document.addEventListener('keydown',MoveOnKeyboardKeys); -->
 
-    // reading the # of publications per year -->
-    n_publications=data_json['publications'].length;
-    for(var i=0;i<n_publications;i++) publications.push(0);
-    for(var i=0;i<n_publications;i++) if(data_json['publications'][i]['year']>=min_year) publications[data_json['publications'][i]['year']-min_year]=data_json['publications'][i]['value'];
-    for(var t=0;t<n_year;t++)	mean_publications+=publications[t]/n_year;
-    document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-
-    // reading the keywords -->
-    n_words=data_json['keywords'].length;
-    for(var i=0;i<n_words;i++) words.push(data_json['keywords'][i]['id']);
-    for(var i=0;i<n_words;i++){
-	word=words[i];
-	if(i%1===0) document.getElementById('keywords').appendChild(document.createElement('br'));
-	myButton=document.createElement('span');
-	myButton.className='button';
-	myButton.style.color='#fff';
-	myButton.style.cursor='pointer';
-	myButton.id=word;
-	myButton.innerHTML=word;
-	myButton.style.fontSize=myButtonFontSize;
-	document.getElementById('keywords').appendChild(myButton);
-	document.getElementById(word).addEventListener('click',highlight,false);
-    }
-    word=words[i_word];
-    document.getElementById('WORD').innerHTML=word;
-
-    // initial year -->
-    for(var w=0;w<n_words;w++){
-	pairwize.push(data_json[words[w]]['links'].length);
-	pileups.push(data_json[words[w]]['pileups'].length);
-    }
-    for(var w=0;w<n_words;w++){
-	for(var i=0;i<pairwize[w];i++) min_year=Math.min(min_year,data_json[words[w]]['links'][i]['year']);
-    }
-    year=min_year;
-    document.getElementById('YEAR').innerHTML=year.toString();
-    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
-    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    // calculing the forest coverage -->
-    for(var i=0;i<n_year;i++){
-	forest_coverage.push(0.0);
-	n_forest_coverage.push(0);
-    }
-    n_forests=data_json['forest'].length;
-    for(var i=0;i<n_forests;i++){
-	forest_coverage[data_json['forest'][i]['year']-min_year]+=data_json['forest'][i]['coverage'];
-	n_forest_coverage[data_json['forest'][i]['year']-min_year]+=1;
-    }
-    for(var i=0;i<n_forests;i++) forest_coverage[i]/=n_forest_coverage[i];
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json -->
-    global_surface_ice=data_json['ice'];
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
-
-    // making the countries (http://www.csgnetwork.com/llinfotable.html) SOUTH:- NORTH:+ and WEST:- EAST:+ -->
-    n_countries=data_json['nodes'].length;
-    console.log(n_countries);
-    console.log(n_countries*(n_countries-1)/2);
-    console.log(pairwize);
-    console.log(pileups);
-    for(var i=0;i<n_countries;i++){
-	LATi=0.5*Math.PI-data_json['LL'][i]['lat']*Math.PI/180.0;
-	LONi=0.5*Math.PI+data_json['LL'][i]['lon']*Math.PI/180.0;// I do not understand the 0.5*Math.PI but at least it works -->
-	rC=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius+radius0);
-	if(i>=(n_countries-2)) country=new THREE.SphereGeometry(radius0,segments0,rings0);
-	else country=new THREE.SphereGeometry(radius0,segments0,radius0);
-	if(i===(n_countries-2)) material_country=new THREE.MeshBasicMaterial({color:0x0000ff});
-	else{
-	    if(i===(n_countries-1)) material_country=new THREE.MeshBasicMaterial({color:0x00ff00});
-	    else material_country=new THREE.MeshBasicMaterial({color:0xff0000});
-	}
-	mesh_country=new THREE.Mesh(country,material_country);
-	mesh_country.position.set(rC.x,rC.y,rC.z);
-	globe.add(mesh_country);
-    }
-
-    for(var i=0;i<n_words;i++){
-	for(var j=0;j<pairwize[i];j++) data_json[words[i]]['links'][j]['value']*=mean_publications/publications[data_json[words[i]]['links'][j]['year']-min_year];
-	for(var j=0;j<pileups[i];j++) data_json[words[i]]['pileups'][j]['value']*=mean_publications/publications[data_json[words[i]]['pileups'][j]['year']-min_year];
-    }
-
-    data_json_w=data_json[word];
-    console.log(data_json_w);
-
-    globe.add(group_links);
-    globe.add(group_pileups);
-    globe.add(group_mesh);
-    scene.add(globe);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-    update();
-};// Ending readJSON -->
-
-document.addEventListener('mousemove',RotateOnMouseMove);
-document.addEventListener('mousedown',OnMouseDown);
-document.addEventListener('mouseup',OnMouseUp);
-document.addEventListener('mouseup',function(e){DraggingMouse=false;});
-document.addEventListener('mousewheel',ZoomOnMouseWheel);
-// document.addEventListener('keyup',MoveOnKeyboardKeys); -->
-document.getElementById('pkeyword').addEventListener('click',function(){
-    change_keyword(-1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-document.getElementById('nkeyword').addEventListener('click',function(){
-    change_keyword(1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-function change_keyword(dw){
-    i_word+=dw;
-    if(i_word===n_words) i_word=0;
-    if(i_word===-1) i_word=n_words-1;
-    word=words[i_word];
-    document.getElementById('WORD').innerHTML=word;
-    data_json_w=data_json[word];
-    initializing_description();
-};
-// changing year -->
-// function MoveOnKeyboardKeys(e){ -->
-// switch(e.keyCode){ -->
-// case 37: -->
-// year-=1; -->
-// break; -->
-// case 39: -->
-// year+=1; -->
-// break; -->
-// case 65: -->
-// year+=1; -->
-// break; -->
-// case 90: -->
-// year-=1; -->
-// break; -->
-// case 81: -->
-// i_word+=1; -->
-// break; -->
-// case 83: -->
-// i_word-=1; -->
-// break; -->
-// }; -->
-// i_word=Math.min(n_words-1,Math.max(0,i_word)); -->
-// word=words[i_word]; -->
-// document.getElementById('WORD').innerHTML=word; -->
-// data_json_w=data_json[word]; -->
-// if(year>max_year) year=min_year; -->
-// if(year<min_year) year=max_year; -->
-// document.getElementById('YEAR').innerHTML=year.toString(); -->
-// document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString()); -->
-// initializing_description(); -->
-// list_pileups_year(); -->
-// list_pairwize_year(); -->
-// change_links(); -->
-// }; -->
-
-// making the new links and the new pileups -->
-function change_links(){
-    // making the pileup for each country -->
-    group_length=group_pileups.children.length;
-    vS_length=vS.length;
-    n_lines=lines.length;
-    for(var i=0;i<n_pileups_year;i++){
-	ii=pileups_year[i];
-	source=data_json['LL'][data_json_w['pileups'][ii]['country']];// Starting and target points -->
-	LATi=0.5*Math.PI-source['lat']*Math.PI/180.0;
-	LONi=0.5*Math.PI+source['lon']*Math.PI/180.0;
-	if(i<vS_length){
-	    vS[i].setX(Math.sin(LATi)*Math.sin(LONi));
-	    vS[i].setY(Math.cos(LATi));
-	    vS[i].setZ(Math.sin(LATi)*Math.cos(LONi));
-	    vT[i].copy(vS[i]);
-	}else{
-	    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    vS_length+=1;
-	}
-	vS[i].multiplyScalar(radius);
-	vT[i].multiplyScalar(radius+5.0*data_json_w['pileups'][ii]['value']);
-	// Lines
-	if(i<n_lines){
-	    lines[i].vertices[0]=vS[i];
-	    lines[i].vertices[1]=vT[i];
-	}else{
-	    lines.push(new THREE.Geometry());
-	    lines[i].vertices.push(vS[i]);
-	    lines[i].vertices.push(vT[i]);
-	    n_lines+=1;
-	}
-	source=data_json_w['pileups'][ii]['country'];
-	if(i<group_length){
-	    group_pileups.children[i].geometry=lines[i];
-            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff});
-            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00});
-            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff});
-	}else{
-            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff})));
-            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00})));
-            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff})));
-	    group_length+=1;
-	}
-	group_pileups.children[i].name=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'].concat(' : ',ii.toString());
-    }// Rof pileups
-    for(var i=(group_length-1);i>=n_pileups_year;i--){
-	scene.remove(group_pileups.children[i]);
-	group_pileups.remove(group_pileups.children[i]);
-    }
-    // making the links
-    group_length=group_links.children.length;
-    n_curves=paths.curves.length;
-    n_count=count.length;
-    n_volume=volume.length;
-    vS_length=vS.length;
-    for(var i=0;i<(vS_length-mST.length);i++) mST.push(new THREE.Vector3());
-    for(var i=0;i<(vS_length-cvS.length);i++) cvS.push(new THREE.Vector3());
-    for(var i=0;i<(vS_length-cvT.length);i++) cvT.push(new THREE.Vector3());
-    for(var i=0;i<n_pairwize_year;i++){
-	ii=pairwize_year[i];
-        // Starting and target points
-	source=data_json_w['links'][ii]['source'];
-	target=data_json_w['links'][ii]['target'];
-	index=n_countries*Math.min(source,target)+Math.max(source,target);
-	source=data_json['LL'][source];
-	target=data_json['LL'][target];
-	LATi=0.5*Math.PI-source['lat']*Math.PI/180.0;
-	LONi=0.5*Math.PI+source['lon']*Math.PI/180.0;
-	if(i<vS_length){
-            vS[i].setX(Math.sin(LATi)*Math.sin(LONi));
-            vS[i].setY(Math.cos(LATi));
-            vS[i].setZ(Math.sin(LATi)*Math.cos(LONi));
-	    mST[i].copy(vS[i]);
-	    cvS[i].copy(vS[i]);
-        }else{
-	    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    cvS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	}
-	LATi=0.5*Math.PI-target['lat']*Math.PI/180.0;
-	LONi=0.5*Math.PI+target['lon']*Math.PI/180.0;
-        if(i<vS_length){
-            vT[i].setX(Math.sin(LATi)*Math.sin(LONi));
-            vT[i].setY(Math.cos(LATi));
-            vT[i].setZ(Math.sin(LATi)*Math.cos(LONi));cvT[i].copy(vT[i]);
-        }else{
-	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    cvT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	}
-	if(i>=vS_length) vS_length+=1;
-	if(i<n_volume) volume[i]=weight0*Math.cbrt(3.0*data_json_w['links'][ii]['value']/(4.0*Math.PI));
-	else volume.push(weight0*Math.cbrt(3.0*data_json_w['links'][ii]['value']/(4.0*Math.PI)));
-	// mid-point
-	theta=Math.acos(vS[i].x*vT[i].x+vS[i].y*vT[i].y+vS[i].z*vT[i].z);
-	bn.setX(vS[i].y*vT[i].z-vS[i].z*vT[i].y);
-	bn.setY(vS[i].z*vT[i].x-vS[i].x*vT[i].z);
-	bn.setZ(vS[i].x*vT[i].y-vS[i].y*vT[i].x);
-	bn.normalize();
-	weighti=radius*theta/radius;
-	cvS[i].applyAxisAngle(bn,0.33*theta);
-	cvS[i].multiplyScalar(radius*(1.0+weighti));
-	cvT[i].applyAxisAngle(bn,0.66*theta);
-	cvT[i].multiplyScalar(radius*(1.0+weighti));
-	mST[i].applyAxisAngle(bn,0.5*theta);
-	mST[i].multiplyScalar(radius*(1.0+weighti));
-	vS[i].multiplyScalar(radius);
-	vT[i].multiplyScalar(radius);
-	// Bezier curves
-	// if(i<paths.curves.length) paths.curves[i]=new THREE.CubicBezierCurve3(vS[i],cvS[i],cvT[i],vT[i]);
-	// else paths.add(new THREE.CubicBezierCurve3(vS[i],cvS[i],cvT[i],vT[i]));
-	if(i<n_curves) paths.curves[i]=new THREE.QuadraticBezierCurve3(vS[i],mST[i],vT[i]);
-        else{
-	    paths.add(new THREE.QuadraticBezierCurve3(vS[i],mST[i],vT[i]));
-	    n_curves+=1;
-	}
-	if(i<n_count){
-	    count[i]=0;
-	    delta_count[i]=parseInt(volume[i]);
-	}else{
-	    count.push(0);
-	    delta_count.push(parseInt(volume[i]));
-	    n_count+=1;
-	}
-	if(i<group_length){
-      	    group_links.children[i].geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[i].getPoints(n_points));
-	    source=data_json['nodes'][data_json_w['links'][ii]['source']]['id'];
-	    target=data_json['nodes'][data_json_w['links'][ii]['target']]['id'];
-      	    group_links.children[i].material=new THREE.LineBasicMaterial({color:colors[index%n_colors]});
-	    group_mesh.children[i].material=group_links.children[i].material;
-	    group_mesh.children[i].geometry.parameters.radius=volume[i];
-	}else{
-      	    geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[i].getPoints(n_points));
-	    source=data_json['nodes'][data_json_w['links'][ii]['source']]['id'];
-	    target=data_json['nodes'][data_json_w['links'][ii]['target']]['id'];
-      	    group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
-	    group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume[i],segments0,rings0),group_links.children[i].material));
-	    group_length+=1;
-        }
-	group_links.children[i].name=source.concat(' with ',target.concat(' : ',data_json_w['links'][ii]['value'].toString()));
-    }// Rof pairwize
-    for(var i=(group_length-1);i>=n_pairwize_year;i--){
-	scene.remove(group_links.children[i]);
-	group_links.remove(group_links.children[i]);
-	scene.remove(group_mesh.children[i]);
-	group_mesh.remove(group_mesh.children[i]);
-    }
-};
-
-// list the pairwize for the year
-function list_pairwize_year(){
-    pairwize_year=[];
-    for(var i=0;i<pairwize[i_word];i++) if(data_json_w['links'][i]['year']===year) pairwize_year.push(i);
-    n_pairwize_year=pairwize_year.length;
-};
-// list the pileups for the year
-function list_pileups_year(){
-    pileups_year=[];
-    for(var i=0;i<pileups[i_word];i++) if(data_json_w['pileups'][i]['year']===year) pileups_year.push(i);
-    n_pileups_year=pileups_year.length;
-};
-
-function OnMouseUp(e){
-    var mouse2D=new THREE.Vector2((e.clientX/window.innerWidth)*2-1,-(e.clientY/window.innerHeight)*2+1);
-    var raycaster=new THREE.Raycaster();
-    raycaster.setFromCamera(mouse2D,camera);
-    intersects=raycaster.intersectObjects(group_pileups.children);
-    if(intersects.length>0){
-	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
-	text_buffer=intersects[0].object.name;
-	text_buffer.fontcolor(Math.random()*0xffffff);
-	text=text.concat(text_buffer,'<br>');
-    }
-    intersects=raycaster.intersectObjects(group_links.children);
-    if(intersects.length>0){
-	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
-	text_buffer=intersects[0].object.name;
-	text_buffer.fontcolor(Math.random()*0xffffff);
-	text=text.concat(text_buffer,'<br>');
-    }
-    document.getElementById('pileups').innerHTML=text;
-};
-
-// Rotating mouse
-function OnMouseDown(e){
-    DraggingMouse=true;
-    PreviousMouseX=e.clientX;
-    PreviousMouseY=e.clientY;
-};
-function RotateOnMouseMove(e){
-    if(DraggingMouse){
-	thetaX=Math.sign(e.clientX-PreviousMouseX)*0.075;
-	thetaY=Math.sign(e.clientY-PreviousMouseY)*0.075;
-	globe.rotation.x+=thetaY;
-	globe.rotation.y+=thetaX;
-	PreviousMouseX=e.clientX;
-	PreviousMouseY=e.clientY;
-    }
-};
-
-// zooming mouse
-function ZoomOnMouseWheel(e){
-    // camera.fov+=e.wheelDelta*ZoomSensitivity;
-    // camera.projectionMatrix=new THREE.Matrix4().makePerspective(camera.fov,window.innerWidth/window.innerHeight,camera.near,camera.far);
-    camera.position.set(camera.position.x,camera.position.y,camera.position.z-Math.sign(camera.position.z)*e.wheelDelta);
-    camera.lookAt(new THREE.Vector3(0,0,0));
-};
-
-// making the render
-function render(){
-    for(var i=0;i<n_pairwize_year;i++){
-	if(count[i]>=n_points || count[i]<0) delta_count[i]*=-1;
-	count[i]+=delta_count[i];
-	paths.curves[i].getPoint(count[i]/n_points,pt);
-	group_mesh.children[i].position.set(pt.x,pt.y,pt.z);
-    }
-    renderer.render(scene,camera);
-};
-
-function update(){
-    requestAnimationFrame(update);
-    render();
-};
-// year - 1
-document.getElementById('yearm1').addEventListener('click',function(){
-    change_year(-1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-// year + 1
-document.getElementById('yearp1').addEventListener('click',function(){
-    change_year(1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-// change year
-function change_year(dt){
-    year+=dt;
-    if(year>max_year) year=min_year;
-    if(year<min_year)year=max_year;
-    description='# publications*mean(2010-2018)/publications('+(year.toString())+') :';
-    text=description.concat('<br>');
-    document.getElementById('pileups').innerHTML=text;
-    document.getElementById('YEAR').innerHTML=year.toString();
-    document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year]);
-    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year]);
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
-};
-
-// initializing description
-function initializing_description(){
-    description='# publications*mean(2010-2018)/publications('+(year.toString())+') :';
-    text=description.concat('<br>');
-    document.getElementById('pileups').innerHTML=text;
-};
-
-// highlighting a keyword on mouse click
-function highlight(e){
-    console.log(e.target.id);
-    document.getElementById(word).style.fontSize='10px';
-    for(var i=0;i<n_words;i++) if(e.target.id===words[i]) i_word=i;
-    word=words[i_word];
-    data_json_w=data_json[word];
-    document.getElementById('WORD').innerHTML=word;
-    initializing_description();
-    e.target.style.fontSize='30px';
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-};
-
-// list_pileups_year();
-// list_pairwize_year();
-// change_links();
-// update();
-requestJSON(readJSON);
+    </script>
+  </body>
+</html>

@@ -90,7 +90,7 @@ function readJSON(data){
     n_publications=data_json['publications'].length;
     for(var i=0;i<n_publications;i++) publications.push(0);
     for(var i=0;i<n_publications;i++) if(data_json['publications'][i]['year']>=min_year) publications[data_json['publications'][i]['year']-min_year]=data_json['publications'][i]['value'];
-    for(var t=0;t<n_year;t++)	mean_publications+=publications[t]/n_year;
+    for(var t=0;t<n_year;t++) mean_publications+=publications[t]/n_year;
     document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
     
     // reading the keywords
@@ -106,40 +106,26 @@ function readJSON(data){
 	myButton.innerHTML=word;
 	myButton.style.fontSize=2*myButtonFontSize;
 	document.getElementById('keywords').appendChild(myButton);
-	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate' || word==='climate_change' || word==='coral' || word==='deforestation' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='pollution' || word==='soil_permafrost'){
-	    myButton.style.fontSize=2*myButtonFontSize;
-	    document.getElementById('footer').appendChild(myButton);
-	}else{
-	    myButton.style.fontSize=myButtonFontSize;
-	    document.getElementById('keywords').appendChild(myButton);
-	    document.getElementById('keywords').appendChild(document.createElement('br'));
-	}
+	myButton.style.fontSize=2*myButtonFontSize;
+	document.getElementById('leftCol').appendChild(myButton);
+	document.getElementById('leftCol').appendChild(document.createElement('br'));
 	document.getElementById(word).addEventListener('click',highlight,false);
-	// if(i%1===0) document.getElementById('keywords').appendChild(document.createElement('br'));
-	// myButton=document.createElement('span');
-	// myButton.className='button';
-	// myButton.style.color='#fff';
-	// myButton.style.cursor='pointer';
-	// myButton.id=word;
-	// myButton.innerHTML=word;
-	// myButton.style.fontSize=myButtonFontSize;
-	// document.getElementById('keywords').appendChild(myButton);
-	// document.getElementById(word).addEventListener('click',highlight,false);
     }
     word=words[i_word];
     document.getElementById('WORD').innerHTML=word;
-    document.getElementById('footer').appendChild(document.createElement('br'));
-    for(var i=min_year;i<=max_year;i++){
+    // list of years
+    for(var y=min_year;y<=max_year;y++){
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color=colors[i%n_colors];
+	myButton.style.color=colors[(y-min_year)%n_colors];
 	myButton.style.cursor='pointer';
-	myButton.id=i.toString();
-	myButton.innerHTML=i.toString();
+	myButton.id=y.toString();
+	myButton.innerHTML=y.toString();
 	myButton.style.fontSize='20px';
-	document.getElementById('footer').appendChild(myButton);
-	document.getElementById(i.toString()).addEventListener('click',click_year,false);
-    }
+	document.getElementById('rightCol').appendChild(myButton);
+	document.getElementById('rightCol').appendChild(document.createElement('br'));
+	document.getElementById(y.toString()).addEventListener('click',change_year,false);
+    }    
     
     // initial year
     for(var w=0;w<n_words;w++){
@@ -216,63 +202,6 @@ document.addEventListener('mousedown',OnMouseDown);
 document.addEventListener('mouseup',OnMouseUp);
 document.addEventListener('mouseup',function(e){DraggingMouse=false;});
 document.addEventListener('mousewheel',ZoomOnMouseWheel);
-// document.addEventListener('keyup',MoveOnKeyboardKeys);
-document.getElementById('pkeyword').addEventListener('click',function(){
-    change_keyword(-1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-document.getElementById('nkeyword').addEventListener('click',function(){
-    change_keyword(1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-function change_keyword(dw){
-    i_word+=dw;
-    if(i_word===n_words) i_word=0;
-    if(i_word===-1) i_word=n_words-1;
-    word=words[i_word];
-    document.getElementById('WORD').innerHTML=word;
-    data_json_w=data_json[word];
-    initializing_description();
-};
-// changing year
-// function MoveOnKeyboardKeys(e){
-// switch(e.keyCode){
-// case 37:
-// year-=1;
-// break;
-// case 39:
-// year+=1;
-// break;
-// case 65:
-// year+=1;
-// break;
-// case 90:
-// year-=1;
-// break;
-// case 81:
-// i_word+=1;
-// break;
-// case 83:
-// i_word-=1;
-// break;
-// };
-// i_word=Math.min(n_words-1,Math.max(0,i_word));
-// word=words[i_word];
-// document.getElementById('WORD').innerHTML=word;
-// data_json_w=data_json[word];
-// if(year>max_year) year=min_year;
-// if(year<min_year) year=max_year;
-// document.getElementById('YEAR').innerHTML=year.toString();
-// document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-// initializing_description();
-// list_pileups_year();
-// list_pairwize_year();
-// change_links();
-// };
 
 // making the new links and the new pileups
 function change_links(){
@@ -295,14 +224,8 @@ function change_links(){
 	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	    vS_length+=1;
 	}
-	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length());
 	vS[i].multiplyScalar(radius);
-	// vS[i].setX(radius*vS[i].x);
-	// vS[i].setY(radius*vS[i].y);
-	// vS[i].setZ(radius*vS[i].z);
-	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],radius,(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length(),vS[i].length(),vT[i].length());
 	vT[i].multiplyScalar(radius+5.0*data_json_w['pileups'][ii]['value']);
-	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],5.0*data_json_w['pileups'][ii]['value'],(new THREE.Vector3(vS[i].x-vT[i].x,vS[i].y-vT[i].y,vS[i].z-vT[i].z)).length());
 	// Lines
 	if(i<n_lines){
 	    lines[i].vertices[0].copy(vS[i]);
@@ -314,21 +237,19 @@ function change_links(){
 	    n_lines+=1;
 	}
 	lines[i].verticesNeedUpdate=true;
-	// if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']],5.0*data_json_w['pileups'][ii]['value'],(new THREE.Vector3(lines[i].vertices[0].x-lines[i].vertices[1].x,lines[i].vertices[0].y-lines[i].vertices[1].y,lines[i].vertices[0].z-lines[i].vertices[1].z)).length());
 	source=data_json_w['pileups'][ii]['country'];
 	if(i<group_length){
-	    // if(word==='coral' && year===2014) console.log(data_json['LL'][data_json_w['pileups'][ii]['country']]);
 	    group_pileups.children[i].geometry=lines[i];
-            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff,linewidth:2.5});
-            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00,linewidth:2.5});
-            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff,linewidth:2.5});
+            if(source==='facebook') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x0000ff,linewidth:5.5});
+            if(source==='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0x00ff00,linewidth:5.5});
+            if(source!='facebook' && source!='google') group_pileups.children[i].material=new THREE.LineBasicMaterial({color:0xffffff,linewidth:5.5});
 	}else{
-            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff,linewidth:2.5})));
-            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00,linewidth:2.5})));
-            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff,linewidth:2.5})));
+            if(source==='facebook') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x0000ff,linewidth:5.5})));
+            if(source==='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0x00ff00,linewidth:5.5})));
+            if(source!='facebook' && source!='google') group_pileups.add(new THREE.Line(lines[i],new THREE.LineBasicMaterial({color:0xffffff,linewidth:5.5})));
 	    group_length+=1;
 	}
-	group_pileups.children[i].name=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'].concat(' : ',ii.toString());
+	group_pileups.children[i].name=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'].concat(' : ',data_json_w['pileups'][ii]['value'].toString());
     }// Rof pileups
     for(var i=(group_length-1);i>=n_pileups_year;i--){
 	scene.remove(group_pileups.children[i]);
@@ -459,15 +380,14 @@ function OnMouseUp(e){
     raycaster.setFromCamera(mouse2D,camera);
     intersects=raycaster.intersectObjects(group_pileups.children);
     if(intersects.length>0){
-	// intersects[0].object.material.color.setHex(Math.random()*0xffffff);
-	intersects[0].object.material.linewidth=5.0;
+	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
 	text_buffer=intersects[0].object.name;
 	text_buffer.fontcolor(Math.random()*0xffffff);
 	text=text.concat(text_buffer,'<br>');
     }
     intersects=raycaster.intersectObjects(group_links.children);
     if(intersects.length>0){
-	// intersects[0].object.material.color.setHex(Math.random()*0xffffff);
+	intersects[0].object.material.color.setHex(Math.random()*0xffffff);
 	intersects[0].object.material.linewidth=5.0;
 	text_buffer=intersects[0].object.name;
 	text_buffer.fontcolor(Math.random()*0xffffff);
@@ -516,42 +436,24 @@ function update(){
     requestAnimationFrame(update);
     render();
 };
-function click_year(e){
-    change_year(parseInt(e.target.id)-year);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-}
-// year - 1
-document.getElementById('yearm1').addEventListener('click',function(){
-    change_year(-1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-// year + 1
-document.getElementById('yearp1').addEventListener('click',function(){
-    change_year(1);
-    list_pileups_year();
-    list_pairwize_year();
-    change_links();
-},false);
-// change year
-function change_year(dt){
-    year+=dt;
-    if(year>max_year) year=min_year;
-    if(year<min_year)year=max_year;
+
+// change year on mouse click
+function change_year(e){
+    year=parseInt(e.target.id);
     description='# publications*mean(2010-2018)/publications('+(year.toString())+') :';
     text=description.concat('<br>');
     document.getElementById('pileups').innerHTML=text;
     document.getElementById('YEAR').innerHTML=year.toString();
     document.getElementById('publications').innerHTML='# publications : '.concat(publications[year-min_year].toString());
-    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year]);
-    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year]);
+    document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
+    document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
     for(var i=0;i<global_surface_ice.length;i++){
 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
+    list_pileups_year();
+    list_pairwize_year();
+    change_links();
 };
 
 // initializing description
@@ -576,8 +478,4 @@ function highlight(e){
     change_links();
 };
 
-// list_pileups_year();
-// list_pairwize_year();
-// change_links();
-// update();
 requestJSON(readJSON);
