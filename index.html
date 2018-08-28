@@ -27,6 +27,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
   <style>
     #home-header img{
       margin: 3em 0;
@@ -69,7 +71,6 @@
       /*font-size: 15px;*/
     }
 
-
     .collapsible:hover {
       background-color: #DCDCDC;
     }
@@ -93,6 +94,42 @@
       transition: max-height 0.2s ease-out;
       /*background-color: #f1f1f1;*/
     }
+
+    .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color:  #f1f1f1;
+    }
+
+    .menubutt {
+      position: fixed;
+      width:  250px;
+      margin-top: 0%;
+      margin-right: 0%;
+      z-index: 1;
+      font-size: 20px;
+      top: 0;
+      right: 0;
+    }
   </style>
 
 </head>
@@ -115,7 +152,12 @@
       {% include credits.html%}
     </section>
 
-    <button class="button collapsible"> <h3> The data landscape </h3></button>
+    <!-- MENU BuTTON -->
+    <button class = "menubutt" onclick="openNav()">&#9776; Menu</button>
+
+
+    <!-- COLLAPSIBLES -->
+    <button id = "dataland_butt" class="button collapsible"> <h3> The data landscape </h3></button>
     <h5 style="text-align:justify">
         Information about activity of our planet comes in all forms and shapes. It is produced and used by thousands of actors for multiple purposes.
         The methods, tools, motivations and methods behind the production of climate data are driven by common or diverging interests (strategic, commercial, scientific, etc).
@@ -153,7 +195,8 @@
 
     <hr>
 <!--     <section> -->
-    <button class="button collapsible"> <h3>Methodology : data sources and visualization</h3></button>
+    <a name = "metho"></a>
+    <button id = "metho_butt" class="button collapsible"> <h3>Methodology : data sources and visualization</h3></button>
     <h5 style="text-align:justify">
         Take inventory of the different forms taken by data on Earth will be an impossible task. Data avaibility is sporadic and many interesting information does not exist under a  well-structured format. In this research, we select a few examples and approaches to provide a first set of insights that will help us refine a larger and more systematic approach for this ongoing investigation.
     </h5>  
@@ -188,7 +231,7 @@
     <hr>
 
     <!-- <section> -->
-    <button class="button collapsible"> <h2> The advent of earth global monitoring </h2> </button>
+    <button id = "advent_butt" class="button collapsible"> <h2> The advent of earth global monitoring </h2> </button>
     <h5 style="text-align:justify">
         A timeline representing major milestones in the creation of a network of actors related to ecosystemic data.
     </h5>
@@ -200,7 +243,7 @@
     <hr>
 
     <!-- <section> -->
-    <button class="button collapsible"> <h2>The business of climate data</h2> </button>
+    <button id = "business_butt" class="button collapsible"> <h2>The business of climate data</h2> </button>
     <h5 style="text-align:justify">
         Who is selling climate data? To whom? What is made available? A quick overview of organizations involved in the data business.
     </h5>
@@ -228,7 +271,7 @@
     <hr>
 
     <!-- <section> -->
-    <button class="button collapsible"> <h2>Academic exchanges</h2> </button>
+    <button id = "academic_butt" class="button collapsible"> <h2>Academic exchanges</h2> </button>
     <h5 style="text-align:justify">
         Scholars are shaping discussions surrounding climate change.
         <br>
@@ -265,7 +308,7 @@
     <hr>
 
     <!-- <section> -->
-    <button class="button collapsible"> <h2>Data Frost : Who cares ?</h2> </button>
+    <button id= "datafrost_butt" class="button collapsible"> <h2>Data Frost : Who cares ?</h2></button>
     <h5 style="text-align:justify">
     A review of legislation in Europe
     </h5>
@@ -301,9 +344,24 @@
     <p>This work was first presented on July 9th, 2018 at the <a href="http://barthes.enssib.fr/ECV-2018/">École d'été de cartographie et visualisation</a> at ENSSIB, Lyon.</p>
   </div>
 {% include footer.html %}
+
+<!-- Side navigation bar -->
+
+<div id="mySidenav" class="sidenav">
+  <a id = "dataland" onclick="goTo(this.id)">The Data Landscape</a>
+  <a id = "metho" onclick="goTo(this.id)">Methodology : data Sources and visualization</a>
+  <a id="advent" onclick="goTo(this.id)">The advent of Earth Global Monitoring</a>
+  <a id="business" onclick="goTo(this.id)">The business of climate data</a>
+  <a id="academic" onclick="goTo(this.id)">Academic exchanges</a>
+  <a id="datafrost" onclick="goTo(this.id)">Data Frost : who cares ?</a>
+</div>
+
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script>
+
+
+// COLLAPSIBLES
 var coll = document.getElementsByClassName("collapsible");
 var cont = document.getElementsByClassName("content");
 var i;
@@ -311,9 +369,9 @@ var bool = 0;
 
 
 // Set all collapsible to null
-function clean(bool){
-  if (bool == 1){
-    for (i=0; i< cont.length; i++){
+function clean(){
+  for (i=0; i< cont.length; i++){
+    if (cont[i].style.maxHeight){
       cont[i].style.maxHeight = null;
     }
   }
@@ -326,14 +384,31 @@ for (i = 0; i < coll.length; i++) {
     var content = this.nextElementSibling.nextElementSibling;
     if (content.style.maxHeight){
       content.style.maxHeight = null;
-      bool = 0;
     } else {
-      clean(bool);
+      clean();
       content.style.maxHeight = content.scrollHeight + "px";
-      bool = 1
     } 
   });
 };
+
+//NAVIGATION BAR
+// function openNav() {
+//   document.getElementById("mySidenav").style.width = "250px";
+
+// }
+
+// function closeNav() {
+//   document.getElementById("mySidenav").style.width = "0";
+// }
+
+
+function goTo(clickedID) {
+  clean(1);
+  var butt = document.getElementById(clickedID + "_butt");
+  var content = butt.nextElementSibling.nextElementSibling;
+  butt.scrollIntoView({behavior: "smooth"});
+  content.style.maxHeight = content.scrollHeight + "px";
+}
 
 
 </script>
