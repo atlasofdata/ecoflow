@@ -1,5 +1,4 @@
----
----
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +55,44 @@
     .examples {
       text-align: center;
     }
+
+    .collapsible {
+      /*background-color: #777;*/
+      /*color: white;*/
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      height: 70px;
+      /*border: none;*/
+      text-align: center;
+      outline: none;
+      /*font-size: 15px;*/
+    }
+
+
+    .collapsible:hover {
+      background-color: #DCDCDC;
+    }
+
+    .collapsible:after {
+      content: '\002B';
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      /*background-color: #f1f1f1;*/
+    }
   </style>
 
 </head>
@@ -72,18 +109,20 @@
       <h4>
         An attempt to visualize flows of data related to our planet ecosystem.
       </h4>
-      <p>
+      <p style="text-align:justify">
         Data about the Earth are increasingly strategic to understand the current condition of our planet and its evolution. A network is emerging associating an increasingly large number of actors from different regions and sectors, either informally through scientific cooperation or under the auspices of the United nations. It concentrates data harvested by the members, attempts to model the global ecosystem and makes predictions, to help design policies to adapt to and mitigate the impact of climate change. <br> The present work aims to investigate this network as the interactions of the components of a complex system for global earth monitoring. It interacts with social, economic and political structures, generating frictions and feedback loops. We propose some insights of the underlying mechanisms of Earth data flows, exhibiting both resilience or impediments to the flows of information and knowledge which result from tensions between different interests. Data visualization are proposed to better understand the power relations at play. 
       </p>
       {% include credits.html%}
     </section>
 
-    <section>
-      <h2>The data landscape</h2>
-      <p>
+    <button class="button collapsible"> <h3> The data landscape </h3></button>
+    <h5 style="text-align:justify">
         Information about activity of our planet comes in all forms and shapes. It is produced and used by thousands of actors for multiple purposes.
         The methods, tools, motivations and methods behind the production of climate data are driven by common or diverging interests (strategic, commercial, scientific, etc).
-      </p>
+    </h5>
+    <div class="content">
+    <!-- <section> -->
+      
       <div class="row examples">
         <div class="one-half column">
           <figure>
@@ -109,58 +148,68 @@
         </div>
       </div>
 
-    </section>
-    <section>
+    <!-- </section> -->
+    </div>
 
-      <h3>Methodology : data sources and visualization</h3>
-      <p>
+    <hr>
+<!--     <section> -->
+    <button class="button collapsible"> <h3>Methodology : data sources and visualization</h3></button>
+    <h5 style="text-align:justify">
         Take inventory of the different forms taken by data on Earth will be an impossible task. Data avaibility is sporadic and many interesting information does not exist under a  well-structured format. In this research, we select a few examples and approaches to provide a first set of insights that will help us refine a larger and more systematic approach for this ongoing investigation.
-      </p>
+    </h5>  
+    <div class="content">  
+      
 
       <div class="row">
         <div class="one-third column">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVKSURBVGhD7ZpnqBxVGIZvTNRoFLvYwYIFBXuIP/yhxgoKQmwxYgmxl2iMJSbBllixl8QuorFEhURFNFFR7L0FSYyKLVjSE3vJ8yz3w2Ehe+fszO7OD194YHfZnXO+mXO+draroHrDLnAsXAaT4HWYDd/BPPgHfu1+/QXMgGkwAc6FQ2FDaLs2g/PgaVgI/5bETLgLBsHK0BKtAEfC8/A3ZCfwOTwEl8AQGABbwPqwOih/vxZsCtvA/nAaXA/PwiLIXnMu3Aw7QGk6ED6BGOQ3eBSOho2hDPWB3eF8+AhiLG/a3VBonDXhSYiLfgXexbWh1doRboffwbGXwvGQrPUgnsICOAdWgnZrK3gM4mbqUHLLx6zn8YezYDvotM6EP8E5DfWDPDoV/MEccMNWRcPAec2HXMv7HfAHh9XeVUt6Ted2Yu1dA/UCN5iP0SVWNWmAhtxWe9dAa4BfNBqv6gcVk3vF+T1Ye9dAYYjoaqskV8h7kGzIEtgeqqLxEHNLMkRM9PaDTmpFMMHMziu3IT6NCER/wZ3QiQz1AHgfnMcvMLn7dW5DjOZ6sDEQgUjjboFdoZVaBQbDdHBc+RIsF/w82ZDQtvAExEXFxG4cmMWuBkW1ORwH94NjxzgGP0sGjVOFDAntBDfBDxADiU/sA3ApXgGmEAfDPuDT80aYBO4BA8FAa+5mLHgOvoHs9eRNOB1M/bMqxZCQm8/U/mowJ4ulV4SfwUx7OFivLE+lGlKvfrAbWHiNhnvApWg64Z39EEx7XgaLKGuZG+EM8IZsDe7HPEo2RKK6q5JGQLIhVmtVUl/4FJINMXm0/q6CXHpWjDG3JEPEIHQEdFLuQfdVdl65DbGrMbH7tbh5210p2nlxc9srcA7GlHu7X+c2JLzWyWBE9zPdrBfQ09iYa5XsFxhDst0UPZ/erZD7Nce6A7Lxwi6iT8yW0CZQRNEKsuv4DPwBMc63cAL4dFQpccQOo7mXDbkYKDA6vwAabEphdDeCm8LsCUb0Q8BY41M2vXkE3oXFkL2WSapdTPemniqrUgOiHsQAOBKeAr+bnUgzfAZm2MdAoyw72RB7unnlfjHp2xdOgmvAZaenmQpGeDEFfwCsLcwAjoL+kNLwSzZE2tFRTNUFkGyI67hKMmXyWCLZEDedrrYK0rN59hJzSzJEdLn69E5qHfBgKDuvpM1uw9j+lu9fgXbnXTbNrU9+Audg7DL9TzIk3K+xIC6kUXofg2CUnq3QlnApfA2OK9bvG0GhOOI5yeVgAhkX9ok9Dnb+LIEj8jYjN/FBcCW8AbEKxLTdQBoqJSDqjo3Kr0EMFHjY+TFYrhpHrGWMKR7F+VTFaG9VeBGYAXiXTQjrj/KM9PeB2UD9DcptiCmzXzT7bSTPCD1BcsBwic1ibvUq2EnUSzqH5SkMMbD2qDipTTkbcXm4xDyR9Wm4TG4F63cj/MNgtL8OjE+ngJmANySl62+u59yuqr3rQdFhvKH2rjpyaZsNOzdvQo8yIXTDSaerw5BZsAmqRugQ8nZdukaBP9KYsVDEKxWV9c5b4HysEj0gTdLFEK5Qj9TudMVWrEE56pXvYWdoSvr3qJnFQsiUZV1olVza/uvBfz/EuMasDaCQTBVsjNnWjAvrMl8En9re0Mhl9iQrT7MFY0t99WnMsmdcqvyji4HNMtTMODug6FFeAv8Yo/u9EM4CDzDFilLDrwU9o+ce9WWu2CTXTTe9jFKkKzR1cMC3wf+n1E8oLz/CFLD5YMXY0dNk3aH//NkL7HoYFP23kB17A6EHRD4lveHZcDh4cGNK9L/+U1fXMgdpImwKkOSJAAAAAElFTkSuQmCC">
           <h5>Databases</h5>
-          <p>
+          <p style="text-align:justify">
             We use existing databases to extract information and consider the avaibility of information.
           </p>
         </div>
         <div class="one-third column">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS/SURBVGhD7Zh5qFVVFIdfozZYkc2RFUSZDUQDZTZKUUlF/yUOJEERBVlENlNBGGojzRaNlE00KioliEhiNKARRSVNNNigjTRqfd9+d+H2vHffOcq773nh/ODjnr3PPufsYa21174dtWrV6nftApNgauO6LXUG/AL/NZgNbafd4FuIQchX0FbaqPG7AzwKq8GBLIW20VHwHhyXSp06ET6Eh1OpDeQKfA7O/iq4GwaBGgD7dF5u2BoIOrODWA4OxOtP4RTYILUrnAqG1adAU/oH7PjvcCAcDu806vSRa6FftS2cA7fA6/Ad2Llm2Da0O8QA5QXYE/pce4FmkndUVsIC0Acmwq9g/UOQ6w6w/kuIAdn2UtgU+kx2zI8bNq+C06E4o7eDbT6CLa1oaA/4EzSrI2FfmAW2lbfgMGi5tgPt3ZkcYkU3OgZ0avE614NghzWnXGfDN+A9330bbA0t08Xgx15Opa7aCj4B22hCuQ6Cf8EB6vhFOUkPQGyUn4Gr3RK9D35kVCp11TTwvoNxULnmgfceSaXmchU/ANvKs2BELGpnOBrGQ26+pToefLEztbEVBe0Hf4MzeoIVmc4Cn/0Z8mw30paiNofrQX/yuZ/gQrga3oUIJMEhUFkzwId8WXeaCd5/IpXWyN37Y/Cee0xIpzZgmKo0k5MzH6LDedg2SsaA9LFK2gn+Ame8u2U+DXyhq3EP3A/60wFwBXjPCOaglDPuIKx/2ooe5KqdCz+C7eVJUJ5nLF+TShV0JfjA86m0tjaD3Kab8TgMA3UjWGcKv70VFeRkxnOLrUDnQ7y7VPqDuZEPnGxFQW5k3gvc6W8CB/19oy7nawhfMqVZF5lg+g7NSoXfvpFKJTJC2dhIVHROU5UfIDrp/pC38VrzugiegfxQdR+sq9z5nQSf3xFMd7zW7Er1Ctg4d9TQZIiOSRWn2x/Og2J4rirPMH5rRCqtcfgeTVS7dBPT0Z2BXB5b3eXd4HRYX3YztFoRHSekUmc4tjw8lZoootFrqbS2poP3HgMTSQfloF0lTa5ViqTT76iYRDfGpjoWbORybmJFQx5djel/QORcoyHsdwVcB9tAb8uN0W88l0qdgcWyv01laHUnt+FLYJQx5EU0mgIhzdCIZH3kSzqhMT6Otr0hI6fv1qSUK2G5bD9Kp7rfwMZFPFhtAYboOY26F8FIZY4UR1sjmyl/b2S0e4Pv1MmVvmF5SSqVyHODO7a+4l85+of+4AtMP/wnxOsvII8eB4MDixXyJHk5rG/EUpp4mLDh1+95rY82y926SFOLxvn5WxxY/ndPrkPhVYi2njAvgypZ62Aw6JhEegjLN1k3RBXpiwe3ShoDpuOukHKDskOanulDmY6A+FdFzGrNy8aC90wk7bRHZfOpSDaLhMnqr8qd3fLIVKogd2cfML12hkz+lDORR7UyeY7Qp8LkekIzehPugnHgJDp53nOFDMOatOULoJIiKgWGZWdyfWWafgPYobdhGSwEk8BLwAH731hRZ0Lej+BWKJX/GBYf9OPW97VclblwL7g6Htw8Slc6KRpS80GYKrRyB2+ZTgIHYApt6t7dcbcttAg80PSHKfWa3DvuhKGpVKtWrVq1atWq1cfq6PgfH/yK4Bb2aKEAAAAASUVORK5CYII=">
           <h5>Data collection</h5>
-          <p>
+          <p style="text-align:justify">
             We manually collect, aggregate and structure information about existing organizations and stakeholders of climate data.
           </p>
         </div>
         <div class="one-third column">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJNSURBVGhD7Zo7Ly1RGIZ36RLXUuW4VIJWjlNx/sERtyho/AAhVJR0p+T8EhGljohTClEIIpGgQsn7zJhkjLlYkz1X8yRPrFkzs9daY3+z1jezaxUVxaJJ/pK/PVLHvkLQLs/la4BnkmNyz4S8l35XvkU+yj/WVs6ZlZd20Rf2cUyq9Mpxu2g13iyj6v7KqIFwDHAO5/IZzuDC6mIzJpfsYu2f7JJRdbsyaiAcA5zDuXwGnwVhdanCVYwaiHOlU2NO7tjFLzMjb+2iL+wzHQh9oC+x4XvKv9gEvssv8kjue6TuSfZIE+gDfYmNO4hNGJIbcsvjuhyWptQ12LMkk2DPJXGCPQkyCfYkyCzY600V7KWgQ07LRbkt997LC7JPpkW/pE3apg/0hTKrgk4ZSqMkKbqTFx6v5bOMM6GZQhusDq6ktx8P739DM80RSRYXdIf4L5mdk2ZVHtvFT5Cc0cef1lYA5NQcFMSB3LSLibImaSsI+khfA6kGUmeqgTg4wU5A+UGwszxPmhV5Yhc/8aVgd26/zi3O7Y0kKRqQSTMoudXTprcf9I0+NshQeHg2Jb0T4rz8IdOiW9Kmd0Jksi7EA75EKM2isTTL+NIkVqVJdUvDtw928glmZ5bjbpclD+9MySTYeRzKCuBQ+j0yJWEynVgzCXZSUZYWQfAQm9nZhEyCPZevFdzBXugXPe5g5yryPY2qy+WrtzjQeNRAnA7mGl498wq61dr6CHXsm7S2cg65Aj8KIIvz81S2yULAw7NR6fcTjsjMrqIiN9Rqb/eWtguKQ8JPAAAAAElFTkSuQmCC">
           <h5>Visualization</h5>
-          <p>
+          <p style="text-align:justify">
             We use different technics of mapping and visualization to produce representations of the observed phenomenons (exchanges, flows, circulations, etc)
           </p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section>
-    	<h2> The advent of earth global monitoring </h2>
-      <p>
-        A timeline representing major milestones in the creation of a network of actors related ro ecosystemic data.
-      </p>
+    <hr>
+
+    <!-- <section> -->
+    <button class="button collapsible"> <h2> The advent of earth global monitoring </h2> </button>
+    <h5 style="text-align:justify">
+        A timeline representing major milestones in the creation of a network of actors related to ecosystemic data.
+    </h5>
+    <div class="content"> 
       {% include timeline.html %}
-    </section>
+    <!-- </section> -->
+    </div>
 
-    <section>
-      <h2>The business of climate data</h2>
-      <h5>
+    <hr>
+
+    <!-- <section> -->
+    <button class="button collapsible"> <h2>The business of climate data</h2> </button>
+    <h5 style="text-align:justify">
         Who is selling climate data? To whom? What is made available? A quick overview of organizations involved in the data business.
-      </h5>
-
+    </h5>
+    <div class="content"> 
       <div class="row">
         <div class="viz one-half column">
           <img src="https://images.theconversation.com/files/31737/original/rw8xgjt9-1379694360.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip" alt="">
           <h3>IPCC contributors</h3>
-          <p>
+          <p style="text-align:justify">
             The Intergovernmental Panel on Climate Change (IPCC) is the world leading institution regarding climate change challenges. It deals with the tremendous task to synthesize all human knowledge about the phenomenon and its implications for human society. A large number of authors and reviewers coming from all around the world write an Assessment Report every 7 years. This visualization displays authors'and reviewers' nationalities for each assessment report and shows how IPCC is evolving from a United States driven institution to a world driven institution.
           </p>
           <a class="button" href="./bubble/bubble_mix.html">See the viz</a>
@@ -168,20 +217,24 @@
         <div class="viz one-half column">
           <img src="https://ipa.arcticportal.org/images/ipa_logo_with_white_frame.png" alt="">
           <h3>The case of permafrost</h3>
-          <p>
+          <p style="text-align:justify">
             Permafrost is defined as the ground which stays frozen for two years or more. Mostly located in high latitudes, the permafrost has been diminishing for many years due to global warming. Two Essential Climate Variables defined by the Global Climate Observing System (GCOS) are related to permafrost. This visualization depicts the Global Terrestrial Network for Permafrost, which is the worlwide initiative for permafrost essential climate variables monitoring.
           </p>
           <a class="button" href="./permafrost/index.html">See the viz</a>
         </div>
       </div>
-    </section>
-    <section>
-      <h2>Academic exchanges</h2>
-      <h5>
+    </div>
+
+    <hr>
+
+    <!-- <section> -->
+    <button class="button collapsible"> <h2>Academic exchanges</h2> </button>
+    <h5 style="text-align:justify">
         Scholars are shaping discussions surrounding climate change.
         <br>
         What are the main topics of discussions? How have they evolved over time?
-     </h5>
+    </h5>
+    <div class="content">
       <div class="row">
         <div class="one-third column">
           <img style="max-width:70%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png" alt="">
@@ -207,11 +260,16 @@
           <a class="button" href="./globe/index.html">See the Globe</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2>Data Frost : Who cares ?</h2>
-      <h4>A review of legislation in Europe</h4>
+    <hr>
+
+    <!-- <section> -->
+    <button class="button collapsible"> <h2>Data Frost : Who cares ?</h2> </button>
+    <h5 style="text-align:justify">
+    A review of legislation in Europe
+    </h5>
+    <div class="content">
       <figure>
         <img src = './img/products_traceab_eu.png' alt="">
         <figcaption>Environmental concerns have little leverage in traceability norms. The data points represent only legislation for the groups of products manufactured in low-to high-technology industries included in the OECD taxonomy.</figcaption>
@@ -236,9 +294,8 @@
         <figcaption>Reconciliation of reported and discrepant trade volumes for each year from 2006–2013 and overall.</figcaption>
       </figure>
       <p> Source : <a href = 'https://www.nature.com/articles/s41598-017-12301-x'> Cawthorn, D. M., & Mariani, S. (2017). Global trade statistics lack granularity to inform traceability and management of diverse and high-value fishes. Scientific Reports, 7(1), 12852. </a> </p>
+    </div>
 
-
-    </section>
     <hr>
     {% include credits.html%}
     <p>This work was first presented on July 9th, 2018 at the <a href="http://barthes.enssib.fr/ECV-2018/">École d'été de cartographie et visualisation</a> at ENSSIB, Lyon.</p>
@@ -246,5 +303,40 @@
 {% include footer.html %}
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var cont = document.getElementsByClassName("content");
+var i;
+var bool = 0;
+
+
+// Set all collapsible to null
+function clean(bool){
+  if (bool == 1){
+    for (i=0; i< cont.length; i++){
+      cont[i].style.maxHeight = null;
+    }
+  }
+}
+
+// Define on click for collapsibles
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      bool = 0;
+    } else {
+      clean(bool);
+      content.style.maxHeight = content.scrollHeight + "px";
+      bool = 1
+    } 
+  });
+};
+
+
+</script>
+
 </body>
 </html>
