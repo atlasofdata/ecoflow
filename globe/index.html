@@ -23,7 +23,7 @@
     #pileups{
     position:absolute;
     left:78%;
-    top:400px;
+    top:630px;
     width:100%;
     text-align:left;
     z-index:100;
@@ -64,9 +64,64 @@
     width:150px;
     overflow:hidden;
     top:125px;
-    bottom:300px;
     }
-    .rightCol:hover{left:97%;overflow-y:scroll;}
+    .rightCol:hover{left:97%;}
+    .rightColGHG{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:460px;
+    }
+    .rightColGHG:hover{left:95%;}
+    .rightColP{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:480px;
+    }
+    .rightColP:hover{left:93%;}
+    .rightColF{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:500px;
+    }
+    .rightColF:hover{left:93%;}
+    .rightColY{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:520px;
+    }
+    .rightColY:hover{left:93%;}
+    .rightColPL{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:540px;
+    }
+    .rightColPL:hover{left:93%;}
+    .rightColLU{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:560px;
+    }
+    .rightColLU:hover{left:93%;}
+    .rightColFN{
+    left:98%;
+    display:block;
+    position:absolute;
+    width:100px;
+    top:580px;
+    }
+    .rightColFN:hover{left:93%;}
   </style>
   <body>
     <div id="info">
@@ -76,9 +131,11 @@
     <a href="https://www.ncdc.noaa.gov/snow-and-ice" target="_blank" rel="noopener" style='color:#00f;font-weight:bold;cursor:pointer;text-decoration:underline'>ice surface data</a>
     <a href="https://www.worldbank.org" target="_blank" rel="noopener" style='color:darkgreen;font-weight:bold;cursor:pointer;text-decoration:underline'>forest coverage data</a>
     <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>temperatures anomalies data</a>
+    <a href="http://www.fao.org/faostat/en/#data/" target="_blank" rel="noopener" style='color:violet;font-weight:bold;cursor:pointer;text-decoration:underline'>FAO data</a>
     <br>drag to spin the globe, wheel to zoom in/out
     <div id="WORD" style="font-size:40px;color:#00f">?</div>
     <div id="YEAR" style="font-size:40px;color:#00f">?</div>
+    <span id="legend" style="font-weight:bold;font-size:10px"></span>
     </div>
     <div id="pileups">
       <!-- <span id="pileups" style="font-weight:bold;font-size:30px;color:#f00"></span> -->
@@ -98,6 +155,21 @@
     </div>
     <div id='rightCol' class='rightCol'>
     </div>
+    <div id='rightColGHG' class='rightColGHG'>
+      <!-- <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="nitrous_oxide_methane">nitrous oxide and methane emission</span> -->
+    </div>
+    <div id='rightColP' class='rightColP'>
+    </div>
+    <div id='rightColF' class='rightColF'>
+    </div>
+    <div id='rightColY' class='rightColY'>
+    </div>
+    <div id='rightColPL' class='rightColPL'>
+    </div>
+    <div id='rightColLU' class='rightColLU'>
+    </div>
+    <div id='rightColFN' class='rightColFN'>
+    </div>
     <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
     <!-- <script src="http://api.geodab.eu/download/giapi/lib/min/giapi.min.js"></script> -->
     <!-- <script src="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"></script> -->
@@ -106,6 +178,6 @@
     <script src="https://threejs.org/examples/js/renderers/Projector.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <div id="container"></div>
-    <script src="./js/globe_callback_words3.js" charset="utf-8"></script>
+    <script src="./js/globe_callback_words4.js" charset="utf-8"></script>
   </body>
 </html>
