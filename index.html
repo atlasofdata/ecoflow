@@ -1,4 +1,5 @@
-
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +21,8 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"> -->
+  <!-- <link rel="stylesh eet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"> -->
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -64,7 +65,7 @@
       cursor: pointer;
       padding: 18px;
       width: 100%;
-      height: 70px;
+      height: 7000px;
       /*border: none;*/
       text-align: center;
       outline: none;
@@ -97,7 +98,7 @@
 
     .sidenav {
       height: 100%;
-      width: 250px;
+      width: 0px;
       position: fixed;
       z-index: 1;
       top: 0;
@@ -125,11 +126,12 @@
       width:  250px;
       margin-top: 0%;
       margin-right: 0%;
-      z-index: 1;
+      z-index: 2;
       font-size: 20px;
       top: 0;
       right: 0;
     }
+
   </style>
 
 </head>
@@ -152,16 +154,17 @@
       {% include credits.html%}
     </section>
 
-    <!-- MENU BuTTON -->
-    <button class = "menubutt" onclick="openNav()">&#9776; Menu</button>
+    <hr>
 
+    <!-- MENU BuTTON -->
+    <button id = "menubutt" class = "menubutt" onclick="openNav()">&#9776; Open Menu</button>
 
     <!-- COLLAPSIBLES -->
-    <button id = "dataland_butt" class="button collapsible"> <h3> The data landscape </h3></button>
-    <h5 style="text-align:justify">
+    <button id = "dataland_butt" class="button collapsible"> <h5> The data landscape </h5></button>
+    <p style="text-align:justify">
         Information about activity of our planet comes in all forms and shapes. It is produced and used by thousands of actors for multiple purposes.
         The methods, tools, motivations and methods behind the production of climate data are driven by common or diverging interests (strategic, commercial, scientific, etc).
-    </h5>
+    </p>
     <div class="content">
     <!-- <section> -->
       
@@ -196,16 +199,15 @@
     <hr>
 <!--     <section> -->
     <a name = "metho"></a>
-    <button id = "metho_butt" class="button collapsible"> <h3>Methodology : data sources and visualization</h3></button>
-    <h5 style="text-align:justify">
+    <button id = "metho_butt" class="button collapsible"> <h5>Methodology : data sources and visualization</h5></button>
+    <p style="text-align:justify">
         Take inventory of the different forms taken by data on Earth will be an impossible task. Data avaibility is sporadic and many interesting information does not exist under a  well-structured format. In this research, we select a few examples and approaches to provide a first set of insights that will help us refine a larger and more systematic approach for this ongoing investigation.
-    </h5>  
+    </p>  
     <div class="content">  
-      
 
       <div class="row">
         <div class="one-third column">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVKSURBVGhD7ZpnqBxVGIZvTNRoFLvYwYIFBXuIP/yhxgoKQmwxYgmxl2iMJSbBllixl8QuorFEhURFNFFR7L0FSYyKLVjSE3vJ8yz3w2Ehe+fszO7OD194YHfZnXO+mXO+draroHrDLnAsXAaT4HWYDd/BPPgHfu1+/QXMgGkwAc6FQ2FDaLs2g/PgaVgI/5bETLgLBsHK0BKtAEfC8/A3ZCfwOTwEl8AQGABbwPqwOih/vxZsCtvA/nAaXA/PwiLIXnMu3Aw7QGk6ED6BGOQ3eBSOho2hDPWB3eF8+AhiLG/a3VBonDXhSYiLfgXexbWh1doRboffwbGXwvGQrPUgnsICOAdWgnZrK3gM4mbqUHLLx6zn8YezYDvotM6EP8E5DfWDPDoV/MEccMNWRcPAec2HXMv7HfAHh9XeVUt6Ted2Yu1dA/UCN5iP0SVWNWmAhtxWe9dAa4BfNBqv6gcVk3vF+T1Ye9dAYYjoaqskV8h7kGzIEtgeqqLxEHNLMkRM9PaDTmpFMMHMziu3IT6NCER/wZ3QiQz1AHgfnMcvMLn7dW5DjOZ6sDEQgUjjboFdoZVaBQbDdHBc+RIsF/w82ZDQtvAExEXFxG4cmMWuBkW1ORwH94NjxzgGP0sGjVOFDAntBDfBDxADiU/sA3ApXgGmEAfDPuDT80aYBO4BA8FAa+5mLHgOvoHs9eRNOB1M/bMqxZCQm8/U/mowJ4ulV4SfwUx7OFivLE+lGlKvfrAbWHiNhnvApWg64Z39EEx7XgaLKGuZG+EM8IZsDe7HPEo2RKK6q5JGQLIhVmtVUl/4FJINMXm0/q6CXHpWjDG3JEPEIHQEdFLuQfdVdl65DbGrMbH7tbh5210p2nlxc9srcA7GlHu7X+c2JLzWyWBE9zPdrBfQ09iYa5XsFxhDst0UPZ/erZD7Nce6A7Lxwi6iT8yW0CZQRNEKsuv4DPwBMc63cAL4dFQpccQOo7mXDbkYKDA6vwAabEphdDeCm8LsCUb0Q8BY41M2vXkE3oXFkL2WSapdTPemniqrUgOiHsQAOBKeAr+bnUgzfAZm2MdAoyw72RB7unnlfjHp2xdOgmvAZaenmQpGeDEFfwCsLcwAjoL+kNLwSzZE2tFRTNUFkGyI67hKMmXyWCLZEDedrrYK0rN59hJzSzJEdLn69E5qHfBgKDuvpM1uw9j+lu9fgXbnXTbNrU9+Audg7DL9TzIk3K+xIC6kUXofg2CUnq3QlnApfA2OK9bvG0GhOOI5yeVgAhkX9ok9Dnb+LIEj8jYjN/FBcCW8AbEKxLTdQBoqJSDqjo3Kr0EMFHjY+TFYrhpHrGWMKR7F+VTFaG9VeBGYAXiXTQjrj/KM9PeB2UD9DcptiCmzXzT7bSTPCD1BcsBwic1ibvUq2EnUSzqH5SkMMbD2qDipTTkbcXm4xDyR9Wm4TG4F63cj/MNgtL8OjE+ngJmANySl62+u59yuqr3rQdFhvKH2rjpyaZsNOzdvQo8yIXTDSaerw5BZsAmqRugQ8nZdukaBP9KYsVDEKxWV9c5b4HysEj0gTdLFEK5Qj9TudMVWrEE56pXvYWdoSvr3qJnFQsiUZV1olVza/uvBfz/EuMasDaCQTBVsjNnWjAvrMl8En9re0Mhl9iQrT7MFY0t99WnMsmdcqvyji4HNMtTMODug6FFeAv8Yo/u9EM4CDzDFilLDrwU9o+ce9WWu2CTXTTe9jFKkKzR1cMC3wf+n1E8oLz/CFLD5YMXY0dNk3aH//NkL7HoYFP23kB17A6EHRD4lveHZcDh4cGNK9L/+U1fXMgdpImwKkOSJAAAAAElFTkSuQmCC">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVKSURBVGhD7ZpnqBxVGIZvTNRoFLvYwYIFBXuIP/yhxgoKQmwxYgmxl2iMJSbBllixl8QuorFEhURFNFFR7L0FSYyKLVjSE3vJ8yz3w2Ehe+fszO7OD19bu4YHfZnXO+mXO+draroHrDLnAsXAaT4HWYDd/BPPgHfu1+/QXMgGkwAc6FQ2FDaLs2g/PgaVgI/5bETLgLBsHK0BKtAEfC8/A3ZCfwOTwEl8AQGABbwPqwOih/vxZsCtvA/nAaXA/PwiLIXnMu3Aw7QGk6ED6BGOQ3eBSOho2hDPWB3eF8+AhiLG/a3VBonDXhSYiLfgXexbWh1doRboffwbGXwvGQrPUgnsICOAdWgnZrK3gM4mbqUHLLx6zn8YezYDvotM6EP8E5DfWDPDoV/MEccMNWRcPAec2HXMv7HfAHh9XeVUt6Ted2Yu1dA/UCN5iP0SVWNWmAhtxWe9dAa4BfNBqv6gcVk3vF+T1Ye9dAYYjoaqskV8h7kGzIEtgeqqLxEHNLMkRM9PaDTmpFMMHMziu3IT6NCER/wZ3QiQz1AHgfnMcvMLn7dW5DjOZ6sDEQgUjjboFdoZVaBQbDdHBc+RIsF/w82ZDQtvAExEXFxG4cmMWuBkW1ORwH94NjxzgGP0sGjVOFDAntBDfBDxADiU/sA3ApXgGmEAfDPuDT80aYBO4BA8FAa+5mLHgOvoHs9eRNOB1M/bMqxZCQm8/U/mowJ4ulV4SfwUx7OFivLE+lGlKvfrAbWHiNhnvApWg64Z39EEx7XgaLKGuZG+EM8IZsDe7HPEo2RKK6q5JGQLIhVmtVUl/4FJINMXm0/q6CXHpWjDG3JEPEIHQEdFLuQfdVdl65DbGrMbH7tbh5210p2nlxc9srcA7GlHu7X+c2JLzWyWBE9zPdrBfQ09iYa5XsFxhDst0UPZ/erZD7Nce6A7Lxwi6iT8yW0CZQRNEKsuv4DPwBMc63cAL4dFQpccQOo7mXDbkYKDA6vwAabEphdDeCm8LsCUb0Q8BY41M2vXkE3oXFkL2WSapdTPemniqrUgOiHsQAOBKeAr+bnUgzfAZm2MdAoyw72RB7unnlfjHp2xdOgmvAZaenmQpGeDEFfwCsLcwAjoL+kNLwSzZE2tFRTNUFkGyI67hKMmXyWCLZEDedrrYK0rN59hJzSzJEdLn69E5qHfBgKDuvpM1uw9j+lu9fgXbnXTbNrU9+Audg7DL9TzIk3K+xIC6kUXofg2CUnq3QlnApfA2OK9bvG0GhOOI5yeVgAhkX9ok9Dnb+LIEj8jYjN/FBcCW8AbEKxLTdQBoqJSDqjo3Kr0EMFHjY+TFYrhpHrGWMKR7F+VTFaG9VeBGYAXiXTQjrj/KM9PeB2UD9DcptiCmzXzT7bSTPCD1BcsBwic1ibvUq2EnUSzqH5SkMMbD2qDipTTkbcXm4xDyR9Wm4TG4F63cj/MNgtL8OjE+ngJmANySl62+u59yuqr3rQdFhvKH2rjpyaZsNOzdvQo8yIXTDSaerw5BZsAmqRugQ8nZdukaBP9KYsVDEKxWV9c5b4HysEj0gTdLFEK5Qj9TudMVWrEE56pXvYWdoSvr3qJnFQsiUZV1olVza/uvBfz/EuMasDaCQTBVsjNnWjAvrMl8En9re0Mhl9iQrT7MFY0t99WnMsmdcqvyji4HNMtTMODug6FFeAv8Yo/u9EM4CDzDFilLDrwU9o+ce9WWu2CTXTTe9jFKkKzR1cMC3wf+n1E8oLz/CFLD5YMXY0dNk3aH//NkL7HoYFP23kB17A6EHRD4lveHZcDh4cGNK9L/+U1fXMgdpImwKkOSJAAAAAElFTkSuQmCC">
           <h5>Databases</h5>
           <p style="text-align:justify">
             We use existing databases to extract information and consider the avaibility of information.
@@ -231,10 +233,10 @@
     <hr>
 
     <!-- <section> -->
-    <button id = "advent_butt" class="button collapsible"> <h2> The advent of earth global monitoring </h2> </button>
-    <h5 style="text-align:justify">
-        A timeline representing major milestones in the creation of a network of actors related to ecosystemic data.
-    </h5>
+    <button id = "advent_butt" class="button collapsible"> <h5> The advent of the Earth monitoring system</h5> </button>
+    <p style="text-align:justify">
+        The Earth monitoring system was continuously built throughout the 20th century, from its technologic components to the political framework. The several following timelines trace this history by highlighting the major milestones in the emergence of the various actors at stake.
+    </p>
     <div class="content"> 
       {% include timeline.html %}
     <!-- </section> -->
@@ -243,7 +245,7 @@
     <hr>
 
     <!-- <section> -->
-    <button id = "business_butt" class="button collapsible"> <h2>The business of climate data</h2> </button>
+    <button id = "business_butt" class="button collapsible"> <h5>The business of climate data</h5> </button>
     <h5 style="text-align:justify">
         Who is selling climate data? To whom? What is made available? A quick overview of organizations involved in the data business.
     </h5>
@@ -271,7 +273,7 @@
     <hr>
 
     <!-- <section> -->
-    <button id = "academic_butt" class="button collapsible"> <h2>Academic exchanges</h2> </button>
+    <button id = "academic_butt" class="button collapsible"> <h5>Academic exchanges</h5> </button>
     <h5 style="text-align:justify">
         Scholars are shaping discussions surrounding climate change.
         <br>
@@ -308,7 +310,7 @@
     <hr>
 
     <!-- <section> -->
-    <button id= "datafrost_butt" class="button collapsible"> <h2>Data Frost : Who cares ?</h2></button>
+    <button id= "datafrost_butt" class="button collapsible"> <h5>Data Frost : Who cares ?</h5></button>
     <h5 style="text-align:justify">
     A review of legislation in Europe
     </h5>
@@ -392,23 +394,37 @@ for (i = 0; i < coll.length; i++) {
 };
 
 //NAVIGATION BAR
-// function openNav() {
-//   document.getElementById("mySidenav").style.width = "250px";
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  var butt = document.getElementById('menubutt')
+  butt.innerHTML = "&#9776; Close Menu"
+  butt.removeEventListener("click", openNav)
+  butt.addEventListener("click", closeNav)
+}
 
-// }
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  var butt = document.getElementById('menubutt')
+  butt.innerHTML = "&#9776; Open Menu"
+  butt.removeEventListener("click",closeNav)
+  butt.addEventListener("click", openNav) 
+}
 
-// function closeNav() {
-//   document.getElementById("mySidenav").style.width = "0";
-// }
+
 
 
 function goTo(clickedID) {
-  clean(1);
+  // clean();
   var butt = document.getElementById(clickedID + "_butt");
   var content = butt.nextElementSibling.nextElementSibling;
+  // clean();
+  // window.setTimeout(butt.scrollIntoView({behavior: "smooth"}))
   butt.scrollIntoView({behavior: "smooth"});
-  content.style.maxHeight = content.scrollHeight + "px";
+  
+  content.style.maxHeight = content.scrollHeight + "px";  
 }
+
+
 
 
 </script>
