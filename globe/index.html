@@ -22,8 +22,8 @@
     }
     #pileups{
     position:absolute;
-    left:78%;
-    top:630px;
+    left:75%;
+    top:300px;
     width:100%;
     text-align:left;
     z-index:100;
@@ -54,74 +54,29 @@
     width:150px;
     overflow:hidden;
     top:125px;
-    bottom:125px;
+    height:150px;
     }
     .leftCol:hover{left:0px;overflow:scroll;}
-    .rightCol{
-    left:99.5%;
+    .leftYear{
+    left:-25px;
     display:block;
     position:absolute;
     width:150px;
     overflow:hidden;
-    top:125px;
+    top:275px;
+    height:150px;
     }
-    .rightCol:hover{left:97%;}
-    .rightColGHG{
-    left:98%;
+    .leftYear:hover{left:0px;overflow:scroll;}
+    .leftFAO{
+    left:-100px;
     display:block;
     position:absolute;
-    width:100px;
-    top:460px;
+    width:150px;
+    overflow:hidden;
+    top:425px;
+    height:150px;
     }
-    .rightColGHG:hover{left:95%;}
-    .rightColP{
-    left:98%;
-    display:block;
-    position:absolute;
-    width:100px;
-    top:480px;
-    }
-    .rightColP:hover{left:93%;}
-    .rightColF{
-    left:98%;
-    display:block;
-    position:absolute;
-    width:100px;
-    top:500px;
-    }
-    .rightColF:hover{left:93%;}
-    .rightColY{
-    left:98%;
-    display:block;
-    position:absolute;
-    width:100px;
-    top:520px;
-    }
-    .rightColY:hover{left:93%;}
-    .rightColPL{
-    left:98%;
-    display:block;
-    position:absolute;
-    width:100px;
-    top:540px;
-    }
-    .rightColPL:hover{left:93%;}
-    .rightColLU{
-    left:98%;
-    display:block;
-    position:absolute;
-    width:100px;
-    top:560px;
-    }
-    .rightColLU:hover{left:93%;}
-    .rightColFN{
-    left:98%;
-    display:block;
-    position:absolute;
-    width:100px;
-    top:580px;
-    }
-    .rightColFN:hover{left:93%;}
+    .leftFAO:hover{left:0px;overflow:scroll;}
   </style>
   <body>
     <div id="info">
@@ -132,6 +87,7 @@
     <a href="https://www.worldbank.org" target="_blank" rel="noopener" style='color:darkgreen;font-weight:bold;cursor:pointer;text-decoration:underline'>forest coverage data</a>
     <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>temperatures anomalies data</a>
     <a href="http://www.fao.org/faostat/en/#data/" target="_blank" rel="noopener" style='color:violet;font-weight:bold;cursor:pointer;text-decoration:underline'>FAO data</a>
+    <a href="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg" target="_blank" rel="noopener" style='color:grey;font-weight:bold;cursor:pointer;text-decoration:underline'>NASA world map</a>
     <br>drag to spin the globe, wheel to zoom in/out
     <div id="WORD" style="font-size:40px;color:#00f">?</div>
     <div id="YEAR" style="font-size:40px;color:#00f">?</div>
@@ -153,22 +109,10 @@
     </footer>
     <div id='leftCol' class='leftCol'>
     </div>
-    <div id='rightCol' class='rightCol'>
+    <div id='leftYear' class='leftYear'>
     </div>
-    <div id='rightColGHG' class='rightColGHG'>
+    <div id='leftFAO' class='leftFAO'>
       <!-- <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="nitrous_oxide_methane">nitrous oxide and methane emission</span> -->
-    </div>
-    <div id='rightColP' class='rightColP'>
-    </div>
-    <div id='rightColF' class='rightColF'>
-    </div>
-    <div id='rightColY' class='rightColY'>
-    </div>
-    <div id='rightColPL' class='rightColPL'>
-    </div>
-    <div id='rightColLU' class='rightColLU'>
-    </div>
-    <div id='rightColFN' class='rightColFN'>
     </div>
     <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
     <!-- <script src="http://api.geodab.eu/download/giapi/lib/min/giapi.min.js"></script> -->
@@ -178,6 +122,6 @@
     <script src="https://threejs.org/examples/js/renderers/Projector.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <div id="container"></div>
-    <script src="./js/globe_callback_words4.js" charset="utf-8"></script>
+    <script src="./js/globe_callback_words5.js" charset="utf-8"></script>
   </body>
 </html>
