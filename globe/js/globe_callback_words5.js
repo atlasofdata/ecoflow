@@ -1,10 +1,11 @@
 // https://github.com/theatlasofdata/ecoflow
 // https://theatlasofdata.earth
+// http://www.csgnetwork.com/llinfotable.html SOUTH:- NORTH:+ and WEST:- EAST:+
 
 console.clear();
 
 // make variables
-var count=[],delta_count=[],pt=new THREE.Vector3(),u=new THREE.Vector3(),group_length,n_points=100,f_points=10,pairwize=[],pileups=[],group_mesh=new THREE.Group(),group_links=new THREE.Group(),group_pileups=new THREE.Group();
+var count=[],delta_count=[],nt=new THREE.Vector3(),pt=new THREE.Vector3(),u=new THREE.Vector3(),group_length,n_points=100,f_points=10,pairwize=[],pileups=[],group_mesh=new THREE.Group(),group_links=new THREE.Group(),group_pileups=new THREE.Group();
 var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
 const ZoomSensitivity=0.0001;
 var vS=[],vT=[],vS_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,material,weight0=20.0,source=0,target=0;
@@ -13,7 +14,7 @@ const radius0=2.5,segments0=16,rings0=16;
 var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2010,n_countries=0,theta,bn=[],bn_length;
 var group_text=new THREE.Group();
 var loader_font=new THREE.FontLoader();
-var mesh_country,country,material_country,country_color=[],publications=[],mean_publications=0;
+var continent_1='all',continent_2='all',country,country_color=[],publications=[],mean_publications=0;
 var rC=new THREE.Vector3(),LATi=0.0,LONi=0.0,index;
 var mesh_text;
 var i_word=5,word='',n_words,words=[],buffer_words=[];
@@ -25,16 +26,22 @@ var cylinder_height,cylinder_heights=[],cylinder_heights_length,ff
 // --- variables : FAO data
 // annual production
 var annual_population_arg=['total','urban_rural','female_male'],annual_population_title=['millions of persons','ratio urban/rural','ratio female/male'],n_annual_population=annual_population_arg.length
-// crops livestock
-var crops_livestock_arg=['total_i','total_e'],n_crops_livestock=crops_livestock_arg.length,crops_livestock_title=['millions(US dollar) export','millions(US dollar) import'];
+// burning crop residues
+var burning_crop_residues_arg=['mCO2eq','rCO2eq','sCO2eq','wCO2eq','burning_savana_CO2eq','burning_humid_tropical_forest_CO2eq','burning_other_forest_CO2eq','burning_organic_soils_CO2eq'],burning_crop_residues_title=['CO2(eq) emissions (burning maize dry matter)','CO2(eq) emissions (burning rice dry matter)','CO2(eq) emissions (burning sugar cane dry matter)','CO2(eq) emissions (burning wheat dry matter)','burning savana CO2(eq) emissions','burning humid tropical forest CO2(eq)','burning other forest CO2(eq)','burning organic soils CO2(eq)'],n_burning_crop_residues=burning_crop_residues_arg.length;
 // crops average yield
 var crops_average_yield_arg=['VP_t_ha','FP_t_ha','cereals_t_ha','sugar_t_ha'],n_crops_average_yield=crops_average_yield_arg.length,crops_average_yield_title=['vegetables primary average yield in tonnes per ha','fruits primary average yield in tonnes per ha','cereals average yield in tonnes per ha','sugar(beet and can) average yield in tonnes per ha'];
+// crops livestock
+var crops_livestock_arg=['ibUS','ebUS','p_ibUS','p_ebUS','f_ibUS','f_ebUS'],n_crops_livestock=crops_livestock_arg.length,crops_livestock_title=['billions(US dollar) import of crops and livestock','billions(US dollar) export of crops and livestock','billions(US dollar) import of pesticides','billions(US dollar) export of pesticides','billions(US dollar) import of fertilizers','billions(US dollar) export of fertilizers'];
+// crops processed
+var crops_processed_arg=['tonnes','tonnes_processed'],n_crops_processed=crops_processed_arg.length,crops_processed_title=['tonnes of crops production','tonnes of crops processed'];
 // emissions intensities : eggs, meat, milk and rice
 var environment_emissions_intensities_arg=['eggs','meat','milk','rice'],environment_emissions_intensities_title=['eggs, hen in shell production/CO2','meat production/CO2','milk production/CO2','rice production/CO2'],n_environment_emissions_intensities=environment_emissions_intensities_arg.length;
 // emissions intensities : rice production and organic soils
 var rice_and_organic_soils_emissions_intensities_arg=['rCO2','oCO2'],rice_and_organic_soils_emissions_intensities_title=['rice CO2(in tonnes) per ha','cultivated organic soils CO2(in tonnes) per ha'],n_rice_and_organic_soils_emissions_intensities=rice_and_organic_soils_emissions_intensities_arg.length;
 // environment fertilizers
 var environment_fertilizers_arg=['N','P2O5','K2O'],environment_fertilizers_title=['N tonnes per ha of cropland','P2O5 tonnes per ha of cropland','K2O tonnes per ha of cropland'],n_environment_fertilizers=environment_fertilizers_arg.length;
+// enteric fermentation
+var enteric_fermentation_arg=['CH4','CO2eq'],enteric_fermentation_title=['CH4(kg per head) emission from enteric fermentation','C02eq(kg per head) emission from enteric fermentation'],n_enteric_fermentation=enteric_fermentation_arg.length;
 // fertilizers production, import/export
 var fertilizers_nutrient_arg=['N_production_import','N_import_export','P2O5_production_import','P2O5_import_export','K2O_production_import','K2O_import_export'],fertilizers_nutrient_title=['N production/import','N import/export','P2O5 production/import','P2O5 import/export','K2O production/import','K2O import/export'],n_fertilizers_nutrient=fertilizers_nutrient_arg.length;
 // fertilizers (production+import)/export
@@ -48,23 +55,30 @@ var forestry_production_arg=['import_value','export_value'],forestry_production_
 // greenhouse gaz
 var GHG_arg=['aN2O','aCH4','lN2O','lCH4'],GHG_title=['agricultural N2O (tonnes per ha)','agricultural CH4 (tonnes per ha)','land N2O (tonnes per ha)','land CH4 (tonnes per ha)'],n_GHG=GHG_arg.length;
 // land use
-var land_use_arg=['land_country','agricultural_country','organic_country'],land_use_title=['ratio land/country %','agricultural country %','organic country %'],n_land_use=land_use_arg.length;
+var land_use_arg=['land_country','agricultural_country','organic_country','organic_conversion_country'],land_use_title=['ratio land/country %','agricultural country %','organic(certified) country %','organic(conversion) country %'],n_land_use=land_use_arg.length;
+// irrigation
+var irrigation_arg=['equiped_for_irrigation','actually_irrigated'],irrigation_title=['agricultural area equiped for irrigation %','agricultural area actually irrigated %'],n_irrigation=irrigation_arg.length;
 // livestock heads
 var livestock_heads_arg=['heads','sheads'],n_livestock_heads=livestock_heads_arg.length,livestock_heads_title=[' livestock heads',' slaughtered animals'];
+// livestock manure
+var livestock_manure_arg=['N','pN','tN','sN'],n_livestock_manure=livestock_manure_arg.length,livestock_manure_title=['N content(kg per head) from manure','N content(kg per head) from manure left to pasture','treated N content(kg per head) from manure','N content(kg per head) from manure applied to soils'];
+// livestock primary and processed production
+var livestock_production_arg=['primary','primary_indigenous','processed'],n_livestock_production=livestock_production_arg.length,livestock_production_title=['tonnes of primary production','tonnes of primary indigenous production','tonnes of processed production'];
 // manure
-var manure_arg=['pN','pN2O','pCO2','sN','sN2O','sCO2'],n_manure=manure_arg.length,manure_title=['N(kg) per head from manure left on pasture','N2O(kg) per head from manure left on pasture','CO2eq(kg) per head from manure left on pasture','N(kg) per head from manure applied to soils','N2O(kg) per head from manure applied to soils','CO2eq(kg) per head from manure applied to soils'];
+var manure_arg=['pN','pN2O','pCO2','sN','sN2O','sCO2'],n_manure=manure_arg.length,manure_title=['N(kg per head) from manure left on pasture','N2O(kg per head) from manure left on pasture','CO2eq(kg per head) from manure left on pasture','N(kg per head) from manure applied to soils','N2O(kg) per head from manure applied to soils','CO2eq(kg) per head from manure applied to soils'];
 // pesticides
-var pesticides_arg=['emUS','imUS','tonnes_ha'],pesticides_title=['millions(US dollar) export','millions(US dollar) import','tonnes per ha of pesticides use'],n_pesticides=pesticides_arg.length;
-// production livestock primary and processed
-var livestock_production_arg=['primary','processed'],n_livestock_production=livestock_production_arg.length,livestock_production_title=['tonnes of primary production','tonnes of processed production'];
+var pesticides_arg=['ibUS','ebUS','f_ibUS','f_ebUS','tonnes_ha'],pesticides_title=['billions(US dollar) import of pesticides','billions(US dollar) export of pesticides','billions(US dollar) import of fertilizers','billions(US dollar) export of fertilizers','tonnes per ha of pesticides use'],n_pesticides=pesticides_arg.length;
 // temperature change
 var temperature_change_arg=['change','sd'],temperature_change_title=['temperature change','standard deviation'],n_temperature_change=temperature_change_arg.length;
 var data_FAO,b_FAO=[];
-var title_FAO=['annual'+'\xa0'+'population','crops'+'\xa0'+'average'+'\xa0'+'yield','crops'+'\xa0'+'livestock','environment'+'\xa0'+'emissions'+'\xa0'+'intensities','environment'+'\xa0'+'fertilizers','fertilizers'+'\xa0'+'nutrient','fertilizers'+'\xa0'+'nutrient'+'\xa0'+'agricultural'+'\xa0'+'use','food'+'\xa0'+'supply','forestry'+'\xa0'+'production','GHG','land'+'\xa0'+'use','livestock'+'\xa0'+'heads','livestock'+'\xa0'+'production','manure'+'\xa0'+'left'+'\xa0'+'on'+'\xa0'+'pasture'+'\xa0'+'and'+'\xa0'+'applied'+'\xa0'+'to'+'\xa0'+'soils','pesticides','rice'+'\xa0'+'and'+'\xa0'+'organic'+'\xa0'+'soils'+'\xa0'+'emissions'+'\xa0'+'intensities','temperature'+'\xa0'+'change'];
-var id_FAO=['annual_population','crops_average_yield','crops_livestock','environment_emissions_intensities','environment_fertilizers','fertilizers_nutrient','fertilizers_nutrient_agricultural_use','food_supply','forestry_production','GHG','land_use','livestock_heads','livestock_production','manure_left_on_pasture_and_applied_to_soils','pesticides','rice_and_organic_soils_emissions_intensities','temperature_change'];
-var n_FAO=title_FAO.length,n_FAO_i,FAO_title,max_FAO_i,I,a_FAO_i,FAO_width=3.0;
+var title_FAO=['annual'+'\xa0'+'population','burning'+'\xa0'+'crop'+'\xa0'+'residues','crops'+'\xa0'+'average'+'\xa0'+'yield','crops'+'\xa0'+'livestock','crops'+'\xa0'+'processed','enteric'+'\xa0'+'fermentation','environment'+'\xa0'+'emissions'+'\xa0'+'intensities','environment'+'\xa0'+'fertilizers','fertilizers'+'\xa0'+'nutrient','fertilizers'+'\xa0'+'nutrient'+'\xa0'+'agricultural'+'\xa0'+'use','food'+'\xa0'+'supply','forestry'+'\xa0'+'production','GHG','irrigation','land'+'\xa0'+'use','livestock'+'\xa0'+'heads','livestock'+'\xa0'+'manure','livestock'+'\xa0'+'production','manure'+'\xa0'+'left'+'\xa0'+'on'+'\xa0'+'pasture'+'\xa0'+'and'+'\xa0'+'applied'+'\xa0'+'to'+'\xa0'+'soils','pesticides','rice'+'\xa0'+'and'+'\xa0'+'organic'+'\xa0'+'soils'+'\xa0'+'emissions'+'\xa0'+'intensities','temperature'+'\xa0'+'change'];
+var id_FAO=['annual_population','burning_crop_residues','crops_average_yield','crops_livestock','crops_processed','enteric_fermentation','environment_emissions_intensities','environment_fertilizers','fertilizers_nutrient','fertilizers_nutrient_agricultural_use','food_supply','forestry_production','GHG','irrigation','land_use','livestock_heads','livestock_manure','livestock_production','manure_left_on_pasture_and_applied_to_soils','pesticides','rice_and_organic_soils_emissions_intensities','temperature_change'];
+var n_FAO=title_FAO.length,n_FAO_i,FAO_title,max_FAO_i,I,a_FAO_i,FAO_radius=3.0;
 for(var i=0;i<n_FAO;i++) b_FAO[id_FAO[i]]=false;
 var label,buffer_int;
+const radius=200,segments=128,rings=128;
+var phong=true,lambert=false,standard=false;
+var continents=['all','africa','america','asia','europa'];
 
 initializing_description();
 
@@ -74,39 +88,86 @@ var colors2=['purple','orange','violet','cyan','green','yellow','red','maroon','
 
 // make scene
 var scene=new THREE.Scene();
-scene.background=new THREE.Color(0x000000);
+// scene.background=new THREE.Color(0x000000);
+scene.background=new THREE.Color('gray');
 // make camera
 var Xcamera=0.0;
 var Ycamera=0.0;
-var Zcamera=1000.0;
+var Zcamera=800.0;
 var Rcamera=Math.sqrt(Xcamera*Xcamera+Ycamera*Ycamera+Zcamera*Zcamera);
 var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,10000);
 camera.position.set(Xcamera,Ycamera,Zcamera);
-camera.lookAt(new THREE.Vector3(0,0,0));
+camera.lookAt(new THREE.Vector3(0.0,0.0,0.0));
+// var helper=new THREE.CameraHelper(PointLight.shadow.camera);
+// scene.add(helper);
 scene.add(camera);
 // make light
-var DirectionalLight=new THREE.DirectionalLight(0xffffff,1);
-DirectionalLight.position.set(camera.position);
-DirectionalLight.lookAt(new THREE.Vector3(0,0,0));
-scene.add(DirectionalLight);
+var LightX=2.0*radius;
+var LightY=1.0*radius;
+var LightZ=0.75*Zcamera;
+if(true){
+    var DirectionalLight=new THREE.DirectionalLight(0xffffff,1);
+    DirectionalLight.position.set(LightX,LightY,LightZ);
+    // DirectionalLight.lookAt(0.0,0.0,0.0);
+    DirectionalLight.distance=2.0*Math.sqrt(LightX*LightX+LightY*LightY+LightZ*LightZ);
+    DirectionalLight.castShadow=true;
+    DirectionalLight.receiveShadow=false;
+    DirectionalLight.shadow.mapSize.width=window.innerWidth;
+    DirectionalLight.shadow.mapSize.height=window.innerHeight;
+    DirectionalLight.intensity=1.5;
+    scene.add(DirectionalLight);
+    console.log(DirectionalLight);
+    var lightHelper=new THREE.DirectionalLightHelper(DirectionalLight);
+    scene.add(lightHelper);
+}else{
+    var SpotLight=new THREE.SpotLight(0xffffff);
+    SpotLight.position.set(LightX,LightY,LightZ);
+    SpotLight.lookAt(0.0,0.0,0.0);
+    // SpotLight.angle=0.25*Math.PI;
+    SpotLight.distance=2.0*Math.sqrt(LightX*LightX+LightY*LightY+LightZ*LightZ);
+    SpotLight.penumbra=0.05;
+    SpotLight.decay=2;
+    SpotLight.intensity=5.0;
+    SpotLight.shadow.mapSize.width=window.innerWidth;
+    SpotLight.shadow.mapSize.height=window.innerHeight;
+    SpotLight.castShadow=true;
+    scene.add(SpotLight);
+    // var lightHelper=new THREE.SpotLightHelper(SpotLight);
+    // scene.add(lightHelper);
+}
+// scene.add(new THREE.AmbientLight(0xffffff,0.1));
 // make render
-var renderer=new THREE.WebGLRenderer({antialias:true});
 var container=document.getElementById('container');
+var renderer=new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth,window.innerHeight);
+renderer.shadowMap.enabled=true;
+renderer.shadowMapSoft=true;
+renderer.shadowMapWidth=window.innerWidth;
+renderer.shadowMapHeight=window.innerHeight;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.shadowCameraFar=camera.far;
+renderer.shadowCameraFov=camera.fov;
 container.appendChild(renderer.domElement);
-// make globe
-const radius=200,segments=128,rings=128;
+// make globe (loading the world map texture)
 var globe=new THREE.Group();
-// Loading the world map texture
 var loader=new THREE.TextureLoader();
 loader.crossOrigin="";
 // loader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Simple_world_map.svg/2000px-Simple_world_map.svg.png',function(texture){
 // loader.load('https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg',function(texture){
 loader.load('./data/land_ocean_ice_cloud_2048.jpg',function(texture){
-    var sphere=new THREE.SphereGeometry(radius,segments,rings);
-    var material=new THREE.MeshBasicMaterial({map:texture,wireframe:false,overdraw:0.5});
-    var mesh=new THREE.Mesh(sphere,material);
+    var material,mesh;
+    if(lambert) material=new THREE.MeshLambertMaterial({map:texture,wireframe:false,overdraw:0.5});
+    if(phong) material=new THREE.MeshPhongMaterial({map:texture,wireframe:false,overdraw:0.5});
+    if(standard) material=new THREE.MeshStandardMaterial({map:texture,wireframe:false,overdraw:0.5});
+    material=new THREE.MeshLambertMaterial({map:texture,wireframe:false,overdraw:0.5});
+    mesh=new THREE.Mesh(new THREE.SphereGeometry(radius,segments,rings),material);
+    mesh.material.needUpdate=true;
+    mesh.material.needsUpdate=true;
+    mesh.castShadow=false;
+    mesh.receiveShadow=true;
+    mesh.dynamic=true;
+    mesh.position.set(0,0,0);
     globe.add(mesh);
 },function(error){console.log(error);});
 globe.position.set(0,0,0);
@@ -183,10 +244,14 @@ function readJSON(data){
 	myButton.style.fontSize='20px';
 	document.getElementById('leftFAO').appendChild(myButton);
 	document.getElementById('leftFAO').appendChild(document.createElement('br'));
+	// document.getElementById(id_FAO[i]).addEventListener('click',window[id_FAO[i]](),false);
     }
     document.getElementById('annual_population').addEventListener('click',annual_population,false);
-    document.getElementById('crops_livestock').addEventListener('click',crops_livestock,false);
+    document.getElementById('burning_crop_residues').addEventListener('click',burning_crop_residues,false);
     document.getElementById('crops_average_yield').addEventListener('click',crops_average_yield,false);
+    document.getElementById('crops_livestock').addEventListener('click',crops_livestock,false);
+    document.getElementById('crops_processed').addEventListener('click',crops_processed,false);
+    document.getElementById('enteric_fermentation').addEventListener('click',enteric_fermentation,false);
     document.getElementById('environment_emissions_intensities').addEventListener('click',environment_emissions_intensities,false);
     document.getElementById('environment_fertilizers').addEventListener('click',environment_fertilizers,false);
     document.getElementById('fertilizers_nutrient').addEventListener('click',fertilizers_nutrient,false);
@@ -194,13 +259,32 @@ function readJSON(data){
     document.getElementById('food_supply').addEventListener('click',food_supply,false);
     document.getElementById('forestry_production').addEventListener('click',forestry_production,false);
     document.getElementById('GHG').addEventListener('click',GHG,false);
+    document.getElementById('irrigation').addEventListener('click',irrigation,false);
     document.getElementById('land_use').addEventListener('click',land_use,false);
     document.getElementById('livestock_heads').addEventListener('click',livestock_heads,false);
+    document.getElementById('livestock_manure').addEventListener('click',livestock_manure,false);
     document.getElementById('livestock_production').addEventListener('click',livestock_production,false);
     document.getElementById('manure_left_on_pasture_and_applied_to_soils').addEventListener('click',manure_left_on_pasture_and_applied_to_soils,false);
     document.getElementById('pesticides').addEventListener('click',pesticides,false);
     document.getElementById('rice_and_organic_soils_emissions_intensities').addEventListener('click',rice_and_organic_soils_emissions_intensities,false);
     document.getElementById('temperature_change').addEventListener('click',temperature_change,false);
+    // Continent buttons
+    for(var i=0;i<continents.length;i++){
+	for(var j=i;j<continents.length;j++){
+	    if((i===0 && j===0) || i>0){
+		myButton=document.createElement('span');
+		myButton.className='button';
+		myButton.style.color='black';
+		myButton.style.cursor='pointer';
+		myButton.id=continents[i]+'_'+continents[j];
+		myButton.innerHTML=continents[i]+'\xa0'+continents[j];
+		myButton.style.fontSize='20px';
+		document.getElementById('leftContinent').appendChild(myButton);
+		document.getElementById('leftContinent').appendChild(document.createElement('br'));
+		document.getElementById(myButton.id).addEventListener('click',change_continents,false);
+	    }
+	}
+    }
 
     // calculating the number of links and the pileups that are non zero
     for(var w=0;w<n_words;w++){
@@ -236,31 +320,9 @@ function readJSON(data){
 	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
     
-    // making the countries (http://www.csgnetwork.com/llinfotable.html) SOUTH:- NORTH:+ and WEST:- EAST:+
     n_countries=Object.keys(data_json['country_index']).length;
-    console.log(n_countries);
-    console.log(n_countries*(n_countries-1)/2);
-    console.log(pairwize);
-    console.log(pileups);
-    for(var i=0;i<0*n_countries;i++){
-	LATi=0.5*Math.PI-data_json['LL'][i.toString()]['lat']*Math.PI/180.0;
-	LONi=0.5*Math.PI+data_json['LL'][i.toString()]['lon']*Math.PI/180.0;// I do not understand the 0.5*Math.PI but at least it works
-	rC=new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)).multiplyScalar(radius+radius0);
-	if(i>=(n_countries-2)) country=new THREE.SphereGeometry(radius0,segments0,rings0);
-	else country=new THREE.SphereGeometry(radius0,segments0,radius0);
-	if(i===(n_countries-2)) material_country=new THREE.MeshBasicMaterial({color:0x0000ff});
-	else{
-	    if(i===(n_countries-1)) material_country=new THREE.MeshBasicMaterial({color:0x00ff00});
-	    else material_country=new THREE.MeshBasicMaterial({color:0xff0000});
-	}
-	mesh_country=new THREE.Mesh(country,material_country);
-	mesh_country.position.set(rC.x,rC.y,rC.z);
-	globe.add(mesh_country);
-	source=data_json['index_country'][i.toString()];
-	if(source==='facebook') country_color[source]=0x0000ff;
-	if(source==='google') country_color[source]=0x00ff00;
-	if(source!='facebook' && source!='google') country_color[source]=0xffffff;
-    }
+    // console.log(pairwize);
+    // console.log(pileups);
 
     for(var i=0;i<n_words;i++){
 	for(var j=0;j<pairwize[i];j++) data_json[words[i]]['links'][j]['value']*=mean_publications/data_json['publications'][year.toString()];
@@ -268,8 +330,6 @@ function readJSON(data){
     }
 
     data_json_w=data_json[word];
-    console.log(word);
-    // console.log(data_json_w);
     
     globe.add(group_links);
     globe.add(group_pileups);
@@ -358,6 +418,8 @@ function change_FAO(){
 		    source=data_json['LL'][data_json['country_index'][data_FAO[i]['id']]];
 		    LATi=0.5*Math.PI-source['lat']*Math.PI/180.0;
 		    LONi=0.5*Math.PI+source['lon']*Math.PI/180.0;
+		    sqrt_n_FAO_i=0;
+		    while((sqrt_n_FAO_i*sqrt_n_FAO_i)<n_FAO_i) sqrt_n_FAO_i++;
 		    for(var j=0;j<n_FAO_i;j++){
 			if(inc<vS_length){
 			    vS[inc].setX(Math.sin(LATi)*Math.sin(LONi));
@@ -369,19 +431,23 @@ function change_FAO(){
 			    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 			    vS_length+=1;
 			}
-			pt.setX(0.0*vS[inc].z-1.0*vS[inc].y);
-			pt.setY(1.0*vS[inc].x-0.0*vS[inc].z);
-			pt.setZ(0.0*vS[inc].y-0.0*vS[inc].x);
-			pt.normalize();
-			pt.multiplyScalar(((n_FAO_i-1.0)/2.0-j)*2.0*FAO_width);
 			u.copy(vS[inc]);
 			vS[inc].multiplyScalar(radius);
-			vS[inc].add(pt);
+			if(j===0){
+			    nt.setX(Math.cos(LATi)*Math.sin(LONi));
+			    nt.setY(-Math.sin(LATi));
+			    nt.setZ(Math.cos(LATi)*Math.cos(LONi));
+			    pt.setX(Math.cos(LONi));
+			    pt.setY(0.0);
+			    pt.setZ(-Math.sin(LONi));
+			}
 			cylinder_height=data_FAO[i][FAO_arg[j]]*radius/max_FAO_i[j];
 			if(inc>=group_length){
 			    cylinder_heights.push(cylinder_height);
 			    cylinder_heights_length+=1;
-			    group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_width,FAO_width,cylinder_height,32),new THREE.MeshBasicMaterial({color:'white',opacity:0.5})));
+			    if(lambert) group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshLambertMaterial({color:'white'})));
+			    if(phong) group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshPhongMaterial({color:'white',shininess:100.0})));
+			    if(standard) group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshStandardMaterial({color:'white',metalness:0.5})));
 			    group_length+=1;
 			}else group_pileups.children[inc].scale.y=cylinder_height/cylinder_heights[inc];
 			group_pileups.children[inc].rotation.order='YXZ';
@@ -389,10 +455,14 @@ function change_FAO(){
 			group_pileups.children[inc].rotation.y=LONi;
 			group_pileups.children[inc].geometry.verticesNeedUpdate=true;
 			group_pileups.children[inc].material.color.set(colors2[j]);
-			group_pileups.children[inc].material.opacity=0.5;
+			// group_pileups.children[inc].material.emissive.set(colors2[j]);
+			// group_pileups.children[inc].material.emissiveIntensity=0.75;
+			// group_pileups.children[inc].material.opacity=0.5;
+			group_pileups.children[inc].castShadow=true;
+			group_pileups.children[inc].receiveShadow=false;
 			group_pileups.children[inc].material.needsUpdate=true;
 			u.multiplyScalar(0.5*cylinder_height);
-			group_pileups.children[inc].position.set(vS[inc].x+u.x,vS[inc].y+u.y,vS[inc].z+u.z);
+			group_pileups.children[inc].position.set(vS[inc].x+2.0*FAO_radius*((j%sqrt_n_FAO_i)*pt.x+((j-j%sqrt_n_FAO_i)/sqrt_n_FAO_i)*nt.x)+u.x,vS[inc].y+2.0*FAO_radius*((j%sqrt_n_FAO_i)*pt.y+((j-j%sqrt_n_FAO_i)/sqrt_n_FAO_i)*nt.y)+u.y,vS[inc].z+2.0*FAO_radius*((j%sqrt_n_FAO_i)*pt.z+((j-j%sqrt_n_FAO_i)/sqrt_n_FAO_i)*nt.z)+u.z);
 			group_pileups.children[inc].name=source['id']+' : '+((data_FAO[i][FAO_arg[j]].toPrecision(3)).toString())+' '+FAO_title[j];
 			group_pileups.children[inc].userData=source['id'];
 			inc+=1;
@@ -431,21 +501,19 @@ function change_links(){
 	if(i>=group_length){
 	    cylinder_heights.push(cylinder_height);
 	    cylinder_heights_length+=1;
-	    group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_width,FAO_width,cylinder_height,32),new THREE.MeshBasicMaterial({color:'white',opacity:0.5})));
+	    if(lambert) group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshLambertMaterial({color:'white'})));
+	    if(phong) group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshPhongMaterial({color:'white',shininess:100.0})));
+	    if(standard) group_pileups.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshStandardMaterial({color:'white',metalness:0.5})));
 	    group_length+=1;
-	}else{
-	    group_pileups.children[i].scale.set(1.0,cylinder_height/cylinder_heights[i],1.0);
-	    // group_pileups.children[i].geometry=new THREE.CylinderGeometry(FAO_width,FAO_width,cylinder_height,32);
-	    // console.log(i,data_json['LL'][data_json_w['pileups'][ii]['country']]['id'],group_pileups.children[i].scale.y,cylinder_height/cylinder_heights[i]);
-	    // cylinder_heights[i]=cylinder_height;
-	}
+	}else group_pileups.children[i].scale.set(1.0,cylinder_height/cylinder_heights[i],1.0);
 	group_pileups.children[i].rotation.order='YXZ';
 	group_pileups.children[i].rotation.x=LATi;
 	group_pileups.children[i].rotation.y=LONi;
 	group_pileups.children[i].position.set(vT[i].x,vT[i].y,vT[i].z);
 	group_pileups.children[i].geometry.verticesNeedUpdate=true;
 	group_pileups.children[i].material.color.set('white');
-	group_pileups.children[i].material.opacity=0.5;
+	group_pileups.children[i].castShadow=true;
+	group_pileups.children[i].receiveShadow=false;
 	group_pileups.children[i].material.needsUpdate=true;
 	source=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'];
 	group_pileups.children[i].name=source.concat(' : ',data_json_w['pileups'][ii]['value'].toString());
@@ -453,21 +521,20 @@ function change_links(){
     for(var i=(group_length-1);i>=n_pileups_year;i--){
 	scene.remove(group_pileups.children[i]);
 	group_pileups.remove(group_pileups.children[i]);
+	cylinder_heights.splice(i,1);
     }
     // making the links
     group_length=group_links.children.length;
+    group_mesh_length=group_mesh.children.length;
     n_curves=paths.curves.length;
     n_count=count.length;
     volumes_length=volumes.length;
     vS_length=vS.length;
     mST_length=mST.length;
     bn_length=bn.length;
-    // cvS_length=cvS.length;
-    // cvT_length=cvT.length;
+    console.log(group_links.children.length,group_mesh.children.length,cylinder_heights.length);
     for(var i=0;i<(vS_length-mST_length);i++) mST.push(new THREE.Vector3());
     for(var i=0;i<(vS_length-bn_length);i++) bn.push(new THREE.Vector3());
-    // for(var i=0;i<(vS_length-cvS_length);i++) cvS.push(new THREE.Vector3());
-    // for(var i=0;i<(vS_length-cvT_length);i++) cvT.push(new THREE.Vector3());
     for(var i=0;i<n_pairwize_year;i++){
 	ii=pairwize_year[i];
         // Starting and target points
@@ -483,11 +550,9 @@ function change_links(){
             vS[i].setY(Math.cos(LATi));
             vS[i].setZ(Math.sin(LATi)*Math.cos(LONi));
 	    mST[i].copy(vS[i]);
-	    // cvS[i].copy(vS[i]);
         }else{
 	    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	    mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    // cvS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	}
 	LATi=0.5*Math.PI-target['lat']*Math.PI/180.0;
 	LONi=0.5*Math.PI+target['lon']*Math.PI/180.0;
@@ -495,10 +560,8 @@ function change_links(){
             vT[i].setX(Math.sin(LATi)*Math.sin(LONi));
             vT[i].setY(Math.cos(LATi));
             vT[i].setZ(Math.sin(LATi)*Math.cos(LONi));
-	    // cvT[i].copy(vT[i]);
         }else{
 	    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-	    // cvT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 	    bn.push(new THREE.Vector3());
 	}
 	if(i>=vS_length) vS_length+=1;
@@ -508,17 +571,11 @@ function change_links(){
 	bn[i].setY(vS[i].z*vT[i].x-vS[i].x*vT[i].z);
 	bn[i].setZ(vS[i].x*vT[i].y-vS[i].y*vT[i].x);
 	bn[i].normalize();
-	// cvS[i].applyAxisAngle(bn[i],0.33*theta);
-	// cvS[i].multiplyScalar(radius*(1.0+theta));
-	// cvT[i].applyAxisAngle(bn[i],0.66*theta);
-	// cvT[i].multiplyScalar(radius*(1.0+theta));
 	mST[i].applyAxisAngle(bn[i],0.5*theta);
 	mST[i].multiplyScalar(radius*(1.0+theta));
 	vS[i].multiplyScalar(radius);
 	vT[i].multiplyScalar(radius);
 	// Bezier curves
-	// if(i<paths.curves.length) paths.curves[i]=new THREE.CubicBezierCurve3(vS[i],cvS[i],cvT[i],vT[i]);
-	// else paths.add(new THREE.CubicBezierCurve3(vS[i],cvS[i],cvT[i],vT[i]));
 	if(i<n_curves) paths.curves[i]=new THREE.QuadraticBezierCurve3(vS[i],mST[i],vT[i]);
         else{
 	    paths.add(new THREE.QuadraticBezierCurve3(vS[i],mST[i],vT[i]));
@@ -533,29 +590,37 @@ function change_links(){
 	    delta_count.push(parseInt(volume));
 	    n_count+=1;
 	}
+	// the link
 	if(i<group_length){
-      	    // group_links.children[i].geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[i].getPoints(n_points));
 	    group_links.children[i].geometry.setFromPoints(paths.curves[i].getPoints(n_points));
 	    group_links.children[i].geometry.verticesNeedUpdate=true;
+	    group_links.children[i].material.needsUpdate=true;
+	    group_links.children[i].material.color.set(colors[index%n_colors]);
+	}else{
+      	    geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[i].getPoints(n_points));
+      	    group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
+	    group_length+=1;
+        }
+	// and the associated mesh
+	if(i<group_mesh_length){
 	    group_mesh.children[i].scale.x=volume/volumes[i];
 	    group_mesh.children[i].scale.y=volume/volumes[i];
 	    group_mesh.children[i].scale.z=volume/volumes[i];
 	    group_mesh.children[i].geometry.verticesNeedUpdate=true;
-	    group_links.children[i].material.color.set(colors[index%n_colors]);
-	    group_links.children[i].material.needsUpdate=true;
-	    group_mesh.children[i].material=group_links.children[i].material;
 	    group_mesh.children[i].material.needsUpdate=true;
+	    group_mesh.children[i].material.color.set(colors[index%n_colors]);
 	}else{
-      	    geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[i].getPoints(n_points));
-      	    group_links.add(new THREE.Line(geometry,new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
-	    group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),group_links.children[i].material));
-	    group_length+=1;
+	    if(lambert) group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
+	    if(phong) group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshPhongMaterial({color:colors[index%n_colors],shininess:100.0})));
+	    if(standard) group_mesh.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
+	    group_mesh_length+=1;
 	    volumes.push(volume);
 	    volumes_length+=1;
         }
 	source=data_json['index_country'][data_json_w['links'][ii]['s']];
 	target=data_json['index_country'][data_json_w['links'][ii]['t']];
 	group_links.children[i].name=source.concat(' with ',target.concat(' : ',data_json_w['links'][ii]['value'].toString()));
+	group_mesh.children[i].name=source.concat(' with ',target.concat(' : ',data_json_w['links'][ii]['value'].toString()));
     }// Rof pairwize
     for(var i=(group_length-1);i>=n_pairwize_year;i--){
 	scene.remove(group_links.children[i]);
@@ -569,7 +634,17 @@ function change_links(){
 function list_pairwize_year(){
     pairwize_year=[];
     if(i_word>-1){
-	for(var i=0;i<pairwize[i_word];i++) if(data_json_w['links'][i]['y']===year) pairwize_year.push(i);
+	for(var i=0;i<pairwize[i_word];i++){
+	    if(data_json_w['links'][i]['y']===year){
+		source=data_json_w['links'][i]['s'];
+		target=data_json_w['links'][i]['t'];
+		source=data_json['LL'][source]['continent'];
+		target=data_json['LL'][target]['continent'];
+		if((source===continent_1 && target===continent_2) || (source===continent_2 && target===continent_1) || continent_1==='all' || continent_2==='all'){
+		    pairwize_year.push(i);
+		}
+	    }
+	}
     }
     n_pairwize_year=pairwize_year.length;
 };
@@ -586,25 +661,35 @@ function OnMouseUp(e){
     var mouse2D=new THREE.Vector2((e.clientX/window.innerWidth)*2-1,-(e.clientY/window.innerHeight)*2+1);
     var raycaster=new THREE.Raycaster();
     raycaster.setFromCamera(mouse2D,camera);
-    intersects=raycaster.intersectObjects(group_pileups.children);
-    if(intersects.length>0){
-	text_buffer='';
-	source=intersects[0].object.userData;
-	// look for all the data associated with the country source
-	for(var i=0;i<data_FAO.length;i++){
-	    if(data_FAO[i]['y']===year){
-		if(data_json['LL'][data_json['country_index'][data_FAO[i]['id']]]['id']==source){
-		    for(var j=0;j<n_FAO_i;j++){
-			text_buffer=text_buffer.concat(source+' : '+((data_FAO[i][FAO_arg[j]].toPrecision(3)).toString())+' '+FAO_title[j]);
-			text_buffer=text_buffer.concat('<br>');
+    // loop over the groups
+    for(var i=0;i<3;i++){
+	if(i===0) intersects=raycaster.intersectObjects(group_pileups.children);
+	if(i===1) intersects=raycaster.intersectObjects(group_links.children);
+	if(i===2) intersects=raycaster.intersectObjects(group_mesh.children);
+	// FAO data ?
+	if(intersects.length>0 && i_word<0){
+	    text_buffer='';
+	    source=intersects[0].object.userData;
+	    // look for all the data associated with the country source
+	    for(var i=0;i<data_FAO.length;i++){
+		if(data_FAO[i]['y']===year){
+		    if(data_json['LL'][data_json['country_index'][data_FAO[i]['id']]]['id']==source){
+			for(var j=0;j<n_FAO_i;j++){
+			    text_buffer=text_buffer.concat(source+' : '+((data_FAO[i][FAO_arg[j]].toPrecision(3)).toString())+' '+FAO_title[j]);
+			    text_buffer=text_buffer.concat('<br>');
+			}
 		    }
 		}
 	    }
+	    // text_buffer.fontcolor(Math.random()*0xffffff);
+	    text=text.concat(text_buffer,'<br>');
 	}
-	// text_buffer.fontcolor(Math.random()*0xffffff);
-	text=text.concat(text_buffer,'<br>');
+	// pubmed data ?
+	if(intersects.length>0 && i_word>=0){
+	    text_buffer=intersects[0].object.name;
+	    text=text.concat(text_buffer,'<br>');
+	}
     }
-    intersects=raycaster.intersectObjects(group_links.children);
     document.getElementById('pileups').innerHTML=text;
 };
 
@@ -630,7 +715,7 @@ function ZoomOnMouseWheel(e){
     // camera.fov+=e.wheelDelta*ZoomSensitivity;
     // camera.projectionMatrix=new THREE.Matrix4().makePerspective(camera.fov,window.innerWidth/window.innerHeight,camera.near,camera.far);
     if(e.clientX>(.1*window.innerWidth) && e.clientX<(.9*window.innerWidth)){
-	camera.position.set(camera.position.x,camera.position.y,camera.position.z-Math.sign(camera.position.z)*e.wheelDelta);
+	camera.position.set(camera.position.x,camera.position.y,Math.min(10.0*radius,Math.max(radius,camera.position.z-Math.sign(camera.position.z)*e.wheelDelta)));
 	camera.lookAt(new THREE.Vector3(0,0,0));
     }
 };
@@ -643,12 +728,28 @@ function render(){
 	paths.curves[i].getPoint(count[i]/(f_points*n_points),pt);
 	group_mesh.children[i].position.set(pt.x,pt.y,pt.z);
     }
+    if(typeof lightHelper!=='undefined') lightHelper.update();
     renderer.render(scene,camera);
 };
 
 function update(){
     requestAnimationFrame(update);
     render();
+};
+
+// change the pairwize of continents
+function change_continents(e){
+    console.log(e.target.id);
+    for(var i=0;i<continents.length;i++){
+	for(var j=i;j<continents.length;j++){
+	    if((continents[i]+'_'+continents[j])===e.target.id){
+		continent_1=continents[i];
+		continent_2=continents[j];
+	    }
+	}
+    }
+    list_pairwize_year();
+    change_links();
 };
 
 // change year on mouse click
@@ -685,9 +786,9 @@ function annual_population(){
     change();
 };
 
-// draw the food trade import/export on click
-function crops_livestock(){
-    a_FAO_i='crops_livestock';
+// draw the burning crop residues
+function burning_crop_residues(){
+    a_FAO_i='burning_crop_residues';
     initializing_change();
     change();
 };
@@ -699,16 +800,30 @@ function crops_average_yield(){
     change();
 };
 
-// draw the environment emissions intensities
-function environment_emissions_intensities(){
-    a_FAO_i='environment_emissions_intensities';
+// draw the food trade import/export on click
+function crops_livestock(){
+    a_FAO_i='crops_livestock';
     initializing_change();
     change();
 };
 
-// draw the rice_and_organic_soils_emissions_intensities
-function rice_and_organic_soils_emissions_intensities(){
-    a_FAO_i='rice_and_organic_soils_emissions_intensities';
+// draw the crops production and crops processed on click
+function crops_processed(){
+    a_FAO_i='crops_processed';
+    initializing_change();
+    change();
+};
+
+// draw the enteric fermentation
+function enteric_fermentation(){
+    a_FAO_i='enteric_fermentation';
+    initializing_change();
+    change();
+};
+
+// draw the environment emissions intensities
+function environment_emissions_intensities(){
+    a_FAO_i='environment_emissions_intensities';
     initializing_change();
     change();
 };
@@ -755,6 +870,13 @@ function GHG(){
     change();
 };
 
+// draw the irrigation
+function irrigation(){
+    a_FAO_i='irrigation';
+    initializing_change();
+    change();
+};
+
 // draw the land use
 function land_use(){
     a_FAO_i='land_use';
@@ -765,6 +887,13 @@ function land_use(){
 // draw the livestock heads
 function livestock_heads(){
     a_FAO_i='livestock_heads';
+    initializing_change();
+    change();
+};
+
+// draw the livestock manure
+function livestock_manure(){
+    a_FAO_i='livestock_manure';
     initializing_change();
     change();
 };
@@ -790,6 +919,13 @@ function pesticides(){
     change();
 };
 
+// draw the rice_and_organic_soils_emissions_intensities
+function rice_and_organic_soils_emissions_intensities(){
+    a_FAO_i='rice_and_organic_soils_emissions_intensities';
+    initializing_change();
+    change();
+};
+
 // draw the temperature change
 function temperature_change(){
     a_FAO_i='temperature_change';
@@ -802,9 +938,6 @@ function initializing_change(){
     i_word=-1;
     word='';
     for(var i=0;i<n_FAO;i++) b_FAO[id_FAO[i]]=(id_FAO[i]==a_FAO_i);
-    console.log(a_FAO_i);
-    console.log(b_FAO[a_FAO_i]);
-    console.log(b_FAO);
 };
 
 // initializing description
@@ -816,11 +949,11 @@ function initializing_description(){
 	FAO_arg=annual_population_arg;
 	FAO_title=annual_population_title;
     }
-    if(b_FAO['crops_livestock']){
-	description='crops livestock, FAO ('+(year.toString())+') :';
-	n_FAO_i=n_crops_livestock;
-	FAO_arg=crops_livestock_arg;
-	FAO_title=crops_livestock_title;
+    if(b_FAO['burning_crop_residues']){
+	description='burning crop residues (in kg of CO2 emissions), FAO ('+(year.toString())+') :';
+	n_FAO_i=n_burning_crop_residues;
+	FAO_arg=burning_crop_residues_arg;
+	FAO_title=burning_crop_residues_title;
     }
     if(b_FAO['crops_average_yield']){
 	description='crops_average yield, FAO ('+(year.toString())+') :';
@@ -828,8 +961,26 @@ function initializing_description(){
 	FAO_arg=crops_average_yield_arg;
 	FAO_title=crops_average_yield_title;
     }
+    if(b_FAO['crops_livestock']){
+	description='crops livestock, FAO ('+(year.toString())+') :';
+	n_FAO_i=n_crops_livestock;
+	FAO_arg=crops_livestock_arg;
+	FAO_title=crops_livestock_title;
+    }
+    if(b_FAO['crops_processed']){
+	description='crops production and crops processed, FAO ('+(year.toString())+') :';
+	n_FAO_i=n_crops_processed;
+	FAO_arg=crops_processed_arg;
+	FAO_title=crops_processed_title;
+    }
+    if(b_FAO['enteric_fermentation']){
+	description='GHG from enteric fermentation, FAO ('+(year.toString())+') :';
+	n_FAO_i=n_enteric_fermentation;
+	FAO_arg=enteric_fermentation_arg;
+	FAO_title=enteric_fermentation_title;
+    }
     if(b_FAO['environment_emissions_intensities']){
-	description='ratio production CO2 emissions, FAO ('+(year.toString())+') :';
+	description='ratio production CO2(equivalent) emissions, FAO ('+(year.toString())+') :';
 	n_FAO_i=n_environment_emissions_intensities;
 	FAO_arg=environment_emissions_intensities_arg;
 	FAO_title=environment_emissions_intensities_title;
@@ -870,6 +1021,12 @@ function initializing_description(){
 	FAO_arg=GHG_arg;
 	FAO_title=GHG_title;
     }
+    if(b_FAO['irrigation']){
+	description='irrigation, FAO ('+(year.toString())+') :';
+	n_FAO_i=n_irrigation;
+	FAO_arg=irrigation_arg;
+	FAO_title=irrigation_title;
+    }
     if(b_FAO['land_use']){
 	description='land use, FAO ('+(year.toString())+') :';
 	n_FAO_i=n_land_use;
@@ -881,6 +1038,12 @@ function initializing_description(){
 	n_FAO_i=n_livestock_heads;
 	FAO_arg=livestock_heads_arg;
 	FAO_title=livestock_heads_title;
+    }
+    if(b_FAO['livestock_manure']){
+	description='livestock manure (N content), FAO ('+(year.toString())+') :';
+	n_FAO_i=n_livestock_manure;
+	FAO_arg=livestock_manure_arg;
+	FAO_title=livestock_manure_title;
     }
     if(b_FAO['livestock_production']){
 	description='livestock primary and processed production, FAO ('+(year.toString())+') :';
@@ -901,7 +1064,7 @@ function initializing_description(){
 	FAO_title=pesticides_title;
     }
     if(b_FAO['rice_and_organic_soils_emissions_intensities']){
-	description='rice and cultivated organic soils CO2(in tonnes) production per ha, FAO ('+(year.toString())+') :';
+	description='rice and cultivated organic soils CO2(in tonnes) emissions per ha, FAO ('+(year.toString())+') :';
 	n_FAO_i=n_rice_and_organic_soils_emissions_intensities;
 	FAO_arg=rice_and_organic_soils_emissions_intensities_arg;
 	FAO_title=rice_and_organic_soils_emissions_intensities_title;
@@ -914,28 +1077,32 @@ function initializing_description(){
     }
     buffer_int=document.getElementById('legend').children.length;
     for(var i=(buffer_int-1);i>=0;i--) document.getElementById('legend').removeChild(document.getElementById('legend').children[i]);
-    for(var i=0;i<n_FAO_i;i++){
-	if(i<document.getElementById('legend').children.length){
-	    document.getElementById('legend').children[i].style.color=colors2[i];
-	    document.getElementById('legend').children[i].innerHTML=FAO_title[i]+'<br>';
-	}else{
-	    label=document.createElement('span');
-	    label.style.color=colors2[i];
-	    label.innerHTML=FAO_title[i]+'<br>';
-	    // myButton.style.fontSize='20px';
-	    document.getElementById('legend').appendChild(label);
+    if(i_word<0){
+	for(var i=0;i<n_FAO_i;i++){
+	    if(i<document.getElementById('legend').children.length){
+		document.getElementById('legend').children[i].style.color=colors2[i];
+		document.getElementById('legend').children[i].innerHTML=FAO_title[i]+'<br>';
+	    }else{
+		label=document.createElement('span');
+		label.style.color=colors2[i];
+		label.innerHTML=FAO_title[i]+'<br>';
+		document.getElementById('legend').appendChild(label);
+	    }
 	}
+	text=(description.concat('<br>')).concat('<br>');
+	document.getElementById('pileups').innerHTML=text;
+    }else{
+	text=(description.concat('<br>')).concat('<br>');
+	document.getElementById('pileups').innerHTML=text;
     }
-    text=description.concat('<br>');
-    document.getElementById('pileups').innerHTML=text;
 };
 
 // highlighting a keyword on mouse click
 function highlight(e){
+    a_FAO_i='';
     for(var i=0;i<n_FAO;i++) b_FAO[id_FAO[i]]=false;
     // document.getElementById(word).style.fontSize='10px';
     word=e.target.id;
-    console.log(word);
     for(var i=0;i<n_words;i++) if(word===words[i]) i_word=i;
     data_json_w=data_json[word];
     document.getElementById('WORD').innerHTML=word;
