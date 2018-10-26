@@ -19,23 +19,7 @@
     text-align:center;
     z-index:100;
     display:block;
-    }
-    #pileups{
-    position:absolute;
-    left:74%;
-    top:300px;
-    width:100%;
-    text-align:left;
-    z-index:100;
-    display:block;
-    }
-    #keywords{
-    position:absolute;
-    top:100px;
-    width:100%;
-    text-align:right;
-    z-index:100;
-    display:block;
+    background-color:#000;
     }
     #footer{
     position:absolute;
@@ -47,7 +31,53 @@
     background-color:lightgray;
     color:black;
     }
-    .leftCol{
+    .pileups{
+    position:absolute;
+    left:74%;
+    top:125px;
+    width:25%;
+    height:50%;
+    text-align:left;
+    z-index:100;
+    display:block;
+    overflow:scroll;
+    }
+    .popupPileups{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:600px;
+    left:74%;
+    width:320px;
+    }
+    .popupPileups .popuptext{
+    visibility:hidden;
+    width:320px;
+    background-color:#00f;
+    color:#000;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupPileups .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupPileups .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The keywords div */
+    .keywords{
     left:-100px;
     display:block;
     position:absolute;
@@ -55,8 +85,44 @@
     overflow:hidden;
     top:125px;
     height:150px;
+    text-align:left;
+    z-index:100;
     }
-    .leftCol:hover{left:0px;overflow:scroll;}
+    .keywords:hover{left:0px;overflow:scroll;}
+    .popupKeywords{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:125px;
+    left:10%;
+    width:320px;
+    }
+    .popupKeywords .popuptext{
+    visibility:hidden;
+    background-color:#0f0;
+    color:#000;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupKeywords .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupKeywords .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The year div */
     .leftYear{
     left:-25px;
     display:block;
@@ -64,29 +130,227 @@
     width:150px;
     overflow:hidden;
     top:275px;
-    height:150px;
+    height:100px;
     }
     .leftYear:hover{left:0px;overflow:scroll;}
+    .popupYear{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:275px;
+    left:200px;
+    }
+    .popupYear .popuptext{
+    visibility:hidden;
+    width:160px;
+    background-color:#dd0;
+    color:#000;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupYear .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupYear .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The FAO div */
     .leftFAO{
     left:-100px;
     display:block;
     position:absolute;
     width:200px;
     overflow:hidden;
-    top:425px;
-    height:150px;
+    top:375px;
+    height:100px;
     }
     .leftFAO:hover{left:0px;overflow:scroll;}
+    .popupFAO{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:375px;
+    left:200px;
+    }
+    .popupFAO .popuptext{
+    visibility:hidden;
+    width:160px;
+    background-color:#555;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupFAO .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupFAO .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The continent div */
     .leftContinent{
     left:-100px;
     display:block;
     position:absolute;
     width:200px;
     overflow:hidden;
-    top:575px;
-    height:150px;
+    top:475px;
+    height:100px;
     }
     .leftContinent:hover{left:0px;overflow:scroll;}
+    .popupContinent{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:475px;
+    left:200px;
+    }
+    .popupContinent .popuptext{
+    visibility:hidden;
+    width:300px;
+    background-color:#555;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupContinent .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupContinent .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The country div */
+    .leftCountry{
+    left:-50px;
+    display:block;
+    position:absolute;
+    width:200px;
+    overflow:hidden;
+    top:575px;
+    height:100px;
+    }
+    .leftCountry:hover{left:0px;overflow:scroll;}
+    .popupCountry{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:575px;
+    left:200px;
+    }
+    .popupCountry .popuptext{
+    visibility:hidden;
+    width:400px;
+    background-color:#f99;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupCountry .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupCountry .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The percentage div */
+    .leftPercentage{
+    left:-50px;
+    display:block;
+    position:absolute;
+    width:200px;
+    overflow:hidden;
+    top:675px;
+    height:100px;
+    }
+    .leftPercentage:hover{left:0px;overflow:scroll;}
+    .popupPercentage{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:675px;
+    left:200px;
+    }
+    .popupPercentage .popuptext{
+    visibility:hidden;
+    width:300px;
+    background-color:#0af;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupPercentage .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupPercentage .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn{
+    from {opacity:0;}
+    to {opacity:1;}
+    }
+    @keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+    }
   </style>
   <body>
     <div id="info">
@@ -98,17 +362,13 @@
     <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>temperatures anomalies data</a>
     <a href="http://www.fao.org/faostat/en/#data/" target="_blank" rel="noopener" style='color:violet;font-weight:bold;cursor:pointer;text-decoration:underline'>FAO data</a>
     <a href="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg" target="_blank" rel="noopener" style='color:grey;font-weight:bold;cursor:pointer;text-decoration:underline'>NASA world map</a>
-    <br>drag to spin the globe, wheel to zoom in/out
-    <div id="WORD" style="font-size:40px;color:#00f">?</div>
-    <div id="YEAR" style="font-size:40px;color:#00f">?</div>
-    <span id="legend" style="font-weight:bold;font-size:10px"></span>
+    <br>drag to spin the globe, wheel to zoom in/out, <a id="myPopup" title="click me to get some help !" style='color:#fff;font-weight:bold' href="#" onclick="myFunction();return false;">click me to get some help !</a>
+    <br><span id="WORD" style="font-size:40px;color:#00f"></span>
+    <span id="YEAR" style="font-size:40px;color:#00f"></span>
     </div>
-    <div id="pileups">
-      <!-- <span id="pileups" style="font-weight:bold;font-size:30px;color:#f00"></span> -->
-      <span id="pileups" style="font-weight:bold;font-size:30px"></span>
+    <div id='pileups' class='pileups'>
     </div>
-    <div id="keywords">
-      <span id="keywords" style="font-weight:bold;font-size:10px;color:#fff"></span>
+    <div id='keywords' class='keywords'>
     </div>
     <footer id="footer">
       <span id="publications" style="font-size:20px;color:#000">?</span>,
@@ -117,14 +377,36 @@
       <span id="tanom_land" style="font-size:20px;color:#f00">?</span>,
       <span id="tanom_ocean" style="font-size:20px;color:#00f">?</span>
     </footer>
-    <div id='leftCol' class='leftCol'>
-    </div>
     <div id='leftYear' class='leftYear'>
     </div>
     <div id='leftFAO' class='leftFAO'>
-      <!-- <span class="button" style="font-size:15px;color:#f00;cursor:pointer" id="nitrous_oxide_methane">nitrous oxide and methane emission</span> -->
     </div>
     <div id='leftContinent' class='leftContinent'>
+    </div>
+    <div id='leftCountry' class='leftCountry'>
+    </div>
+    <div id='leftPercentage' class='leftPercentage'>
+    </div>
+    <div class="popupPileups" onclick="myFunction()">
+      <span class="popuptext" id="myPopupPileups" style="font-weight:bold;font-size:12px;color:#f00">When you click a link, informations about it will be displayed as an history of your navigation through data.</span>
+    </div>
+    <div class="popupYear" onclick="myFunction()">
+      <span class="popuptext" id="myPopupYear">Click the year you want to change for. The choice is between 2000 and 2018 by step of 1.</span>
+    </div>
+    <div class="popupContinent" onclick="myFunction()">
+      <span class="popuptext" id="myPopupContinent">Click the pairwize of continents you want to study the links. The continent pairwize selection erases the country selection.</span>
+    </div>
+    <div class="popupCountry" onclick="myFunction()">
+      <span class="popuptext" id="myPopupCountry">Click the country you want to study. If you click the 'all' button you will get all the countries and their links. If you click 'france' you will get all the links involving France. The country selection erases the continent pairwize selection.</span>
+    </div>
+    <div class="popupFAO" onclick="myFunction()">
+      <span class="popuptext" id="myPopupFAO">Click the FAO dataset you want to study.</span>
+    </div>
+    <div class="popupKeywords" onclick="myFunction()">
+      <span class="popuptext" id="myPopupKeywords">Click the keyword request to pubmed database. It will show you the links between countries. A link is drawn if the number of publications with keyword in the title between institution in country A with institution in country B is non-zero.</span>
+    </div>
+    <div class="popupPercentage" onclick="myFunction()">
+      <span class="popuptext" id="myPopupPercentage">Click the cut-off you want to apply to the displayed values. A lower-bound of 25 % will discard the 25 % of the lowest values.</span>
     </div>
     <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
     <!-- <script src="http://api.geodab.eu/download/giapi/lib/min/giapi.min.js"></script> -->
@@ -134,6 +416,6 @@
     <script src="https://threejs.org/examples/js/renderers/Projector.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <div id="container"></div>
-    <script src="./js/globe_callback_words5.js" charset="utf-8"></script>
+    <script src="./js/globe_callback_words6.js" charset="utf-8"></script>
   </body>
 </html>
