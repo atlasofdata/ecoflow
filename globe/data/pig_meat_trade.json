@@ -1,0 +1,13254 @@
+{
+"mali": {
+"2015": {
+"netherlands": {
+"itonnes": 8.0,
+"ibUS": 3.2999999999999996e-05
+},
+"senegal": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"france": {
+"itonnes": 1.0,
+"ibUS": 7e-06
+}
+},
+"2016": {
+"usa": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"belgium": {
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2014": {
+"germany": {
+"itonnes": 3.0,
+"ibUS": 1.4e-05
+},
+"netherlands": {
+"itonnes": 17.0,
+"ibUS": 6.9e-05
+},
+"italy": {
+"itonnes": 3.0,
+"ibUS": 1.7e-05
+},
+"france": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+}
+}
+},
+"cyprus": {
+"2015": {
+"greece": {
+"itonnes": 423.0,
+"ibUS": 0.0011769999999999999,
+"etonnes": 98.0,
+"ebUS": 0.00021099999999999998
+},
+"bulgaria": {
+"itonnes": 3.0,
+"ibUS": 1.1e-05,
+"etonnes": 28.0,
+"ebUS": 9e-06
+},
+"netherlands": {
+"itonnes": 125.0,
+"ibUS": 0.000466
+},
+"romania": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 18.0,
+"ibUS": 6.3e-05
+},
+"italy": {
+"itonnes": 41.0,
+"ibUS": 9.4e-05
+},
+"germany": {
+"itonnes": 754.0,
+"ibUS": 0.00145
+},
+"albania": {
+"etonnes": 27.0,
+"ebUS": 1.4999999999999999e-05
+},
+"belgium": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"spain": {
+"itonnes": 1215.0,
+"ibUS": 0.003538
+},
+"hungary": {
+"itonnes": 46.0,
+"ibUS": 0.000159
+},
+"ghana": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"denmark": {
+"itonnes": 1.0,
+"ibUS": 3e-06
+},
+"poland": {
+"itonnes": 97.0,
+"ibUS": 0.000225
+},
+"angola": {
+"etonnes": 0.0,
+"ebUS": 0.0
+}
+},
+"2016": {
+"portugal": {
+"itonnes": 24.0,
+"ibUS": 4.4999999999999996e-05
+},
+"germany": {
+"itonnes": 700.0,
+"ibUS": 0.001254
+},
+"poland": {
+"itonnes": 96.0,
+"ibUS": 0.000314
+},
+"greece": {
+"itonnes": 501.0,
+"ibUS": 0.001248,
+"etonnes": 16.0,
+"ebUS": 2.4999999999999998e-05
+},
+"bulgaria": {
+"itonnes": 25.0,
+"ibUS": 5.8e-05,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"uk": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+},
+"france": {
+"itonnes": 80.0,
+"ibUS": 0.00013199999999999998
+},
+"spain": {
+"itonnes": 1434.0,
+"ibUS": 0.003689
+},
+"netherlands": {
+"itonnes": 209.0,
+"ibUS": 0.000526
+},
+"italy": {
+"itonnes": 12.0,
+"ibUS": 4.9e-05
+},
+"belgium": {
+"itonnes": 1.0,
+"ibUS": 1e-06
+}
+},
+"2014": {
+"greece": {
+"itonnes": 770.0,
+"ibUS": 0.0026539999999999997,
+"etonnes": 36.0,
+"ebUS": 4.4999999999999996e-05
+},
+"bulgaria": {
+"etonnes": 59.0,
+"ebUS": 2.4e-05
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"netherlands": {
+"itonnes": 212.0,
+"ibUS": 0.000883
+},
+"romania": {
+"itonnes": 0.0,
+"ibUS": 3e-06
+},
+"italy": {
+"itonnes": 166.0,
+"ibUS": 0.000561
+},
+"belgium": {
+"itonnes": 74.0,
+"ibUS": 0.000249
+},
+"albania": {
+"ebUS": 1.2e-05
+},
+"germany": {
+"itonnes": 674.0,
+"ibUS": 0.001839
+},
+"spain": {
+"itonnes": 1290.0,
+"ibUS": 0.004516
+},
+"france": {
+"itonnes": 62.0,
+"ibUS": 0.000222
+},
+"poland": {
+"itonnes": 50.0,
+"ibUS": 0.00019099999999999998
+}
+}
+},
+"nicaragua": {
+"2015": {
+"usa": {
+"itonnes": 198.0,
+"ibUS": 0.00043599999999999997
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 1.2e-05
+}
+},
+"2016": {
+"usa": {
+"itonnes": 212.0,
+"ibUS": 0.000618
+}
+},
+"2014": {
+"usa": {
+"itonnes": 133.0,
+"ibUS": 0.00034199999999999996
+},
+"spain": {
+"ibUS": 3e-06
+}
+}
+},
+"romania": {
+"2015": {
+"china": {
+"etonnes": 1100.0,
+"ebUS": 0.001707
+},
+"croatia": {
+"itonnes": 20.0,
+"ibUS": 3.2999999999999996e-05,
+"etonnes": 8.0,
+"ebUS": 2.2e-05
+},
+"finland": {
+"itonnes": 63.0,
+"ibUS": 6.7e-05
+},
+"bulgaria": {
+"itonnes": 23.0,
+"ibUS": 3.7e-05,
+"etonnes": 1116.0,
+"ebUS": 0.001609
+},
+"uk": {
+"itonnes": 619.0,
+"ibUS": 0.000725,
+"etonnes": 133.0,
+"ebUS": 0.000312
+},
+"cyprus": {
+"itonnes": 360.0,
+"ibUS": 0.00066,
+"etonnes": 104.0,
+"ebUS": 0.00016999999999999999
+},
+"austria": {
+"itonnes": 3110.0,
+"ibUS": 0.004835,
+"etonnes": 13.0,
+"ebUS": 2.9e-05
+},
+"denmark": {
+"itonnes": 2791.0,
+"ibUS": 0.004984,
+"etonnes": 23.0,
+"ebUS": 7.5e-05
+},
+"italy": {
+"itonnes": 2364.0,
+"ibUS": 0.0028699999999999997,
+"etonnes": 139.0,
+"ebUS": 7.3e-05
+},
+"germany": {
+"itonnes": 26688.0,
+"ibUS": 0.044941999999999996,
+"etonnes": 491.0,
+"ebUS": 0.000437
+},
+"sweden": {
+"etonnes": 3.0,
+"ebUS": 1.4e-05
+},
+"netherlands": {
+"itonnes": 11416.0,
+"ibUS": 0.021495999999999998,
+"etonnes": 493.0,
+"ebUS": 0.000245
+},
+"portugal": {
+"itonnes": 1.0,
+"ibUS": 7e-06
+},
+"belgium": {
+"itonnes": 7724.0,
+"ibUS": 0.013058,
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"spain": {
+"itonnes": 9885.0,
+"ibUS": 0.021554999999999998,
+"etonnes": 657.0,
+"ebUS": 0.000765
+},
+"hungary": {
+"itonnes": 10472.0,
+"ibUS": 0.020222999999999998,
+"etonnes": 1315.0,
+"ebUS": 0.002175
+},
+"estonia": {
+"itonnes": 949.0,
+"ibUS": 0.001438,
+"etonnes": 6.0,
+"ebUS": 7e-06
+},
+"france": {
+"itonnes": 2725.0,
+"ibUS": 0.00458,
+"etonnes": 236.0,
+"ebUS": 0.001495
+},
+"greece": {
+"itonnes": 44.0,
+"ibUS": 0.000122,
+"etonnes": 1019.0,
+"ebUS": 0.001895
+},
+"poland": {
+"itonnes": 9482.0,
+"ibUS": 0.012398,
+"etonnes": 32.0,
+"ebUS": 9.999999999999999e-05
+}
+},
+"2016": {
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"china": {
+"etonnes": 9378.0,
+"ebUS": 0.013824
+},
+"croatia": {
+"etonnes": 61.0,
+"ebUS": 0.000139
+},
+"finland": {
+"itonnes": 21.0,
+"ibUS": 2.2e-05
+},
+"bulgaria": {
+"itonnes": 99.0,
+"ibUS": 0.00016099999999999998,
+"etonnes": 2231.0,
+"ebUS": 0.0030239999999999998
+},
+"uk": {
+"itonnes": 660.0,
+"ibUS": 0.000673,
+"etonnes": 436.0,
+"ebUS": 0.001237
+},
+"cyprus": {
+"itonnes": 497.0,
+"ibUS": 0.000978,
+"etonnes": 79.0,
+"ebUS": 2.9e-05
+},
+"austria": {
+"itonnes": 3115.0,
+"ibUS": 0.005098,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"denmark": {
+"itonnes": 885.0,
+"ibUS": 0.001766,
+"etonnes": 38.0,
+"ebUS": 0.000112
+},
+"italy": {
+"itonnes": 3593.0,
+"ibUS": 0.006039999999999999,
+"etonnes": 214.0,
+"ebUS": 0.00015199999999999998
+},
+"germany": {
+"itonnes": 21820.0,
+"ibUS": 0.039716,
+"etonnes": 233.0,
+"ebUS": 9.3e-05
+},
+"sweden": {
+"etonnes": 11.0,
+"ebUS": 3.6e-05
+},
+"netherlands": {
+"itonnes": 7019.0,
+"ibUS": 0.014615,
+"etonnes": 36.0,
+"ebUS": 8.4e-05
+},
+"portugal": {
+"itonnes": 64.0,
+"ibUS": 9.999999999999999e-05
+},
+"belgium": {
+"itonnes": 4461.0,
+"ibUS": 0.00864,
+"etonnes": 22.0,
+"ebUS": 1.1e-05
+},
+"spain": {
+"itonnes": 16481.0,
+"ibUS": 0.03685,
+"etonnes": 1391.0,
+"ebUS": 0.0015919999999999999
+},
+"hungary": {
+"itonnes": 8567.0,
+"ibUS": 0.017624,
+"etonnes": 2712.0,
+"ebUS": 0.00345
+},
+"estonia": {
+"itonnes": 887.0,
+"ibUS": 0.001679
+},
+"france": {
+"itonnes": 1524.0,
+"ibUS": 0.00292,
+"etonnes": 227.0,
+"ebUS": 0.001872
+},
+"greece": {
+"itonnes": 56.0,
+"ibUS": 0.000208,
+"etonnes": 755.0,
+"ebUS": 0.0015249999999999999
+},
+"poland": {
+"itonnes": 7649.0,
+"ibUS": 0.012570999999999999,
+"etonnes": 10.0,
+"ebUS": 1.1e-05
+}
+},
+"2014": {
+"china": {
+"etonnes": 676.0,
+"ebUS": 0.000846
+},
+"croatia": {
+"etonnes": 22.0,
+"ebUS": 7.3e-05
+},
+"greece": {
+"itonnes": 40.0,
+"ibUS": 8.9e-05,
+"etonnes": 1108.0,
+"ebUS": 0.00283
+},
+"bulgaria": {
+"itonnes": 386.0,
+"ibUS": 0.0008349999999999999,
+"etonnes": 2992.0,
+"ebUS": 0.007490999999999999
+},
+"uk": {
+"itonnes": 486.0,
+"ibUS": 0.000563,
+"etonnes": 22.0,
+"ebUS": 4.2e-05
+},
+"cyprus": {
+"itonnes": 181.0,
+"ibUS": 0.00039999999999999996,
+"etonnes": 5.0,
+"ebUS": 1.1e-05
+},
+"austria": {
+"ibUS": 0.0076289999999999995,
+"etonnes": 51.0,
+"ebUS": 5.2e-05
+},
+"denmark": {
+"itonnes": 1839.0,
+"ibUS": 0.004647,
+"etonnes": 13.0,
+"ebUS": 5.8e-05
+},
+"italy": {
+"itonnes": 2272.0,
+"ibUS": 0.003149,
+"etonnes": 662.0,
+"ebUS": 0.00046699999999999997
+},
+"germany": {
+"itonnes": 28248.0,
+"ibUS": 0.060489999999999995,
+"etonnes": 247.0,
+"ebUS": 0.000325
+},
+"netherlands": {
+"itonnes": 11528.0,
+"ibUS": 0.028394,
+"etonnes": 39.0,
+"ebUS": 0.000156
+},
+"portugal": {
+"itonnes": 1.0,
+"ibUS": 3e-06
+},
+"belgium": {
+"itonnes": 6985.0,
+"ibUS": 0.016104,
+"etonnes": 61.0,
+"ebUS": 0.000102
+},
+"spain": {
+"itonnes": 8403.0,
+"ibUS": 0.02358,
+"etonnes": 151.0,
+"ebUS": 0.000454
+},
+"hungary": {
+"itonnes": 13084.0,
+"ibUS": 0.033676,
+"etonnes": 1562.0,
+"ebUS": 0.003757
+},
+"estonia": {
+"itonnes": 404.0,
+"ibUS": 0.0009209999999999999,
+"etonnes": 2.0,
+"ebUS": 7e-06
+},
+"france": {
+"itonnes": 4733.0,
+"ibUS": 0.010306,
+"etonnes": 285.0,
+"ebUS": 0.001344
+},
+"poland": {
+"itonnes": 6770.0,
+"ibUS": 0.011975,
+"etonnes": 63.0,
+"ebUS": 8.499999999999999e-05
+}
+}
+},
+"congo": {
+"2015": {
+"poland": {
+"itonnes": 1849.0,
+"ibUS": 0.001508
+},
+"finland": {
+"itonnes": 134.0,
+"ibUS": 0.00012299999999999998
+},
+"uk": {
+"itonnes": 266.0,
+"ibUS": 0.000287
+},
+"netherlands": {
+"itonnes": 1088.0,
+"ibUS": 0.001843
+},
+"austria": {
+"itonnes": 24.0,
+"ibUS": 4.9999999999999996e-05
+},
+"italy": {
+"itonnes": 363.0,
+"ibUS": 0.00043599999999999997
+},
+"germany": {
+"itonnes": 2607.0,
+"ibUS": 0.0034639999999999996
+},
+"belgium": {
+"itonnes": 190.0,
+"ibUS": 0.000271
+},
+"spain": {
+"itonnes": 333.0,
+"ibUS": 0.000286
+},
+"france": {
+"itonnes": 4470.0,
+"ibUS": 0.008824
+},
+"canada": {
+"itonnes": 76.0,
+"ibUS": 0.000136
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"angola": {
+"ebUS": 0.00024599999999999996
+}
+},
+"2016": {
+"usa": {
+"etonnes": 2.0,
+"ebUS": 3e-06
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"finland": {
+"itonnes": 182.0,
+"ibUS": 0.00011899999999999999
+},
+"bulgaria": {
+"itonnes": 25.0,
+"ibUS": 1.2e-05
+},
+"uk": {
+"itonnes": 869.0,
+"ibUS": 0.000584
+},
+"netherlands": {
+"itonnes": 600.0,
+"ibUS": 0.000945
+},
+"france": {
+"itonnes": 3274.0,
+"ibUS": 0.005271
+},
+"italy": {
+"itonnes": 511.0,
+"ibUS": 0.0005549999999999999
+},
+"germany": {
+"itonnes": 2509.0,
+"ibUS": 0.003124
+},
+"belgium": {
+"itonnes": 489.0,
+"ibUS": 0.000531
+},
+"spain": {
+"itonnes": 469.0,
+"ibUS": 0.000292
+},
+"denmark": {
+"itonnes": 22.0,
+"ibUS": 2.9e-05
+},
+"sweden": {
+"itonnes": 51.0,
+"ibUS": 7.599999999999999e-05
+},
+"canada": {
+"itonnes": 128.0,
+"ibUS": 0.00018199999999999998
+},
+"poland": {
+"itonnes": 1446.0,
+"ibUS": 0.001377
+},
+"brazil": {
+"itonnes": 1.0,
+"ibUS": 2e-06
+}
+},
+"2014": {
+"usa": {
+"itonnes": 25.0,
+"ibUS": 5.4e-05
+},
+"belgium": {
+"itonnes": 13.0,
+"ibUS": 5.4e-05
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 3e-06
+},
+"france": {
+"itonnes": 42.0,
+"ibUS": 0.000202
+},
+"netherlands": {
+"itonnes": 25.0,
+"ibUS": 4.9999999999999996e-05
+},
+"canada": {
+"itonnes": 238.0,
+"ibUS": 0.000623
+},
+"denmark": {
+"itonnes": 54.0,
+"ibUS": 0.000156
+},
+"italy": {
+"itonnes": 2.0,
+"ibUS": 1.1e-05
+},
+"cameroon": {
+"itonnes": 0.0,
+"ibUS": 2e-06
+},
+"germany": {
+"itonnes": 25.0,
+"ibUS": 4.1e-05
+}
+}
+},
+"italy": {
+"2015": {
+"aruba": {
+"etonnes": 53.0,
+"ebUS": 0.00018199999999999998
+},
+"cyprus": {
+"etonnes": 5.0,
+"ebUS": 1.4e-05
+},
+"romania": {
+"itonnes": 75.0,
+"ibUS": 0.000248,
+"etonnes": 1618.0,
+"ebUS": 0.0018449999999999999
+},
+"congo": {
+"etonnes": 363.0,
+"ebUS": 0.00039
+},
+"belgium": {
+"itonnes": 21358.0,
+"ibUS": 0.041371,
+"etonnes": 1685.0,
+"ebUS": 0.002252
+},
+"france": {
+"itonnes": 84577.0,
+"ibUS": 0.155781,
+"etonnes": 2361.0,
+"ebUS": 0.005934999999999999
+},
+"greece": {
+"itonnes": 174.0,
+"ibUS": 8.599999999999999e-05,
+"etonnes": 647.0,
+"ebUS": 0.001715
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 3.0,
+"ebUS": 1.8e-05
+},
+"israel": {
+"etonnes": 2.0,
+"ebUS": 8e-06
+},
+"azerbaijan": {
+"etonnes": 1.0,
+"ebUS": 1.1e-05
+},
+"croatia": {
+"itonnes": 1.0,
+"ibUS": 3e-06,
+"etonnes": 1198.0,
+"ebUS": 0.003297
+},
+"finland": {
+"itonnes": 1122.0,
+"ibUS": 0.001763,
+"etonnes": 28.0,
+"ebUS": 8.2e-05
+},
+"austria": {
+"itonnes": 30206.0,
+"ibUS": 0.059992,
+"etonnes": 3193.0,
+"ebUS": 0.005464
+},
+"gabon": {
+"etonnes": 200.0,
+"ebUS": 0.000257
+},
+"switzerland": {
+"itonnes": 21.0,
+"ibUS": 0.000124,
+"etonnes": 14.0,
+"ebUS": 0.00018899999999999999
+},
+"uruguay": {
+"etonnes": 43.0,
+"ebUS": 0.000185
+},
+"spain": {
+"itonnes": 92956.0,
+"ibUS": 0.182855,
+"etonnes": 767.0,
+"ebUS": 0.00162
+},
+"hungary": {
+"itonnes": 24215.0,
+"ibUS": 0.038371999999999996,
+"etonnes": 3253.0,
+"ebUS": 0.009736
+},
+"estonia": {
+"itonnes": 46.0,
+"ibUS": 0.000155,
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"sweden": {
+"itonnes": 585.0,
+"ibUS": 0.000873,
+"etonnes": 769.0,
+"ebUS": 0.0027979999999999997
+},
+"armenia": {
+"etonnes": 59.0,
+"ebUS": 0.000122
+},
+"korea": {
+"etonnes": 3.0,
+"ebUS": 2.7e-05
+},
+"chile": {
+"etonnes": 3.0,
+"ebUS": 2.8e-05
+},
+"nigeria": {
+"etonnes": 24.0,
+"ebUS": 8.3e-05
+},
+"japan": {
+"etonnes": 6247.0,
+"ebUS": 0.027781999999999998
+},
+"malaysia": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"poland": {
+"itonnes": 60190.0,
+"ibUS": 0.104304,
+"etonnes": 981.0,
+"ebUS": 0.002861
+},
+"angola": {
+"etonnes": 588.0,
+"ebUS": 0.000691
+},
+"usa": {
+"itonnes": 51.0,
+"ibUS": 0.000286,
+"etonnes": 31.0,
+"ebUS": 0.00040899999999999997
+},
+"china": {
+"etonnes": 148.0,
+"ebUS": 0.000245
+},
+"bulgaria": {
+"etonnes": 756.0,
+"ebUS": 0.0013909999999999999
+},
+"uk": {
+"itonnes": 335.0,
+"ibUS": 0.000864,
+"etonnes": 2758.0,
+"ebUS": 0.008439
+},
+"netherlands": {
+"itonnes": 135056.0,
+"ibUS": 0.246573,
+"etonnes": 483.0,
+"ebUS": 0.001485
+},
+"australia": {
+"etonnes": 37.0,
+"ebUS": 0.000531
+},
+"guinea": {
+"etonnes": 25.0,
+"ebUS": 2.9999999999999997e-05
+},
+"germany": {
+"itonnes": 292910.0,
+"ibUS": 0.568693,
+"etonnes": 3625.0,
+"ebUS": 0.007821
+},
+"russia": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"albania": {
+"etonnes": 402.0,
+"ebUS": 0.000762
+},
+"norway": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"ghana": {
+"etonnes": 61.0,
+"ebUS": 5.9999999999999995e-05
+},
+"denmark": {
+"itonnes": 104618.0,
+"ibUS": 0.195126,
+"etonnes": 675.0,
+"ebUS": 0.001586
+},
+"canada": {
+"itonnes": 15.0,
+"ibUS": 5.6e-05,
+"etonnes": 14.0,
+"ebUS": 0.000113
+},
+"egypt": {
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"argentina": {
+"etonnes": 3.0,
+"ebUS": 3.9e-05
+}
+},
+"2016": {
+"aruba": {
+"etonnes": 4.0,
+"ebUS": 4.9999999999999996e-05
+},
+"cyprus": {
+"etonnes": 87.0,
+"ebUS": 6.7e-05
+},
+"romania": {
+"itonnes": 259.0,
+"ibUS": 0.0005589999999999999,
+"etonnes": 3709.0,
+"ebUS": 0.006019999999999999
+},
+"congo": {
+"etonnes": 511.0,
+"ebUS": 0.000496
+},
+"belgium": {
+"itonnes": 21792.0,
+"ibUS": 0.041984,
+"etonnes": 1800.0,
+"ebUS": 0.0019069999999999998
+},
+"france": {
+"itonnes": 71608.0,
+"ibUS": 0.135357,
+"etonnes": 3591.0,
+"ebUS": 0.007025
+},
+"greece": {
+"itonnes": 201.0,
+"ibUS": 8.7e-05,
+"etonnes": 537.0,
+"ebUS": 0.001424
+},
+"portugal": {
+"itonnes": 133.0,
+"ibUS": 0.00018999999999999998,
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"israel": {
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"peru": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"azerbaijan": {
+"etonnes": 25.0,
+"ebUS": 2.6e-05
+},
+"guatemala": {
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"croatia": {
+"itonnes": 426.0,
+"ibUS": 0.0009239999999999999,
+"etonnes": 761.0,
+"ebUS": 0.002013
+},
+"finland": {
+"itonnes": 39.0,
+"ibUS": 5.9999999999999995e-05,
+"etonnes": 2.0,
+"ebUS": 1.1e-05
+},
+"austria": {
+"itonnes": 29107.0,
+"ibUS": 0.058265,
+"etonnes": 4000.0,
+"ebUS": 0.007146
+},
+"gabon": {
+"etonnes": 75.0,
+"ebUS": 6.9e-05
+},
+"switzerland": {
+"itonnes": 50.0,
+"ibUS": 0.00031499999999999996,
+"etonnes": 9.0,
+"ebUS": 0.00010499999999999999
+},
+"uruguay": {
+"etonnes": 5.0,
+"ebUS": 3.2999999999999996e-05
+},
+"spain": {
+"itonnes": 101404.0,
+"ibUS": 0.193511,
+"etonnes": 2768.0,
+"ebUS": 0.0028499999999999997
+},
+"hungary": {
+"itonnes": 18230.0,
+"ibUS": 0.031298,
+"etonnes": 1220.0,
+"ebUS": 0.004365
+},
+"estonia": {
+"itonnes": 64.0,
+"ibUS": 0.00017999999999999998,
+"etonnes": 21.0,
+"ebUS": 1.6e-05
+},
+"sweden": {
+"etonnes": 222.0,
+"ebUS": 0.00098
+},
+"brazil": {
+"etonnes": 3.0,
+"ebUS": 4.8e-05
+},
+"armenia": {
+"etonnes": 49.0,
+"ebUS": 0.000127
+},
+"korea": {
+"etonnes": 8.0,
+"ebUS": 0.000117
+},
+"kenya": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"nigeria": {
+"etonnes": 20.0,
+"ebUS": 7.8e-05
+},
+"ethiopia": {
+"etonnes": 1.0,
+"ebUS": 4.9999999999999996e-06
+},
+"japan": {
+"etonnes": 8509.0,
+"ebUS": 0.038792
+},
+"malaysia": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"poland": {
+"itonnes": 60899.0,
+"ibUS": 0.114447,
+"etonnes": 753.0,
+"ebUS": 0.001918
+},
+"angola": {
+"etonnes": 178.0,
+"ebUS": 0.00011499999999999999
+},
+"usa": {
+"itonnes": 107.0,
+"ibUS": 0.0006569999999999999,
+"etonnes": 27.0,
+"ebUS": 0.00037299999999999996
+},
+"china": {
+"etonnes": 228.0,
+"ebUS": 0.000332
+},
+"bulgaria": {
+"itonnes": 258.0,
+"ibUS": 0.00017099999999999998,
+"etonnes": 2046.0,
+"ebUS": 0.00299
+},
+"uk": {
+"itonnes": 457.0,
+"ibUS": 0.00121,
+"etonnes": 2333.0,
+"ebUS": 0.006828
+},
+"netherlands": {
+"itonnes": 129131.0,
+"ibUS": 0.241926,
+"etonnes": 2149.0,
+"ebUS": 0.001722
+},
+"australia": {
+"itonnes": 12.0,
+"ibUS": 5.3e-05,
+"etonnes": 52.0,
+"ebUS": 0.000765
+},
+"guinea": {
+"etonnes": 11.0,
+"ebUS": 1.3e-05
+},
+"germany": {
+"itonnes": 276574.0,
+"ibUS": 0.554675,
+"etonnes": 6275.0,
+"ebUS": 0.011835
+},
+"russia": {
+"etonnes": 15.0,
+"ebUS": 0.000139
+},
+"albania": {
+"etonnes": 282.0,
+"ebUS": 0.000372
+},
+"ghana": {
+"etonnes": 85.0,
+"ebUS": 6.599999999999999e-05
+},
+"denmark": {
+"itonnes": 88669.0,
+"ibUS": 0.16981,
+"etonnes": 858.0,
+"ebUS": 0.001509
+},
+"canada": {
+"etonnes": 36.0,
+"ebUS": 0.000544
+},
+"argentina": {
+"etonnes": 3.0,
+"ebUS": 3.7999999999999995e-05
+}
+},
+"2014": {
+"mali": {
+"etonnes": 3.0,
+"ebUS": 1.4999999999999999e-05
+},
+"cyprus": {
+"etonnes": 27.0,
+"ebUS": 6.8e-05
+},
+"romania": {
+"itonnes": 101.0,
+"ibUS": 0.000406,
+"etonnes": 2072.0,
+"ebUS": 0.003145
+},
+"congo": {
+"etonnes": 243.0,
+"ebUS": 0.000325
+},
+"belgium": {
+"itonnes": 27179.0,
+"ibUS": 0.06576599999999999,
+"etonnes": 616.0,
+"ebUS": 0.0011849999999999999
+},
+"france": {
+"itonnes": 108016.0,
+"ibUS": 0.261086,
+"etonnes": 3640.0,
+"ebUS": 0.009765
+},
+"greece": {
+"itonnes": 1.0,
+"ibUS": 9e-06,
+"etonnes": 921.0,
+"ebUS": 0.0028859999999999997
+},
+"portugal": {
+"itonnes": 1.0,
+"ibUS": 1e-06,
+"etonnes": 3.0,
+"ebUS": 1.8e-05
+},
+"israel": {
+"etonnes": 4.0,
+"ebUS": 1.8e-05
+},
+"peru": {
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"kenya": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"croatia": {
+"itonnes": 10.0,
+"ibUS": 4.2e-05,
+"etonnes": 417.0,
+"ebUS": 0.0016309999999999999
+},
+"finland": {
+"itonnes": 117.0,
+"ibUS": 0.000261,
+"etonnes": 2.0,
+"ebUS": 1.2e-05
+},
+"austria": {
+"itonnes": 26015.0,
+"ibUS": 0.07224699999999999,
+"etonnes": 4109.0,
+"ebUS": 0.008242
+},
+"gabon": {
+"etonnes": 150.0,
+"ebUS": 0.000256
+},
+"cameroon": {
+"etonnes": 25.0,
+"ebUS": 2.9e-05
+},
+"switzerland": {
+"itonnes": 8.0,
+"ibUS": 6.3e-05,
+"etonnes": 345.0,
+"ebUS": 0.001526
+},
+"uruguay": {
+"etonnes": 6.0,
+"ebUS": 6.8e-05
+},
+"spain": {
+"itonnes": 84781.0,
+"ibUS": 0.221029,
+"etonnes": 1009.0,
+"ebUS": 0.0024419999999999997
+},
+"hungary": {
+"itonnes": 22875.0,
+"ibUS": 0.043952,
+"etonnes": 1030.0,
+"ebUS": 0.002121
+},
+"estonia": {
+"itonnes": 77.0,
+"ibUS": 0.000276,
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"indonesia": {
+"etonnes": 1.0,
+"ebUS": 9e-06
+},
+"sweden": {
+"itonnes": 1029.0,
+"ibUS": 0.0022489999999999997,
+"etonnes": 609.0,
+"ebUS": 0.001762
+},
+"azerbaijan": {
+"etonnes": 0.0,
+"ebUS": 9e-06
+},
+"armenia": {
+"etonnes": 742.0,
+"ebUS": 0.000948
+},
+"korea": {
+"etonnes": 4.0,
+"ebUS": 5.4999999999999995e-05
+},
+"chile": {
+"itonnes": 23.0,
+"ibUS": 7e-05
+},
+"nigeria": {
+"etonnes": 12.0,
+"ebUS": 8.099999999999999e-05
+},
+"japan": {
+"etonnes": 4481.0,
+"ebUS": 0.023785
+},
+"malaysia": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"india": {
+"etonnes": 4.0,
+"ebUS": 3.9e-05
+},
+"poland": {
+"itonnes": 48664.0,
+"ibUS": 0.107404,
+"etonnes": 658.0,
+"ebUS": 0.00323
+},
+"angola": {
+"etonnes": 452.0,
+"ebUS": 0.000656
+},
+"usa": {
+"itonnes": 82.0,
+"ibUS": 0.00047599999999999997,
+"etonnes": 38.0,
+"ebUS": 0.00031499999999999996
+},
+"china": {
+"etonnes": 51.0,
+"ebUS": 8.2e-05
+},
+"bulgaria": {
+"itonnes": 1.0,
+"ibUS": 4e-06,
+"etonnes": 722.0,
+"ebUS": 0.0016029999999999998
+},
+"uk": {
+"itonnes": 741.0,
+"ibUS": 0.0019879999999999997,
+"etonnes": 2226.0,
+"ebUS": 0.009179999999999999
+},
+"netherlands": {
+"itonnes": 133595.0,
+"ibUS": 0.324854,
+"etonnes": 726.0,
+"ebUS": 0.002601
+},
+"australia": {
+"etonnes": 23.0,
+"ebUS": 0.00037299999999999996
+},
+"brazil": {
+"etonnes": 13.0,
+"ebUS": 0.00014099999999999998
+},
+"germany": {
+"itonnes": 300481.0,
+"ibUS": 0.770782,
+"etonnes": 6597.0,
+"ebUS": 0.016169
+},
+"russia": {
+"etonnes": 94.0,
+"ebUS": 0.000176
+},
+"albania": {
+"ebUS": 0.000316
+},
+"ghana": {
+"etonnes": 100.0,
+"ebUS": 0.000144
+},
+"denmark": {
+"itonnes": 100391.0,
+"ibUS": 0.251137,
+"etonnes": 705.0,
+"ebUS": 0.00217
+},
+"canada": {
+"etonnes": 68.0,
+"ebUS": 0.000425
+}
+}
+},
+"qatar": {
+"2015": {
+"spain": {
+"itonnes": 2.0,
+"ibUS": 6.5e-05
+},
+"netherlands": {
+"itonnes": 31.0,
+"ibUS": 0.000197
+},
+"italy": {
+"itonnes": 13.0,
+"ibUS": 0.000272
+},
+"uk": {
+"itonnes": 99.0,
+"ibUS": 0.000714
+},
+"denmark": {
+"itonnes": 300.0,
+"ibUS": 0.002371
+}
+},
+"2014": {
+"spain": {
+"itonnes": 3.0,
+"ibUS": 9.8e-05
+},
+"uk": {
+"itonnes": 92.0,
+"ibUS": 0.0006659999999999999
+},
+"netherlands": {
+"itonnes": 46.0,
+"ibUS": 0.000323
+},
+"egypt": {
+"itonnes": 2.0,
+"ibUS": 4e-06
+},
+"denmark": {
+"ibUS": 0.002072
+},
+"italy": {
+"itonnes": 16.0,
+"ibUS": 0.000319
+}
+}
+},
+"kenya": {
+"2015": {
+"spain": {
+"itonnes": 77.0,
+"ibUS": 0.00022999999999999998
+},
+"germany": {
+"itonnes": 248.0,
+"ibUS": 0.000754
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"bahrain": {
+"etonnes": 3.0,
+"ebUS": 1.2e-05
+}
+},
+"2016": {
+"germany": {
+"itonnes": 232.0,
+"ibUS": 0.00085
+},
+"poland": {
+"itonnes": 25.0,
+"ibUS": 9.2e-05
+},
+"ghana": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"denmark": {
+"itonnes": 10.0,
+"ibUS": 6.8e-05
+},
+"spain": {
+"itonnes": 65.0,
+"ibUS": 0.00024099999999999998
+},
+"ethiopia": {
+"etonnes": 1.0,
+"ebUS": 8e-06
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 2e-06
+},
+"bahrain": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+}
+},
+"2014": {
+"belgium": {
+"itonnes": 21.0,
+"ibUS": 9.7e-05
+},
+"spain": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"poland": {
+"itonnes": 24.0,
+"ibUS": 7.999999999999999e-05
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+},
+"germany": {
+"itonnes": 122.0,
+"ibUS": 0.000423
+},
+"bahrain": {
+"ebUS": 0.00011899999999999999
+}
+}
+},
+"belgium": {
+"2015": {
+"korea": {
+"etonnes": 3812.0,
+"ebUS": 0.010589999999999999
+},
+"armenia": {
+"etonnes": 54.0,
+"ebUS": 0.000129
+},
+"greece": {
+"itonnes": 6.0,
+"ibUS": 1.3e-05,
+"etonnes": 4608.0,
+"ebUS": 0.008879
+},
+"ghana": {
+"etonnes": 537.0,
+"ebUS": 0.000423
+},
+"nigeria": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"cyprus": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 283.0,
+"ebUS": 0.000579
+},
+"romania": {
+"itonnes": 20.0,
+"ibUS": 3.5e-05,
+"etonnes": 7821.0,
+"ebUS": 0.013337
+},
+"congo": {
+"etonnes": 190.0,
+"ebUS": 0.000242
+},
+"italy": {
+"itonnes": 1447.0,
+"ibUS": 0.002008,
+"etonnes": 22172.0,
+"ebUS": 0.045029
+},
+"china": {
+"etonnes": 6101.0,
+"ebUS": 0.011907
+},
+"malaysia": {
+"etonnes": 44.0,
+"ebUS": 0.000117
+},
+"gabon": {
+"etonnes": 560.0,
+"ebUS": 0.001176
+},
+"germany": {
+"itonnes": 5628.0,
+"ibUS": 0.012322999999999999,
+"etonnes": 246331.0,
+"ebUS": 0.434243
+},
+"france": {
+"itonnes": 8564.0,
+"ibUS": 0.016496,
+"etonnes": 9531.0,
+"ebUS": 0.020635
+},
+"japan": {
+"etonnes": 182.0,
+"ebUS": 0.000461
+},
+"poland": {
+"itonnes": 1211.0,
+"ibUS": 0.001906,
+"etonnes": 200579.0,
+"ebUS": 0.33996499999999996
+},
+"uruguay": {
+"etonnes": 285.0,
+"ebUS": 0.000551
+},
+"angola": {
+"etonnes": 441.0,
+"ebUS": 0.000719
+},
+"azerbaijan": {
+"etonnes": 41.0,
+"ebUS": 6.7e-05
+},
+"portugal": {
+"itonnes": 6.0,
+"ibUS": 2.9999999999999997e-05,
+"etonnes": 298.0,
+"ebUS": 0.000621
+},
+"india": {
+"etonnes": 122.0,
+"ebUS": 0.00037099999999999996
+},
+"aruba": {
+"etonnes": 4.0,
+"ebUS": 1.4999999999999999e-05
+},
+"croatia": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 273.0,
+"ebUS": 0.000495
+},
+"finland": {
+"etonnes": 71.0,
+"ebUS": 0.000167
+},
+"bulgaria": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 1895.0,
+"ebUS": 0.0034519999999999998
+},
+"uk": {
+"itonnes": 1608.0,
+"ibUS": 0.002116,
+"etonnes": 25217.0,
+"ebUS": 0.053954999999999996
+},
+"afghanistan": {
+"ebUS": 6.5e-05
+},
+"australia": {
+"itonnes": 207.0,
+"ibUS": 0.001259,
+"etonnes": 217.0,
+"ebUS": 0.000611
+},
+"benin": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"cameroon": {
+"etonnes": 164.0,
+"ebUS": 0.00013099999999999999
+},
+"netherlands": {
+"itonnes": 14360.0,
+"ibUS": 0.029495999999999998,
+"etonnes": 34950.0,
+"ebUS": 0.048983
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"albania": {
+"etonnes": 25.0,
+"ebUS": 3.9e-05
+},
+"spain": {
+"itonnes": 6366.0,
+"ibUS": 0.022657999999999998,
+"etonnes": 3404.0,
+"ebUS": 0.005706
+},
+"hungary": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 657.0,
+"ebUS": 0.001218
+},
+"usa": {
+"itonnes": 138.0,
+"ibUS": 0.001039
+},
+"estonia": {
+"itonnes": 24.0,
+"ibUS": 3.9999999999999996e-05,
+"etonnes": 2870.0,
+"ebUS": 0.0053
+},
+"denmark": {
+"itonnes": 527.0,
+"ibUS": 0.001169,
+"etonnes": 3460.0,
+"ebUS": 0.004986
+},
+"sweden": {
+"etonnes": 32.0,
+"ebUS": 9.8e-05
+},
+"canada": {
+"etonnes": 181.0,
+"ebUS": 0.0005189999999999999
+},
+"austria": {
+"itonnes": 46.0,
+"ibUS": 9.099999999999999e-05,
+"etonnes": 242.0,
+"ebUS": 0.000397
+},
+"bahrain": {
+"etonnes": 36.0,
+"ebUS": 9.999999999999999e-05
+}
+},
+"2016": {
+"korea": {
+"etonnes": 4273.0,
+"ebUS": 0.013196999999999999
+},
+"greece": {
+"etonnes": 3310.0,
+"ebUS": 0.006807
+},
+"ghana": {
+"etonnes": 152.0,
+"ebUS": 0.000165
+},
+"gabon": {
+"etonnes": 161.0,
+"ebUS": 0.00028399999999999996
+},
+"afghanistan": {
+"etonnes": 5.0,
+"ebUS": 1.3e-05
+},
+"albania": {
+"etonnes": 109.0,
+"ebUS": 0.00017199999999999998
+},
+"congo": {
+"etonnes": 489.0,
+"ebUS": 0.000474
+},
+"italy": {
+"itonnes": 764.0,
+"ibUS": 0.0013239999999999999,
+"etonnes": 21906.0,
+"ebUS": 0.044671999999999996
+},
+"malaysia": {
+"etonnes": 582.0,
+"ebUS": 0.001544
+},
+"netherlands": {
+"itonnes": 12756.0,
+"ibUS": 0.028731999999999997,
+"etonnes": 30808.0,
+"ebUS": 0.051759
+},
+"india": {
+"etonnes": 185.0,
+"ebUS": 0.0005639999999999999
+},
+"germany": {
+"itonnes": 5807.0,
+"ibUS": 0.013496999999999999,
+"etonnes": 231048.0,
+"ebUS": 0.429156
+},
+"japan": {
+"etonnes": 211.0,
+"ebUS": 0.000499
+},
+"france": {
+"itonnes": 11133.0,
+"ibUS": 0.020388999999999997,
+"etonnes": 7759.0,
+"ebUS": 0.018032
+},
+"ethiopia": {
+"etonnes": 26.0,
+"ebUS": 0.000111
+},
+"poland": {
+"itonnes": 609.0,
+"ibUS": 0.0021809999999999998,
+"etonnes": 186205.0,
+"ebUS": 0.337018
+},
+"uruguay": {
+"etonnes": 129.0,
+"ebUS": 0.000167
+},
+"angola": {
+"etonnes": 162.0,
+"ebUS": 0.000265
+},
+"azerbaijan": {
+"etonnes": 48.0,
+"ebUS": 5.6e-05
+},
+"usa": {
+"itonnes": 202.0,
+"ibUS": 0.001424
+},
+"portugal": {
+"itonnes": 91.0,
+"ibUS": 0.000265,
+"etonnes": 110.0,
+"ebUS": 0.000247
+},
+"china": {
+"etonnes": 9526.0,
+"ebUS": 0.018494999999999998
+},
+"croatia": {
+"etonnes": 682.0,
+"ebUS": 0.0013
+},
+"finland": {
+"itonnes": 1.0,
+"ibUS": 2e-06,
+"etonnes": 140.0,
+"ebUS": 0.00024099999999999998
+},
+"bulgaria": {
+"etonnes": 2169.0,
+"ebUS": 0.0043029999999999995
+},
+"uk": {
+"itonnes": 2880.0,
+"ibUS": 0.004238,
+"etonnes": 21091.0,
+"ebUS": 0.045885999999999996
+},
+"benin": {
+"etonnes": 25.0,
+"ebUS": 2.7e-05
+},
+"australia": {
+"itonnes": 32.0,
+"ibUS": 0.00019099999999999998,
+"etonnes": 816.0,
+"ebUS": 0.0017079999999999999
+},
+"guinea": {
+"etonnes": 5.0,
+"ebUS": 4.9999999999999996e-06
+},
+"cyprus": {
+"etonnes": 223.0,
+"ebUS": 0.000392
+},
+"cameroon": {
+"etonnes": 87.0,
+"ebUS": 7.4e-05
+},
+"switzerland": {
+"etonnes": 3.0,
+"ebUS": 9.999999999999999e-06
+},
+"austria": {
+"etonnes": 107.0,
+"ebUS": 0.000167
+},
+"spain": {
+"itonnes": 6963.0,
+"ibUS": 0.024281999999999998,
+"etonnes": 1964.0,
+"ebUS": 0.003356
+},
+"hungary": {
+"etonnes": 1321.0,
+"ebUS": 0.002278
+},
+"estonia": {
+"itonnes": 1.0,
+"ibUS": 1e-06,
+"etonnes": 2175.0,
+"ebUS": 0.003908
+},
+"denmark": {
+"itonnes": 339.0,
+"ibUS": 0.000832,
+"etonnes": 2787.0,
+"ebUS": 0.004602
+},
+"indonesia": {
+"etonnes": 6.0,
+"ebUS": 3.7999999999999995e-05
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"canada": {
+"etonnes": 185.0,
+"ebUS": 0.000335
+},
+"romania": {
+"itonnes": 34.0,
+"ibUS": 5.9999999999999995e-05,
+"etonnes": 4278.0,
+"ebUS": 0.008104
+},
+"bahrain": {
+"etonnes": 15.0,
+"ebUS": 4.1e-05
+}
+},
+"2014": {
+"korea": {
+"etonnes": 4901.0,
+"ebUS": 0.016462
+},
+"armenia": {
+"etonnes": 36.0,
+"ebUS": 0.00010999999999999999
+},
+"greece": {
+"itonnes": 36.0,
+"ibUS": 0.000136,
+"etonnes": 4415.0,
+"ebUS": 0.011243
+},
+"ghana": {
+"etonnes": 976.0,
+"ebUS": 0.0009639999999999999
+},
+"nigeria": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"cyprus": {
+"itonnes": 84.0,
+"ibUS": 0.000145,
+"etonnes": 811.0,
+"ebUS": 0.001959
+},
+"romania": {
+"itonnes": 97.0,
+"ibUS": 0.000224,
+"etonnes": 6439.0,
+"ebUS": 0.014726999999999999
+},
+"congo": {
+"etonnes": 309.0,
+"ebUS": 0.00039
+},
+"italy": {
+"itonnes": 284.0,
+"ibUS": 0.000765,
+"etonnes": 26279.0,
+"ebUS": 0.067906
+},
+"malaysia": {
+"etonnes": 234.0,
+"ebUS": 0.000731
+},
+"kenya": {
+"etonnes": 21.0,
+"ebUS": 8.599999999999999e-05
+},
+"india": {
+"etonnes": 123.0,
+"ebUS": 0.000434
+},
+"germany": {
+"itonnes": 9945.0,
+"ibUS": 0.029131999999999998,
+"etonnes": 253274.0,
+"ebUS": 0.604887
+},
+"sweden": {
+"etonnes": 139.0,
+"ebUS": 0.000321
+},
+"france": {
+"itonnes": 12611.0,
+"ibUS": 0.02623,
+"etonnes": 11505.0,
+"ebUS": 0.030296
+},
+"japan": {
+"etonnes": 138.0,
+"ebUS": 0.000272
+},
+"poland": {
+"itonnes": 1782.0,
+"ibUS": 0.003987,
+"etonnes": 161785.0,
+"ebUS": 0.366315
+},
+"canada": {
+"etonnes": 314.0,
+"ebUS": 0.0008129999999999999
+},
+"angola": {
+"etonnes": 879.0,
+"ebUS": 0.001731
+},
+"azerbaijan": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"usa": {
+"itonnes": 99.0,
+"ibUS": 0.0008309999999999999,
+"etonnes": 49.0,
+"ebUS": 0.00010899999999999999
+},
+"portugal": {
+"itonnes": 5.0,
+"ibUS": 2.4e-05,
+"etonnes": 167.0,
+"ebUS": 0.00042899999999999997
+},
+"china": {
+"etonnes": 3106.0,
+"ebUS": 0.005679
+},
+"croatia": {
+"etonnes": 444.0,
+"ebUS": 0.0010559999999999999
+},
+"finland": {
+"itonnes": 22.0,
+"ibUS": 4.4e-05,
+"etonnes": 5.0,
+"ebUS": 3.4e-05
+},
+"bulgaria": {
+"itonnes": 5.0,
+"ibUS": 4.9999999999999996e-06,
+"etonnes": 5577.0,
+"ebUS": 0.012986
+},
+"uk": {
+"itonnes": 2693.0,
+"ibUS": 0.0050869999999999995,
+"etonnes": 24346.0,
+"ebUS": 0.06618299999999999
+},
+"netherlands": {
+"itonnes": 17277.0,
+"ibUS": 0.043676,
+"etonnes": 41849.0,
+"ebUS": 0.080084
+},
+"australia": {
+"itonnes": 86.0,
+"ibUS": 0.000607,
+"etonnes": 628.0,
+"ebUS": 0.002218
+},
+"gabon": {
+"etonnes": 485.0,
+"ebUS": 0.0009
+},
+"uruguay": {
+"etonnes": 704.0,
+"ebUS": 0.0016829999999999998
+},
+"cameroon": {
+"etonnes": 326.0,
+"ebUS": 0.000395
+},
+"russia": {
+"etonnes": 192.0,
+"ebUS": 0.000668
+},
+"albania": {
+"etonnes": 160.0,
+"ebUS": 0.000235
+},
+"switzerland": {
+"etonnes": 2.0,
+"ebUS": 4e-06
+},
+"spain": {
+"itonnes": 6615.0,
+"ibUS": 0.026625,
+"etonnes": 3183.0,
+"ebUS": 0.00743
+},
+"hungary": {
+"itonnes": 4.0,
+"ibUS": 1.1e-05,
+"etonnes": 1203.0,
+"ebUS": 0.002417
+},
+"estonia": {
+"etonnes": 1151.0,
+"ebUS": 0.003181
+},
+"denmark": {
+"itonnes": 1995.0,
+"ibUS": 0.004369,
+"etonnes": 3465.0,
+"ebUS": 0.007134
+},
+"norway": {
+"etonnes": 4.0,
+"ebUS": 3.2e-05
+},
+"belarus": {
+"etonnes": 21.0,
+"ebUS": 5.9999999999999995e-05
+},
+"austria": {
+"etonnes": 292.0,
+"ebUS": 0.0007379999999999999
+},
+"bahrain": {
+"etonnes": 39.0,
+"ebUS": 0.000127
+}
+}
+},
+"mauritania": {
+"2015": {
+"spain": {
+"itonnes": 5.0,
+"ibUS": 2.2e-05
+},
+"angola": {
+"ebUS": 0.000166
+}
+},
+"2016": {
+"germany": {
+"itonnes": 26.0,
+"ibUS": 0.000163
+},
+"netherlands": {
+"itonnes": 26.0,
+"ibUS": 0.000137
+}
+}
+},
+"cambodia": {
+"2015": {
+"australia": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2016": {
+"korea": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2014": {
+"australia": {
+"ibUS": 0.0
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+}
+},
+"france": {
+"2015": {
+"korea": {
+"etonnes": 6876.0,
+"ebUS": 0.023915
+},
+"usa": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 50.0,
+"ebUS": 0.00010499999999999999
+},
+"greece": {
+"etonnes": 24498.0,
+"ebUS": 0.038118
+},
+"chile": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"gabon": {
+"etonnes": 3058.0,
+"ebUS": 0.005791
+},
+"norway": {
+"etonnes": 1.0,
+"ebUS": 8e-06
+},
+"romania": {
+"itonnes": 5.0,
+"ibUS": 1.7e-05,
+"etonnes": 3726.0,
+"ebUS": 0.006059
+},
+"congo": {
+"etonnes": 4470.0,
+"ebUS": 0.007878
+},
+"italy": {
+"itonnes": 743.0,
+"ibUS": 0.002525,
+"etonnes": 83459.0,
+"ebUS": 0.158778
+},
+"malaysia": {
+"etonnes": 24.0,
+"ebUS": 4.9999999999999996e-05
+},
+"netherlands": {
+"itonnes": 4414.0,
+"ibUS": 0.011295999999999999,
+"etonnes": 5774.0,
+"ebUS": 0.012059
+},
+"india": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"germany": {
+"itonnes": 18563.0,
+"ibUS": 0.047167,
+"etonnes": 12316.0,
+"ebUS": 0.01627
+},
+"cambodia": {
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"sweden": {
+"etonnes": 7.0,
+"ebUS": 4.4999999999999996e-05
+},
+"japan": {
+"etonnes": 1305.0,
+"ebUS": 0.004984
+},
+"poland": {
+"itonnes": 267.0,
+"ibUS": 0.00091,
+"etonnes": 9625.0,
+"ebUS": 0.013025
+},
+"angola": {
+"etonnes": 496.0,
+"ebUS": 0.000998
+},
+"azerbaijan": {
+"etonnes": 50.0,
+"ebUS": 9.499999999999999e-05
+},
+"senegal": {
+"etonnes": 1.0,
+"ebUS": 4.9999999999999996e-06
+},
+"portugal": {
+"itonnes": 938.0,
+"ibUS": 0.003117,
+"etonnes": 1967.0,
+"ebUS": 0.0035589999999999997
+},
+"china": {
+"itonnes": 145.0,
+"ibUS": 0.00037299999999999996,
+"etonnes": 33233.0,
+"ebUS": 0.073796
+},
+"croatia": {
+"etonnes": 3095.0,
+"ebUS": 0.004618
+},
+"finland": {
+"etonnes": 12.0,
+"ebUS": 4.4999999999999996e-05
+},
+"bulgaria": {
+"etonnes": 17484.0,
+"ebUS": 0.025875
+},
+"uk": {
+"itonnes": 734.0,
+"ibUS": 0.001286,
+"etonnes": 13290.0,
+"ebUS": 0.033506
+},
+"benin": {
+"etonnes": 7.0,
+"ebUS": 2.1e-05
+},
+"austria": {
+"itonnes": 182.0,
+"ibUS": 0.0006439999999999999,
+"etonnes": 11004.0,
+"ebUS": 0.017513
+},
+"cyprus": {
+"etonnes": 1645.0,
+"ebUS": 0.0026839999999999998
+},
+"cameroon": {
+"etonnes": 129.0,
+"ebUS": 0.00015999999999999999
+},
+"tunisia": {
+"etonnes": 22.0,
+"ebUS": 5.3e-05
+},
+"mali": {
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"australia": {
+"etonnes": 4.0,
+"ebUS": 1.1e-05
+},
+"spain": {
+"itonnes": 92065.0,
+"ibUS": 0.229405,
+"etonnes": 18071.0,
+"ebUS": 0.029536999999999997
+},
+"belgium": {
+"itonnes": 10113.0,
+"ibUS": 0.017929,
+"etonnes": 21790.0,
+"ebUS": 0.021509
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"denmark": {
+"itonnes": 3695.0,
+"ibUS": 0.01061,
+"etonnes": 4069.0,
+"ebUS": 0.0062759999999999995
+},
+"hungary": {
+"itonnes": 117.0,
+"ibUS": 0.00037,
+"etonnes": 8653.0,
+"ebUS": 0.012792
+},
+"canada": {
+"etonnes": 23.0,
+"ebUS": 9.6e-05
+},
+"switzerland": {
+"etonnes": 77.0,
+"ebUS": 0.00045599999999999997
+}
+},
+"2016": {
+"korea": {
+"itonnes": 69.0,
+"ibUS": 0.000299,
+"etonnes": 6710.0,
+"ebUS": 0.025359999999999997
+},
+"armenia": {
+"etonnes": 23.0,
+"ebUS": 1.1e-05
+},
+"usa": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"greece": {
+"etonnes": 25279.0,
+"ebUS": 0.042149
+},
+"estonia": {
+"itonnes": 6.0,
+"ibUS": 4.2999999999999995e-05,
+"etonnes": 21.0,
+"ebUS": 3.2999999999999996e-05
+},
+"gabon": {
+"etonnes": 2403.0,
+"ebUS": 0.004285
+},
+"chad": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"romania": {
+"itonnes": 9.0,
+"ibUS": 2.4e-05,
+"etonnes": 1961.0,
+"ebUS": 0.0033959999999999997
+},
+"congo": {
+"etonnes": 3274.0,
+"ebUS": 0.004706
+},
+"italy": {
+"itonnes": 792.0,
+"ibUS": 0.002804,
+"etonnes": 73161.0,
+"ebUS": 0.141198
+},
+"malaysia": {
+"etonnes": 135.0,
+"ebUS": 0.000252
+},
+"netherlands": {
+"itonnes": 5079.0,
+"ibUS": 0.010157,
+"etonnes": 9424.0,
+"ebUS": 0.019901
+},
+"portugal": {
+"itonnes": 894.0,
+"ibUS": 0.003116,
+"etonnes": 1841.0,
+"ebUS": 0.003475
+},
+"germany": {
+"itonnes": 11683.0,
+"ibUS": 0.029123999999999997,
+"etonnes": 7831.0,
+"ebUS": 0.012515
+},
+"iceland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"sweden": {
+"itonnes": 2.0,
+"ibUS": 3e-06,
+"etonnes": 572.0,
+"ebUS": 0.000314
+},
+"japan": {
+"etonnes": 1484.0,
+"ebUS": 0.006124999999999999
+},
+"poland": {
+"itonnes": 314.0,
+"ibUS": 0.001044,
+"etonnes": 10060.0,
+"ebUS": 0.014499999999999999
+},
+"peru": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"angola": {
+"etonnes": 75.0,
+"ebUS": 8.4e-05
+},
+"mali": {
+"etonnes": 1.0,
+"ebUS": 1.1e-05
+},
+"nepal": {
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"china": {
+"itonnes": 24.0,
+"ibUS": 4.4e-05,
+"etonnes": 67299.0,
+"ebUS": 0.144886
+},
+"croatia": {
+"etonnes": 3706.0,
+"ebUS": 0.006475
+},
+"finland": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"bulgaria": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 14074.0,
+"ebUS": 0.021665
+},
+"uk": {
+"itonnes": 422.0,
+"ibUS": 0.0015869999999999999,
+"etonnes": 11132.0,
+"ebUS": 0.02938
+},
+"benin": {
+"etonnes": 13.0,
+"ebUS": 1.8999999999999998e-05
+},
+"austria": {
+"itonnes": 227.0,
+"ibUS": 0.0008089999999999999,
+"etonnes": 8936.0,
+"ebUS": 0.016318
+},
+"senegal": {
+"etonnes": 35.0,
+"ebUS": 8.8e-05
+},
+"cyprus": {
+"etonnes": 1396.0,
+"ebUS": 0.0023569999999999997
+},
+"cameroon": {
+"etonnes": 276.0,
+"ebUS": 0.00032199999999999997
+},
+"switzerland": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 93.0,
+"ebUS": 0.00057
+},
+"spain": {
+"itonnes": 68539.0,
+"ibUS": 0.17182899999999998,
+"etonnes": 14297.0,
+"ebUS": 0.026132
+},
+"belgium": {
+"itonnes": 7980.0,
+"ibUS": 0.017828,
+"etonnes": 21617.0,
+"ebUS": 0.021691
+},
+"madagascar": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"ghana": {
+"etonnes": 83.0,
+"ebUS": 6.3e-05
+},
+"denmark": {
+"itonnes": 4430.0,
+"ibUS": 0.017096,
+"etonnes": 4333.0,
+"ebUS": 0.007574999999999999
+},
+"indonesia": {
+"etonnes": 1.0,
+"ebUS": 8e-06
+},
+"hungary": {
+"itonnes": 98.0,
+"ibUS": 0.000338,
+"etonnes": 8168.0,
+"ebUS": 0.013571999999999999
+},
+"canada": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"zimbabwe": {
+"etonnes": 0.0,
+"ebUS": 0.0
+}
+},
+"2014": {
+"korea": {
+"itonnes": 22.0,
+"ibUS": 6.3e-05,
+"etonnes": 8593.0,
+"ebUS": 0.034776999999999995
+},
+"usa": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 99.0,
+"ebUS": 0.000301
+},
+"greece": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 28482.0,
+"ebUS": 0.06335199999999999
+},
+"estonia": {
+"itonnes": 5.0,
+"ibUS": 1.9999999999999998e-05,
+"etonnes": 52.0,
+"ebUS": 7.3e-05
+},
+"gabon": {
+"etonnes": 3097.0,
+"ebUS": 0.006784999999999999
+},
+"chad": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 6e-06
+},
+"romania": {
+"itonnes": 40.0,
+"ibUS": 0.00024599999999999996,
+"etonnes": 5168.0,
+"ebUS": 0.011170999999999999
+},
+"congo": {
+"etonnes": 4794.0,
+"ebUS": 0.009363
+},
+"italy": {
+"itonnes": 2685.0,
+"ibUS": 0.009615,
+"etonnes": 108190.0,
+"ebUS": 0.267885
+},
+"china": {
+"itonnes": 222.0,
+"ibUS": 0.0005409999999999999,
+"etonnes": 19794.0,
+"ebUS": 0.047942
+},
+"netherlands": {
+"itonnes": 3794.0,
+"ibUS": 0.014447,
+"etonnes": 6278.0,
+"ebUS": 0.015507
+},
+"portugal": {
+"itonnes": 234.0,
+"ibUS": 0.000991,
+"etonnes": 1405.0,
+"ebUS": 0.003823
+},
+"germany": {
+"itonnes": 21180.0,
+"ibUS": 0.06486,
+"etonnes": 15837.0,
+"ebUS": 0.030449999999999998
+},
+"sweden": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 6.0,
+"ebUS": 4.8e-05
+},
+"japan": {
+"etonnes": 961.0,
+"ebUS": 0.004183
+},
+"poland": {
+"itonnes": 213.0,
+"ibUS": 0.001022,
+"etonnes": 11086.0,
+"ebUS": 0.021717999999999998
+},
+"angola": {
+"ebUS": 0.00123
+},
+"azerbaijan": {
+"etonnes": 49.0,
+"ebUS": 0.00012299999999999998
+},
+"senegal": {
+"etonnes": 16.0,
+"ebUS": 5.9e-05
+},
+"russia": {
+"etonnes": 963.0,
+"ebUS": 0.002183
+},
+"aruba": {
+"etonnes": 64.0,
+"ebUS": 0.00017199999999999998
+},
+"croatia": {
+"etonnes": 354.0,
+"ebUS": 0.000784
+},
+"finland": {
+"etonnes": 6.0,
+"ebUS": 2.2e-05
+},
+"bulgaria": {
+"etonnes": 10917.0,
+"ebUS": 0.022133999999999997
+},
+"uk": {
+"itonnes": 802.0,
+"ibUS": 0.001555,
+"etonnes": 12360.0,
+"ebUS": 0.037328
+},
+"benin": {
+"etonnes": 26.0,
+"ebUS": 5.6e-05
+},
+"australia": {
+"etonnes": 4.0,
+"ebUS": 1.7e-05
+},
+"guinea": {
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"cyprus": {
+"etonnes": 1505.0,
+"ebUS": 0.003134
+},
+"cameroon": {
+"etonnes": 65.0,
+"ebUS": 0.000113
+},
+"tunisia": {
+"etonnes": 46.0,
+"ebUS": 0.000144
+},
+"mali": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"austria": {
+"itonnes": 69.0,
+"ibUS": 0.000375,
+"etonnes": 10808.0,
+"ebUS": 0.023129
+},
+"spain": {
+"itonnes": 97362.0,
+"ibUS": 0.33930099999999996,
+"etonnes": 20673.0,
+"ebUS": 0.049928
+},
+"belgium": {
+"itonnes": 10105.0,
+"ibUS": 0.024925,
+"etonnes": 21027.0,
+"ebUS": 0.027933999999999997
+},
+"madagascar": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"ghana": {
+"etonnes": 23.0,
+"ebUS": 1.3e-05
+},
+"denmark": {
+"itonnes": 11112.0,
+"ibUS": 0.033156,
+"etonnes": 4459.0,
+"ebUS": 0.008806
+},
+"indonesia": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"hungary": {
+"itonnes": 97.0,
+"ibUS": 0.000355,
+"etonnes": 9776.0,
+"ebUS": 0.020078
+},
+"canada": {
+"etonnes": 71.0,
+"ebUS": 0.000266
+},
+"switzerland": {
+"etonnes": 134.0,
+"ebUS": 0.00083
+}
+}
+},
+"japan": {
+"2015": {
+"usa": {
+"itonnes": 498.0,
+"ibUS": 0.002335
+},
+"mexico": {
+"itonnes": 1064.0,
+"ibUS": 0.004948
+},
+"spain": {
+"itonnes": 21.0,
+"ibUS": 0.00019099999999999998
+},
+"hungary": {
+"itonnes": 19.0,
+"ibUS": 8.9e-05
+},
+"chile": {
+"itonnes": 76.0,
+"ibUS": 0.000326
+},
+"france": {
+"itonnes": 10.0,
+"ibUS": 4.4e-05
+},
+"canada": {
+"itonnes": 812.0,
+"ibUS": 0.003685
+},
+"denmark": {
+"itonnes": 28.0,
+"ibUS": 0.000125
+}
+},
+"2016": {
+"usa": {
+"itonnes": 531.0,
+"ibUS": 0.002676
+},
+"mexico": {
+"itonnes": 1169.0,
+"ibUS": 0.005755
+},
+"spain": {
+"itonnes": 25.0,
+"ibUS": 0.000183
+},
+"hungary": {
+"itonnes": 16.0,
+"ibUS": 8.099999999999999e-05
+},
+"chile": {
+"itonnes": 77.0,
+"ibUS": 0.000368
+},
+"france": {
+"itonnes": 11.0,
+"ibUS": 5.3e-05
+},
+"canada": {
+"itonnes": 588.0,
+"ibUS": 0.0030069999999999997
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 1.6e-05
+}
+},
+"2014": {
+"usa": {
+"itonnes": 332.0,
+"ibUS": 0.001797
+},
+"mexico": {
+"itonnes": 1007.0,
+"ibUS": 0.005399999999999999
+},
+"spain": {
+"itonnes": 22.0,
+"ibUS": 0.00019099999999999998
+},
+"chile": {
+"itonnes": 35.0,
+"ibUS": 0.00017199999999999998
+},
+"france": {
+"itonnes": 9.0,
+"ibUS": 5.1e-05
+},
+"canada": {
+"ibUS": 0.0032159999999999997
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 1.8e-05
+}
+}
+},
+"portugal": {
+"2015": {
+"ethiopia": {
+"etonnes": 2.0,
+"ebUS": 9.999999999999999e-06
+},
+"romania": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"congo": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"italy": {
+"itonnes": 6.0,
+"ibUS": 2.7e-05,
+"etonnes": 43.0,
+"ebUS": 0.000103
+},
+"germany": {
+"itonnes": 255.0,
+"ibUS": 0.001041,
+"etonnes": 781.0,
+"ebUS": 0.001518
+},
+"france": {
+"itonnes": 2044.0,
+"ibUS": 0.003779,
+"etonnes": 1912.0,
+"ebUS": 0.005109
+},
+"japan": {
+"etonnes": 72.0,
+"ebUS": 3.7e-05
+},
+"poland": {
+"itonnes": 111.0,
+"ibUS": 0.000233,
+"etonnes": 584.0,
+"ebUS": 0.00166
+},
+"angola": {
+"etonnes": 2367.0,
+"ebUS": 0.0076809999999999995
+},
+"senegal": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"finland": {
+"itonnes": 10.0,
+"ibUS": 3.2e-05
+},
+"bulgaria": {
+"etonnes": 21.0,
+"ebUS": 2.6e-05
+},
+"uk": {
+"itonnes": 21.0,
+"ibUS": 0.000103,
+"etonnes": 2203.0,
+"ebUS": 0.00569
+},
+"netherlands": {
+"itonnes": 173.0,
+"ibUS": 0.00045599999999999997,
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"gabon": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"belgium": {
+"itonnes": 310.0,
+"ibUS": 0.0007729999999999999,
+"etonnes": 27.0,
+"ebUS": 5.1e-05
+},
+"switzerland": {
+"etonnes": 184.0,
+"ebUS": 0.0010329999999999998
+},
+"spain": {
+"itonnes": 91711.0,
+"ibUS": 0.229713,
+"etonnes": 13110.0,
+"ebUS": 0.026883999999999998
+},
+"hungary": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"estonia": {
+"itonnes": 39.0,
+"ibUS": 0.000139,
+"etonnes": 41.0,
+"ebUS": 0.00010899999999999999
+},
+"denmark": {
+"itonnes": 163.0,
+"ibUS": 0.000248,
+"etonnes": 163.0,
+"ebUS": 0.00033099999999999997
+},
+"sweden": {
+"itonnes": 2.0,
+"ibUS": 7e-06
+}
+},
+"2016": {
+"greece": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"chile": {
+"etonnes": 102.0,
+"ebUS": 0.000116
+},
+"cyprus": {
+"etonnes": 162.0,
+"ebUS": 0.000281
+},
+"romania": {
+"etonnes": 66.0,
+"ebUS": 0.00010499999999999999
+},
+"congo": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"italy": {
+"itonnes": 4.0,
+"ibUS": 2.2e-05,
+"etonnes": 374.0,
+"ebUS": 0.00043999999999999996
+},
+"germany": {
+"itonnes": 327.0,
+"ibUS": 0.001199,
+"etonnes": 1018.0,
+"ebUS": 0.001759
+},
+"france": {
+"itonnes": 1834.0,
+"ibUS": 0.003823,
+"etonnes": 2287.0,
+"ebUS": 0.006371
+},
+"japan": {
+"etonnes": 24.0,
+"ebUS": 1.4e-05
+},
+"poland": {
+"itonnes": 4.0,
+"ibUS": 1.7e-05,
+"etonnes": 565.0,
+"ebUS": 0.0012289999999999998
+},
+"ethiopia": {
+"etonnes": 2.0,
+"ebUS": 1.2e-05
+},
+"china": {
+"etonnes": 28.0,
+"ebUS": 3.6e-05
+},
+"croatia": {
+"etonnes": 196.0,
+"ebUS": 0.00045999999999999996
+},
+"finland": {
+"itonnes": 1.0,
+"ibUS": 2e-06
+},
+"bulgaria": {
+"etonnes": 479.0,
+"ebUS": 0.0007469999999999999
+},
+"uk": {
+"itonnes": 93.0,
+"ibUS": 0.000384,
+"etonnes": 2667.0,
+"ebUS": 0.006464999999999999
+},
+"netherlands": {
+"itonnes": 97.0,
+"ibUS": 0.00027,
+"etonnes": 66.0,
+"ebUS": 5.1e-05
+},
+"gabon": {
+"etonnes": 2.0,
+"ebUS": 8e-06
+},
+"belgium": {
+"itonnes": 278.0,
+"ibUS": 0.000718,
+"etonnes": 11.0,
+"ebUS": 4.7e-05
+},
+"switzerland": {
+"etonnes": 216.0,
+"ebUS": 0.001106
+},
+"spain": {
+"itonnes": 75761.0,
+"ibUS": 0.202507,
+"etonnes": 13727.0,
+"ebUS": 0.025057
+},
+"angola": {
+"etonnes": 2860.0,
+"ebUS": 0.009053
+},
+"estonia": {
+"itonnes": 11.0,
+"ibUS": 3.2999999999999996e-05,
+"etonnes": 297.0,
+"ebUS": 0.000571
+},
+"denmark": {
+"itonnes": 58.0,
+"ibUS": 0.000153,
+"etonnes": 125.0,
+"ebUS": 0.000268
+},
+"sweden": {
+"itonnes": 10.0,
+"ibUS": 2.1e-05
+},
+"canada": {
+"itonnes": 14.0,
+"ibUS": 6.2e-05,
+"etonnes": 14.0,
+"ebUS": 6.2e-05
+}
+},
+"2014": {
+"china": {
+"etonnes": 4.0,
+"ebUS": 5.4999999999999995e-05
+},
+"uk": {
+"itonnes": 111.0,
+"ibUS": 0.00035,
+"etonnes": 327.0,
+"ebUS": 0.001003
+},
+"ethiopia": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"romania": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 4.0,
+"ebUS": 1.1e-05
+},
+"denmark": {
+"itonnes": 409.0,
+"ibUS": 0.000768,
+"etonnes": 210.0,
+"ebUS": 0.0005859999999999999
+},
+"italy": {
+"itonnes": 2.0,
+"ibUS": 9.999999999999999e-06,
+"etonnes": 41.0,
+"ebUS": 0.000106
+},
+"germany": {
+"itonnes": 476.0,
+"ibUS": 0.0022559999999999998,
+"etonnes": 730.0,
+"ebUS": 0.0020139999999999997
+},
+"sweden": {
+"itonnes": 4.0,
+"ibUS": 9e-06
+},
+"netherlands": {
+"itonnes": 136.0,
+"ibUS": 0.000446,
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"switzerland": {
+"etonnes": 105.0,
+"ebUS": 0.000846
+},
+"belgium": {
+"itonnes": 268.0,
+"ibUS": 0.0008489999999999999,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"spain": {
+"itonnes": 101794.0,
+"ibUS": 0.314774,
+"etonnes": 7950.0,
+"ebUS": 0.022749
+},
+"hungary": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 1111.0,
+"ibUS": 0.003359,
+"etonnes": 957.0,
+"ebUS": 0.002137
+},
+"japan": {
+"etonnes": 48.0,
+"ebUS": 2.8e-05
+},
+"poland": {
+"itonnes": 16.0,
+"ibUS": 4.7e-05,
+"etonnes": 468.0,
+"ebUS": 0.001896
+},
+"angola": {
+"ebUS": 0.013623
+}
+}
+},
+"peru": {
+"2015": {
+"usa": {
+"itonnes": 883.0,
+"ibUS": 0.0019429999999999998
+},
+"canada": {
+"itonnes": 321.0,
+"ibUS": 0.00079
+},
+"chile": {
+"itonnes": 116.0,
+"ibUS": 0.000267
+}
+},
+"2016": {
+"usa": {
+"itonnes": 764.0,
+"ibUS": 0.0014
+},
+"canada": {
+"itonnes": 167.0,
+"ibUS": 0.00035999999999999997
+},
+"chile": {
+"itonnes": 150.0,
+"ibUS": 0.000316
+}
+},
+"2014": {
+"usa": {
+"itonnes": 627.0,
+"ibUS": 0.001629
+},
+"canada": {
+"ibUS": 0.000261
+},
+"chile": {
+"itonnes": 88.0,
+"ibUS": 0.00023999999999999998
+}
+}
+},
+"colombia": {
+"2015": {
+"usa": {
+"itonnes": 1240.0,
+"ibUS": 0.0028729999999999997
+},
+"canada": {
+"itonnes": 175.0,
+"ibUS": 0.000385
+},
+"spain": {
+"itonnes": 4.0,
+"ibUS": 6.4e-05
+},
+"chile": {
+"itonnes": 61.0,
+"ibUS": 0.00018999999999999998
+}
+},
+"2016": {
+"usa": {
+"itonnes": 1736.0,
+"ibUS": 0.0034189999999999997
+},
+"canada": {
+"itonnes": 191.0,
+"ibUS": 0.000404
+},
+"spain": {
+"itonnes": 2.0,
+"ibUS": 2.4999999999999998e-05
+},
+"chile": {
+"itonnes": 29.0,
+"ibUS": 5.3e-05
+}
+},
+"2014": {
+"usa": {
+"itonnes": 1833.0,
+"ibUS": 0.005438
+},
+"canada": {
+"ibUS": 0.000922
+},
+"spain": {
+"itonnes": 2.0,
+"ibUS": 2.9e-05
+},
+"chile": {
+"itonnes": 291.0,
+"ibUS": 0.001064
+}
+}
+},
+"ecuador": {
+"2015": {
+"usa": {
+"itonnes": 618.0,
+"ibUS": 0.001093
+},
+"chile": {
+"itonnes": 24.0,
+"ibUS": 5.6999999999999996e-05
+}
+},
+"2014": {
+"usa": {
+"itonnes": 680.0,
+"ibUS": 0.001312
+},
+"canada": {
+"ibUS": 0.002178
+},
+"chile": {
+"itonnes": 72.0,
+"ibUS": 0.000213
+}
+}
+},
+"mexico": {
+"2015": {
+"usa": {
+"itonnes": 463689.0,
+"ibUS": 0.7486339999999999
+},
+"chile": {
+"itonnes": 11.0,
+"ibUS": 7e-06
+},
+"denmark": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"australia": {
+"ibUS": 0.0
+},
+"japan": {
+"etonnes": 179.0,
+"ebUS": 0.000615
+},
+"canada": {
+"itonnes": 87069.0,
+"ibUS": 0.140685
+}
+},
+"2016": {
+"usa": {
+"itonnes": 497844.0,
+"ibUS": 0.826187
+},
+"japan": {
+"etonnes": 522.0,
+"ebUS": 0.001756
+},
+"canada": {
+"itonnes": 85415.0,
+"ibUS": 0.14285899999999999
+}
+},
+"2014": {
+"usa": {
+"itonnes": 404204.0,
+"ibUS": 1.0215969999999999,
+"etonnes": 2.0,
+"ebUS": 4e-06
+},
+"japan": {
+"etonnes": 101.0,
+"ebUS": 0.00033299999999999996
+},
+"canada": {
+"itonnes": 50896.0,
+"ibUS": 0.12773099999999998
+},
+"korea": {
+"etonnes": 52.0,
+"ebUS": 0.00011399999999999999
+},
+"chile": {
+"itonnes": 193.0,
+"ibUS": 0.00034899999999999997
+}
+}
+},
+"guatemala": {
+"2015": {
+"usa": {
+"itonnes": 1354.0,
+"ibUS": 0.003083
+},
+"spain": {
+"itonnes": 0.0,
+"ibUS": 8e-06
+}
+},
+"2016": {
+"usa": {
+"itonnes": 3342.0,
+"ibUS": 0.010705
+},
+"spain": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"italy": {
+"ibUS": 3e-06
+}
+},
+"2014": {
+"usa": {
+"itonnes": 1054.0,
+"ibUS": 0.0030169999999999997
+},
+"spain": {
+"itonnes": 17.0,
+"ibUS": 0.000147
+}
+}
+},
+"croatia": {
+"2015": {
+"china": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"bulgaria": {
+"etonnes": 36.0,
+"ebUS": 6.7e-05
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 4.9999999999999996e-06
+},
+"netherlands": {
+"itonnes": 9528.0,
+"ibUS": 0.017521
+},
+"austria": {
+"itonnes": 2418.0,
+"ibUS": 0.005391,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"romania": {
+"itonnes": 55.0,
+"ibUS": 0.000155
+},
+"france": {
+"itonnes": 4433.0,
+"ibUS": 0.007146
+},
+"italy": {
+"itonnes": 171.0,
+"ibUS": 0.000372,
+"etonnes": 5.0,
+"ebUS": 1.2e-05
+},
+"germany": {
+"itonnes": 9693.0,
+"ibUS": 0.019204,
+"etonnes": 112.0,
+"ebUS": 0.00031099999999999997
+},
+"belgium": {
+"itonnes": 198.0,
+"ibUS": 0.000361
+},
+"spain": {
+"itonnes": 400.0,
+"ibUS": 0.000707
+},
+"hungary": {
+"itonnes": 3946.0,
+"ibUS": 0.007094,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"itonnes": 2107.0,
+"ibUS": 0.003681,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"poland": {
+"itonnes": 4605.0,
+"ibUS": 0.007943
+},
+"angola": {
+"etonnes": 4.0,
+"ebUS": 1e-06
+}
+},
+"2016": {
+"greece": {
+"etonnes": 4.0,
+"ebUS": 9.999999999999999e-06
+},
+"bulgaria": {
+"etonnes": 32.0,
+"ebUS": 7.3e-05
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 2e-06
+},
+"cyprus": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"austria": {
+"itonnes": 1498.0,
+"ibUS": 0.003414,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"romania": {
+"itonnes": 31.0,
+"ibUS": 9.2e-05,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"denmark": {
+"itonnes": 580.0,
+"ibUS": 0.000975,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"italy": {
+"itonnes": 213.0,
+"ibUS": 0.000505,
+"etonnes": 340.0,
+"ebUS": 0.000695
+},
+"germany": {
+"itonnes": 9263.0,
+"ibUS": 0.021581,
+"etonnes": 20.0,
+"ebUS": 7.099999999999999e-05
+},
+"sweden": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"netherlands": {
+"itonnes": 3756.0,
+"ibUS": 0.007809,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"belgium": {
+"itonnes": 707.0,
+"ibUS": 0.0014
+},
+"spain": {
+"itonnes": 920.0,
+"ibUS": 0.001959,
+"etonnes": 24.0,
+"ebUS": 2.8e-05
+},
+"hungary": {
+"itonnes": 3500.0,
+"ibUS": 0.007934,
+"etonnes": 593.0,
+"ebUS": 0.001102
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 4658.0,
+"ibUS": 0.008721
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"poland": {
+"itonnes": 2756.0,
+"ibUS": 0.006774,
+"etonnes": 0.0,
+"ebUS": 0.0
+}
+},
+"2014": {
+"bulgaria": {
+"itonnes": 19.0,
+"ibUS": 3.9999999999999996e-05,
+"etonnes": 64.0,
+"ebUS": 0.000159
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 41.0,
+"ebUS": 0.000106
+},
+"netherlands": {
+"itonnes": 11454.0,
+"ibUS": 0.02921,
+"etonnes": 13.0,
+"ebUS": 4.2e-05
+},
+"austria": {
+"itonnes": 2349.0,
+"ibUS": 0.006705,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"romania": {
+"itonnes": 69.0,
+"ibUS": 0.00027
+},
+"france": {
+"itonnes": 246.0,
+"ibUS": 0.000606
+},
+"italy": {
+"itonnes": 49.0,
+"ibUS": 0.00028399999999999996,
+"etonnes": 13.0,
+"ebUS": 6.1e-05
+},
+"germany": {
+"itonnes": 15763.0,
+"ibUS": 0.040233,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"belgium": {
+"itonnes": 401.0,
+"ibUS": 0.001004
+},
+"spain": {
+"itonnes": 244.0,
+"ibUS": 0.0005
+},
+"hungary": {
+"itonnes": 2221.0,
+"ibUS": 0.005489
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"itonnes": 267.0,
+"ibUS": 0.000651
+},
+"poland": {
+"itonnes": 2733.0,
+"ibUS": 0.006251
+},
+"angola": {
+"ebUS": 0.0
+}
+}
+},
+"finland": {
+"2015": {
+"usa": {
+"etonnes": 599.0,
+"ebUS": 0.0029419999999999997
+},
+"congo": {
+"etonnes": 134.0,
+"ebUS": 0.00010999999999999999
+},
+"korea": {
+"etonnes": 790.0,
+"ebUS": 0.001341
+},
+"uk": {
+"itonnes": 10.0,
+"ibUS": 0.00010999999999999999,
+"etonnes": 428.0,
+"ebUS": 0.000589
+},
+"netherlands": {
+"itonnes": 267.0,
+"ibUS": 0.001601,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"austria": {
+"ibUS": 0.0009639999999999999
+},
+"norway": {
+"etonnes": 341.0,
+"ebUS": 0.0009599999999999999
+},
+"denmark": {
+"itonnes": 378.0,
+"ibUS": 0.001321,
+"etonnes": 195.0,
+"ebUS": 0.00020999999999999998
+},
+"italy": {
+"itonnes": 25.0,
+"ibUS": 7.2e-05,
+"etonnes": 1081.0,
+"ebUS": 0.001722
+},
+"germany": {
+"itonnes": 816.0,
+"ibUS": 0.002581,
+"etonnes": 31.0,
+"ebUS": 0.000107
+},
+"sweden": {
+"itonnes": 61.0,
+"ibUS": 0.000265,
+"etonnes": 628.0,
+"ebUS": 0.001624
+},
+"belgium": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"spain": {
+"itonnes": 179.0,
+"ibUS": 0.0007469999999999999,
+"etonnes": 8.0,
+"ebUS": 2.9e-05
+},
+"hungary": {
+"etonnes": 61.0,
+"ebUS": 6.4e-05
+},
+"estonia": {
+"itonnes": 474.0,
+"ibUS": 0.00154,
+"etonnes": 671.0,
+"ebUS": 0.001068
+},
+"france": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+},
+"japan": {
+"etonnes": 492.0,
+"ebUS": 0.000248
+},
+"canada": {
+"etonnes": 162.0,
+"ebUS": 0.00075
+},
+"poland": {
+"itonnes": 11.0,
+"ibUS": 4.7e-05,
+"etonnes": 37.0,
+"ebUS": 0.000112
+}
+},
+"2016": {
+"usa": {
+"etonnes": 475.0,
+"ebUS": 0.0024319999999999997
+},
+"congo": {
+"etonnes": 182.0,
+"ebUS": 0.000107
+},
+"korea": {
+"etonnes": 570.0,
+"ebUS": 0.000887
+},
+"bulgaria": {
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"uk": {
+"itonnes": 22.0,
+"ibUS": 0.000125,
+"etonnes": 1.0,
+"ebUS": 1.3e-05
+},
+"netherlands": {
+"itonnes": 149.0,
+"ibUS": 0.000897,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"austria": {
+"itonnes": 573.0,
+"ibUS": 0.0021019999999999997
+},
+"denmark": {
+"itonnes": 375.0,
+"ibUS": 0.0013579999999999998,
+"etonnes": 39.0,
+"ebUS": 4.6e-05
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 4.9999999999999996e-06,
+"etonnes": 39.0,
+"ebUS": 6.3e-05
+},
+"germany": {
+"itonnes": 416.0,
+"ibUS": 0.001447,
+"etonnes": 170.0,
+"ebUS": 0.000712
+},
+"sweden": {
+"itonnes": 38.0,
+"ibUS": 0.000203,
+"etonnes": 620.0,
+"ebUS": 0.0019979999999999998
+},
+"belgium": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"spain": {
+"itonnes": 224.0,
+"ibUS": 0.000789
+},
+"norway": {
+"etonnes": 194.0,
+"ebUS": 0.000323
+},
+"estonia": {
+"itonnes": 324.0,
+"ibUS": 0.001156,
+"etonnes": 1808.0,
+"ebUS": 0.0029089999999999997
+},
+"france": {
+"itonnes": 2.0,
+"ibUS": 2.1e-05
+},
+"japan": {
+"etonnes": 588.0,
+"ebUS": 0.000301
+},
+"canada": {
+"etonnes": 94.0,
+"ebUS": 0.000445
+},
+"poland": {
+"itonnes": 14.0,
+"ibUS": 5.2e-05,
+"etonnes": 20.0,
+"ebUS": 2.8e-05
+}
+},
+"2014": {
+"usa": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 761.0,
+"ebUS": 0.003617
+},
+"congo": {
+"etonnes": 374.0,
+"ebUS": 0.000325
+},
+"korea": {
+"etonnes": 856.0,
+"ebUS": 0.001483
+},
+"uk": {
+"itonnes": 28.0,
+"ibUS": 0.000166,
+"etonnes": 42.0,
+"ebUS": 3.9e-05
+},
+"netherlands": {
+"itonnes": 463.0,
+"ibUS": 0.003155,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"austria": {
+"etonnes": 44.0,
+"ebUS": 0.00017199999999999998
+},
+"romania": {
+"etonnes": 18.0,
+"ebUS": 1.4999999999999999e-05
+},
+"denmark": {
+"itonnes": 462.0,
+"ibUS": 0.002191,
+"etonnes": 52.0,
+"ebUS": 0.000134
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 1.4e-05,
+"etonnes": 20.0,
+"ebUS": 3.5e-05
+},
+"germany": {
+"itonnes": 1239.0,
+"ibUS": 0.004811,
+"etonnes": 63.0,
+"ebUS": 0.000126
+},
+"sweden": {
+"itonnes": 29.0,
+"ibUS": 0.00021999999999999998,
+"etonnes": 343.0,
+"ebUS": 0.001243
+},
+"russia": {
+"itonnes": 25.0,
+"ibUS": 8.7e-05,
+"etonnes": 79.0,
+"ebUS": 0.00021099999999999998
+},
+"belgium": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"spain": {
+"itonnes": 119.0,
+"ibUS": 0.0005639999999999999,
+"etonnes": 3.0,
+"ebUS": 1.4e-05
+},
+"norway": {
+"etonnes": 703.0,
+"ebUS": 0.002479
+},
+"estonia": {
+"itonnes": 311.0,
+"ibUS": 0.001189,
+"etonnes": 729.0,
+"ebUS": 0.0014609999999999998
+},
+"france": {
+"itonnes": 8.0,
+"ibUS": 0.000101
+},
+"japan": {
+"etonnes": 542.0,
+"ebUS": 0.000254
+},
+"canada": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 96.0,
+"ebUS": 0.00022799999999999999
+},
+"poland": {
+"itonnes": 36.0,
+"ibUS": 0.00013199999999999998,
+"etonnes": 16.0,
+"ebUS": 7.999999999999999e-05
+},
+"brazil": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+}
+}
+},
+"austria": {
+"2015": {
+"greece": {
+"itonnes": 13.0,
+"ibUS": 5.4999999999999995e-05
+},
+"gabon": {
+"etonnes": 23.0,
+"ebUS": 3.6e-05
+},
+"romania": {
+"itonnes": 4.0,
+"ibUS": 1.3e-05,
+"etonnes": 532.0,
+"ebUS": 0.000789
+},
+"congo": {
+"etonnes": 24.0,
+"ebUS": 4.4999999999999996e-05
+},
+"italy": {
+"itonnes": 501.0,
+"ibUS": 0.0017699999999999999,
+"etonnes": 31537.0,
+"ebUS": 0.064993
+},
+"germany": {
+"itonnes": 83137.0,
+"ibUS": 0.166848,
+"etonnes": 3177.0,
+"ebUS": 0.010086
+},
+"france": {
+"itonnes": 11743.0,
+"ibUS": 0.018954,
+"etonnes": 46.0,
+"ebUS": 0.00014
+},
+"korea": {
+"etonnes": 2679.0,
+"ebUS": 0.007968
+},
+"poland": {
+"itonnes": 4035.0,
+"ibUS": 0.007071999999999999,
+"etonnes": 192.0,
+"ebUS": 0.000254
+},
+"japan": {
+"etonnes": 3661.0,
+"ebUS": 0.011493
+},
+"croatia": {
+"itonnes": 1.0,
+"ibUS": 7e-06,
+"etonnes": 2581.0,
+"ebUS": 0.0060929999999999995
+},
+"bulgaria": {
+"etonnes": 762.0,
+"ebUS": 0.000736
+},
+"uk": {
+"etonnes": 1248.0,
+"ebUS": 0.0037419999999999997
+},
+"netherlands": {
+"itonnes": 2383.0,
+"ibUS": 0.004573,
+"etonnes": 450.0,
+"ebUS": 0.0008089999999999999
+},
+"cyprus": {
+"etonnes": 122.0,
+"ebUS": 0.000237
+},
+"belgium": {
+"itonnes": 24.0,
+"ibUS": 0.000129,
+"etonnes": 7.0,
+"ebUS": 4.1e-05
+},
+"switzerland": {
+"etonnes": 75.0,
+"ebUS": 0.0008039999999999999
+},
+"spain": {
+"itonnes": 842.0,
+"ibUS": 0.0024289999999999997,
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"hungary": {
+"itonnes": 1877.0,
+"ibUS": 0.0059229999999999994,
+"etonnes": 8685.0,
+"ebUS": 0.016158
+},
+"angola": {
+"etonnes": 115.0,
+"ebUS": 0.000177
+},
+"estonia": {
+"itonnes": 51.0,
+"ibUS": 0.000118,
+"etonnes": 8.0,
+"ebUS": 2.8e-05
+},
+"denmark": {
+"itonnes": 144.0,
+"ibUS": 0.000296,
+"etonnes": 704.0,
+"ebUS": 0.001521
+},
+"canada": {
+"etonnes": 254.0,
+"ebUS": 0.001331
+}
+},
+"2016": {
+"korea": {
+"etonnes": 2516.0,
+"ebUS": 0.007201
+},
+"cyprus": {
+"etonnes": 274.0,
+"ebUS": 0.000216
+},
+"romania": {
+"itonnes": 5.0,
+"ibUS": 3.7999999999999995e-05,
+"etonnes": 922.0,
+"ebUS": 0.0018219999999999998
+},
+"japan": {
+"etonnes": 144.0,
+"ebUS": 0.000525
+},
+"italy": {
+"itonnes": 1255.0,
+"ibUS": 0.002996,
+"etonnes": 29330.0,
+"ebUS": 0.060260999999999995
+},
+"germany": {
+"itonnes": 73241.0,
+"ibUS": 0.155755,
+"etonnes": 4474.0,
+"ebUS": 0.010686
+},
+"france": {
+"itonnes": 9214.0,
+"ibUS": 0.017141,
+"etonnes": 45.0,
+"ebUS": 0.000121
+},
+"greece": {
+"itonnes": 1.0,
+"ibUS": 3e-06,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"poland": {
+"itonnes": 4715.0,
+"ibUS": 0.009765,
+"etonnes": 135.0,
+"ebUS": 9.6e-05
+},
+"china": {
+"etonnes": 22.0,
+"ebUS": 2.7e-05
+},
+"croatia": {
+"itonnes": 0.0,
+"ibUS": 6e-06,
+"etonnes": 1582.0,
+"ebUS": 0.004055
+},
+"finland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"bulgaria": {
+"etonnes": 897.0,
+"ebUS": 0.0009689999999999999
+},
+"uk": {
+"etonnes": 1791.0,
+"ebUS": 0.005527
+},
+"netherlands": {
+"itonnes": 1325.0,
+"ibUS": 0.003041,
+"etonnes": 963.0,
+"ebUS": 0.0014429999999999998
+},
+"belgium": {
+"itonnes": 146.0,
+"ibUS": 0.000358,
+"etonnes": 43.0,
+"ebUS": 4.7e-05
+},
+"switzerland": {
+"etonnes": 70.0,
+"ebUS": 0.000718
+},
+"spain": {
+"itonnes": 1289.0,
+"ibUS": 0.0032259999999999997,
+"etonnes": 13.0,
+"ebUS": 5.4999999999999995e-05
+},
+"hungary": {
+"itonnes": 2594.0,
+"ibUS": 0.008289,
+"etonnes": 10199.0,
+"ebUS": 0.020083999999999998
+},
+"estonia": {
+"etonnes": 79.0,
+"ebUS": 0.000192
+},
+"denmark": {
+"itonnes": 495.0,
+"ibUS": 0.0008759999999999999,
+"etonnes": 38.0,
+"ebUS": 0.000136
+},
+"canada": {
+"etonnes": 275.0,
+"ebUS": 0.0012699999999999999
+}
+},
+"2014": {
+"korea": {
+"etonnes": 7424.0,
+"ebUS": 0.030484999999999998
+},
+"cyprus": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"romania": {
+"itonnes": 3.0,
+"ibUS": 1.2e-05,
+"etonnes": 950.0,
+"ebUS": 0.0018629999999999999
+},
+"japan": {
+"etonnes": 9101.0,
+"ebUS": 0.037725
+},
+"italy": {
+"itonnes": 1112.0,
+"ibUS": 0.002957,
+"etonnes": 22656.0,
+"ebUS": 0.062868
+},
+"germany": {
+"itonnes": 102081.0,
+"ibUS": 0.258136,
+"etonnes": 4154.0,
+"ebUS": 0.014199999999999999
+},
+"france": {
+"itonnes": 11328.0,
+"ibUS": 0.024627,
+"etonnes": 67.0,
+"ebUS": 0.000186
+},
+"greece": {
+"itonnes": 29.0,
+"ibUS": 0.000149,
+"etonnes": 4.0,
+"ebUS": 9.999999999999999e-06
+},
+"poland": {
+"itonnes": 7775.0,
+"ibUS": 0.016995,
+"etonnes": 396.0,
+"ebUS": 0.0005909999999999999
+},
+"angola": {
+"etonnes": 138.0,
+"ebUS": 0.000244
+},
+"azerbaijan": {
+"etonnes": 73.0,
+"ebUS": 0.000103
+},
+"usa": {
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"switzerland": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 149.0,
+"ebUS": 0.0009739999999999999
+},
+"croatia": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 2498.0,
+"ebUS": 0.007058999999999999
+},
+"bulgaria": {
+"etonnes": 608.0,
+"ebUS": 0.000792
+},
+"uk": {
+"itonnes": 1.0,
+"ibUS": 8e-06,
+"etonnes": 1086.0,
+"ebUS": 0.0035619999999999996
+},
+"netherlands": {
+"itonnes": 1763.0,
+"ibUS": 0.004552,
+"etonnes": 891.0,
+"ebUS": 0.0018399999999999998
+},
+"gabon": {
+"etonnes": 23.0,
+"ebUS": 3.9e-05
+},
+"belgium": {
+"itonnes": 45.0,
+"ibUS": 0.000223,
+"etonnes": 5.0,
+"ebUS": 9e-06
+},
+"russia": {
+"etonnes": 40.0,
+"ebUS": 0.000106
+},
+"albania": {
+"ebUS": 2e-06
+},
+"spain": {
+"itonnes": 946.0,
+"ibUS": 0.003472,
+"etonnes": 46.0,
+"ebUS": 0.000116
+},
+"hungary": {
+"itonnes": 3135.0,
+"ibUS": 0.00947,
+"etonnes": 16829.0,
+"ebUS": 0.041227
+},
+"estonia": {
+"itonnes": 108.0,
+"ibUS": 0.00046199999999999995
+},
+"denmark": {
+"itonnes": 1915.0,
+"ibUS": 0.004448,
+"etonnes": 1090.0,
+"ebUS": 0.0025109999999999998
+},
+"sweden": {
+"etonnes": 1.0,
+"ebUS": 1.1e-05
+},
+"canada": {
+"etonnes": 49.0,
+"ebUS": 0.00028399999999999996
+}
+}
+},
+"gabon": {
+"2015": {
+"poland": {
+"itonnes": 397.0,
+"ibUS": 0.000534
+},
+"greece": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"uk": {
+"itonnes": 75.0,
+"ibUS": 7.8e-05
+},
+"netherlands": {
+"itonnes": 413.0,
+"ibUS": 0.0009339999999999999
+},
+"austria": {
+"itonnes": 23.0,
+"ibUS": 3.9999999999999996e-05
+},
+"italy": {
+"itonnes": 200.0,
+"ibUS": 0.000288
+},
+"germany": {
+"itonnes": 630.0,
+"ibUS": 0.0009649999999999999
+},
+"belgium": {
+"itonnes": 560.0,
+"ibUS": 0.001317
+},
+"spain": {
+"itonnes": 195.0,
+"ibUS": 0.00037999999999999997
+},
+"france": {
+"itonnes": 3058.0,
+"ibUS": 0.006486
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"brazil": {
+"itonnes": 74.0,
+"ibUS": 7.599999999999999e-05
+}
+},
+"2016": {
+"belgium": {
+"itonnes": 161.0,
+"ibUS": 0.000318
+},
+"poland": {
+"itonnes": 510.0,
+"ibUS": 0.000793
+},
+"portugal": {
+"itonnes": 2.0,
+"ibUS": 9e-06
+},
+"uk": {
+"itonnes": 100.0,
+"ibUS": 0.000139
+},
+"france": {
+"itonnes": 2403.0,
+"ibUS": 0.0047989999999999994
+},
+"spain": {
+"itonnes": 224.0,
+"ibUS": 0.000434
+},
+"netherlands": {
+"itonnes": 592.0,
+"ibUS": 0.001111
+},
+"italy": {
+"itonnes": 75.0,
+"ibUS": 7.8e-05
+},
+"germany": {
+"itonnes": 340.0,
+"ibUS": 0.0005589999999999999
+},
+"brazil": {
+"itonnes": 87.0,
+"ibUS": 0.000101
+}
+},
+"2014": {
+"belgium": {
+"itonnes": 485.0,
+"ibUS": 0.0010069999999999999
+},
+"poland": {
+"itonnes": 190.0,
+"ibUS": 0.00017999999999999998
+},
+"spain": {
+"itonnes": 84.0,
+"ibUS": 0.00015999999999999999
+},
+"uk": {
+"itonnes": 50.0,
+"ibUS": 9.8e-05
+},
+"denmark": {
+"itonnes": 25.0,
+"ibUS": 6.2e-05
+},
+"austria": {
+"ibUS": 4.4e-05
+},
+"netherlands": {
+"itonnes": 77.0,
+"ibUS": 0.00021099999999999998
+},
+"france": {
+"itonnes": 3097.0,
+"ibUS": 0.0076
+},
+"italy": {
+"itonnes": 150.0,
+"ibUS": 0.000286
+},
+"germany": {
+"itonnes": 329.0,
+"ibUS": 0.000481
+},
+"brazil": {
+"itonnes": 42.0,
+"ibUS": 0.000125
+}
+}
+},
+"cameroon": {
+"2015": {
+"spain": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"germany": {
+"itonnes": 25.0,
+"ibUS": 4.2e-05
+},
+"france": {
+"itonnes": 152.0,
+"ibUS": 0.000298
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"brazil": {
+"itonnes": 3.0,
+"ibUS": 7e-06
+}
+},
+"2016": {
+"belgium": {
+"itonnes": 87.0,
+"ibUS": 8.3e-05
+},
+"poland": {
+"itonnes": 5.0,
+"ibUS": 6e-06
+},
+"germany": {
+"itonnes": 1.0,
+"ibUS": 4e-06
+},
+"france": {
+"itonnes": 276.0,
+"ibUS": 0.00035999999999999997
+}
+},
+"2014": {
+"usa": {
+"itonnes": 4.0,
+"ibUS": 1.2e-05
+},
+"germany": {
+"itonnes": 27.0,
+"ibUS": 5.4e-05
+},
+"spain": {
+"itonnes": 3.0,
+"ibUS": 7e-06
+},
+"france": {
+"itonnes": 155.0,
+"ibUS": 0.00039
+},
+"canada": {
+"itonnes": 2.0,
+"ibUS": 4.9999999999999996e-06
+},
+"netherlands": {
+"itonnes": 2.0,
+"ibUS": 4.9999999999999996e-06
+},
+"italy": {
+"itonnes": 4.0,
+"ibUS": 1.1e-05
+},
+"belgium": {
+"ibUS": 0.0
+}
+}
+},
+"tunisia": {
+"2015": {
+"france": {
+"itonnes": 24.0,
+"ibUS": 5.9e-05
+}
+},
+"2014": {
+"france": {
+"ibUS": 0.000166
+}
+}
+},
+"bangladesh": {
+"2015": {
+"uruguay": {
+"ibUS": 0.0
+}
+}
+},
+"uruguay": {
+"2014": {
+"denmark": {
+"itonnes": 76.0,
+"ibUS": 0.000288
+},
+"brazil": {
+"ibUS": 7.9e-05
+}
+}
+},
+"spain": {
+"2015": {
+"aruba": {
+"etonnes": 12.0,
+"ebUS": 4.8e-05
+},
+"cyprus": {
+"etonnes": 2212.0,
+"ebUS": 0.005029
+},
+"romania": {
+"itonnes": 1746.0,
+"ibUS": 0.004085,
+"etonnes": 9559.0,
+"ebUS": 0.022279999999999998
+},
+"congo": {
+"etonnes": 333.0,
+"ebUS": 0.00025499999999999996
+},
+"italy": {
+"itonnes": 2207.0,
+"ibUS": 0.0019249999999999998,
+"etonnes": 101587.0,
+"ebUS": 0.194263
+},
+"belgium": {
+"itonnes": 4056.0,
+"ibUS": 0.004762,
+"etonnes": 7694.0,
+"ebUS": 0.024703
+},
+"mauritania": {
+"etonnes": 5.0,
+"ebUS": 1.8999999999999998e-05
+},
+"france": {
+"itonnes": 22934.0,
+"ibUS": 0.035219,
+"etonnes": 122896.0,
+"ebUS": 0.29526399999999997
+},
+"greece": {
+"etonnes": 8637.0,
+"ebUS": 0.020442
+},
+"portugal": {
+"itonnes": 8581.0,
+"ibUS": 0.015524,
+"etonnes": 94423.0,
+"ebUS": 0.231896
+},
+"israel": {
+"etonnes": 12.0,
+"ebUS": 3.1e-05
+},
+"colombia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"kenya": {
+"etonnes": 77.0,
+"ebUS": 0.000205
+},
+"croatia": {
+"etonnes": 1619.0,
+"ebUS": 0.0036799999999999997
+},
+"finland": {
+"etonnes": 230.0,
+"ebUS": 0.000823
+},
+"austria": {
+"itonnes": 11.0,
+"ibUS": 2.4e-05,
+"etonnes": 1516.0,
+"ebUS": 0.0033079999999999997
+},
+"gabon": {
+"etonnes": 195.0,
+"ebUS": 0.000339
+},
+"switzerland": {
+"etonnes": 25.0,
+"ebUS": 0.000166
+},
+"uruguay": {
+"etonnes": 1426.0,
+"ebUS": 0.002781
+},
+"hungary": {
+"itonnes": 2790.0,
+"ibUS": 0.006797999999999999,
+"etonnes": 3824.0,
+"ebUS": 0.00767
+},
+"estonia": {
+"itonnes": 2.0,
+"ibUS": 4.9999999999999996e-06,
+"etonnes": 841.0,
+"ebUS": 0.001875
+},
+"sweden": {
+"itonnes": 39.0,
+"ibUS": 0.000112,
+"etonnes": 1434.0,
+"ebUS": 0.005103
+},
+"azerbaijan": {
+"etonnes": 131.0,
+"ebUS": 0.000257
+},
+"armenia": {
+"etonnes": 10.0,
+"ebUS": 7e-06
+},
+"korea": {
+"itonnes": 70.0,
+"ibUS": 0.000256,
+"etonnes": 23516.0,
+"ebUS": 0.057076999999999996
+},
+"chile": {
+"itonnes": 7.0,
+"ibUS": 1.6e-05,
+"etonnes": 1.0,
+"ebUS": 1.3e-05
+},
+"japan": {
+"itonnes": 13.0,
+"ibUS": 4.4999999999999996e-05,
+"etonnes": 48240.0,
+"ebUS": 0.163915
+},
+"malaysia": {
+"etonnes": 1078.0,
+"ebUS": 0.002826
+},
+"iceland": {
+"etonnes": 87.0,
+"ebUS": 0.000267
+},
+"cuba": {
+"etonnes": 97.0,
+"ebUS": 0.000269
+},
+"poland": {
+"itonnes": 12944.0,
+"ibUS": 0.029588,
+"etonnes": 19869.0,
+"ebUS": 0.053356
+},
+"angola": {
+"etonnes": 681.0,
+"ebUS": 0.0015899999999999998
+},
+"bulgaria": {
+"itonnes": 73.0,
+"ibUS": 0.00025499999999999996,
+"etonnes": 14800.0,
+"ebUS": 0.028586999999999998
+},
+"usa": {
+"etonnes": 705.0,
+"ebUS": 0.002492
+},
+"china": {
+"itonnes": 40.0,
+"ibUS": 0.000111,
+"etonnes": 70918.0,
+"ebUS": 0.133483
+},
+"senegal": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"uk": {
+"itonnes": 530.0,
+"ibUS": 0.002176,
+"etonnes": 18070.0,
+"ebUS": 0.053523999999999995
+},
+"benin": {
+"etonnes": 25.0,
+"ebUS": 3.9e-05
+},
+"australia": {
+"etonnes": 1.0,
+"ebUS": 1.3e-05
+},
+"guinea": {
+"etonnes": 2.0,
+"ebUS": 7e-06
+},
+"netherlands": {
+"itonnes": 19331.0,
+"ibUS": 0.043938,
+"etonnes": 14238.0,
+"ebUS": 0.035123999999999996
+},
+"germany": {
+"itonnes": 8152.0,
+"ibUS": 0.015978,
+"etonnes": 25204.0,
+"ebUS": 0.072294
+},
+"albania": {
+"etonnes": 12.0,
+"ebUS": 2.7e-05
+},
+"norway": {
+"itonnes": 68.0,
+"ibUS": 0.000139,
+"etonnes": 39.0,
+"ebUS": 0.000166
+},
+"ghana": {
+"etonnes": 36.0,
+"ebUS": 2.7e-05
+},
+"denmark": {
+"itonnes": 2217.0,
+"ibUS": 0.0035759999999999998,
+"etonnes": 9457.0,
+"ebUS": 0.018143
+},
+"canada": {
+"itonnes": 1.0,
+"ibUS": 1.4999999999999999e-05,
+"etonnes": 1188.0,
+"ebUS": 0.005044
+},
+"argentina": {
+"etonnes": 3.0,
+"ebUS": 1.3e-05
+}
+},
+"2016": {
+"cyprus": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06,
+"etonnes": 1805.0,
+"ebUS": 0.003877
+},
+"romania": {
+"itonnes": 1645.0,
+"ibUS": 0.003675,
+"etonnes": 13230.0,
+"ebUS": 0.029747
+},
+"congo": {
+"etonnes": 469.0,
+"ebUS": 0.00026
+},
+"italy": {
+"itonnes": 5282.0,
+"ibUS": 0.006023,
+"etonnes": 110996.0,
+"ebUS": 0.20532799999999998
+},
+"belgium": {
+"itonnes": 2475.0,
+"ibUS": 0.002938,
+"etonnes": 8750.0,
+"ebUS": 0.027049999999999998
+},
+"mauritania": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"cambodia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"france": {
+"itonnes": 19460.0,
+"ibUS": 0.030140999999999998,
+"etonnes": 103425.0,
+"ebUS": 0.2526
+},
+"japan": {
+"etonnes": 53591.0,
+"ebUS": 0.20912899999999998
+},
+"portugal": {
+"itonnes": 7166.0,
+"ibUS": 0.012601999999999999,
+"etonnes": 74579.0,
+"ebUS": 0.202171
+},
+"israel": {
+"etonnes": 17.0,
+"ebUS": 4.1e-05
+},
+"peru": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"colombia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"kenya": {
+"etonnes": 65.0,
+"ebUS": 0.000215
+},
+"mexico": {
+"etonnes": 32.0,
+"ebUS": 0.000187
+},
+"guatemala": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"croatia": {
+"etonnes": 1286.0,
+"ebUS": 0.002614
+},
+"finland": {
+"etonnes": 181.0,
+"ebUS": 0.0006299999999999999
+},
+"austria": {
+"itonnes": 14.0,
+"ibUS": 5.9e-05,
+"etonnes": 1557.0,
+"ebUS": 0.003303
+},
+"gabon": {
+"etonnes": 224.0,
+"ebUS": 0.000388
+},
+"switzerland": {
+"itonnes": 108.0,
+"ibUS": 0.000647,
+"etonnes": 20.0,
+"ebUS": 0.00015099999999999998
+},
+"uruguay": {
+"itonnes": 25.0,
+"ibUS": 5.6999999999999996e-05,
+"etonnes": 1131.0,
+"ebUS": 0.001916
+},
+"hungary": {
+"itonnes": 3960.0,
+"ibUS": 0.009569,
+"etonnes": 5336.0,
+"ebUS": 0.011151999999999999
+},
+"estonia": {
+"itonnes": 27.0,
+"ibUS": 6.9e-05,
+"etonnes": 717.0,
+"ebUS": 0.001475
+},
+"sweden": {
+"itonnes": 25.0,
+"ibUS": 9.8e-05,
+"etonnes": 1111.0,
+"ebUS": 0.003101
+},
+"azerbaijan": {
+"etonnes": 76.0,
+"ebUS": 7.5e-05
+},
+"armenia": {
+"etonnes": 50.0,
+"ebUS": 0.000148
+},
+"greece": {
+"itonnes": 377.0,
+"ibUS": 0.001023,
+"etonnes": 10770.0,
+"ebUS": 0.026809
+},
+"chile": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"aruba": {
+"etonnes": 50.0,
+"ebUS": 0.000177
+},
+"malaysia": {
+"etonnes": 1619.0,
+"ebUS": 0.0048119999999999994
+},
+"india": {
+"etonnes": 11.0,
+"ebUS": 4.2e-05
+},
+"iceland": {
+"etonnes": 47.0,
+"ebUS": 0.000143
+},
+"cuba": {
+"etonnes": 79.0,
+"ebUS": 0.00025299999999999997
+},
+"poland": {
+"itonnes": 12801.0,
+"ibUS": 0.028388999999999998,
+"etonnes": 25792.0,
+"ebUS": 0.0682
+},
+"angola": {
+"etonnes": 241.0,
+"ebUS": 0.000596
+},
+"usa": {
+"etonnes": 3172.0,
+"ebUS": 0.013285
+},
+"china": {
+"itonnes": 32.0,
+"ibUS": 4.2999999999999995e-05,
+"etonnes": 149098.0,
+"ebUS": 0.289244
+},
+"korea": {
+"itonnes": 0.0,
+"ibUS": 3e-06,
+"etonnes": 32175.0,
+"ebUS": 0.082702
+},
+"bulgaria": {
+"itonnes": 1.0,
+"ibUS": 3e-06,
+"etonnes": 14883.0,
+"ebUS": 0.029397
+},
+"uk": {
+"itonnes": 591.0,
+"ibUS": 0.002159,
+"etonnes": 20016.0,
+"ebUS": 0.053792
+},
+"netherlands": {
+"itonnes": 14693.0,
+"ibUS": 0.032945999999999996,
+"etonnes": 10736.0,
+"ebUS": 0.026053
+},
+"australia": {
+"etonnes": 1.0,
+"ebUS": 1.8e-05
+},
+"guinea": {
+"etonnes": 10.0,
+"ebUS": 2.2e-05
+},
+"germany": {
+"itonnes": 8310.0,
+"ibUS": 0.017204999999999998,
+"etonnes": 23524.0,
+"ebUS": 0.07516099999999999
+},
+"albania": {
+"etonnes": 25.0,
+"ebUS": 3.9999999999999996e-05
+},
+"norway": {
+"itonnes": 47.0,
+"ibUS": 7.7e-05,
+"etonnes": 36.0,
+"ebUS": 0.000159
+},
+"ghana": {
+"etonnes": 50.0,
+"ebUS": 2.4999999999999998e-05
+},
+"denmark": {
+"itonnes": 2353.0,
+"ibUS": 0.0040869999999999995,
+"etonnes": 11280.0,
+"ebUS": 0.020926999999999998
+},
+"canada": {
+"itonnes": 63.0,
+"ibUS": 0.00029299999999999997,
+"etonnes": 3123.0,
+"ebUS": 0.013873
+},
+"argentina": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+}
+},
+"2014": {
+"aruba": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"gabon": {
+"etonnes": 84.0,
+"ebUS": 0.000143
+},
+"romania": {
+"itonnes": 714.0,
+"ibUS": 0.002261,
+"etonnes": 7134.0,
+"ebUS": 0.020538999999999998
+},
+"congo": {
+"etonnes": 77.0,
+"ebUS": 0.000112
+},
+"italy": {
+"itonnes": 2322.0,
+"ibUS": 0.00458,
+"etonnes": 91133.0,
+"ebUS": 0.232345
+},
+"belgium": {
+"itonnes": 2011.0,
+"ibUS": 0.003998,
+"etonnes": 5615.0,
+"ebUS": 0.023745
+},
+"mauritania": {
+"etonnes": 6.0,
+"ebUS": 2.3e-05
+},
+"france": {
+"itonnes": 28306.0,
+"ibUS": 0.057185,
+"etonnes": 109820.0,
+"ebUS": 0.35267099999999996
+},
+"greece": {
+"itonnes": 17.0,
+"ibUS": 5.9999999999999995e-05,
+"etonnes": 8468.0,
+"ebUS": 0.026298
+},
+"portugal": {
+"itonnes": 7732.0,
+"ibUS": 0.0241,
+"etonnes": 94888.0,
+"ebUS": 0.306985
+},
+"israel": {
+"etonnes": 9.0,
+"ebUS": 2.9999999999999997e-05
+},
+"colombia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"kenya": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"mexico": {
+"etonnes": 2.0,
+"ebUS": 7.2e-05
+},
+"croatia": {
+"etonnes": 1385.0,
+"ebUS": 0.004053
+},
+"finland": {
+"etonnes": 292.0,
+"ebUS": 0.0013289999999999999
+},
+"austria": {
+"itonnes": 61.0,
+"ibUS": 0.000168,
+"etonnes": 1417.0,
+"ebUS": 0.003754
+},
+"cyprus": {
+"itonnes": 8.0,
+"ibUS": 1.7e-05,
+"etonnes": 2823.0,
+"ebUS": 0.008603999999999999
+},
+"tunisia": {
+"etonnes": 6.0,
+"ebUS": 2.6e-05
+},
+"switzerland": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 27.0,
+"ebUS": 0.00023799999999999998
+},
+"uruguay": {
+"etonnes": 660.0,
+"ebUS": 0.001828
+},
+"hungary": {
+"itonnes": 2873.0,
+"ibUS": 0.008749999999999999,
+"etonnes": 2421.0,
+"ebUS": 0.005987999999999999
+},
+"estonia": {
+"etonnes": 1107.0,
+"ebUS": 0.003633
+},
+"sweden": {
+"itonnes": 25.0,
+"ibUS": 8.2e-05,
+"etonnes": 843.0,
+"ebUS": 0.004105999999999999
+},
+"azerbaijan": {
+"etonnes": 95.0,
+"ebUS": 0.000278
+},
+"armenia": {
+"etonnes": 222.0,
+"ebUS": 0.000723
+},
+"korea": {
+"itonnes": 67.0,
+"ibUS": 0.000156,
+"etonnes": 25628.0,
+"ebUS": 0.07845099999999999
+},
+"chile": {
+"itonnes": 60.0,
+"ibUS": 0.00015999999999999999,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"ethiopia": {
+"etonnes": 75.0,
+"ebUS": 0.000263
+},
+"japan": {
+"etonnes": 42369.0,
+"ebUS": 0.195046
+},
+"malaysia": {
+"etonnes": 469.0,
+"ebUS": 0.001589
+},
+"iceland": {
+"etonnes": 37.0,
+"ebUS": 0.00013099999999999999
+},
+"cuba": {
+"etonnes": 342.0,
+"ebUS": 0.0010659999999999999
+},
+"poland": {
+"itonnes": 4089.0,
+"ibUS": 0.011255999999999999,
+"etonnes": 12214.0,
+"ebUS": 0.045908
+},
+"angola": {
+"etonnes": 1354.0,
+"ebUS": 0.003875
+},
+"usa": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 479.0,
+"ebUS": 0.00251
+},
+"china": {
+"itonnes": 76.0,
+"ibUS": 0.000222,
+"etonnes": 27016.0,
+"ebUS": 0.055425999999999996
+},
+"bulgaria": {
+"itonnes": 63.0,
+"ibUS": 0.000153,
+"etonnes": 9741.0,
+"ebUS": 0.025931
+},
+"uk": {
+"itonnes": 556.0,
+"ibUS": 0.00261,
+"etonnes": 15250.0,
+"ebUS": 0.048903999999999996
+},
+"netherlands": {
+"itonnes": 18855.0,
+"ibUS": 0.056665,
+"etonnes": 12859.0,
+"ebUS": 0.040386
+},
+"australia": {
+"etonnes": 1.0,
+"ebUS": 1.1e-05
+},
+"germany": {
+"itonnes": 8013.0,
+"ibUS": 0.022007,
+"etonnes": 24862.0,
+"ebUS": 0.092057
+},
+"albania": {
+"ebUS": 8.3e-05
+},
+"norway": {
+"itonnes": 313.0,
+"ibUS": 0.000707,
+"etonnes": 47.0,
+"ebUS": 0.000268
+},
+"denmark": {
+"itonnes": 1570.0,
+"ibUS": 0.003482,
+"etonnes": 10807.0,
+"ebUS": 0.028919
+},
+"canada": {
+"itonnes": 99.0,
+"ibUS": 0.000299,
+"etonnes": 770.0,
+"ebUS": 0.003023
+},
+"argentina": {
+"etonnes": 8.0,
+"ebUS": 5.4999999999999995e-05
+}
+}
+},
+"hungary": {
+"2015": {
+"korea": {
+"etonnes": 1270.0,
+"ebUS": 0.003868
+},
+"china": {
+"etonnes": 8635.0,
+"ebUS": 0.016648
+},
+"croatia": {
+"itonnes": 1943.0,
+"ibUS": 0.002966,
+"etonnes": 2964.0,
+"ebUS": 0.00583
+},
+"greece": {
+"etonnes": 118.0,
+"ebUS": 0.000263
+},
+"bulgaria": {
+"etonnes": 259.0,
+"ebUS": 0.00038899999999999997
+},
+"uk": {
+"itonnes": 2299.0,
+"ibUS": 0.003528,
+"etonnes": 1180.0,
+"ebUS": 0.003477
+},
+"netherlands": {
+"itonnes": 3827.0,
+"ibUS": 0.009446,
+"etonnes": 520.0,
+"ebUS": 0.0020829999999999998
+},
+"austria": {
+"itonnes": 6517.0,
+"ibUS": 0.011729999999999999,
+"etonnes": 333.0,
+"ebUS": 0.00123
+},
+"romania": {
+"itonnes": 1219.0,
+"ibUS": 0.00226,
+"etonnes": 8434.0,
+"ebUS": 0.016571
+},
+"france": {
+"itonnes": 4462.0,
+"ibUS": 0.007414,
+"etonnes": 378.0,
+"ebUS": 0.000923
+},
+"italy": {
+"itonnes": 5137.0,
+"ibUS": 0.014393999999999999,
+"etonnes": 23595.0,
+"ebUS": 0.039326
+},
+"germany": {
+"itonnes": 14601.0,
+"ibUS": 0.029542,
+"etonnes": 1171.0,
+"ebUS": 0.003137
+},
+"sweden": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"albania": {
+"ebUS": 0.000175
+},
+"belgium": {
+"itonnes": 220.0,
+"ibUS": 0.00037999999999999997,
+"etonnes": 12.0,
+"ebUS": 0.000111
+},
+"spain": {
+"itonnes": 666.0,
+"ibUS": 0.00153,
+"etonnes": 3636.0,
+"ebUS": 0.008928
+},
+"estonia": {
+"itonnes": 340.0,
+"ibUS": 0.00054,
+"etonnes": 1.0,
+"ebUS": 1.3e-05
+},
+"denmark": {
+"itonnes": 4121.0,
+"ibUS": 0.0066229999999999995,
+"etonnes": 74.0,
+"ebUS": 0.000163
+},
+"japan": {
+"etonnes": 30.0,
+"ebUS": 0.000128
+},
+"poland": {
+"itonnes": 12740.0,
+"ibUS": 0.022653,
+"etonnes": 247.0,
+"ebUS": 0.000655
+}
+},
+"2016": {
+"korea": {
+"etonnes": 1363.0,
+"ebUS": 0.004769
+},
+"cyprus": {
+"itonnes": 40.0,
+"ibUS": 0.000103
+},
+"romania": {
+"itonnes": 1629.0,
+"ibUS": 0.0031539999999999997,
+"etonnes": 6473.0,
+"ebUS": 0.012721999999999999
+},
+"italy": {
+"itonnes": 5134.0,
+"ibUS": 0.018654999999999998,
+"etonnes": 17087.0,
+"ebUS": 0.032031
+},
+"china": {
+"etonnes": 12337.0,
+"ebUS": 0.025033
+},
+"germany": {
+"itonnes": 9736.0,
+"ibUS": 0.019912,
+"etonnes": 502.0,
+"ebUS": 0.001949
+},
+"france": {
+"itonnes": 4115.0,
+"ibUS": 0.007987,
+"etonnes": 30.0,
+"ebUS": 0.000137
+},
+"japan": {
+"etonnes": 77.0,
+"ebUS": 0.00029499999999999996
+},
+"poland": {
+"itonnes": 12046.0,
+"ibUS": 0.025797999999999998,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"azerbaijan": {
+"etonnes": 9.0,
+"ebUS": 2.8e-05
+},
+"aruba": {
+"etonnes": 24.0,
+"ebUS": 9.4e-05
+},
+"croatia": {
+"itonnes": 7705.0,
+"ibUS": 0.012771999999999999,
+"etonnes": 3685.0,
+"ebUS": 0.008692
+},
+"finland": {
+"itonnes": 20.0,
+"ibUS": 1.8999999999999998e-05,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"bulgaria": {
+"etonnes": 243.0,
+"ebUS": 0.000352
+},
+"uk": {
+"itonnes": 2429.0,
+"ibUS": 0.003803,
+"etonnes": 1646.0,
+"ebUS": 0.004752999999999999
+},
+"netherlands": {
+"itonnes": 5740.0,
+"ibUS": 0.014839,
+"etonnes": 486.0,
+"ebUS": 0.001865
+},
+"austria": {
+"itonnes": 7931.0,
+"ibUS": 0.015664,
+"etonnes": 408.0,
+"ebUS": 0.00154
+},
+"belgium": {
+"itonnes": 792.0,
+"ibUS": 0.0014629999999999999,
+"etonnes": 17.0,
+"ebUS": 0.000137
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"albania": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"spain": {
+"itonnes": 1158.0,
+"ibUS": 0.0021379999999999997,
+"etonnes": 5318.0,
+"ebUS": 0.012901
+},
+"estonia": {
+"itonnes": 536.0,
+"ibUS": 0.0008129999999999999,
+"etonnes": 105.0,
+"ebUS": 0.000202
+},
+"denmark": {
+"itonnes": 1752.0,
+"ibUS": 0.0029319999999999997,
+"etonnes": 0.0,
+"ebUS": 0.0
+}
+},
+"2014": {
+"korea": {
+"etonnes": 3547.0,
+"ebUS": 0.012449
+},
+"romania": {
+"itonnes": 2231.0,
+"ibUS": 0.006489,
+"etonnes": 15135.0,
+"ebUS": 0.037381
+},
+"japan": {
+"etonnes": 253.0,
+"ebUS": 0.000745
+},
+"italy": {
+"itonnes": 247.0,
+"ibUS": 0.00056,
+"etonnes": 22331.0,
+"ebUS": 0.04545
+},
+"germany": {
+"itonnes": 18529.0,
+"ibUS": 0.047563999999999995,
+"etonnes": 661.0,
+"ebUS": 0.001967
+},
+"france": {
+"itonnes": 5940.0,
+"ibUS": 0.012891999999999999,
+"etonnes": 24.0,
+"ebUS": 8.099999999999999e-05
+},
+"greece": {
+"etonnes": 46.0,
+"ebUS": 0.000116
+},
+"poland": {
+"itonnes": 10158.0,
+"ibUS": 0.024134,
+"etonnes": 1242.0,
+"ebUS": 0.003909
+},
+"russia": {
+"etonnes": 23.0,
+"ebUS": 5.4e-05
+},
+"china": {
+"etonnes": 3033.0,
+"ebUS": 0.005606
+},
+"croatia": {
+"itonnes": 2.0,
+"ibUS": 4e-06,
+"etonnes": 2141.0,
+"ebUS": 0.006109
+},
+"finland": {
+"itonnes": 28.0,
+"ibUS": 5.6e-05
+},
+"bulgaria": {
+"etonnes": 388.0,
+"ebUS": 0.000882
+},
+"uk": {
+"itonnes": 2406.0,
+"ibUS": 0.005403,
+"etonnes": 1105.0,
+"ebUS": 0.004051
+},
+"netherlands": {
+"itonnes": 2989.0,
+"ibUS": 0.008661,
+"etonnes": 79.0,
+"ebUS": 0.00037
+},
+"austria": {
+"itonnes": 11622.0,
+"ibUS": 0.031965,
+"etonnes": 289.0,
+"ebUS": 0.0012209999999999999
+},
+"belgium": {
+"itonnes": 528.0,
+"ibUS": 0.0011049999999999999,
+"etonnes": 8.0,
+"ebUS": 7.999999999999999e-05
+},
+"switzerland": {
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"spain": {
+"itonnes": 1222.0,
+"ibUS": 0.004077,
+"etonnes": 3857.0,
+"ebUS": 0.0124
+},
+"estonia": {
+"itonnes": 915.0,
+"ibUS": 0.002231,
+"etonnes": 3.0,
+"ebUS": 1.2e-05
+},
+"denmark": {
+"itonnes": 7923.0,
+"ibUS": 0.017928,
+"etonnes": 715.0,
+"ebUS": 0.002192
+},
+"sweden": {
+"etonnes": 0.0,
+"ebUS": 0.0
+}
+}
+},
+"madagascar": {
+"2015": {
+"netherlands": {
+"itonnes": 1.0,
+"ibUS": 6e-06
+}
+},
+"2016": {
+"netherlands": {
+"itonnes": 2.0,
+"ibUS": 8e-06
+}
+},
+"2014": {
+"spain": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"netherlands": {
+"ibUS": 1e-06
+}
+}
+},
+"estonia": {
+"2015": {
+"croatia": {
+"etonnes": 9.0,
+"ebUS": 2.6e-05
+},
+"finland": {
+"itonnes": 913.0,
+"ibUS": 0.001575,
+"etonnes": 776.0,
+"ebUS": 0.002816
+},
+"netherlands": {
+"itonnes": 101.0,
+"ibUS": 0.00020999999999999998,
+"etonnes": 41.0,
+"ebUS": 0.000124
+},
+"austria": {
+"ibUS": 2.8e-05,
+"etonnes": 2.0,
+"ebUS": 1.1e-05
+},
+"romania": {
+"etonnes": 10.0,
+"ebUS": 2.8e-05
+},
+"france": {
+"itonnes": 10.0,
+"ibUS": 4.2999999999999995e-05
+},
+"italy": {
+"itonnes": 24.0,
+"ibUS": 6.2e-05
+},
+"germany": {
+"itonnes": 2265.0,
+"ibUS": 0.0049629999999999995,
+"etonnes": 5.0,
+"ebUS": 1.1e-05
+},
+"sweden": {
+"itonnes": 125.0,
+"ibUS": 0.000202,
+"etonnes": 403.0,
+"ebUS": 0.001346
+},
+"russia": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"belgium": {
+"itonnes": 1263.0,
+"ibUS": 0.0027589999999999997,
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"spain": {
+"itonnes": 64.0,
+"ibUS": 0.000143,
+"etonnes": 41.0,
+"ebUS": 8.4e-05
+},
+"norway": {
+"etonnes": 3.0,
+"ebUS": 1.2e-05
+},
+"denmark": {
+"itonnes": 1955.0,
+"ibUS": 0.003671,
+"etonnes": 45.0,
+"ebUS": 6.7e-05
+},
+"hungary": {
+"itonnes": 57.0,
+"ibUS": 0.00016999999999999999
+},
+"poland": {
+"itonnes": 928.0,
+"ibUS": 0.0019399999999999999
+}
+},
+"2016": {
+"croatia": {
+"etonnes": 34.0,
+"ebUS": 9.099999999999999e-05
+},
+"finland": {
+"itonnes": 1991.0,
+"ibUS": 0.003443,
+"etonnes": 311.0,
+"ebUS": 0.001201
+},
+"cyprus": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"norway": {
+"etonnes": 2.0,
+"ebUS": 9e-06
+},
+"romania": {
+"etonnes": 102.0,
+"ebUS": 0.000232
+},
+"denmark": {
+"itonnes": 1676.0,
+"ibUS": 0.0034219999999999997,
+"etonnes": 44.0,
+"ebUS": 0.000143
+},
+"italy": {
+"etonnes": 10.0,
+"ebUS": 1.3e-05
+},
+"germany": {
+"itonnes": 1234.0,
+"ibUS": 0.002842,
+"etonnes": 19.0,
+"ebUS": 1.4999999999999999e-05
+},
+"sweden": {
+"itonnes": 151.0,
+"ibUS": 0.00011999999999999999,
+"etonnes": 270.0,
+"ebUS": 0.001006
+},
+"netherlands": {
+"itonnes": 106.0,
+"ibUS": 0.00033299999999999996,
+"etonnes": 6.0,
+"ebUS": 6.599999999999999e-05
+},
+"belgium": {
+"itonnes": 599.0,
+"ibUS": 0.0013009999999999999
+},
+"spain": {
+"itonnes": 219.0,
+"ibUS": 0.000481,
+"etonnes": 66.0,
+"ebUS": 5.4e-05
+},
+"hungary": {
+"itonnes": 203.0,
+"ibUS": 0.000494
+},
+"france": {
+"itonnes": 2.0,
+"ibUS": 1.3e-05
+},
+"greece": {
+"etonnes": 6.0,
+"ebUS": 2.3e-05
+},
+"poland": {
+"itonnes": 1420.0,
+"ibUS": 0.002966
+}
+},
+"2014": {
+"croatia": {
+"etonnes": 40.0,
+"ebUS": 0.000107
+},
+"finland": {
+"itonnes": 1186.0,
+"ibUS": 0.002611,
+"etonnes": 630.0,
+"ebUS": 0.002668
+},
+"uk": {
+"itonnes": 22.0,
+"ibUS": 5.9e-05
+},
+"netherlands": {
+"itonnes": 64.0,
+"ibUS": 0.000163
+},
+"austria": {
+"etonnes": 26.0,
+"ebUS": 0.000133
+},
+"germany": {
+"itonnes": 2676.0,
+"ibUS": 0.007208
+},
+"sweden": {
+"itonnes": 156.0,
+"ibUS": 0.00045099999999999996,
+"etonnes": 242.0,
+"ebUS": 0.000979
+},
+"belgium": {
+"itonnes": 800.0,
+"ibUS": 0.002281,
+"etonnes": 1.0,
+"ebUS": 8e-06
+},
+"spain": {
+"itonnes": 121.0,
+"ibUS": 0.000441
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"denmark": {
+"itonnes": 2330.0,
+"ibUS": 0.006058,
+"etonnes": 46.0,
+"ebUS": 0.000116
+},
+"hungary": {
+"itonnes": 133.0,
+"ibUS": 0.000532
+},
+"poland": {
+"itonnes": 840.0,
+"ibUS": 0.002264,
+"etonnes": 9.0,
+"ebUS": 9e-06
+}
+}
+},
+"indonesia": {
+"2015": {
+"usa": {
+"itonnes": 32.0,
+"ibUS": 8.2e-05
+}
+},
+"2014": {
+"usa": {
+"ibUS": 5.1e-05
+}
+}
+},
+"nepal": {
+"2015": {
+"china": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2016": {
+"france": {
+"itonnes": 0.0,
+"ibUS": 3e-06
+}
+},
+"2014": {
+"china": {
+"ibUS": 1e-06
+},
+"denmark": {
+"itonnes": 9.0,
+"ibUS": 3.5e-05
+}
+}
+},
+"azerbaijan": {
+"2015": {
+"bangladesh": {
+"ibUS": 0.0
+},
+"belgium": {
+"itonnes": 41.0,
+"ibUS": 7.5e-05
+},
+"spain": {
+"itonnes": 131.0,
+"ibUS": 0.000288
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"france": {
+"itonnes": 50.0,
+"ibUS": 0.000107
+},
+"canada": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 101.0,
+"ibUS": 0.00018899999999999999
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 1.2e-05
+},
+"germany": {
+"itonnes": 30.0,
+"ibUS": 4.7e-05
+},
+"brazil": {
+"itonnes": 81.0,
+"ibUS": 0.000165
+}
+},
+"2016": {
+"germany": {
+"itonnes": 12.0,
+"ibUS": 1.8e-05
+},
+"spain": {
+"itonnes": 76.0,
+"ibUS": 8.4e-05
+},
+"hungary": {
+"itonnes": 9.0,
+"ibUS": 3.2e-05
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"canada": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 136.0,
+"ibUS": 0.00015999999999999999
+},
+"italy": {
+"itonnes": 25.0,
+"ibUS": 2.9e-05
+},
+"belgium": {
+"itonnes": 48.0,
+"ibUS": 6.2e-05
+},
+"brazil": {
+"itonnes": 54.0,
+"ibUS": 0.000112
+}
+}
+},
+"bahrain": {
+"2015": {
+"usa": {
+"itonnes": 27.0,
+"ibUS": 0.000287,
+"etonnes": 3.0,
+"ebUS": 1.9999999999999998e-05
+},
+"portugal": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"greece": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"kenya": {
+"itonnes": 3.0,
+"ibUS": 1.3e-05
+},
+"uk": {
+"itonnes": 1.0,
+"ibUS": 1.2e-05,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"netherlands": {
+"itonnes": 746.0,
+"ibUS": 0.002688
+},
+"australia": {
+"itonnes": 18.0,
+"ibUS": 3.4e-05
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 3e-06
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 4e-06,
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"belgium": {
+"itonnes": 8.0,
+"ibUS": 2.2e-05,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"qatar": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"germany": {
+"itonnes": 0.0,
+"ibUS": 2e-06
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 4e-06
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"pakistan": {
+"itonnes": 1.0,
+"ibUS": 3e-06
+},
+"canada": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"poland": {
+"itonnes": 18.0,
+"ibUS": 5.2e-05
+}
+},
+"2016": {
+"usa": {
+"itonnes": 11.0,
+"ibUS": 0.00010499999999999999,
+"etonnes": 4.0,
+"ebUS": 4.7e-05
+},
+"pakistan": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"greece": {
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"kenya": {
+"itonnes": 1.0,
+"ibUS": 3e-06
+},
+"uk": {
+"itonnes": 1.0,
+"ibUS": 9e-06,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"cyprus": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"australia": {
+"etonnes": 3.0,
+"ebUS": 4.1e-05
+},
+"france": {
+"itonnes": 1.0,
+"ibUS": 2e-06
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"germany": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"netherlands": {
+"itonnes": 783.0,
+"ibUS": 0.002859,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"belgium": {
+"itonnes": 22.0,
+"ibUS": 7.3e-05
+},
+"spain": {
+"itonnes": 13.0,
+"ibUS": 4.1e-05
+},
+"norway": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"denmark": {
+"etonnes": 0.0,
+"ebUS": 0.0
+}
+},
+"2014": {
+"usa": {
+"itonnes": 7.0,
+"ibUS": 9.2e-05,
+"etonnes": 4.0,
+"ebUS": 4.7e-05
+},
+"greece": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"kenya": {
+"itonnes": 22.0,
+"ibUS": 0.000133
+},
+"uk": {
+"itonnes": 3.0,
+"ibUS": 4.2e-05,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"ethiopia": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"australia": {
+"ibUS": 0.0
+},
+"denmark": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"germany": {
+"itonnes": 1.0,
+"ibUS": 9.999999999999999e-06
+},
+"malaysia": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"india": {
+"itonnes": 48.0,
+"ibUS": 0.00015199999999999998
+},
+"belgium": {
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 6e-06
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"cyprus": {
+"etonnes": 1.0,
+"ebUS": 4.9999999999999996e-06
+},
+"netherlands": {
+"itonnes": 721.0,
+"ibUS": 0.0027719999999999997
+},
+"canada": {
+"itonnes": 3.0,
+"ibUS": 1.1e-05
+},
+"poland": {
+"itonnes": 0.0,
+"ibUS": 2e-06
+}
+}
+},
+"armenia": {
+"2015": {
+"russia": {
+"itonnes": 10.0,
+"ibUS": 1.8999999999999998e-05
+},
+"usa": {
+"itonnes": 52.0,
+"ibUS": 0.000113
+},
+"belgium": {
+"ibUS": 4.2999999999999995e-05
+},
+"poland": {
+"itonnes": 24.0,
+"ibUS": 5.3e-05
+},
+"italy": {
+"itonnes": 2.0,
+"ibUS": 3e-06
+},
+"brazil": {
+"itonnes": 2645.0,
+"ibUS": 0.004958
+}
+},
+"2016": {
+"russia": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"germany": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"spain": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"norway": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"brazil": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2014": {
+"germany": {
+"itonnes": 32.0,
+"ibUS": 6.5e-05
+},
+"spain": {
+"itonnes": 124.0,
+"ibUS": 0.00031499999999999996
+},
+"netherlands": {
+"itonnes": 48.0,
+"ibUS": 0.00011399999999999999
+},
+"canada": {
+"itonnes": 27.0,
+"ibUS": 8.8e-05
+},
+"poland": {
+"itonnes": 271.0,
+"ibUS": 0.0006079999999999999
+},
+"italy": {
+"itonnes": 22.0,
+"ibUS": 5.2e-05
+},
+"brazil": {
+"itonnes": 2141.0,
+"ibUS": 0.004868
+}
+}
+},
+"algeria": {
+"2014": {
+"italy": {
+"ibUS": 4e-06
+}
+}
+},
+"greece": {
+"2015": {
+"portugal": {
+"etonnes": 3.0,
+"ebUS": 9.999999999999999e-06
+},
+"finland": {
+"itonnes": 45.0,
+"ibUS": 9.2e-05
+},
+"bulgaria": {
+"itonnes": 2447.0,
+"ibUS": 0.0052239999999999995,
+"etonnes": 798.0,
+"ebUS": 0.0012209999999999999
+},
+"uk": {
+"itonnes": 35.0,
+"ibUS": 0.00011999999999999999,
+"etonnes": 5.0,
+"ebUS": 2.1e-05
+},
+"gabon": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"austria": {
+"itonnes": 184.0,
+"ibUS": 0.00037,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"romania": {
+"itonnes": 1706.0,
+"ibUS": 0.0038959999999999997,
+"etonnes": 26.0,
+"ebUS": 0.000112
+},
+"cyprus": {
+"itonnes": 345.0,
+"ibUS": 0.000621,
+"etonnes": 769.0,
+"ebUS": 0.00197
+},
+"italy": {
+"itonnes": 852.0,
+"ibUS": 0.002583,
+"etonnes": 153.0,
+"ebUS": 0.000318
+},
+"germany": {
+"itonnes": 13761.0,
+"ibUS": 0.035398,
+"etonnes": 182.0,
+"ebUS": 0.0007599999999999999
+},
+"sweden": {
+"etonnes": 51.0,
+"ebUS": 0.000206
+},
+"denmark": {
+"itonnes": 2432.0,
+"ibUS": 0.006366
+},
+"albania": {
+"ebUS": 4.9999999999999996e-06
+},
+"belgium": {
+"itonnes": 4182.0,
+"ibUS": 0.008921,
+"etonnes": 15.0,
+"ebUS": 5.9e-05
+},
+"spain": {
+"itonnes": 5883.0,
+"ibUS": 0.013975,
+"etonnes": 15.0,
+"ebUS": 5.4e-05
+},
+"hungary": {
+"itonnes": 169.0,
+"ibUS": 0.000388,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"france": {
+"itonnes": 21847.0,
+"ibUS": 0.038696,
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"netherlands": {
+"itonnes": 85685.0,
+"ibUS": 0.16530499999999998,
+"etonnes": 5.0,
+"ebUS": 1.3e-05
+},
+"poland": {
+"itonnes": 553.0,
+"ibUS": 0.00163,
+"etonnes": 1.0,
+"ebUS": 4e-06
+}
+},
+"2016": {
+"portugal": {
+"etonnes": 3.0,
+"ebUS": 1.2e-05
+},
+"bulgaria": {
+"itonnes": 3299.0,
+"ibUS": 0.0076219999999999994,
+"etonnes": 696.0,
+"ebUS": 0.001078
+},
+"uk": {
+"itonnes": 50.0,
+"ibUS": 0.00020899999999999998,
+"etonnes": 10.0,
+"ebUS": 4.2e-05
+},
+"cyprus": {
+"itonnes": 237.0,
+"ibUS": 0.000379,
+"etonnes": 580.0,
+"ebUS": 0.001532
+},
+"austria": {
+"itonnes": 171.0,
+"ibUS": 0.00035999999999999997
+},
+"romania": {
+"itonnes": 1428.0,
+"ibUS": 0.0034609999999999997,
+"etonnes": 28.0,
+"ebUS": 0.000112
+},
+"denmark": {
+"itonnes": 2283.0,
+"ibUS": 0.006248
+},
+"italy": {
+"itonnes": 921.0,
+"ibUS": 0.002496,
+"etonnes": 42.0,
+"ebUS": 0.000139
+},
+"germany": {
+"itonnes": 12027.0,
+"ibUS": 0.033533,
+"etonnes": 161.0,
+"ebUS": 0.0006389999999999999
+},
+"sweden": {
+"etonnes": 51.0,
+"ebUS": 0.000216
+},
+"netherlands": {
+"itonnes": 77524.0,
+"ibUS": 0.16869699999999999,
+"etonnes": 226.0,
+"ebUS": 0.00043999999999999996
+},
+"albania": {
+"etonnes": 9.0,
+"ebUS": 1.8999999999999998e-05
+},
+"belgium": {
+"itonnes": 2956.0,
+"ibUS": 0.006715,
+"etonnes": 12.0,
+"ebUS": 4.8e-05
+},
+"spain": {
+"itonnes": 8900.0,
+"ibUS": 0.021773,
+"etonnes": 6.0,
+"ebUS": 2.4999999999999998e-05
+},
+"hungary": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"estonia": {
+"itonnes": 22.0,
+"ibUS": 6.5e-05
+},
+"france": {
+"itonnes": 26461.0,
+"ibUS": 0.041811,
+"etonnes": 58.0,
+"ebUS": 0.000149
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"poland": {
+"itonnes": 497.0,
+"ibUS": 0.001132,
+"etonnes": 1.0,
+"ebUS": 3e-06
+}
+},
+"2014": {
+"china": {
+"etonnes": 25.0,
+"ebUS": 4.2e-05
+},
+"portugal": {
+"etonnes": 1.0,
+"ebUS": 4.9999999999999996e-06
+},
+"finland": {
+"itonnes": 64.0,
+"ibUS": 0.000175
+},
+"bulgaria": {
+"itonnes": 882.0,
+"ibUS": 0.000784,
+"etonnes": 665.0,
+"ebUS": 0.00091
+},
+"uk": {
+"itonnes": 38.0,
+"ibUS": 0.00017099999999999998,
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"cyprus": {
+"itonnes": 438.0,
+"ibUS": 0.0011359999999999999,
+"etonnes": 1092.0,
+"ebUS": 0.0036119999999999998
+},
+"austria": {
+"itonnes": 135.0,
+"ibUS": 0.00035,
+"etonnes": 3.0,
+"ebUS": 1.4e-05
+},
+"romania": {
+"itonnes": 1556.0,
+"ibUS": 0.00486,
+"etonnes": 74.0,
+"ebUS": 0.000276
+},
+"denmark": {
+"itonnes": 1878.0,
+"ibUS": 0.006777
+},
+"italy": {
+"itonnes": 1280.0,
+"ibUS": 0.004203,
+"etonnes": 44.0,
+"ebUS": 0.000225
+},
+"germany": {
+"itonnes": 14580.0,
+"ibUS": 0.047313999999999995,
+"etonnes": 201.0,
+"ebUS": 0.000987
+},
+"netherlands": {
+"itonnes": 84600.0,
+"ibUS": 0.22336299999999998,
+"etonnes": 18.0,
+"ebUS": 5.2e-05
+},
+"belgium": {
+"itonnes": 3451.0,
+"ibUS": 0.009460999999999999,
+"etonnes": 8.0,
+"ebUS": 3.9999999999999996e-05
+},
+"spain": {
+"itonnes": 5433.0,
+"ibUS": 0.017211,
+"etonnes": 9.0,
+"ebUS": 4.2e-05
+},
+"hungary": {
+"itonnes": 78.0,
+"ibUS": 0.00021799999999999999
+},
+"estonia": {
+"itonnes": 25.0,
+"ibUS": 7.999999999999999e-05
+},
+"france": {
+"itonnes": 25657.0,
+"ibUS": 0.060608999999999996,
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"sweden": {
+"etonnes": 32.0,
+"ebUS": 0.000156
+},
+"poland": {
+"itonnes": 713.0,
+"ibUS": 0.002388,
+"etonnes": 1.0,
+"ebUS": 3e-06
+}
+}
+},
+"chile": {
+"2015": {
+"usa": {
+"itonnes": 9380.0,
+"ibUS": 0.027528999999999998,
+"etonnes": 265.0,
+"ebUS": 0.001374
+},
+"mexico": {
+"etonnes": 728.0,
+"ebUS": 0.001093
+},
+"china": {
+"etonnes": 31794.0,
+"ebUS": 0.047854999999999995
+},
+"korea": {
+"etonnes": 11784.0,
+"ebUS": 0.024995999999999997
+},
+"ecuador": {
+"etonnes": 877.0,
+"ebUS": 0.001104
+},
+"cyprus": {
+"etonnes": 24.0,
+"ebUS": 3.7e-05
+},
+"peru": {
+"etonnes": 2224.0,
+"ebUS": 0.004974
+},
+"russia": {
+"etonnes": 9400.0,
+"ebUS": 0.0224
+},
+"uruguay": {
+"etonnes": 416.0,
+"ebUS": 0.000789
+},
+"spain": {
+"itonnes": 35.0,
+"ibUS": 0.00010999999999999999,
+"etonnes": 7.0,
+"ebUS": 1.4e-05
+},
+"angola": {
+"etonnes": 24.0,
+"ebUS": 2.6e-05
+},
+"denmark": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"japan": {
+"etonnes": 302.0,
+"ebUS": 0.0007859999999999999
+},
+"belarus": {
+"etonnes": 48.0,
+"ebUS": 9.099999999999999e-05
+},
+"poland": {
+"itonnes": 545.0,
+"ibUS": 0.0015949999999999998
+},
+"canada": {
+"itonnes": 5065.0,
+"ibUS": 0.010843,
+"etonnes": 1350.0,
+"ebUS": 0.004985
+},
+"colombia": {
+"etonnes": 2069.0,
+"ebUS": 0.00413
+},
+"brazil": {
+"itonnes": 5150.0,
+"ibUS": 0.014657
+}
+},
+"2016": {
+"usa": {
+"itonnes": 12800.0,
+"ibUS": 0.037194,
+"etonnes": 413.0,
+"ebUS": 0.0018969999999999998
+},
+"mexico": {
+"etonnes": 625.0,
+"ebUS": 0.001059
+},
+"china": {
+"etonnes": 42571.0,
+"ebUS": 0.073095
+},
+"portugal": {
+"itonnes": 88.0,
+"ibUS": 0.000187
+},
+"korea": {
+"etonnes": 9436.0,
+"ebUS": 0.01727
+},
+"ecuador": {
+"etonnes": 316.0,
+"ebUS": 0.000483
+},
+"uk": {
+"itonnes": 51.0,
+"ibUS": 4.7e-05
+},
+"russia": {
+"etonnes": 3659.0,
+"ebUS": 0.006912
+},
+"uruguay": {
+"etonnes": 427.0,
+"ebUS": 0.000627
+},
+"germany": {
+"etonnes": 12.0,
+"ebUS": 2.9999999999999997e-05
+},
+"colombia": {
+"etonnes": 1350.0,
+"ebUS": 0.001682
+},
+"cuba": {
+"etonnes": 125.0,
+"ebUS": 0.000225
+},
+"japan": {
+"etonnes": 183.0,
+"ebUS": 0.00043799999999999997
+},
+"canada": {
+"itonnes": 4306.0,
+"ibUS": 0.009315,
+"etonnes": 1323.0,
+"ebUS": 0.004732999999999999
+},
+"poland": {
+"itonnes": 2074.0,
+"ibUS": 0.004719
+},
+"peru": {
+"etonnes": 2303.0,
+"ebUS": 0.004837999999999999
+},
+"angola": {
+"etonnes": 24.0,
+"ebUS": 3.5e-05
+},
+"brazil": {
+"itonnes": 16516.0,
+"ibUS": 0.034606
+}
+},
+"2014": {
+"usa": {
+"itonnes": 12502.0,
+"ibUS": 0.043754,
+"etonnes": 384.0,
+"ebUS": 0.0019429999999999998
+},
+"mexico": {
+"etonnes": 1109.0,
+"ebUS": 0.002167
+},
+"china": {
+"etonnes": 24768.0,
+"ebUS": 0.034314
+},
+"korea": {
+"etonnes": 9761.0,
+"ebUS": 0.019763
+},
+"ecuador": {
+"etonnes": 398.0,
+"ebUS": 0.0007729999999999999
+},
+"denmark": {
+"etonnes": 86.0,
+"ebUS": 0.000346
+},
+"italy": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"peru": {
+"etonnes": 1979.0,
+"ebUS": 0.0057009999999999995
+},
+"russia": {
+"etonnes": 6734.0,
+"ebUS": 0.025646
+},
+"uruguay": {
+"etonnes": 934.0,
+"ebUS": 0.001966
+},
+"spain": {
+"itonnes": 0.0,
+"ibUS": 2e-06,
+"etonnes": 43.0,
+"ebUS": 0.000112
+},
+"angola": {
+"ebUS": 0.000376
+},
+"cuba": {
+"etonnes": 120.0,
+"ebUS": 0.000265
+},
+"japan": {
+"etonnes": 248.0,
+"ebUS": 0.0007419999999999999
+},
+"belarus": {
+"etonnes": 168.0,
+"ebUS": 0.000629
+},
+"canada": {
+"itonnes": 4549.0,
+"ibUS": 0.014678,
+"etonnes": 1237.0,
+"ebUS": 0.004983
+},
+"colombia": {
+"etonnes": 2795.0,
+"ebUS": 0.006867
+},
+"brazil": {
+"itonnes": 3922.0,
+"ibUS": 0.013654999999999999,
+"etonnes": 46.0,
+"ebUS": 9.8e-05
+}
+}
+},
+"nigeria": {
+"2015": {
+"belgium": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"italy": {
+"itonnes": 24.0,
+"ibUS": 9.3e-05
+},
+"uk": {
+"itonnes": 1.0,
+"ibUS": 6e-06
+},
+"netherlands": {
+"itonnes": 5.0,
+"ibUS": 2.4999999999999998e-05
+}
+},
+"2016": {
+"usa": {
+"itonnes": 4.0,
+"ibUS": 1.4999999999999999e-05
+},
+"germany": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"uk": {
+"itonnes": 1.0,
+"ibUS": 4e-06
+},
+"netherlands": {
+"itonnes": 6.0,
+"ibUS": 1.8999999999999998e-05
+},
+"benin": {
+"etonnes": 1.0,
+"ebUS": 0.0
+},
+"italy": {
+"itonnes": 20.0,
+"ibUS": 8.8e-05
+}
+},
+"2014": {
+"belgium": {
+"ibUS": 0.0
+},
+"italy": {
+"itonnes": 12.0,
+"ibUS": 8.999999999999999e-05
+},
+"germany": {
+"itonnes": 3.0,
+"ibUS": 1.4999999999999999e-05
+},
+"uk": {
+"itonnes": 2.0,
+"ibUS": 4e-06
+},
+"netherlands": {
+"itonnes": 8.0,
+"ibUS": 3.1e-05
+}
+}
+},
+"ethiopia": {
+"2015": {
+"china": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"korea": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2016": {
+"china": {
+"itonnes": 3.0,
+"ibUS": 1.8999999999999998e-05
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 4e-06
+},
+"kenya": {
+"itonnes": 1.0,
+"ibUS": 9e-06
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 3e-06
+}
+},
+"2014": {
+"china": {
+"ibUS": 2e-06
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 0.000139
+}
+}
+},
+"burundi": {
+"2014": {
+"belgium": {
+"ibUS": 3e-06
+}
+}
+},
+"aruba": {
+"2015": {
+"switzerland": {
+"itonnes": 25.0,
+"ibUS": 8.499999999999999e-05
+},
+"usa": {
+"itonnes": 242.0,
+"ibUS": 0.000886
+},
+"netherlands": {
+"itonnes": 181.0,
+"ibUS": 0.0008839999999999999
+},
+"colombia": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"brazil": {
+"itonnes": 92.0,
+"ibUS": 0.00031099999999999997
+}
+},
+"2016": {
+"usa": {
+"itonnes": 329.0,
+"ibUS": 0.0013
+},
+"netherlands": {
+"itonnes": 169.0,
+"ibUS": 0.000721
+},
+"colombia": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"brazil": {
+"itonnes": 106.0,
+"ibUS": 0.0003
+}
+},
+"2014": {
+"usa": {
+"itonnes": 396.0,
+"ibUS": 0.0014299999999999998
+},
+"spain": {
+"itonnes": 19.0,
+"ibUS": 7.3e-05
+},
+"france": {
+"itonnes": 63.0,
+"ibUS": 0.000193
+},
+"netherlands": {
+"itonnes": 152.0,
+"ibUS": 0.0006349999999999999
+},
+"colombia": {
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"brazil": {
+"ibUS": 0.000283
+}
+}
+},
+"malaysia": {
+"2015": {
+"china": {
+"itonnes": 37.0,
+"ibUS": 0.000118,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"spain": {
+"itonnes": 910.0,
+"ibUS": 0.001173
+},
+"denmark": {
+"itonnes": 129.0,
+"ibUS": 0.000208
+},
+"australia": {
+"itonnes": 433.0,
+"ibUS": 0.0007
+},
+"canada": {
+"itonnes": 272.0,
+"ibUS": 0.000297
+},
+"netherlands": {
+"itonnes": 193.0,
+"ibUS": 0.000124
+},
+"egypt": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"germany": {
+"itonnes": 1659.0,
+"ibUS": 0.003945
+}
+},
+"2016": {
+"belgium": {
+"itonnes": 48.0,
+"ibUS": 0.00011999999999999999
+},
+"spain": {
+"itonnes": 1060.0,
+"ibUS": 0.0019649999999999997
+},
+"france": {
+"itonnes": 24.0,
+"ibUS": 4.4e-05
+},
+"australia": {
+"itonnes": 624.0,
+"ibUS": 0.001107
+},
+"germany": {
+"itonnes": 1939.0,
+"ibUS": 0.004715
+},
+"denmark": {
+"itonnes": 78.0,
+"ibUS": 8.7e-05
+},
+"china": {
+"itonnes": 15.0,
+"ibUS": 4.4e-05
+},
+"netherlands": {
+"itonnes": 193.0,
+"ibUS": 0.000134
+}
+},
+"2014": {
+"belgium": {
+"itonnes": 33.0,
+"ibUS": 0.00010899999999999999
+},
+"spain": {
+"itonnes": 467.0,
+"ibUS": 0.001102
+},
+"denmark": {
+"itonnes": 25.0,
+"ibUS": 5.8e-05
+},
+"australia": {
+"ibUS": 0.0006839999999999999
+},
+"canada": {
+"itonnes": 51.0,
+"ibUS": 0.000193
+},
+"netherlands": {
+"itonnes": 27.0,
+"ibUS": 1.7e-05
+},
+"china": {
+"itonnes": 43.0,
+"ibUS": 0.000102
+},
+"germany": {
+"itonnes": 1275.0,
+"ibUS": 0.003934
+}
+}
+},
+"india": {
+"2015": {
+"korea": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"belgium": {
+"itonnes": 132.0,
+"ibUS": 0.0005729999999999999
+},
+"italy": {
+"itonnes": 36.0,
+"ibUS": 0.000287
+},
+"uk": {
+"itonnes": 46.0,
+"ibUS": 0.00020999999999999998
+},
+"netherlands": {
+"itonnes": 33.0,
+"ibUS": 0.000194
+}
+},
+"2016": {
+"belgium": {
+"itonnes": 197.0,
+"ibUS": 0.0008139999999999999
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 1.3e-05
+},
+"uk": {
+"itonnes": 35.0,
+"ibUS": 0.000127
+},
+"denmark": {
+"itonnes": 1.0,
+"ibUS": 2e-06
+},
+"austria": {
+"ibUS": 3e-06
+},
+"italy": {
+"itonnes": 14.0,
+"ibUS": 0.000108
+},
+"germany": {
+"itonnes": 39.0,
+"ibUS": 0.000121
+}
+},
+"2014": {
+"usa": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"korea": {
+"itonnes": 1.0,
+"ibUS": 6e-06
+},
+"belgium": {
+"itonnes": 108.0,
+"ibUS": 0.000611
+},
+"italy": {
+"itonnes": 31.0,
+"ibUS": 0.000336
+},
+"netherlands": {
+"itonnes": 46.0,
+"ibUS": 0.00029499999999999996
+}
+}
+},
+"sweden": {
+"2015": {
+"korea": {
+"etonnes": 1143.0,
+"ebUS": 0.0012519999999999999
+},
+"finland": {
+"itonnes": 261.0,
+"ibUS": 0.0010019999999999999,
+"etonnes": 39.0,
+"ebUS": 9.999999999999999e-05
+},
+"uk": {
+"itonnes": 817.0,
+"ibUS": 0.002617,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"netherlands": {
+"itonnes": 4950.0,
+"ibUS": 0.019875,
+"etonnes": 66.0,
+"ebUS": 0.00021899999999999998
+},
+"austria": {
+"itonnes": 5.0,
+"ibUS": 2.4e-05
+},
+"norway": {
+"itonnes": 83.0,
+"ibUS": 0.00035299999999999996,
+"etonnes": 181.0,
+"ebUS": 0.000674
+},
+"france": {
+"itonnes": 4.0,
+"ibUS": 2.9e-05,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"italy": {
+"itonnes": 78.0,
+"ibUS": 0.000281,
+"etonnes": 567.0,
+"ebUS": 0.0008799999999999999
+},
+"germany": {
+"itonnes": 10217.0,
+"ibUS": 0.029005,
+"etonnes": 303.0,
+"ebUS": 0.000121
+},
+"switzerland": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"australia": {
+"etonnes": 70.0,
+"ebUS": 0.000178
+},
+"belgium": {
+"itonnes": 7.0,
+"ibUS": 2.4e-05
+},
+"spain": {
+"itonnes": 99.0,
+"ibUS": 0.000517,
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"hungary": {
+"etonnes": 54.0,
+"ebUS": 8.8e-05
+},
+"estonia": {
+"itonnes": 97.0,
+"ibUS": 0.000334,
+"etonnes": 266.0,
+"ebUS": 0.00035099999999999997
+},
+"denmark": {
+"itonnes": 2156.0,
+"ibUS": 0.007506,
+"etonnes": 663.0,
+"ebUS": 0.002205
+},
+"greece": {
+"etonnes": 82.0,
+"ebUS": 0.000214
+},
+"canada": {
+"etonnes": 24.0,
+"ebUS": 2.1e-05
+},
+"poland": {
+"itonnes": 8938.0,
+"ibUS": 0.037954,
+"etonnes": 189.0,
+"ebUS": 0.0005009999999999999
+},
+"uruguay": {
+"etonnes": 25.0,
+"ebUS": 1.7e-05
+}
+},
+"2016": {
+"korea": {
+"etonnes": 1373.0,
+"ebUS": 0.001457
+},
+"congo": {
+"etonnes": 51.0,
+"ebUS": 6.8e-05
+},
+"finland": {
+"itonnes": 191.0,
+"ibUS": 0.0006979999999999999,
+"etonnes": 4.0,
+"ebUS": 3.2e-05
+},
+"bulgaria": {
+"etonnes": 40.0,
+"ebUS": 0.00010499999999999999
+},
+"uk": {
+"itonnes": 1124.0,
+"ibUS": 0.0034189999999999997,
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"ethiopia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"austria": {
+"itonnes": 3.0,
+"ibUS": 2.4999999999999998e-05
+},
+"denmark": {
+"itonnes": 1554.0,
+"ibUS": 0.007095,
+"etonnes": 322.0,
+"ebUS": 0.000597
+},
+"italy": {
+"itonnes": 67.0,
+"ibUS": 0.000286
+},
+"germany": {
+"itonnes": 10838.0,
+"ibUS": 0.034009,
+"etonnes": 18.0,
+"ebUS": 7.5e-05
+},
+"netherlands": {
+"itonnes": 4684.0,
+"ibUS": 0.018858,
+"etonnes": 466.0,
+"ebUS": 0.001524
+},
+"belgium": {
+"itonnes": 60.0,
+"ibUS": 0.000154
+},
+"spain": {
+"itonnes": 68.0,
+"ibUS": 0.000232,
+"etonnes": 6.0,
+"ebUS": 1.2e-05
+},
+"norway": {
+"itonnes": 51.0,
+"ibUS": 0.00018899999999999999,
+"etonnes": 117.0,
+"ebUS": 0.000768
+},
+"estonia": {
+"itonnes": 45.0,
+"ibUS": 0.000158,
+"etonnes": 171.0,
+"ebUS": 0.00019999999999999998
+},
+"france": {
+"itonnes": 9.0,
+"ibUS": 5.3e-05,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"greece": {
+"etonnes": 85.0,
+"ebUS": 0.000259
+},
+"canada": {
+"etonnes": 16.0,
+"ebUS": 1.7e-05
+},
+"poland": {
+"itonnes": 9175.0,
+"ibUS": 0.03827,
+"etonnes": 221.0,
+"ebUS": 0.0007419999999999999
+},
+"japan": {
+"etonnes": 25.0,
+"ebUS": 1.4999999999999999e-05
+}
+},
+"2014": {
+"korea": {
+"etonnes": 1084.0,
+"ebUS": 0.001575
+},
+"japan": {
+"etonnes": 30.0,
+"ebUS": 0.000138
+},
+"finland": {
+"itonnes": 336.0,
+"ibUS": 0.001516,
+"etonnes": 3.0,
+"ebUS": 3.9999999999999996e-05
+},
+"uk": {
+"itonnes": 27.0,
+"ibUS": 0.000207,
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"netherlands": {
+"itonnes": 4128.0,
+"ibUS": 0.022317999999999998,
+"etonnes": 166.0,
+"ebUS": 0.00034199999999999996
+},
+"australia": {
+"etonnes": 205.0,
+"ebUS": 0.000654
+},
+"denmark": {
+"itonnes": 2697.0,
+"ibUS": 0.011027,
+"etonnes": 164.0,
+"ebUS": 0.000203
+},
+"italy": {
+"itonnes": 65.0,
+"ibUS": 0.000328,
+"etonnes": 1173.0,
+"ebUS": 0.0025559999999999997
+},
+"germany": {
+"itonnes": 10591.0,
+"ibUS": 0.036699999999999997,
+"etonnes": 843.0,
+"ebUS": 0.0013239999999999999
+},
+"malaysia": {
+"etonnes": 13.0,
+"ebUS": 5.2e-05
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"albania": {
+"ebUS": 0.000117
+},
+"belgium": {
+"itonnes": 8.0,
+"ibUS": 6.9e-05
+},
+"spain": {
+"itonnes": 89.0,
+"ibUS": 0.000511,
+"etonnes": 25.0,
+"ebUS": 7.7e-05
+},
+"norway": {
+"itonnes": 130.0,
+"ibUS": 0.0006529999999999999,
+"etonnes": 487.0,
+"ebUS": 0.0015739999999999999
+},
+"estonia": {
+"itonnes": 128.0,
+"ibUS": 0.000539,
+"etonnes": 260.0,
+"ebUS": 0.000474
+},
+"france": {
+"itonnes": 10.0,
+"ibUS": 8.7e-05,
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"greece": {
+"etonnes": 63.0,
+"ebUS": 0.00017199999999999998
+},
+"poland": {
+"itonnes": 9251.0,
+"ibUS": 0.049847999999999996,
+"etonnes": 336.0,
+"ebUS": 0.001222
+},
+"austria": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+}
+}
+},
+"iceland": {
+"2015": {
+"greenland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"germany": {
+"itonnes": 114.0,
+"ibUS": 0.000367,
+"etonnes": 58.0,
+"ebUS": 2.8e-05
+},
+"spain": {
+"itonnes": 150.0,
+"ibUS": 0.0005239999999999999
+},
+"netherlands": {
+"itonnes": 49.0,
+"ibUS": 0.000249
+},
+"poland": {
+"itonnes": 2.0,
+"ibUS": 1.4e-05
+},
+"denmark": {
+"itonnes": 241.0,
+"ibUS": 0.0008839999999999999,
+"etonnes": 19.0,
+"ebUS": 6e-06
+}
+},
+"2016": {
+"greenland": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"germany": {
+"itonnes": 188.0,
+"ibUS": 0.0006969999999999999
+},
+"poland": {
+"itonnes": 37.0,
+"ibUS": 0.000107
+},
+"hungary": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"spain": {
+"itonnes": 123.0,
+"ibUS": 0.000414
+},
+"denmark": {
+"itonnes": 587.0,
+"ibUS": 0.00208
+},
+"netherlands": {
+"itonnes": 40.0,
+"ibUS": 0.00017099999999999998
+}
+},
+"2014": {
+"greenland": {
+"etonnes": 0.0,
+"ebUS": 4.9999999999999996e-06
+},
+"germany": {
+"itonnes": 206.0,
+"ibUS": 0.0008719999999999999,
+"etonnes": 34.0,
+"ebUS": 1.8999999999999998e-05
+},
+"spain": {
+"itonnes": 103.0,
+"ibUS": 0.000446
+},
+"netherlands": {
+"itonnes": 23.0,
+"ibUS": 0.00011999999999999999,
+"etonnes": 37.0,
+"ebUS": 5.4e-05
+},
+"poland": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"ibUS": 0.000887
+}
+}
+},
+"cuba": {
+"2015": {
+"canada": {
+"itonnes": 2073.0,
+"ibUS": 0.0063869999999999994
+},
+"spain": {
+"itonnes": 97.0,
+"ibUS": 0.000301
+},
+"germany": {
+"itonnes": 9.0,
+"ibUS": 1.9999999999999998e-05
+}
+},
+"2016": {
+"canada": {
+"itonnes": 1765.0,
+"ibUS": 0.004085
+},
+"spain": {
+"itonnes": 79.0,
+"ibUS": 0.00028399999999999996
+},
+"chile": {
+"itonnes": 125.0,
+"ibUS": 0.000252
+}
+},
+"2014": {
+"spain": {
+"itonnes": 342.0,
+"ibUS": 0.001194
+},
+"canada": {
+"ibUS": 0.0020499999999999997
+},
+"netherlands": {
+"itonnes": 17.0,
+"ibUS": 6.3e-05
+},
+"chile": {
+"itonnes": 120.0,
+"ibUS": 0.000296
+},
+"germany": {
+"itonnes": 2.0,
+"ibUS": 7e-06
+}
+}
+},
+"poland": {
+"2015": {
+"greece": {
+"itonnes": 210.0,
+"ibUS": 0.000383,
+"etonnes": 430.0,
+"ebUS": 0.00104
+},
+"estonia": {
+"itonnes": 67.0,
+"ibUS": 0.000157,
+"etonnes": 4944.0,
+"ebUS": 0.008156
+},
+"cyprus": {
+"etonnes": 164.0,
+"ebUS": 0.00023799999999999998
+},
+"romania": {
+"itonnes": 41.0,
+"ibUS": 7.099999999999999e-05,
+"etonnes": 8318.0,
+"ebUS": 0.014171999999999999
+},
+"congo": {
+"etonnes": 1849.0,
+"ebUS": 0.0013469999999999999
+},
+"italy": {
+"itonnes": 243.0,
+"ibUS": 0.000607,
+"etonnes": 57652.0,
+"ebUS": 0.097731
+},
+"germany": {
+"itonnes": 78731.0,
+"ibUS": 0.17618599999999998,
+"etonnes": 41764.0,
+"ebUS": 0.045462999999999996
+},
+"sweden": {
+"itonnes": 298.0,
+"ibUS": 0.0007559999999999999,
+"etonnes": 131.0,
+"ebUS": 0.000365
+},
+"france": {
+"itonnes": 10025.0,
+"ibUS": 0.016589,
+"etonnes": 1555.0,
+"ebUS": 0.003107
+},
+"portugal": {
+"itonnes": 8.0,
+"ibUS": 0.000126,
+"etonnes": 12.0,
+"ebUS": 4.4e-05
+},
+"angola": {
+"etonnes": 762.0,
+"ebUS": 0.000643
+},
+"chile": {
+"etonnes": 994.0,
+"ebUS": 0.002428
+},
+"usa": {
+"etonnes": 22258.0,
+"ebUS": 0.066649
+},
+"china": {
+"etonnes": 48.0,
+"ebUS": 7e-06
+},
+"croatia": {
+"etonnes": 4163.0,
+"ebUS": 0.007525
+},
+"finland": {
+"itonnes": 211.0,
+"ibUS": 0.000377,
+"etonnes": 20.0,
+"ebUS": 5.4999999999999995e-05
+},
+"bulgaria": {
+"etonnes": 1349.0,
+"ebUS": 0.002992
+},
+"uk": {
+"itonnes": 5082.0,
+"ibUS": 0.010149,
+"etonnes": 5499.0,
+"ebUS": 0.015149
+},
+"netherlands": {
+"itonnes": 66022.0,
+"ibUS": 0.107836,
+"etonnes": 6772.0,
+"ebUS": 0.014343999999999999
+},
+"austria": {
+"itonnes": 82.0,
+"ibUS": 8.999999999999999e-05,
+"etonnes": 2862.0,
+"ebUS": 0.004874
+},
+"guinea": {
+"etonnes": 50.0,
+"ebUS": 8.2e-05
+},
+"gabon": {
+"etonnes": 397.0,
+"ebUS": 0.00047599999999999997
+},
+"belgium": {
+"itonnes": 181884.0,
+"ibUS": 0.31379399999999996,
+"etonnes": 3543.0,
+"ebUS": 0.003312
+},
+"spain": {
+"itonnes": 20927.0,
+"ibUS": 0.0545,
+"etonnes": 10984.0,
+"ebUS": 0.024093
+},
+"hungary": {
+"itonnes": 2581.0,
+"ibUS": 0.0041659999999999996,
+"etonnes": 12886.0,
+"ebUS": 0.02282
+},
+"ghana": {
+"etonnes": 164.0,
+"ebUS": 8.499999999999999e-05
+},
+"denmark": {
+"itonnes": 119454.0,
+"ibUS": 0.195539,
+"etonnes": 2955.0,
+"ebUS": 0.00449
+},
+"norway": {
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"canada": {
+"etonnes": 2644.0,
+"ebUS": 0.010001
+},
+"bahrain": {
+"etonnes": 12.0,
+"ebUS": 3.2999999999999996e-05
+}
+},
+"2016": {
+"greece": {
+"etonnes": 133.0,
+"ebUS": 0.000306
+},
+"estonia": {
+"itonnes": 208.0,
+"ibUS": 0.00054,
+"etonnes": 6145.0,
+"ebUS": 0.010569
+},
+"cyprus": {
+"etonnes": 358.0,
+"ebUS": 0.000523
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"romania": {
+"etonnes": 6687.0,
+"ebUS": 0.012714
+},
+"congo": {
+"etonnes": 1446.0,
+"ebUS": 0.0012289999999999998
+},
+"italy": {
+"itonnes": 914.0,
+"ibUS": 0.001305,
+"etonnes": 49250.0,
+"ebUS": 0.08832999999999999
+},
+"kenya": {
+"etonnes": 25.0,
+"ebUS": 8.2e-05
+},
+"germany": {
+"itonnes": 87986.0,
+"ibUS": 0.20244399999999999,
+"etonnes": 46550.0,
+"ebUS": 0.059857999999999995
+},
+"sweden": {
+"itonnes": 368.0,
+"ibUS": 0.0009469999999999999,
+"etonnes": 350.0,
+"ebUS": 0.001299
+},
+"iceland": {
+"etonnes": 4.0,
+"ebUS": 1.3e-05
+},
+"france": {
+"itonnes": 13054.0,
+"ibUS": 0.022182,
+"etonnes": 501.0,
+"ebUS": 0.001016
+},
+"portugal": {
+"itonnes": 77.0,
+"ibUS": 0.00020099999999999998,
+"etonnes": 22.0,
+"ebUS": 5.4e-05
+},
+"angola": {
+"etonnes": 456.0,
+"ebUS": 0.0006349999999999999
+},
+"chile": {
+"etonnes": 3157.0,
+"ebUS": 0.007332999999999999
+},
+"usa": {
+"etonnes": 25216.0,
+"ebUS": 0.07811699999999999
+},
+"china": {
+"etonnes": 236.0,
+"ebUS": 0.000194
+},
+"croatia": {
+"etonnes": 2504.0,
+"ebUS": 0.005893
+},
+"finland": {
+"itonnes": 81.0,
+"ibUS": 0.000133,
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"bulgaria": {
+"etonnes": 1367.0,
+"ebUS": 0.00323
+},
+"uk": {
+"itonnes": 4714.0,
+"ibUS": 0.008768,
+"etonnes": 6539.0,
+"ebUS": 0.018508
+},
+"netherlands": {
+"itonnes": 58081.0,
+"ibUS": 0.10138,
+"etonnes": 8902.0,
+"ebUS": 0.017728999999999998
+},
+"austria": {
+"itonnes": 33.0,
+"ibUS": 3.1e-05,
+"etonnes": 3692.0,
+"ebUS": 0.007588999999999999
+},
+"guinea": {
+"etonnes": 19.0,
+"ebUS": 5.2e-05
+},
+"gabon": {
+"etonnes": 510.0,
+"ebUS": 0.000708
+},
+"cameroon": {
+"etonnes": 5.0,
+"ebUS": 4.9999999999999996e-06
+},
+"russia": {
+"itonnes": 2.0,
+"ibUS": 6e-06
+},
+"albania": {
+"etonnes": 26.0,
+"ebUS": 4.4999999999999996e-05
+},
+"spain": {
+"itonnes": 25681.0,
+"ibUS": 0.06576,
+"etonnes": 13894.0,
+"ebUS": 0.030149
+},
+"belgium": {
+"itonnes": 173771.0,
+"ibUS": 0.315007,
+"etonnes": 4754.0,
+"ebUS": 0.003505
+},
+"ghana": {
+"etonnes": 192.0,
+"ebUS": 0.000144
+},
+"denmark": {
+"itonnes": 115683.0,
+"ibUS": 0.199678,
+"etonnes": 1613.0,
+"ebUS": 0.002776
+},
+"hungary": {
+"itonnes": 3237.0,
+"ibUS": 0.005578,
+"etonnes": 9343.0,
+"ebUS": 0.018975
+},
+"canada": {
+"etonnes": 4187.0,
+"ebUS": 0.015701
+},
+"bahrain": {
+"etonnes": 25.0,
+"ebUS": 6.2e-05
+}
+},
+"2014": {
+"korea": {
+"itonnes": 92.0,
+"ibUS": 0.000341,
+"etonnes": 1245.0,
+"ebUS": 0.0032879999999999997
+},
+"armenia": {
+"etonnes": 277.0,
+"ebUS": 0.000572
+},
+"greece": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 417.0,
+"ebUS": 0.001228
+},
+"estonia": {
+"itonnes": 51.0,
+"ibUS": 9.6e-05,
+"etonnes": 3509.0,
+"ebUS": 0.007542999999999999
+},
+"gabon": {
+"etonnes": 190.0,
+"ebUS": 0.00015999999999999999
+},
+"romania": {
+"itonnes": 20.0,
+"ibUS": 5.9999999999999995e-05,
+"etonnes": 4843.0,
+"ebUS": 0.010768999999999999
+},
+"congo": {
+"etonnes": 2018.0,
+"ebUS": 0.0016619999999999998
+},
+"italy": {
+"itonnes": 279.0,
+"ibUS": 0.00046199999999999995,
+"etonnes": 50250.0,
+"ebUS": 0.111353
+},
+"malaysia": {
+"etonnes": 24.0,
+"ebUS": 4.9999999999999996e-06
+},
+"netherlands": {
+"itonnes": 62887.0,
+"ibUS": 0.13436399999999998,
+"etonnes": 5837.0,
+"ebUS": 0.015968
+},
+"germany": {
+"itonnes": 85129.0,
+"ibUS": 0.250945,
+"etonnes": 36299.0,
+"ebUS": 0.058663999999999994
+},
+"sweden": {
+"itonnes": 347.0,
+"ibUS": 0.001138,
+"etonnes": 282.0,
+"ebUS": 0.001261
+},
+"france": {
+"itonnes": 9115.0,
+"ibUS": 0.019674,
+"etonnes": 541.0,
+"ebUS": 0.0017599999999999998
+},
+"japan": {
+"itonnes": 982.0,
+"ibUS": 0.00492,
+"etonnes": 4041.0,
+"ebUS": 0.017093
+},
+"portugal": {
+"itonnes": 397.0,
+"ibUS": 0.0016209999999999998,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"canada": {
+"etonnes": 1026.0,
+"ebUS": 0.0036339999999999996
+},
+"angola": {
+"etonnes": 222.0,
+"ebUS": 0.000232
+},
+"kenya": {
+"etonnes": 24.0,
+"ebUS": 7.2e-05
+},
+"usa": {
+"etonnes": 18267.0,
+"ebUS": 0.06973
+},
+"china": {
+"itonnes": 84.0,
+"ibUS": 3.4e-05,
+"etonnes": 9339.0,
+"ebUS": 0.014573
+},
+"croatia": {
+"itonnes": 15.0,
+"ibUS": 5.2e-05,
+"etonnes": 2812.0,
+"ebUS": 0.006409
+},
+"finland": {
+"itonnes": 2687.0,
+"ibUS": 0.001072,
+"etonnes": 2.0,
+"ebUS": 4e-06
+},
+"bulgaria": {
+"etonnes": 1339.0,
+"ebUS": 0.0031479999999999998
+},
+"uk": {
+"itonnes": 5860.0,
+"ibUS": 0.011819999999999999,
+"etonnes": 3489.0,
+"ebUS": 0.010772
+},
+"benin": {
+"etonnes": 47.0,
+"ebUS": 0.000124
+},
+"austria": {
+"itonnes": 198.0,
+"ibUS": 0.000443,
+"etonnes": 2368.0,
+"ebUS": 0.004879
+},
+"guinea": {
+"etonnes": 25.0,
+"ebUS": 3.7e-05
+},
+"cyprus": {
+"itonnes": 21.0,
+"ibUS": 4.9e-05,
+"etonnes": 66.0,
+"ebUS": 0.000144
+},
+"belgium": {
+"itonnes": 158883.0,
+"ibUS": 0.362496,
+"etonnes": 3308.0,
+"ebUS": 0.00357
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"albania": {
+"ebUS": 2.3e-05
+},
+"spain": {
+"itonnes": 12948.0,
+"ibUS": 0.04656,
+"etonnes": 2180.0,
+"ebUS": 0.005118
+},
+"hungary": {
+"itonnes": 2663.0,
+"ibUS": 0.006516,
+"etonnes": 13719.0,
+"ebUS": 0.032687
+},
+"ghana": {
+"etonnes": 199.0,
+"ebUS": 0.000164
+},
+"denmark": {
+"itonnes": 116146.0,
+"ibUS": 0.269792,
+"etonnes": 4093.0,
+"ebUS": 0.0075109999999999994
+},
+"norway": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"belarus": {
+"itonnes": 2.0,
+"ibUS": 8e-06,
+"etonnes": 333.0,
+"ebUS": 0.0010689999999999999
+}
+}
+},
+"belarus": {
+"2015": {
+"russia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"canada": {
+"itonnes": 0.0,
+"ibUS": 0.0
+}
+},
+"2016": {
+"russia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 5.0,
+"ebUS": 3e-06
+}
+},
+"2014": {
+"russia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"poland": {
+"itonnes": 20.0,
+"ibUS": 5.6e-05
+},
+"canada": {
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"itonnes": 3.0,
+"ibUS": 9e-06
+}
+}
+},
+"afghanistan": {
+"2015": {
+"usa": {
+"itonnes": 1.0,
+"ibUS": 7e-06
+},
+"belgium": {
+"ibUS": 7.3e-05
+},
+"germany": {
+"itonnes": 14.0,
+"ibUS": 5.4e-05
+},
+"netherlands": {
+"itonnes": 50.0,
+"ibUS": 0.00025
+}
+},
+"2016": {
+"belgium": {
+"itonnes": 5.0,
+"ibUS": 1.4999999999999999e-05
+},
+"netherlands": {
+"itonnes": 20.0,
+"ibUS": 6.2e-05
+}
+},
+"2014": {
+"germany": {
+"itonnes": 34.0,
+"ibUS": 0.000226
+},
+"uk": {
+"itonnes": 13.0,
+"ibUS": 0.000188
+},
+"netherlands": {
+"itonnes": 31.0,
+"ibUS": 0.000184
+}
+}
+},
+"senegal": {
+"2015": {
+"spain": {
+"itonnes": 0.0,
+"ibUS": 4.9999999999999996e-06
+},
+"netherlands": {
+"itonnes": 64.0,
+"ibUS": 0.000158
+},
+"france": {
+"itonnes": 2.0,
+"ibUS": 1.4999999999999999e-05
+},
+"mali": {
+"etonnes": 1.0,
+"ebUS": 4.9999999999999996e-06
+},
+"brazil": {
+"itonnes": 54.0,
+"ibUS": 0.00015199999999999998
+}
+},
+"2016": {
+"spain": {
+"itonnes": 32.0,
+"ibUS": 8.8e-05
+},
+"netherlands": {
+"itonnes": 3.0,
+"ibUS": 7e-06
+},
+"france": {
+"itonnes": 40.0,
+"ibUS": 9.9e-05
+},
+"mali": {
+"etonnes": 9.0,
+"ebUS": 5.6e-05
+},
+"brazil": {
+"itonnes": 13.0,
+"ibUS": 2.9999999999999997e-05
+}
+},
+"2014": {
+"spain": {
+"itonnes": 25.0,
+"ibUS": 7.999999999999999e-05
+},
+"france": {
+"itonnes": 17.0,
+"ibUS": 7.4e-05
+},
+"netherlands": {
+"itonnes": 25.0,
+"ibUS": 8.099999999999999e-05
+},
+"brazil": {
+"ibUS": 0.000166
+}
+}
+},
+"greenland": {
+"2015": {
+"spain": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"poland": {
+"itonnes": 1.0,
+"ibUS": 7e-06
+},
+"hungary": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"itonnes": 30.0,
+"ibUS": 0.00013
+}
+},
+"2016": {
+"poland": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"denmark": {
+"itonnes": 36.0,
+"ibUS": 0.000212
+}
+},
+"2014": {
+"germany": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"poland": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+},
+"denmark": {
+"ibUS": 0.00015199999999999998
+}
+}
+},
+"china": {
+"2015": {
+"usa": {
+"itonnes": 56736.0,
+"ibUS": 0.112702,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"chile": {
+"itonnes": 14128.0,
+"ibUS": 0.01934
+},
+"uk": {
+"itonnes": 23384.0,
+"ibUS": 0.028818
+},
+"netherlands": {
+"itonnes": 15770.0,
+"ibUS": 0.033231
+},
+"germany": {
+"itonnes": 142548.0,
+"ibUS": 0.250527
+},
+"france": {
+"itonnes": 35123.0,
+"ibUS": 0.08393099999999999,
+"etonnes": 25.0,
+"ebUS": 2.9999999999999997e-05
+},
+"malaysia": {
+"etonnes": 505.0,
+"ebUS": 0.001436
+},
+"russia": {
+"etonnes": 4610.0,
+"ebUS": 0.015941999999999998
+},
+"belgium": {
+"itonnes": 3629.0,
+"ibUS": 0.007482
+},
+"spain": {
+"itonnes": 106209.0,
+"ibUS": 0.196573
+},
+"hungary": {
+"itonnes": 12917.0,
+"ibUS": 0.020914
+},
+"denmark": {
+"itonnes": 66028.0,
+"ibUS": 0.151563
+},
+"canada": {
+"itonnes": 36179.0,
+"ibUS": 0.057411
+},
+"romania": {
+"itonnes": 63.0,
+"ibUS": 7.4e-05
+},
+"angola": {
+"etonnes": 13.0,
+"ebUS": 6.599999999999999e-05
+},
+"brazil": {
+"itonnes": 2749.0,
+"ibUS": 0.005836
+}
+},
+"2016": {
+"usa": {
+"itonnes": 129708.0,
+"ibUS": 0.257367
+},
+"mexico": {
+"itonnes": 73.0,
+"ibUS": 0.000101
+},
+"chile": {
+"itonnes": 20845.0,
+"ibUS": 0.03669
+},
+"uk": {
+"itonnes": 30348.0,
+"ibUS": 0.044988
+},
+"netherlands": {
+"itonnes": 79361.0,
+"ibUS": 0.16134199999999999
+},
+"germany": {
+"itonnes": 241170.0,
+"ibUS": 0.477163
+},
+"france": {
+"itonnes": 65993.0,
+"ibUS": 0.15275
+},
+"malaysia": {
+"etonnes": 15.0,
+"ebUS": 4.2e-05
+},
+"belgium": {
+"itonnes": 6710.0,
+"ibUS": 0.014058
+},
+"spain": {
+"itonnes": 190008.0,
+"ibUS": 0.38923599999999997
+},
+"hungary": {
+"itonnes": 19393.0,
+"ibUS": 0.03624
+},
+"denmark": {
+"itonnes": 99552.0,
+"ibUS": 0.231019
+},
+"canada": {
+"itonnes": 97781.0,
+"ibUS": 0.167599
+},
+"romania": {
+"itonnes": 3397.0,
+"ibUS": 0.006117
+},
+"brazil": {
+"itonnes": 75514.0,
+"ibUS": 0.183695
+}
+},
+"2014": {
+"usa": {
+"itonnes": 84400.0,
+"ibUS": 0.166957
+},
+"chile": {
+"itonnes": 13773.0,
+"ibUS": 0.016349
+},
+"uk": {
+"itonnes": 22715.0,
+"ibUS": 0.029664
+},
+"netherlands": {
+"itonnes": 6716.0,
+"ibUS": 0.011757
+},
+"germany": {
+"itonnes": 76779.0,
+"ibUS": 0.123911
+},
+"france": {
+"itonnes": 22439.0,
+"ibUS": 0.054235,
+"etonnes": 2.0,
+"ebUS": 8e-06
+},
+"malaysia": {
+"etonnes": 953.0,
+"ebUS": 0.003613
+},
+"russia": {
+"etonnes": 3599.0,
+"ebUS": 0.01458
+},
+"albania": {
+"ebUS": 0.00261
+},
+"belgium": {
+"itonnes": 1959.0,
+"ibUS": 0.0034839999999999997
+},
+"spain": {
+"itonnes": 76240.0,
+"ibUS": 0.12811799999999998
+},
+"hungary": {
+"itonnes": 858.0,
+"ibUS": 0.0008049999999999999
+},
+"denmark": {
+"itonnes": 63866.0,
+"ibUS": 0.13475299999999998
+},
+"canada": {
+"itonnes": 28782.0,
+"ibUS": 0.043607
+},
+"poland": {
+"itonnes": 13130.0,
+"ibUS": 0.024169
+},
+"angola": {
+"etonnes": 95.0,
+"ebUS": 0.000561
+},
+"brazil": {
+"itonnes": 844.0,
+"ibUS": 0.0020039999999999997
+}
+}
+},
+"korea": {
+"2015": {
+"usa": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"belgium": {
+"itonnes": 28.0,
+"ibUS": 0.000153
+},
+"spain": {
+"itonnes": 4.0,
+"ibUS": 6.9e-05
+},
+"germany": {
+"itonnes": 46.0,
+"ibUS": 0.000125
+},
+"france": {
+"itonnes": 5.0,
+"ibUS": 2.1e-05
+}
+},
+"2016": {
+"belgium": {
+"itonnes": 10.0,
+"ibUS": 5.2e-05
+},
+"spain": {
+"itonnes": 28.0,
+"ibUS": 0.000122
+},
+"germany": {
+"itonnes": 23.0,
+"ibUS": 4.8e-05
+},
+"uk": {
+"itonnes": 68.0,
+"ibUS": 9.2e-05
+},
+"france": {
+"itonnes": 112.0,
+"ibUS": 0.00048499999999999997
+}
+},
+"2014": {
+"usa": {
+"itonnes": 23.0,
+"ibUS": 0.000139
+},
+"belgium": {
+"ibUS": 2e-06
+},
+"spain": {
+"itonnes": 25.0,
+"ibUS": 0.000165
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+}
+}
+},
+"bulgaria": {
+"2015": {
+"croatia": {
+"itonnes": 25.0,
+"ibUS": 4.8e-05
+},
+"greece": {
+"itonnes": 1223.0,
+"ibUS": 0.001031,
+"etonnes": 596.0,
+"ebUS": 0.001256
+},
+"uk": {
+"itonnes": 665.0,
+"ibUS": 0.000654,
+"etonnes": 3.0,
+"ebUS": 9.999999999999999e-06
+},
+"cyprus": {
+"itonnes": 1619.0,
+"ibUS": 0.002457,
+"etonnes": 110.0,
+"ebUS": 0.0005099999999999999
+},
+"austria": {
+"itonnes": 593.0,
+"ibUS": 0.0006129999999999999,
+"etonnes": 9.0,
+"ebUS": 1.4e-05
+},
+"romania": {
+"itonnes": 781.0,
+"ibUS": 0.000941,
+"etonnes": 123.0,
+"ebUS": 0.00029299999999999997
+},
+"denmark": {
+"itonnes": 198.0,
+"ibUS": 0.000216
+},
+"italy": {
+"itonnes": 839.0,
+"ibUS": 0.0012779999999999998
+},
+"germany": {
+"itonnes": 5862.0,
+"ibUS": 0.009299,
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"netherlands": {
+"itonnes": 7598.0,
+"ibUS": 0.012678,
+"etonnes": 61.0,
+"ebUS": 7.7e-05
+},
+"belgium": {
+"itonnes": 2714.0,
+"ibUS": 0.004997,
+"etonnes": 6.0,
+"ebUS": 1.3e-05
+},
+"spain": {
+"itonnes": 13445.0,
+"ibUS": 0.025108
+},
+"hungary": {
+"itonnes": 2286.0,
+"ibUS": 0.0037689999999999998
+},
+"estonia": {
+"itonnes": 34.0,
+"ibUS": 5.2e-05
+},
+"france": {
+"itonnes": 17270.0,
+"ibUS": 0.027058,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"poland": {
+"itonnes": 2637.0,
+"ibUS": 0.004151,
+"etonnes": 15.0,
+"ebUS": 1e-06
+}
+},
+"2016": {
+"croatia": {
+"itonnes": 39.0,
+"ibUS": 8.3e-05
+},
+"finland": {
+"itonnes": 96.0,
+"ibUS": 0.00013099999999999999
+},
+"uk": {
+"itonnes": 713.0,
+"ibUS": 0.000646,
+"etonnes": 4.0,
+"ebUS": 1.3e-05
+},
+"cyprus": {
+"itonnes": 379.0,
+"ibUS": 0.000544
+},
+"austria": {
+"itonnes": 731.0,
+"ibUS": 0.000918
+},
+"romania": {
+"itonnes": 1817.0,
+"ibUS": 0.003234,
+"etonnes": 54.0,
+"ebUS": 8.999999999999999e-05
+},
+"congo": {
+"etonnes": 25.0,
+"ebUS": 1.1e-05
+},
+"italy": {
+"itonnes": 1397.0,
+"ibUS": 0.002172,
+"etonnes": 247.0,
+"ebUS": 0.000101
+},
+"germany": {
+"itonnes": 4020.0,
+"ibUS": 0.005657,
+"etonnes": 10.0,
+"ebUS": 2.4e-05
+},
+"denmark": {
+"itonnes": 98.0,
+"ibUS": 0.00017999999999999998
+},
+"portugal": {
+"itonnes": 458.0,
+"ibUS": 0.000609
+},
+"belgium": {
+"itonnes": 2241.0,
+"ibUS": 0.004575,
+"etonnes": 84.0,
+"ebUS": 5.6e-05
+},
+"spain": {
+"itonnes": 13186.0,
+"ibUS": 0.023712,
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"hungary": {
+"itonnes": 1513.0,
+"ibUS": 0.0028309999999999997,
+"etonnes": 15.0,
+"ebUS": 3.2999999999999996e-05
+},
+"estonia": {
+"itonnes": 80.0,
+"ibUS": 0.000135
+},
+"france": {
+"itonnes": 14349.0,
+"ibUS": 0.023665,
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"greece": {
+"itonnes": 513.0,
+"ibUS": 0.000406,
+"etonnes": 869.0,
+"ebUS": 0.001829
+},
+"poland": {
+"itonnes": 1894.0,
+"ibUS": 0.0031929999999999997,
+"etonnes": 20.0,
+"ebUS": 2e-06
+},
+"netherlands": {
+"itonnes": 2109.0,
+"ibUS": 0.003822,
+"etonnes": 9.0,
+"ebUS": 2.4e-05
+}
+},
+"2014": {
+"armenia": {
+"ebUS": 1e-06
+},
+"croatia": {
+"itonnes": 74.0,
+"ibUS": 0.00019099999999999998
+},
+"finland": {
+"itonnes": 1.0,
+"ibUS": 6e-06
+},
+"uk": {
+"itonnes": 1367.0,
+"ibUS": 0.002276,
+"etonnes": 19.0,
+"ebUS": 5.6999999999999996e-05
+},
+"cyprus": {
+"itonnes": 1784.0,
+"ibUS": 0.004064,
+"etonnes": 73.0,
+"ebUS": 0.000488
+},
+"austria": {
+"itonnes": 317.0,
+"ibUS": 0.00043099999999999996
+},
+"romania": {
+"itonnes": 3480.0,
+"ibUS": 0.009179999999999999,
+"etonnes": 4.0,
+"ebUS": 9e-06
+},
+"denmark": {
+"itonnes": 550.0,
+"ibUS": 0.00121
+},
+"italy": {
+"itonnes": 1638.0,
+"ibUS": 0.004882
+},
+"germany": {
+"itonnes": 8830.0,
+"ibUS": 0.020309999999999998,
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"netherlands": {
+"itonnes": 6548.0,
+"ibUS": 0.016016,
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"portugal": {
+"itonnes": 13.0,
+"ibUS": 5.8e-05
+},
+"belgium": {
+"itonnes": 5871.0,
+"ibUS": 0.014518,
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"spain": {
+"itonnes": 11014.0,
+"ibUS": 0.030442999999999998
+},
+"hungary": {
+"itonnes": 1397.0,
+"ibUS": 0.0033539999999999998
+},
+"estonia": {
+"itonnes": 112.0,
+"ibUS": 0.000259
+},
+"france": {
+"itonnes": 17102.0,
+"ibUS": 0.035394999999999996,
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"greece": {
+"itonnes": 1053.0,
+"ibUS": 0.001825,
+"etonnes": 249.0,
+"ebUS": 0.0010069999999999999
+},
+"poland": {
+"itonnes": 4284.0,
+"ibUS": 0.009544
+}
+}
+},
+"uk": {
+"2015": {
+"korea": {
+"etonnes": 653.0,
+"ebUS": 0.000745
+},
+"greece": {
+"itonnes": 12.0,
+"ibUS": 7.3e-05,
+"etonnes": 14.0,
+"ebUS": 6.5e-05
+},
+"nigeria": {
+"etonnes": 1.0,
+"ebUS": 4.9999999999999996e-06
+},
+"cyprus": {
+"etonnes": 67.0,
+"ebUS": 0.000173
+},
+"romania": {
+"itonnes": 396.0,
+"ibUS": 0.00121,
+"etonnes": 337.0,
+"ebUS": 0.000183
+},
+"congo": {
+"etonnes": 266.0,
+"ebUS": 0.000256
+},
+"italy": {
+"itonnes": 2937.0,
+"ibUS": 0.009568,
+"etonnes": 65.0,
+"ebUS": 0.000339
+},
+"malaysia": {
+"etonnes": 3.0,
+"ebUS": 1.8999999999999998e-05
+},
+"india": {
+"etonnes": 48.0,
+"ebUS": 0.000106
+},
+"germany": {
+"itonnes": 32252.0,
+"ibUS": 0.090059,
+"etonnes": 29480.0,
+"ebUS": 0.036752
+},
+"france": {
+"itonnes": 12349.0,
+"ibUS": 0.033923,
+"etonnes": 1269.0,
+"ebUS": 0.001961
+},
+"japan": {
+"etonnes": 923.0,
+"ebUS": 0.000716
+},
+"poland": {
+"itonnes": 4542.0,
+"ibUS": 0.01065,
+"etonnes": 3593.0,
+"ebUS": 0.00552
+},
+"angola": {
+"etonnes": 175.0,
+"ebUS": 0.000143
+},
+"azerbaijan": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"usa": {
+"etonnes": 5966.0,
+"ebUS": 0.026993
+},
+"china": {
+"etonnes": 27111.0,
+"ebUS": 0.03825
+},
+"portugal": {
+"itonnes": 1201.0,
+"ibUS": 0.002881,
+"etonnes": 28.0,
+"ebUS": 0.000178
+},
+"finland": {
+"itonnes": 271.0,
+"ibUS": 0.00036399999999999996,
+"etonnes": 11.0,
+"ebUS": 6.9e-05
+},
+"bulgaria": {
+"itonnes": 192.0,
+"ibUS": 0.000425,
+"etonnes": 322.0,
+"ebUS": 0.000254
+},
+"netherlands": {
+"itonnes": 41291.0,
+"ibUS": 0.081608,
+"etonnes": 14852.0,
+"ebUS": 0.007764999999999999
+},
+"austria": {
+"itonnes": 42.0,
+"ibUS": 0.000143,
+"etonnes": 75.0,
+"ebUS": 0.000376
+},
+"gabon": {
+"etonnes": 75.0,
+"ebUS": 6.9e-05
+},
+"belgium": {
+"itonnes": 25535.0,
+"ibUS": 0.057901999999999995,
+"etonnes": 3148.0,
+"ebUS": 0.003094
+},
+"switzerland": {
+"etonnes": 24.0,
+"ebUS": 3.4e-05
+},
+"australia": {
+"itonnes": 4.0,
+"ibUS": 3.1e-05,
+"etonnes": 314.0,
+"ebUS": 0.0010739999999999999
+},
+"spain": {
+"itonnes": 13433.0,
+"ibUS": 0.040137,
+"etonnes": 766.0,
+"ebUS": 0.002013
+},
+"hungary": {
+"itonnes": 363.0,
+"ibUS": 0.0010689999999999999,
+"etonnes": 303.0,
+"ebUS": 0.00028399999999999996
+},
+"estonia": {
+"etonnes": 163.0,
+"ebUS": 0.000384
+},
+"denmark": {
+"itonnes": 78494.0,
+"ibUS": 0.157969,
+"etonnes": 16784.0,
+"ebUS": 0.022647999999999998
+},
+"sweden": {
+"itonnes": 214.0,
+"ibUS": 0.000372,
+"etonnes": 8.0,
+"ebUS": 5.6e-05
+},
+"bahrain": {
+"etonnes": 1.0,
+"ebUS": 1.1e-05
+}
+},
+"2016": {
+"korea": {
+"etonnes": 1626.0,
+"ebUS": 0.0029579999999999997
+},
+"greece": {
+"itonnes": 8.0,
+"ibUS": 4.4999999999999996e-05,
+"etonnes": 5.0,
+"ebUS": 1.8e-05
+},
+"estonia": {
+"etonnes": 96.0,
+"ebUS": 0.000193
+},
+"nigeria": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"cyprus": {
+"itonnes": 21.0,
+"ibUS": 6.3e-05,
+"etonnes": 43.0,
+"ebUS": 0.000118
+},
+"romania": {
+"itonnes": 756.0,
+"ibUS": 0.002495,
+"etonnes": 30.0,
+"ebUS": 6.8e-05
+},
+"congo": {
+"etonnes": 869.0,
+"ebUS": 0.000522
+},
+"italy": {
+"itonnes": 2335.0,
+"ibUS": 0.008702999999999999,
+"etonnes": 265.0,
+"ebUS": 0.000627
+},
+"malaysia": {
+"etonnes": 55.0,
+"ebUS": 4.4999999999999996e-05
+},
+"qatar": {
+"etonnes": 11.0,
+"ebUS": 9.8e-05
+},
+"india": {
+"etonnes": 18.0,
+"ebUS": 6.5e-05
+},
+"germany": {
+"itonnes": 27662.0,
+"ibUS": 0.07414899999999999,
+"etonnes": 31825.0,
+"ebUS": 0.041793
+},
+"iceland": {
+"etonnes": 3.0,
+"ebUS": 6.2e-05
+},
+"france": {
+"itonnes": 12967.0,
+"ibUS": 0.032799,
+"etonnes": 2311.0,
+"ebUS": 0.0035849999999999996
+},
+"japan": {
+"etonnes": 1426.0,
+"ebUS": 0.0010329999999999998
+},
+"poland": {
+"itonnes": 6555.0,
+"ibUS": 0.017324,
+"etonnes": 2992.0,
+"ebUS": 0.004469
+},
+"israel": {
+"etonnes": 23.0,
+"ebUS": 2.9e-05
+},
+"uruguay": {
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"angola": {
+"etonnes": 49.0,
+"ebUS": 3.1e-05
+},
+"usa": {
+"etonnes": 8128.0,
+"ebUS": 0.031052
+},
+"portugal": {
+"itonnes": 754.0,
+"ibUS": 0.0015689999999999999,
+"etonnes": 24.0,
+"ebUS": 0.000129
+},
+"china": {
+"etonnes": 38859.0,
+"ebUS": 0.057199
+},
+"pakistan": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"finland": {
+"itonnes": 150.0,
+"ibUS": 0.00022899999999999998,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"bulgaria": {
+"itonnes": 128.0,
+"ibUS": 0.000251,
+"etonnes": 389.0,
+"ebUS": 0.000277
+},
+"netherlands": {
+"itonnes": 34780.0,
+"ibUS": 0.06851399999999999,
+"etonnes": 13511.0,
+"ebUS": 0.006927999999999999
+},
+"australia": {
+"itonnes": 1.0,
+"ibUS": 1.2e-05,
+"etonnes": 1280.0,
+"ebUS": 0.0046159999999999994
+},
+"gabon": {
+"etonnes": 100.0,
+"ebUS": 0.000124
+},
+"belgium": {
+"itonnes": 21528.0,
+"ibUS": 0.045892999999999996,
+"etonnes": 3560.0,
+"ebUS": 0.0036149999999999997
+},
+"albania": {
+"etonnes": 25.0,
+"ebUS": 2.7e-05
+},
+"spain": {
+"itonnes": 13422.0,
+"ibUS": 0.038280999999999996,
+"etonnes": 709.0,
+"ebUS": 0.0018989999999999999
+},
+"hungary": {
+"itonnes": 411.0,
+"ibUS": 0.001148,
+"etonnes": 145.0,
+"ebUS": 0.000113
+},
+"ghana": {
+"etonnes": 182.0,
+"ebUS": 0.000163
+},
+"denmark": {
+"itonnes": 112408.0,
+"ibUS": 0.223323,
+"etonnes": 17883.0,
+"ebUS": 0.025299
+},
+"sweden": {
+"itonnes": 24.0,
+"ibUS": 4.4999999999999996e-05,
+"etonnes": 23.0,
+"ebUS": 2.1e-05
+},
+"austria": {
+"itonnes": 534.0,
+"ibUS": 0.001709,
+"etonnes": 6.0,
+"ebUS": 3.5e-05
+},
+"egypt": {
+"etonnes": 39.0,
+"ebUS": 3.5e-05
+},
+"bahrain": {
+"etonnes": 1.0,
+"ebUS": 9e-06
+}
+},
+"2014": {
+"korea": {
+"etonnes": 1386.0,
+"ebUS": 0.0018939999999999999
+},
+"greece": {
+"itonnes": 97.0,
+"ibUS": 0.00041099999999999996,
+"etonnes": 19.0,
+"ebUS": 6.1e-05
+},
+"chile": {
+"itonnes": 73.0,
+"ibUS": 0.00014099999999999998
+},
+"nigeria": {
+"etonnes": 2.0,
+"ebUS": 3e-06
+},
+"cyprus": {
+"etonnes": 65.0,
+"ebUS": 0.00032199999999999997
+},
+"afghanistan": {
+"ebUS": 0.000168
+},
+"romania": {
+"itonnes": 2.0,
+"ibUS": 9e-06,
+"etonnes": 369.0,
+"ebUS": 0.000265
+},
+"congo": {
+"etonnes": 337.0,
+"ebUS": 0.00052
+},
+"italy": {
+"itonnes": 2464.0,
+"ibUS": 0.011441,
+"etonnes": 95.0,
+"ebUS": 0.000194
+},
+"qatar": {
+"etonnes": 5.0,
+"ebUS": 4.4e-05
+},
+"netherlands": {
+"itonnes": 38684.0,
+"ibUS": 0.09787499999999999,
+"etonnes": 13297.0,
+"ebUS": 0.012211
+},
+"portugal": {
+"itonnes": 837.0,
+"ibUS": 0.003266,
+"etonnes": 22.0,
+"ebUS": 0.000106
+},
+"germany": {
+"itonnes": 36040.0,
+"ibUS": 0.120934,
+"etonnes": 28561.0,
+"ebUS": 0.053328
+},
+"france": {
+"itonnes": 14101.0,
+"ibUS": 0.042207999999999996,
+"etonnes": 1930.0,
+"ebUS": 0.001676
+},
+"japan": {
+"etonnes": 1227.0,
+"ebUS": 0.0014349999999999999
+},
+"poland": {
+"itonnes": 1909.0,
+"ibUS": 0.007068,
+"etonnes": 943.0,
+"ebUS": 0.001715
+},
+"angola": {
+"etonnes": 99.0,
+"ebUS": 7.3e-05
+},
+"azerbaijan": {
+"etonnes": 6.0,
+"ebUS": 0.00013099999999999999
+},
+"usa": {
+"etonnes": 3169.0,
+"ebUS": 0.016531999999999998
+},
+"china": {
+"etonnes": 28170.0,
+"ebUS": 0.035843
+},
+"croatia": {
+"etonnes": 22.0,
+"ebUS": 5.9999999999999995e-05
+},
+"finland": {
+"itonnes": 426.0,
+"ibUS": 0.000754
+},
+"bulgaria": {
+"etonnes": 458.0,
+"ebUS": 0.000415
+},
+"denmark": {
+"itonnes": 69358.0,
+"ibUS": 0.196799,
+"etonnes": 14879.0,
+"ebUS": 0.024714
+},
+"austria": {
+"itonnes": 4.0,
+"ibUS": 4.4999999999999996e-05,
+"etonnes": 80.0,
+"ebUS": 0.0005149999999999999
+},
+"gabon": {
+"etonnes": 50.0,
+"ebUS": 8.7e-05
+},
+"belgium": {
+"itonnes": 26587.0,
+"ibUS": 0.073672,
+"etonnes": 3882.0,
+"ebUS": 0.004758
+},
+"switzerland": {
+"etonnes": 122.0,
+"ebUS": 0.000137
+},
+"australia": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06
+},
+"spain": {
+"itonnes": 10499.0,
+"ibUS": 0.038932999999999995,
+"etonnes": 539.0,
+"ebUS": 0.001307
+},
+"hungary": {
+"itonnes": 20.0,
+"ibUS": 5.6e-05,
+"etonnes": 415.0,
+"ebUS": 0.000278
+},
+"colombia": {
+"etonnes": 75.0,
+"ebUS": 8.8e-05
+},
+"ghana": {
+"etonnes": 30.0,
+"ebUS": 2.6e-05
+},
+"estonia": {
+"etonnes": 139.0,
+"ebUS": 0.00042899999999999997
+},
+"sweden": {
+"itonnes": 64.0,
+"ibUS": 0.000137,
+"etonnes": 6.0,
+"ebUS": 5.4e-05
+},
+"egypt": {
+"etonnes": 0.0,
+"ebUS": 4.9999999999999996e-06
+}
+}
+},
+"benin": {
+"2015": {
+"spain": {
+"itonnes": 25.0,
+"ibUS": 3.2e-05
+},
+"france": {
+"itonnes": 13.0,
+"ibUS": 1.9999999999999998e-05
+}
+},
+"2016": {
+"spain": {
+"itonnes": 8.0,
+"ibUS": 1.1e-05
+},
+"nigeria": {
+"itonnes": 1.0,
+"ibUS": 0.0
+},
+"france": {
+"itonnes": 8.0,
+"ibUS": 1.8999999999999998e-05
+}
+},
+"2014": {
+"spain": {
+"itonnes": 19.0,
+"ibUS": 2.8e-05
+},
+"france": {
+"ibUS": 1e-06
+}
+}
+},
+"australia": {
+"2015": {
+"qatar": {
+"etonnes": 4.0,
+"ebUS": 1.4e-05
+},
+"belgium": {
+"etonnes": 176.0,
+"ebUS": 0.0010199999999999999
+},
+"korea": {
+"etonnes": 411.0,
+"ebUS": 0.00038199999999999996
+},
+"uk": {
+"etonnes": 2.0,
+"ebUS": 1.4e-05
+},
+"netherlands": {
+"etonnes": 148.0,
+"ebUS": 0.000958
+},
+"indonesia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"japan": {
+"etonnes": 400.0,
+"ebUS": 0.001526
+},
+"italy": {
+"etonnes": 12.0,
+"ebUS": 5.3e-05
+},
+"germany": {
+"etonnes": 470.0,
+"ebUS": 0.0027199999999999998
+},
+"malaysia": {
+"etonnes": 487.0,
+"ebUS": 0.000718
+}
+},
+"2016": {
+"belgium": {
+"etonnes": 33.0,
+"ebUS": 0.000188
+},
+"korea": {
+"etonnes": 312.0,
+"ebUS": 0.000299
+},
+"uk": {
+"etonnes": 3.0,
+"ebUS": 1.8e-05
+},
+"netherlands": {
+"etonnes": 132.0,
+"ebUS": 0.000829
+},
+"japan": {
+"etonnes": 485.0,
+"ebUS": 0.002528
+},
+"germany": {
+"etonnes": 478.0,
+"ebUS": 0.0031999999999999997
+},
+"china": {
+"etonnes": 8.0,
+"ebUS": 3.2999999999999996e-05
+},
+"malaysia": {
+"etonnes": 717.0,
+"ebUS": 0.001173
+}
+},
+"2014": {
+"switzerland": {
+"etonnes": 5.0,
+"ebUS": 3.4e-05
+},
+"usa": {
+"etonnes": 112.0,
+"ebUS": 0.000525
+},
+"belgium": {
+"ebUS": 0.00083
+},
+"korea": {
+"etonnes": 872.0,
+"ebUS": 0.000825
+},
+"uk": {
+"etonnes": 2.0,
+"ebUS": 1.8999999999999998e-05
+},
+"netherlands": {
+"etonnes": 145.0,
+"ebUS": 0.000939
+},
+"japan": {
+"etonnes": 479.0,
+"ebUS": 0.002374
+},
+"germany": {
+"etonnes": 299.0,
+"ebUS": 0.0019509999999999998
+},
+"malaysia": {
+"etonnes": 468.0,
+"ebUS": 0.000847
+}
+}
+},
+"guinea": {
+"2015": {
+"china": {
+"itonnes": 8.0,
+"ibUS": 9e-06
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 0.0
+}
+},
+"2016": {
+"spain": {
+"itonnes": 10.0,
+"ibUS": 2.4999999999999998e-05
+},
+"belgium": {
+"ibUS": 6e-06
+},
+"poland": {
+"itonnes": 19.0,
+"ibUS": 5.9e-05
+},
+"italy": {
+"itonnes": 11.0,
+"ibUS": 1.4e-05
+},
+"netherlands": {
+"itonnes": 2.0,
+"ibUS": 7e-06
+}
+},
+"2014": {
+"france": {
+"itonnes": 1.0,
+"ibUS": 0.0
+}
+}
+},
+"netherlands": {
+"2015": {
+"aruba": {
+"etonnes": 407.0,
+"ebUS": 0.00155
+},
+"cyprus": {
+"itonnes": 90.0,
+"ibUS": 0.000212,
+"etonnes": 869.0,
+"ebUS": 0.001733
+},
+"romania": {
+"itonnes": 201.0,
+"ibUS": 0.000584,
+"etonnes": 12925.0,
+"ebUS": 0.023629999999999998
+},
+"congo": {
+"etonnes": 1088.0,
+"ebUS": 0.001646
+},
+"italy": {
+"itonnes": 1582.0,
+"ibUS": 0.004761,
+"etonnes": 130993.0,
+"ebUS": 0.252673
+},
+"senegal": {
+"etonnes": 14.0,
+"ebUS": 4.2999999999999995e-05
+},
+"belgium": {
+"itonnes": 18312.0,
+"ibUS": 0.032611,
+"etonnes": 17715.0,
+"ebUS": 0.030223
+},
+"france": {
+"itonnes": 5944.0,
+"ibUS": 0.016381,
+"etonnes": 6429.0,
+"ebUS": 0.015619999999999998
+},
+"japan": {
+"etonnes": 28825.0,
+"ebUS": 0.10067999999999999
+},
+"portugal": {
+"etonnes": 228.0,
+"ebUS": 0.000498
+},
+"israel": {
+"etonnes": 3.0,
+"ebUS": 6e-06
+},
+"azerbaijan": {
+"etonnes": 101.0,
+"ebUS": 0.000168
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"croatia": {
+"itonnes": 95.0,
+"ibUS": 0.00020099999999999998,
+"etonnes": 12410.0,
+"ebUS": 0.022598999999999998
+},
+"finland": {
+"etonnes": 23.0,
+"ebUS": 0.00010499999999999999
+},
+"austria": {
+"itonnes": 56.0,
+"ibUS": 0.00016099999999999998,
+"etonnes": 2158.0,
+"ebUS": 0.003805
+},
+"gabon": {
+"etonnes": 413.0,
+"ebUS": 0.000834
+},
+"cameroon": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"mali": {
+"etonnes": 8.0,
+"ebUS": 2.9999999999999997e-05
+},
+"uruguay": {
+"etonnes": 5.0,
+"ebUS": 1.2e-05
+},
+"spain": {
+"itonnes": 4024.0,
+"ibUS": 0.009995,
+"etonnes": 19754.0,
+"ebUS": 0.042919
+},
+"hungary": {
+"itonnes": 305.0,
+"ibUS": 0.00124,
+"etonnes": 1404.0,
+"ebUS": 0.003398
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 135.0,
+"ebUS": 0.000256
+},
+"indonesia": {
+"etonnes": 32.0,
+"ebUS": 0.00011399999999999999
+},
+"sweden": {
+"itonnes": 2309.0,
+"ibUS": 0.007525,
+"etonnes": 528.0,
+"ebUS": 0.000792
+},
+"bahrain": {
+"etonnes": 719.0,
+"ebUS": 0.002297
+},
+"armenia": {
+"etonnes": 23.0,
+"ebUS": 4.4e-05
+},
+"greece": {
+"itonnes": 174.0,
+"ibUS": 0.000352,
+"etonnes": 88991.0,
+"ebUS": 0.176259
+},
+"kenya": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"nigeria": {
+"etonnes": 5.0,
+"ebUS": 2.2e-05
+},
+"ethiopia": {
+"etonnes": 121.0,
+"ebUS": 0.00039
+},
+"chad": {
+"etonnes": 6.0,
+"ebUS": 2.1e-05
+},
+"malaysia": {
+"etonnes": 1594.0,
+"ebUS": 0.003859
+},
+"india": {
+"etonnes": 5.0,
+"ebUS": 1.9999999999999998e-05
+},
+"iceland": {
+"etonnes": 48.0,
+"ebUS": 0.00026199999999999997
+},
+"poland": {
+"itonnes": 7104.0,
+"ibUS": 0.013812,
+"etonnes": 63399.0,
+"ebUS": 0.100141
+},
+"angola": {
+"etonnes": 5924.0,
+"ebUS": 0.011153999999999999
+},
+"afghanistan": {
+"etonnes": 50.0,
+"ebUS": 0.000223
+},
+"usa": {
+"itonnes": 197.0,
+"ibUS": 0.001255,
+"etonnes": 4923.0,
+"ebUS": 0.032702999999999996
+},
+"china": {
+"etonnes": 33922.0,
+"ebUS": 0.063246
+},
+"korea": {
+"etonnes": 14322.0,
+"ebUS": 0.045052999999999996
+},
+"bulgaria": {
+"itonnes": 145.0,
+"ibUS": 0.000235,
+"etonnes": 9134.0,
+"ebUS": 0.014938
+},
+"uk": {
+"itonnes": 843.0,
+"ibUS": 0.003424,
+"etonnes": 53249.0,
+"ebUS": 0.101535
+},
+"australia": {
+"itonnes": 100.0,
+"ibUS": 0.000665,
+"etonnes": 14858.0,
+"ebUS": 0.042496
+},
+"guinea": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"germany": {
+"itonnes": 79668.0,
+"ibUS": 0.185444,
+"etonnes": 91507.0,
+"ebUS": 0.15515099999999998
+},
+"russia": {
+"etonnes": 13.0,
+"ebUS": 3.7e-05
+},
+"albania": {
+"etonnes": 22.0,
+"ebUS": 2.7e-05
+},
+"norway": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 66.0,
+"ebUS": 0.00043599999999999997
+},
+"ghana": {
+"etonnes": 121.0,
+"ebUS": 0.000155
+},
+"denmark": {
+"itonnes": 6612.0,
+"ibUS": 0.01274,
+"etonnes": 6201.0,
+"ebUS": 0.012728
+},
+"canada": {
+"etonnes": 1303.0,
+"ebUS": 0.005601
+},
+"argentina": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+}
+},
+"2016": {
+"aruba": {
+"etonnes": 402.0,
+"ebUS": 0.0014429999999999998
+},
+"cyprus": {
+"itonnes": 61.0,
+"ibUS": 0.000133,
+"etonnes": 869.0,
+"ebUS": 0.0020469999999999998
+},
+"romania": {
+"itonnes": 57.0,
+"ibUS": 0.000169,
+"etonnes": 8012.0,
+"ebUS": 0.017422
+},
+"congo": {
+"etonnes": 600.0,
+"ebUS": 0.000843
+},
+"italy": {
+"itonnes": 1093.0,
+"ibUS": 0.005024,
+"etonnes": 121359.0,
+"ebUS": 0.245465
+},
+"belgium": {
+"itonnes": 16984.0,
+"ibUS": 0.032582,
+"etonnes": 17650.0,
+"ebUS": 0.039486
+},
+"france": {
+"itonnes": 8306.0,
+"ibUS": 0.020422,
+"etonnes": 4671.0,
+"ebUS": 0.01332
+},
+"greece": {
+"itonnes": 31.0,
+"ibUS": 5.8e-05,
+"etonnes": 84460.0,
+"ebUS": 0.17543899999999998
+},
+"portugal": {
+"etonnes": 78.0,
+"ebUS": 0.00018899999999999999
+},
+"israel": {
+"etonnes": 11.0,
+"ebUS": 2.7e-05
+},
+"colombia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"azerbaijan": {
+"etonnes": 136.0,
+"ebUS": 0.000143
+},
+"switzerland": {
+"etonnes": 3.0,
+"ebUS": 2.9999999999999997e-05
+},
+"croatia": {
+"itonnes": 2.0,
+"ibUS": 3e-06,
+"etonnes": 4060.0,
+"ebUS": 0.008615
+},
+"finland": {
+"itonnes": 3.0,
+"ibUS": 6e-06,
+"etonnes": 22.0,
+"ebUS": 0.00010999999999999999
+},
+"austria": {
+"itonnes": 684.0,
+"ibUS": 0.001004,
+"etonnes": 1191.0,
+"ebUS": 0.002542
+},
+"gabon": {
+"etonnes": 592.0,
+"ebUS": 0.000992
+},
+"mali": {
+"etonnes": 25.0,
+"ebUS": 8.2e-05
+},
+"uruguay": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"spain": {
+"itonnes": 3184.0,
+"ibUS": 0.008549,
+"etonnes": 13749.0,
+"ebUS": 0.031177
+},
+"hungary": {
+"itonnes": 221.0,
+"ibUS": 0.000807,
+"etonnes": 1717.0,
+"ebUS": 0.0046879999999999995
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 155.0,
+"ebUS": 0.00033999999999999997
+},
+"indonesia": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"sweden": {
+"itonnes": 3084.0,
+"ibUS": 0.010047,
+"etonnes": 363.0,
+"ebUS": 0.001365
+},
+"bahrain": {
+"etonnes": 829.0,
+"ebUS": 0.0026249999999999997
+},
+"korea": {
+"itonnes": 21.0,
+"ibUS": 7.4e-05,
+"etonnes": 11880.0,
+"ebUS": 0.039275
+},
+"chile": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"nigeria": {
+"etonnes": 6.0,
+"ebUS": 1.7e-05
+},
+"ethiopia": {
+"etonnes": 171.0,
+"ebUS": 0.000512
+},
+"chad": {
+"etonnes": 5.0,
+"ebUS": 1.7e-05
+},
+"japan": {
+"etonnes": 8376.0,
+"ebUS": 0.031887
+},
+"malaysia": {
+"etonnes": 1513.0,
+"ebUS": 0.0039689999999999994
+},
+"poland": {
+"itonnes": 5104.0,
+"ibUS": 0.016146,
+"etonnes": 55958.0,
+"ebUS": 0.09801399999999999
+},
+"angola": {
+"etonnes": 425.0,
+"ebUS": 0.0008039999999999999
+},
+"senegal": {
+"etonnes": 2.0,
+"ebUS": 6e-06
+},
+"usa": {
+"itonnes": 130.0,
+"ibUS": 0.000883,
+"etonnes": 7861.0,
+"ebUS": 0.033583
+},
+"china": {
+"etonnes": 91514.0,
+"ebUS": 0.17521899999999999
+},
+"bulgaria": {
+"itonnes": 57.0,
+"ibUS": 8.999999999999999e-05,
+"etonnes": 2381.0,
+"ebUS": 0.004169
+},
+"afghanistan": {
+"etonnes": 20.0,
+"ebUS": 5.4999999999999995e-05
+},
+"uk": {
+"itonnes": 1100.0,
+"ibUS": 0.003999,
+"etonnes": 36223.0,
+"ebUS": 0.07618899999999999
+},
+"benin": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"australia": {
+"itonnes": 188.0,
+"ibUS": 0.00125,
+"etonnes": 6853.0,
+"ebUS": 0.022326
+},
+"guinea": {
+"etonnes": 2.0,
+"ebUS": 6e-06
+},
+"germany": {
+"itonnes": 82984.0,
+"ibUS": 0.20674599999999999,
+"etonnes": 78097.0,
+"ebUS": 0.146751
+},
+"albania": {
+"etonnes": 172.0,
+"ebUS": 0.000163
+},
+"norway": {
+"etonnes": 81.0,
+"ebUS": 0.000388
+},
+"ghana": {
+"etonnes": 98.0,
+"ebUS": 0.000121
+},
+"denmark": {
+"itonnes": 8512.0,
+"ibUS": 0.017291,
+"etonnes": 4884.0,
+"ebUS": 0.011968999999999999
+},
+"canada": {
+"etonnes": 1186.0,
+"ebUS": 0.005507
+}
+},
+"2014": {
+"mali": {
+"etonnes": 17.0,
+"ebUS": 6.1e-05
+},
+"gabon": {
+"etonnes": 77.0,
+"ebUS": 0.00018899999999999999
+},
+"romania": {
+"itonnes": 152.0,
+"ibUS": 0.000439,
+"etonnes": 11559.0,
+"ebUS": 0.029108
+},
+"congo": {
+"etonnes": 593.0,
+"ebUS": 0.001212
+},
+"italy": {
+"itonnes": 1367.0,
+"ibUS": 0.0036209999999999997,
+"etonnes": 120369.0,
+"ebUS": 0.30794699999999997
+},
+"senegal": {
+"etonnes": 12.0,
+"ebUS": 3.5e-05
+},
+"belgium": {
+"itonnes": 21195.0,
+"ibUS": 0.043781,
+"etonnes": 17950.0,
+"ebUS": 0.038402
+},
+"cambodia": {
+"etonnes": 64.0,
+"ebUS": 6.8e-05
+},
+"france": {
+"itonnes": 5410.0,
+"ibUS": 0.014319,
+"etonnes": 7429.0,
+"ebUS": 0.023573999999999998
+},
+"greece": {
+"itonnes": 354.0,
+"ibUS": 0.000897,
+"etonnes": 85731.0,
+"ebUS": 0.216863
+},
+"portugal": {
+"etonnes": 65.0,
+"ebUS": 0.000214
+},
+"israel": {
+"etonnes": 16.0,
+"ebUS": 4.4e-05
+},
+"colombia": {
+"etonnes": 28.0,
+"ebUS": 3.2e-05
+},
+"azerbaijan": {
+"etonnes": 69.0,
+"ebUS": 0.000163
+},
+"croatia": {
+"itonnes": 152.0,
+"ibUS": 0.000343,
+"etonnes": 13327.0,
+"ebUS": 0.033671
+},
+"finland": {
+"itonnes": 1.0,
+"ibUS": 6e-06,
+"etonnes": 16.0,
+"ebUS": 0.00016999999999999999
+},
+"austria": {
+"itonnes": 826.0,
+"ibUS": 0.001552,
+"etonnes": 2097.0,
+"ebUS": 0.005431
+},
+"cyprus": {
+"itonnes": 55.0,
+"ibUS": 0.00025499999999999996,
+"etonnes": 1399.0,
+"ebUS": 0.0038469999999999997
+},
+"cameroon": {
+"etonnes": 6.0,
+"ebUS": 1.8e-05
+},
+"switzerland": {
+"etonnes": 1.0,
+"ebUS": 4e-06
+},
+"spain": {
+"itonnes": 2848.0,
+"ibUS": 0.014105999999999999,
+"etonnes": 16350.0,
+"ebUS": 0.050334
+},
+"hungary": {
+"itonnes": 122.0,
+"ibUS": 0.000638,
+"etonnes": 1457.0,
+"ebUS": 0.004308
+},
+"estonia": {
+"itonnes": 10.0,
+"ibUS": 3.4e-05,
+"etonnes": 345.0,
+"ebUS": 0.0007
+},
+"sweden": {
+"itonnes": 1656.0,
+"ibUS": 0.006474,
+"etonnes": 732.0,
+"ebUS": 0.0019779999999999997
+},
+"bahrain": {
+"etonnes": 793.0,
+"ebUS": 0.00275
+},
+"armenia": {
+"etonnes": 26.0,
+"ebUS": 8.7e-05
+},
+"korea": {
+"etonnes": 12540.0,
+"ebUS": 0.047061
+},
+"kenya": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"nigeria": {
+"etonnes": 8.0,
+"ebUS": 2.8e-05
+},
+"ethiopia": {
+"etonnes": 204.0,
+"ebUS": 0.0006709999999999999
+},
+"chad": {
+"etonnes": 4.0,
+"ebUS": 1.9999999999999998e-05
+},
+"japan": {
+"etonnes": 28777.0,
+"ebUS": 0.12477099999999999
+},
+"aruba": {
+"etonnes": 316.0,
+"ebUS": 0.001328
+},
+"malaysia": {
+"etonnes": 725.0,
+"ebUS": 0.0021449999999999998
+},
+"india": {
+"etonnes": 26.0,
+"ebUS": 0.000186
+},
+"iceland": {
+"etonnes": 16.0,
+"ebUS": 9.999999999999999e-05
+},
+"cuba": {
+"etonnes": 17.0,
+"ebUS": 5.6e-05
+},
+"poland": {
+"itonnes": 8763.0,
+"ibUS": 0.018612,
+"etonnes": 59044.0,
+"ebUS": 0.12096499999999999
+},
+"angola": {
+"etonnes": 7945.0,
+"ebUS": 0.017405999999999998
+},
+"afghanistan": {
+"ebUS": 0.000164
+},
+"usa": {
+"itonnes": 159.0,
+"ibUS": 0.001026,
+"etonnes": 5151.0,
+"ebUS": 0.05133
+},
+"china": {
+"etonnes": 5686.0,
+"ebUS": 0.013545
+},
+"bulgaria": {
+"itonnes": 74.0,
+"ibUS": 0.000174,
+"etonnes": 5722.0,
+"ebUS": 0.012849
+},
+"uk": {
+"itonnes": 1956.0,
+"ibUS": 0.008886999999999999,
+"etonnes": 51499.0,
+"ebUS": 0.126438
+},
+"australia": {
+"itonnes": 123.0,
+"ibUS": 0.0008629999999999999,
+"etonnes": 14131.0,
+"ebUS": 0.05046
+},
+"germany": {
+"itonnes": 86963.0,
+"ibUS": 0.25578,
+"etonnes": 83433.0,
+"ebUS": 0.19547399999999998
+},
+"russia": {
+"etonnes": 757.0,
+"ebUS": 0.002461
+},
+"norway": {
+"itonnes": 11.0,
+"ibUS": 6.2e-05,
+"etonnes": 66.0,
+"ebUS": 0.000363
+},
+"ghana": {
+"etonnes": 75.0,
+"ebUS": 0.000104
+},
+"denmark": {
+"itonnes": 5973.0,
+"ibUS": 0.017619,
+"etonnes": 13892.0,
+"ebUS": 0.038234
+},
+"canada": {
+"etonnes": 1007.0,
+"ebUS": 0.006575
+}
+}
+},
+"brazil": {
+"2015": {
+"russia": {
+"etonnes": 13072.0,
+"ebUS": 0.028062999999999998
+},
+"albania": {
+"etonnes": 117.0,
+"ebUS": 0.000198
+},
+"china": {
+"etonnes": 443.0,
+"ebUS": 0.0006799999999999999
+},
+"angola": {
+"etonnes": 1970.0,
+"ebUS": 0.002493
+},
+"armenia": {
+"etonnes": 2337.0,
+"ebUS": 0.003257
+},
+"gabon": {
+"etonnes": 74.0,
+"ebUS": 6.8e-05
+},
+"uruguay": {
+"etonnes": 23.0,
+"ebUS": 4.9e-05
+},
+"argentina": {
+"etonnes": 24.0,
+"ebUS": 6.4e-05
+},
+"azerbaijan": {
+"etonnes": 81.0,
+"ebUS": 0.000148
+}
+},
+"2016": {
+"gabon": {
+"etonnes": 87.0,
+"ebUS": 8.999999999999999e-05
+},
+"albania": {
+"etonnes": 86.0,
+"ebUS": 0.000137
+},
+"aruba": {
+"etonnes": 3.0,
+"ebUS": 3e-06
+},
+"armenia": {
+"etonnes": 1896.0,
+"ebUS": 0.002546
+},
+"usa": {
+"etonnes": 54.0,
+"ebUS": 6.1e-05
+},
+"congo": {
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"russia": {
+"etonnes": 16788.0,
+"ebUS": 0.027503999999999997
+},
+"china": {
+"etonnes": 4292.0,
+"ebUS": 0.007146
+},
+"angola": {
+"etonnes": 1690.0,
+"ebUS": 0.0023409999999999998
+},
+"azerbaijan": {
+"etonnes": 54.0,
+"ebUS": 9.999999999999999e-05
+}
+},
+"2014": {
+"russia": {
+"etonnes": 8880.0,
+"ebUS": 0.028829999999999998
+},
+"albania": {
+"ebUS": 0.0007419999999999999
+},
+"armenia": {
+"etonnes": 1896.0,
+"ebUS": 0.0038569999999999998
+},
+"gabon": {
+"etonnes": 42.0,
+"ebUS": 0.000111
+},
+"usa": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"netherlands": {
+"etonnes": 27.0,
+"ebUS": 8.8e-05
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+},
+"angola": {
+"etonnes": 2242.0,
+"ebUS": 0.003319
+},
+"azerbaijan": {
+"etonnes": 27.0,
+"ebUS": 8.8e-05
+}
+}
+},
+"germany": {
+"2015": {
+"cyprus": {
+"etonnes": 455.0,
+"ebUS": 0.000945
+},
+"romania": {
+"etonnes": 25021.0,
+"ebUS": 0.044244
+},
+"congo": {
+"etonnes": 2607.0,
+"ebUS": 0.003093
+},
+"italy": {
+"itonnes": 3978.0,
+"ibUS": 0.010487,
+"etonnes": 280493.0,
+"ebUS": 0.550948
+},
+"belgium": {
+"itonnes": 289898.0,
+"ibUS": 0.495644,
+"etonnes": 1509.0,
+"ebUS": 0.005023
+},
+"france": {
+"itonnes": 22034.0,
+"ibUS": 0.026902,
+"etonnes": 13084.0,
+"ebUS": 0.03598
+},
+"greece": {
+"itonnes": 16.0,
+"ibUS": 5.9e-05,
+"etonnes": 9730.0,
+"ebUS": 0.022657999999999998
+},
+"portugal": {
+"itonnes": 861.0,
+"ibUS": 0.001073,
+"etonnes": 194.0,
+"ebUS": 0.0008719999999999999
+},
+"israel": {
+"etonnes": 12.0,
+"ebUS": 2.7e-05
+},
+"colombia": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"azerbaijan": {
+"etonnes": 30.0,
+"ebUS": 4.2e-05
+},
+"croatia": {
+"itonnes": 2.0,
+"ibUS": 2e-06,
+"etonnes": 7140.0,
+"ebUS": 0.014868
+},
+"finland": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 627.0,
+"ebUS": 0.0018679999999999999
+},
+"austria": {
+"itonnes": 2002.0,
+"ibUS": 0.006874,
+"etonnes": 54303.0,
+"ebUS": 0.11218399999999999
+},
+"gabon": {
+"etonnes": 630.0,
+"ebUS": 0.000861
+},
+"cameroon": {
+"etonnes": 25.0,
+"ebUS": 2.9999999999999997e-05
+},
+"switzerland": {
+"itonnes": 90.0,
+"ibUS": 4.7e-05,
+"etonnes": 299.0,
+"ebUS": 0.0018809999999999999
+},
+"uruguay": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"spain": {
+"itonnes": 30318.0,
+"ibUS": 0.052855,
+"etonnes": 942.0,
+"ebUS": 0.0036439999999999997
+},
+"hungary": {
+"itonnes": 162.0,
+"ibUS": 0.0006529999999999999,
+"etonnes": 13982.0,
+"ebUS": 0.027138
+},
+"estonia": {
+"etonnes": 3076.0,
+"ebUS": 0.00611
+},
+"sweden": {
+"itonnes": 55.0,
+"ibUS": 0.000256,
+"etonnes": 11976.0,
+"ebUS": 0.035905
+},
+"brazil": {
+"itonnes": 0.0,
+"ibUS": 3e-06
+},
+"armenia": {
+"etonnes": 31.0,
+"ebUS": 9.2e-05
+},
+"korea": {
+"etonnes": 37331.0,
+"ebUS": 0.096304
+},
+"kenya": {
+"etonnes": 248.0,
+"ebUS": 0.000673
+},
+"chad": {
+"etonnes": 45.0,
+"ebUS": 8.8e-05
+},
+"japan": {
+"etonnes": 1319.0,
+"ebUS": 0.0042639999999999996
+},
+"malaysia": {
+"etonnes": 4816.0,
+"ebUS": 0.011649
+},
+"iceland": {
+"etonnes": 10.0,
+"ebUS": 3.4e-05
+},
+"cuba": {
+"etonnes": 9.0,
+"ebUS": 1.8e-05
+},
+"poland": {
+"itonnes": 30694.0,
+"ibUS": 0.038099,
+"etonnes": 63800.0,
+"ebUS": 0.12632
+},
+"angola": {
+"etonnes": 1374.0,
+"ebUS": 0.002407
+},
+"afghanistan": {
+"etonnes": 14.0,
+"ebUS": 4.9e-05
+},
+"usa": {
+"itonnes": 454.0,
+"ibUS": 0.0030169999999999997,
+"etonnes": 6.0,
+"ebUS": 1.4999999999999999e-05
+},
+"china": {
+"etonnes": 164426.0,
+"ebUS": 0.31341399999999997
+},
+"bulgaria": {
+"etonnes": 4017.0,
+"ebUS": 0.00722
+},
+"uk": {
+"itonnes": 27628.0,
+"ibUS": 0.033774,
+"etonnes": 23479.0,
+"ebUS": 0.067367
+},
+"netherlands": {
+"itonnes": 92199.0,
+"ibUS": 0.16505,
+"etonnes": 83629.0,
+"ebUS": 0.18933999999999998
+},
+"australia": {
+"itonnes": 441.0,
+"ibUS": 0.002693
+},
+"albania": {
+"etonnes": 16.0,
+"ebUS": 2.8e-05
+},
+"norway": {
+"etonnes": 525.0,
+"ebUS": 0.001194
+},
+"ghana": {
+"etonnes": 7.0,
+"ebUS": 2.1e-05
+},
+"denmark": {
+"itonnes": 300810.0,
+"ibUS": 0.398647,
+"etonnes": 27583.0,
+"ebUS": 0.070875
+},
+"canada": {
+"etonnes": 3197.0,
+"ebUS": 0.01625
+},
+"egypt": {
+"etonnes": 21.0,
+"ebUS": 4.8e-05
+}
+},
+"2016": {
+"cyprus": {
+"itonnes": 23.0,
+"ibUS": 3.2999999999999996e-05,
+"etonnes": 473.0,
+"ebUS": 0.001037
+},
+"romania": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 19322.0,
+"ebUS": 0.03571
+},
+"congo": {
+"etonnes": 2509.0,
+"ebUS": 0.002789
+},
+"italy": {
+"itonnes": 5604.0,
+"ibUS": 0.012067999999999999,
+"etonnes": 263689.0,
+"ebUS": 0.539351
+},
+"belgium": {
+"itonnes": 277619.0,
+"ibUS": 0.49422299999999997,
+"etonnes": 1898.0,
+"ebUS": 0.006103
+},
+"france": {
+"itonnes": 24006.0,
+"ibUS": 0.029679999999999998,
+"etonnes": 9695.0,
+"ebUS": 0.025408
+},
+"greece": {
+"itonnes": 11.0,
+"ibUS": 5.9999999999999995e-05,
+"etonnes": 10134.0,
+"ebUS": 0.025980999999999997
+},
+"portugal": {
+"itonnes": 1527.0,
+"ibUS": 0.001945,
+"etonnes": 216.0,
+"ebUS": 0.000783
+},
+"israel": {
+"etonnes": 11.0,
+"ebUS": 2.6e-05
+},
+"azerbaijan": {
+"etonnes": 12.0,
+"ebUS": 1.6e-05
+},
+"croatia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 8487.0,
+"ebUS": 0.019832
+},
+"finland": {
+"etonnes": 542.0,
+"ebUS": 0.001661
+},
+"austria": {
+"itonnes": 2379.0,
+"ibUS": 0.007818,
+"etonnes": 67192.0,
+"ebUS": 0.14324
+},
+"gabon": {
+"etonnes": 340.0,
+"ebUS": 0.000499
+},
+"cameroon": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"switzerland": {
+"itonnes": 6.0,
+"ibUS": 3.6e-05,
+"etonnes": 315.0,
+"ebUS": 0.001989
+},
+"spain": {
+"itonnes": 35247.0,
+"ibUS": 0.059799,
+"etonnes": 1960.0,
+"ebUS": 0.005075
+},
+"hungary": {
+"itonnes": 22.0,
+"ibUS": 0.00015199999999999998,
+"etonnes": 10383.0,
+"ebUS": 0.021781
+},
+"estonia": {
+"etonnes": 1964.0,
+"ebUS": 0.004123
+},
+"sweden": {
+"itonnes": 8.0,
+"ibUS": 7.9e-05,
+"etonnes": 9961.0,
+"ebUS": 0.031529
+},
+"brazil": {
+"itonnes": 0.0,
+"ibUS": 4e-06
+},
+"armenia": {
+"etonnes": 2.0,
+"ebUS": 6e-06
+},
+"korea": {
+"etonnes": 50372.0,
+"ebUS": 0.151302
+},
+"kenya": {
+"etonnes": 232.0,
+"ebUS": 0.000759
+},
+"nigeria": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"chad": {
+"etonnes": 12.0,
+"ebUS": 2.1e-05
+},
+"japan": {
+"etonnes": 1972.0,
+"ebUS": 0.005319
+},
+"malaysia": {
+"etonnes": 6256.0,
+"ebUS": 0.015998
+},
+"india": {
+"etonnes": 20.0,
+"ebUS": 5.4999999999999995e-05
+},
+"iceland": {
+"etonnes": 21.0,
+"ebUS": 6.5e-05
+},
+"poland": {
+"itonnes": 45525.0,
+"ibUS": 0.062254,
+"etonnes": 64612.0,
+"ebUS": 0.134689
+},
+"angola": {
+"etonnes": 185.0,
+"ebUS": 0.000257
+},
+"usa": {
+"itonnes": 375.0,
+"ibUS": 0.0023599999999999997,
+"etonnes": 4.0,
+"ebUS": 1.1e-05
+},
+"china": {
+"etonnes": 245898.0,
+"ebUS": 0.49317099999999997
+},
+"bulgaria": {
+"etonnes": 2360.0,
+"ebUS": 0.0045639999999999995
+},
+"uk": {
+"itonnes": 31021.0,
+"ibUS": 0.040721,
+"etonnes": 18263.0,
+"ebUS": 0.052618
+},
+"benin": {
+"etonnes": 27.0,
+"ebUS": 3.5e-05
+},
+"australia": {
+"itonnes": 493.0,
+"ibUS": 0.0032849999999999997,
+"etonnes": 14.0,
+"ebUS": 0.000104
+},
+"netherlands": {
+"itonnes": 85355.0,
+"ibUS": 0.162153,
+"etonnes": 107432.0,
+"ebUS": 0.252649
+},
+"albania": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"norway": {
+"etonnes": 406.0,
+"ebUS": 0.0008619999999999999
+},
+"ghana": {
+"etonnes": 44.0,
+"ebUS": 7.2e-05
+},
+"denmark": {
+"itonnes": 283610.0,
+"ibUS": 0.406692,
+"etonnes": 22170.0,
+"ebUS": 0.061618
+},
+"canada": {
+"itonnes": 1.0,
+"ibUS": 4e-06,
+"etonnes": 3516.0,
+"ebUS": 0.018164
+},
+"egypt": {
+"etonnes": 32.0,
+"ebUS": 7.3e-05
+}
+},
+"2014": {
+"mali": {
+"etonnes": 3.0,
+"ebUS": 1.2e-05
+},
+"cyprus": {
+"etonnes": 632.0,
+"ebUS": 0.001516
+},
+"romania": {
+"itonnes": 1.0,
+"ibUS": 4e-06,
+"etonnes": 25188.0,
+"ebUS": 0.054265999999999995
+},
+"congo": {
+"etonnes": 929.0,
+"ebUS": 0.001015
+},
+"italy": {
+"itonnes": 6607.0,
+"ibUS": 0.016351,
+"etonnes": 293833.0,
+"ebUS": 0.757541
+},
+"belgium": {
+"itonnes": 294231.0,
+"ibUS": 0.672358,
+"etonnes": 1995.0,
+"ebUS": 0.0063939999999999995
+},
+"france": {
+"itonnes": 25877.0,
+"ibUS": 0.046959999999999995,
+"etonnes": 14754.0,
+"ebUS": 0.05203
+},
+"greece": {
+"itonnes": 23.0,
+"ibUS": 0.000104,
+"etonnes": 13236.0,
+"ebUS": 0.04043
+},
+"portugal": {
+"itonnes": 329.0,
+"ibUS": 0.000677,
+"etonnes": 577.0,
+"ebUS": 0.002502
+},
+"israel": {
+"etonnes": 2.0,
+"ebUS": 6e-06
+},
+"kenya": {
+"etonnes": 122.0,
+"ebUS": 0.00037799999999999997
+},
+"croatia": {
+"etonnes": 12803.0,
+"ebUS": 0.033039
+},
+"finland": {
+"itonnes": 41.0,
+"ibUS": 8.2e-05,
+"etonnes": 650.0,
+"ebUS": 0.0026969999999999997
+},
+"austria": {
+"itonnes": 3333.0,
+"ibUS": 0.011854,
+"etonnes": 67782.0,
+"ebUS": 0.17226999999999998
+},
+"gabon": {
+"etonnes": 329.0,
+"ebUS": 0.00042899999999999997
+},
+"switzerland": {
+"itonnes": 165.0,
+"ibUS": 0.00010499999999999999,
+"etonnes": 3742.0,
+"ebUS": 0.012072999999999999
+},
+"uruguay": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"spain": {
+"itonnes": 35137.0,
+"ibUS": 0.087752,
+"etonnes": 705.0,
+"ebUS": 0.0037619999999999997
+},
+"hungary": {
+"itonnes": 2.0,
+"ibUS": 3.1e-05,
+"etonnes": 14113.0,
+"ebUS": 0.035433
+},
+"estonia": {
+"etonnes": 4547.0,
+"ebUS": 0.01133
+},
+"sweden": {
+"itonnes": 664.0,
+"ibUS": 0.00164,
+"etonnes": 11446.0,
+"ebUS": 0.043058
+},
+"azerbaijan": {
+"etonnes": 51.0,
+"ebUS": 0.000113
+},
+"bahrain": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"armenia": {
+"etonnes": 75.0,
+"ebUS": 0.000247
+},
+"korea": {
+"etonnes": 40911.0,
+"ebUS": 0.132552
+},
+"chile": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"nigeria": {
+"etonnes": 3.0,
+"ebUS": 1.4e-05
+},
+"chad": {
+"etonnes": 8.0,
+"ebUS": 2.4e-05
+},
+"japan": {
+"etonnes": 4193.0,
+"ebUS": 0.018937
+},
+"malaysia": {
+"etonnes": 5145.0,
+"ebUS": 0.015299
+},
+"iceland": {
+"etonnes": 85.0,
+"ebUS": 0.00033999999999999997
+},
+"cuba": {
+"etonnes": 2.0,
+"ebUS": 6e-06
+},
+"poland": {
+"itonnes": 30828.0,
+"ibUS": 0.054931999999999995,
+"etonnes": 65752.0,
+"ebUS": 0.17709899999999998
+},
+"belarus": {
+"etonnes": 21.0,
+"ebUS": 7.599999999999999e-05
+},
+"angola": {
+"etonnes": 1393.0,
+"ebUS": 0.002904
+},
+"afghanistan": {
+"ebUS": 0.000202
+},
+"usa": {
+"itonnes": 447.0,
+"ibUS": 0.002976,
+"etonnes": 3.0,
+"ebUS": 1.2e-05
+},
+"china": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 82713.0,
+"ebUS": 0.156811
+},
+"bulgaria": {
+"etonnes": 6570.0,
+"ebUS": 0.016087
+},
+"uk": {
+"itonnes": 28619.0,
+"ibUS": 0.051883,
+"etonnes": 26381.0,
+"ebUS": 0.088091
+},
+"netherlands": {
+"itonnes": 101415.0,
+"ibUS": 0.24318299999999998,
+"etonnes": 74309.0,
+"ebUS": 0.208618
+},
+"australia": {
+"itonnes": 263.0,
+"ibUS": 0.001851
+},
+"guinea": {
+"etonnes": 25.0,
+"ebUS": 6.1e-05
+},
+"brazil": {
+"itonnes": 0.0,
+"ibUS": 2e-06,
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"russia": {
+"etonnes": 426.0,
+"ebUS": 0.0014219999999999999
+},
+"albania": {
+"etonnes": 120.0,
+"ebUS": 0.000266
+},
+"norway": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 1292.0,
+"ebUS": 0.0038039999999999997
+},
+"ghana": {
+"etonnes": 2.0,
+"ebUS": 1.3e-05
+},
+"denmark": {
+"itonnes": 319028.0,
+"ibUS": 0.613602,
+"etonnes": 40807.0,
+"ebUS": 0.119111
+},
+"canada": {
+"etonnes": 2939.0,
+"ebUS": 0.014776999999999998
+},
+"egypt": {
+"etonnes": 31.0,
+"ebUS": 9.099999999999999e-05
+}
+}
+},
+"russia": {
+"2015": {
+"india": {
+"etonnes": 51.0,
+"ebUS": 3e-06
+},
+"armenia": {
+"etonnes": 5.0,
+"ebUS": 1.6e-05
+},
+"china": {
+"etonnes": 273.0,
+"ebUS": 8e-06
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"chile": {
+"itonnes": 7769.0,
+"ibUS": 0.020214
+},
+"japan": {
+"etonnes": 31.0,
+"ebUS": 3e-06
+},
+"belarus": {
+"itonnes": 512.0,
+"ibUS": 0.001227,
+"etonnes": 793.0,
+"ebUS": 0.001916
+},
+"usa": {
+"etonnes": 2.0,
+"ebUS": 3e-06
+},
+"canada": {
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"argentina": {
+"itonnes": 40.0,
+"ibUS": 7.7e-05
+},
+"brazil": {
+"itonnes": 31089.0,
+"ibUS": 0.087949
+}
+},
+"2016": {
+"korea": {
+"etonnes": 2.0,
+"ebUS": 4.9999999999999996e-06
+},
+"armenia": {
+"etonnes": 21.0,
+"ebUS": 4.9e-05
+},
+"china": {
+"etonnes": 4.0,
+"ebUS": 9.999999999999999e-06
+},
+"norway": {
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"angola": {
+"ebUS": 0.0
+},
+"japan": {
+"etonnes": 188.0,
+"ebUS": 1.7e-05
+},
+"chile": {
+"itonnes": 2329.0,
+"ibUS": 0.005405
+},
+"belarus": {
+"itonnes": 3692.0,
+"ibUS": 0.007287,
+"etonnes": 6334.0,
+"ebUS": 0.013864
+},
+"canada": {
+"etonnes": 1.0,
+"ebUS": 1e-06
+},
+"argentina": {
+"itonnes": 123.0,
+"ibUS": 0.00029
+},
+"brazil": {
+"itonnes": 36741.0,
+"ibUS": 0.076669
+}
+},
+"2014": {
+"usa": {
+"itonnes": 4296.0,
+"ibUS": 0.013854
+},
+"china": {
+"itonnes": 600.0,
+"ibUS": 0.002226
+},
+"finland": {
+"itonnes": 27.0,
+"ibUS": 0.000101
+},
+"chile": {
+"itonnes": 5425.0,
+"ibUS": 0.015545
+},
+"cyprus": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"austria": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"denmark": {
+"itonnes": 355.0,
+"ibUS": 0.001152
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"germany": {
+"itonnes": 448.0,
+"ibUS": 0.001656
+},
+"netherlands": {
+"itonnes": 398.0,
+"ibUS": 0.001614
+},
+"belgium": {
+"itonnes": 139.0,
+"ibUS": 0.00043099999999999996
+},
+"hungary": {
+"itonnes": 89.0,
+"ibUS": 0.000268
+},
+"france": {
+"itonnes": 898.0,
+"ibUS": 0.002786
+},
+"sweden": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"canada": {
+"itonnes": 22320.0,
+"ibUS": 0.060701
+},
+"poland": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"belarus": {
+"itonnes": 1386.0,
+"ibUS": 0.005173,
+"etonnes": 137.0,
+"ebUS": 0.0007819999999999999
+},
+"brazil": {
+"itonnes": 32175.0,
+"ibUS": 0.12128
+}
+}
+},
+"albania": {
+"2015": {
+"canada": {
+"itonnes": 550.0,
+"ibUS": 0.001054
+},
+"italy": {
+"itonnes": 66.0,
+"ibUS": 0.000127
+},
+"brazil": {
+"ibUS": 0.00018199999999999998
+}
+},
+"2016": {
+"usa": {
+"itonnes": 125.0,
+"ibUS": 0.000192
+},
+"italy": {
+"itonnes": 183.0,
+"ibUS": 0.000525
+},
+"brazil": {
+"itonnes": 359.0,
+"ibUS": 0.000677
+}
+}
+},
+"norway": {
+"2015": {
+"germany": {
+"itonnes": 411.0,
+"ibUS": 0.0008979999999999999
+},
+"spain": {
+"itonnes": 10.0,
+"ibUS": 0.000124,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"finland": {
+"itonnes": 220.0,
+"ibUS": 0.000563
+},
+"uk": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"netherlands": {
+"itonnes": 2.0,
+"ibUS": 2.1e-05
+},
+"sweden": {
+"itonnes": 3.0,
+"ibUS": 1.6e-05,
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"denmark": {
+"itonnes": 1.0,
+"ibUS": 3e-06,
+"etonnes": 1.0,
+"ebUS": 7e-06
+},
+"italy": {
+"itonnes": 2.0,
+"ibUS": 2.3e-05,
+"etonnes": 0.0,
+"ebUS": 1e-06
+}
+},
+"2016": {
+"albania": {
+"ebUS": 0.000328
+},
+"germany": {
+"itonnes": 403.0,
+"ibUS": 0.0009019999999999999,
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"armenia": {
+"etonnes": 372.0,
+"ebUS": 0.000405
+},
+"finland": {
+"itonnes": 194.0,
+"ibUS": 0.00033099999999999997
+},
+"uk": {
+"etonnes": 21.0,
+"ebUS": 1.4999999999999999e-05
+},
+"denmark": {
+"itonnes": 1.0,
+"ibUS": 2e-06,
+"etonnes": 25.0,
+"ebUS": 1.9999999999999998e-05
+},
+"spain": {
+"itonnes": 7.0,
+"ibUS": 7.099999999999999e-05,
+"etonnes": 22.0,
+"ebUS": 2.7e-05
+},
+"poland": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 9.999999999999999e-06,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"sweden": {
+"itonnes": 5.0,
+"ibUS": 2.8e-05
+}
+},
+"2014": {
+"germany": {
+"itonnes": 225.0,
+"ibUS": 0.000629,
+"etonnes": 0.0,
+"ebUS": 3e-06
+},
+"spain": {
+"itonnes": 10.0,
+"ibUS": 0.000158,
+"etonnes": 145.0,
+"ebUS": 0.000247
+},
+"finland": {
+"itonnes": 267.0,
+"ibUS": 0.000838
+},
+"france": {
+"itonnes": 2.0,
+"ibUS": 2.4999999999999998e-05,
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"sweden": {
+"itonnes": 86.0,
+"ibUS": 0.000265
+},
+"denmark": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"italy": {
+"itonnes": 5.0,
+"ibUS": 8.9e-05
+},
+"netherlands": {
+"itonnes": 3.0,
+"ibUS": 3.2999999999999996e-05,
+"etonnes": 10.0,
+"ebUS": 5.6999999999999996e-05
+}
+}
+},
+"usa": {
+"2015": {
+"korea": {
+"etonnes": 8592.0,
+"ebUS": 0.016113
+},
+"chile": {
+"itonnes": 238.0,
+"ibUS": 0.001294,
+"etonnes": 1731.0,
+"ebUS": 0.005591
+},
+"nicaragua": {
+"etonnes": 130.0,
+"ebUS": 0.00042199999999999996
+},
+"ecuador": {
+"etonnes": 615.0,
+"ebUS": 0.001179
+},
+"italy": {
+"etonnes": 20.0,
+"ebUS": 0.00011899999999999999
+},
+"china": {
+"etonnes": 37289.0,
+"ebUS": 0.060280999999999994
+},
+"germany": {
+"etonnes": 308.0,
+"ebUS": 0.001518
+},
+"france": {
+"etonnes": 31.0,
+"ebUS": 4.2e-05
+},
+"japan": {
+"etonnes": 4206.0,
+"ebUS": 0.013703
+},
+"poland": {
+"itonnes": 188.0,
+"ibUS": 0.000896
+},
+"israel": {
+"etonnes": 2.0,
+"ebUS": 6e-06
+},
+"peru": {
+"etonnes": 406.0,
+"ebUS": 0.00109
+},
+"colombia": {
+"etonnes": 5211.0,
+"ebUS": 0.011720999999999999
+},
+"brazil": {
+"etonnes": 4.0,
+"ebUS": 1.1e-05
+},
+"mexico": {
+"etonnes": 408843.0,
+"ebUS": 0.687112
+},
+"aruba": {
+"etonnes": 12.0,
+"ebUS": 4.7e-05
+},
+"afghanistan": {
+"ebUS": 7e-06
+},
+"netherlands": {
+"etonnes": 270.0,
+"ebUS": 0.001162
+},
+"australia": {
+"etonnes": 242.0,
+"ebUS": 0.000428
+},
+"belgium": {
+"etonnes": 40.0,
+"ebUS": 0.000215
+},
+"switzerland": {
+"etonnes": 5.0,
+"ebUS": 9e-06
+},
+"uruguay": {
+"etonnes": 5.0,
+"ebUS": 1.4e-05
+},
+"spain": {
+"itonnes": 125.0,
+"ibUS": 0.000308,
+"etonnes": 92.0,
+"ebUS": 0.000272
+},
+"denmark": {
+"itonnes": 72.0,
+"ibUS": 0.000158
+},
+"guatemala": {
+"etonnes": 3025.0,
+"ebUS": 0.009179999999999999
+},
+"canada": {
+"itonnes": 96682.0,
+"ibUS": 0.20440699999999998,
+"etonnes": 1402.0,
+"ebUS": 0.002724
+},
+"egypt": {
+"etonnes": 12.0,
+"ebUS": 3.9e-05
+},
+"eritrea": {
+"etonnes": 9.0,
+"ebUS": 2.6e-05
+}
+},
+"2016": {
+"korea": {
+"etonnes": 3611.0,
+"ebUS": 0.008648
+},
+"chile": {
+"itonnes": 420.0,
+"ibUS": 0.001918,
+"etonnes": 1533.0,
+"ebUS": 0.004595
+},
+"nigeria": {
+"etonnes": 4.0,
+"ebUS": 1.4e-05
+},
+"nicaragua": {
+"etonnes": 212.0,
+"ebUS": 0.000551
+},
+"ecuador": {
+"etonnes": 5.0,
+"ebUS": 1.4999999999999999e-05
+},
+"congo": {
+"itonnes": 2.0,
+"ibUS": 4e-06
+},
+"italy": {
+"etonnes": 155.0,
+"ebUS": 0.000507
+},
+"china": {
+"etonnes": 69187.0,
+"ebUS": 0.11298899999999999
+},
+"malaysia": {
+"etonnes": 42.0,
+"ebUS": 0.000101
+},
+"germany": {
+"etonnes": 146.0,
+"ebUS": 0.00036399999999999996
+},
+"iceland": {
+"etonnes": 3.0,
+"ebUS": 1.3e-05
+},
+"france": {
+"etonnes": 15.0,
+"ebUS": 2.6e-05
+},
+"japan": {
+"etonnes": 7307.0,
+"ebUS": 0.02702
+},
+"poland": {
+"itonnes": 1266.0,
+"ibUS": 0.004593
+},
+"peru": {
+"etonnes": 683.0,
+"ebUS": 0.001433
+},
+"colombia": {
+"etonnes": 6612.0,
+"ebUS": 0.014379
+},
+"brazil": {
+"itonnes": 16.0,
+"ibUS": 4.2999999999999995e-05,
+"etonnes": 4.0,
+"ebUS": 1.9999999999999998e-05
+},
+"mexico": {
+"etonnes": 427291.0,
+"ebUS": 0.769353
+},
+"aruba": {
+"etonnes": 212.0,
+"ebUS": 0.000468
+},
+"portugal": {
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"uk": {
+"etonnes": 2.0,
+"ebUS": 1.1e-05
+},
+"netherlands": {
+"etonnes": 22.0,
+"ebUS": 7.9e-05
+},
+"australia": {
+"etonnes": 112.0,
+"ebUS": 0.000279
+},
+"belgium": {
+"etonnes": 101.0,
+"ebUS": 0.000153
+},
+"switzerland": {
+"itonnes": 19.0,
+"ibUS": 2.9e-05
+},
+"uruguay": {
+"etonnes": 19.0,
+"ebUS": 5.6e-05
+},
+"spain": {
+"itonnes": 29.0,
+"ibUS": 0.00027299999999999997,
+"etonnes": 39.0,
+"ebUS": 0.00011499999999999999
+},
+"denmark": {
+"etonnes": 8.0,
+"ebUS": 3.2999999999999996e-05
+},
+"guatemala": {
+"etonnes": 3342.0,
+"ebUS": 0.009557999999999999
+},
+"canada": {
+"itonnes": 87630.0,
+"ibUS": 0.21881799999999998,
+"etonnes": 1304.0,
+"ebUS": 0.002453
+},
+"egypt": {
+"etonnes": 11.0,
+"ebUS": 3.1e-05
+}
+},
+"2014": {
+"korea": {
+"etonnes": 9124.0,
+"ebUS": 0.016298
+},
+"chile": {
+"itonnes": 335.0,
+"ibUS": 0.0017729999999999998,
+"etonnes": 2036.0,
+"ebUS": 0.005627
+},
+"italy": {
+"etonnes": 94.0,
+"ebUS": 0.00047999999999999996
+},
+"china": {
+"etonnes": 21676.0,
+"ebUS": 0.039639
+},
+"germany": {
+"itonnes": 22.0,
+"ibUS": 6.7e-05,
+"etonnes": 427.0,
+"ebUS": 0.001862
+},
+"cambodia": {
+"etonnes": 95.0,
+"ebUS": 0.000242
+},
+"france": {
+"etonnes": 60.0,
+"ebUS": 0.000274
+},
+"japan": {
+"etonnes": 2540.0,
+"ebUS": 0.006621999999999999
+},
+"poland": {
+"itonnes": 4.0,
+"ibUS": 1.7e-05
+},
+"peru": {
+"etonnes": 333.0,
+"ebUS": 0.0009069999999999999
+},
+"colombia": {
+"etonnes": 5432.0,
+"ebUS": 0.013557
+},
+"ecuador": {
+"itonnes": 1.0,
+"ibUS": 9.999999999999999e-06,
+"etonnes": 428.0,
+"ebUS": 0.0010559999999999999
+},
+"mexico": {
+"itonnes": 2.0,
+"ibUS": 4e-06,
+"etonnes": 398055.0,
+"ebUS": 0.922998
+},
+"aruba": {
+"etonnes": 108.0,
+"ebUS": 0.000274
+},
+"netherlands": {
+"etonnes": 205.0,
+"ebUS": 0.000545
+},
+"australia": {
+"etonnes": 531.0,
+"ebUS": 0.0013319999999999999
+},
+"uruguay": {
+"etonnes": 6.0,
+"ebUS": 1.8e-05
+},
+"russia": {
+"etonnes": 4331.0,
+"ebUS": 0.015113
+},
+"albania": {
+"etonnes": 24.0,
+"ebUS": 6.3e-05
+},
+"spain": {
+"itonnes": 73.0,
+"ibUS": 0.000125,
+"etonnes": 102.0,
+"ebUS": 0.00031
+},
+"nepal": {
+"etonnes": 22.0,
+"ebUS": 4.9e-05
+},
+"guatemala": {
+"etonnes": 3039.0,
+"ebUS": 0.009968
+},
+"nicaragua": {
+"etonnes": 104.0,
+"ebUS": 0.00029299999999999997
+},
+"canada": {
+"itonnes": 84246.0,
+"ibUS": 0.252683,
+"etonnes": 2132.0,
+"ebUS": 0.004386
+},
+"brazil": {
+"etonnes": 1.0,
+"ebUS": 3e-06
+},
+"egypt": {
+"etonnes": 20.0,
+"ebUS": 4.4999999999999996e-05
+},
+"bahrain": {
+"etonnes": 2.0,
+"ebUS": 9.999999999999999e-06
+}
+}
+},
+"ghana": {
+"2015": {
+"belgium": {
+"itonnes": 537.0,
+"ibUS": 0.000474
+},
+"poland": {
+"itonnes": 164.0,
+"ibUS": 9.6e-05
+},
+"denmark": {
+"itonnes": 53.0,
+"ibUS": 4.2e-05
+},
+"spain": {
+"itonnes": 36.0,
+"ibUS": 2.9999999999999997e-05
+},
+"cyprus": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"italy": {
+"itonnes": 61.0,
+"ibUS": 6.7e-05
+},
+"germany": {
+"itonnes": 7.0,
+"ibUS": 2.3e-05
+},
+"netherlands": {
+"itonnes": 121.0,
+"ibUS": 0.000174
+}
+},
+"2016": {
+"usa": {
+"itonnes": 401.0,
+"ibUS": 0.000281
+},
+"china": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"kenya": {
+"itonnes": 1.0,
+"ibUS": 3e-06
+},
+"uk": {
+"itonnes": 106.0,
+"ibUS": 8.4e-05
+},
+"netherlands": {
+"itonnes": 403.0,
+"ibUS": 0.000297
+},
+"france": {
+"itonnes": 8.0,
+"ibUS": 1.2e-05
+},
+"italy": {
+"itonnes": 100.0,
+"ibUS": 6.5e-05
+},
+"germany": {
+"itonnes": 117.0,
+"ibUS": 9.4e-05
+},
+"belgium": {
+"itonnes": 2663.0,
+"ibUS": 0.0016749999999999998
+},
+"spain": {
+"itonnes": 100.0,
+"ibUS": 6.7e-05
+},
+"denmark": {
+"itonnes": 264.0,
+"ibUS": 0.000213
+},
+"poland": {
+"itonnes": 511.0,
+"ibUS": 0.000314
+},
+"argentina": {
+"ibUS": 2.9999999999999997e-05
+},
+"brazil": {
+"itonnes": 27.0,
+"ibUS": 1.8e-05
+}
+},
+"2014": {
+"belgium": {
+"itonnes": 976.0,
+"ibUS": 0.00108
+},
+"poland": {
+"itonnes": 199.0,
+"ibUS": 0.000184
+},
+"uk": {
+"itonnes": 30.0,
+"ibUS": 2.9e-05
+},
+"netherlands": {
+"itonnes": 75.0,
+"ibUS": 0.000116
+},
+"france": {
+"itonnes": 23.0,
+"ibUS": 1.4e-05
+},
+"italy": {
+"itonnes": 100.0,
+"ibUS": 0.00016199999999999998
+},
+"germany": {
+"itonnes": 2.0,
+"ibUS": 1.4e-05
+}
+}
+},
+"denmark": {
+"2015": {
+"korea": {
+"etonnes": 6155.0,
+"ebUS": 0.011002
+},
+"greece": {
+"itonnes": 1.0,
+"ibUS": 4e-06,
+"etonnes": 85.0,
+"ebUS": 0.000215
+},
+"estonia": {
+"itonnes": 2.0,
+"ibUS": 6e-06,
+"etonnes": 1168.0,
+"ebUS": 0.002224
+},
+"mexico": {
+"etonnes": 267.0,
+"ebUS": 0.001593
+},
+"norway": {
+"itonnes": 188.0,
+"ibUS": 0.000807,
+"etonnes": 68.0,
+"ebUS": 0.00033999999999999997
+},
+"romania": {
+"itonnes": 1.0,
+"ibUS": 2e-06,
+"etonnes": 2220.0,
+"ebUS": 0.0036599999999999996
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 1.0,
+"ebUS": 2e-06
+},
+"italy": {
+"itonnes": 154.0,
+"ibUS": 0.000812,
+"etonnes": 108227.0,
+"ebUS": 0.199601
+},
+"qatar": {
+"etonnes": 33.0,
+"ebUS": 0.000267
+},
+"germany": {
+"itonnes": 20834.0,
+"ibUS": 0.054924,
+"etonnes": 310320.0,
+"ebUS": 0.41443399999999997
+},
+"sweden": {
+"itonnes": 68.0,
+"ibUS": 0.00026199999999999997,
+"etonnes": 1057.0,
+"ebUS": 0.002779
+},
+"iceland": {
+"etonnes": 4.0,
+"ebUS": 3.5e-05
+},
+"france": {
+"itonnes": 397.0,
+"ibUS": 0.001364,
+"etonnes": 3517.0,
+"ebUS": 0.009656999999999999
+},
+"japan": {
+"etonnes": 6061.0,
+"ebUS": 0.024395999999999998
+},
+"poland": {
+"itonnes": 1040.0,
+"ibUS": 0.0034909999999999997,
+"etonnes": 105174.0,
+"ebUS": 0.17615699999999998
+},
+"uruguay": {
+"etonnes": 66.0,
+"ebUS": 0.000248
+},
+"usa": {
+"etonnes": 18118.0,
+"ebUS": 0.091593
+},
+"greenland": {
+"etonnes": 556.0,
+"ebUS": 0.0026449999999999998
+},
+"china": {
+"etonnes": 60785.0,
+"ebUS": 0.149225
+},
+"croatia": {
+"etonnes": 2457.0,
+"ebUS": 0.004651
+},
+"finland": {
+"itonnes": 81.0,
+"ibUS": 0.000296,
+"etonnes": 1056.0,
+"ebUS": 0.0031739999999999997
+},
+"bulgaria": {
+"etonnes": 82.0,
+"ebUS": 5.9e-05
+},
+"uk": {
+"itonnes": 662.0,
+"ibUS": 0.002644,
+"etonnes": 72160.0,
+"ebUS": 0.135399
+},
+"netherlands": {
+"itonnes": 1352.0,
+"ibUS": 0.004582,
+"etonnes": 6247.0,
+"ebUS": 0.010038
+},
+"austria": {
+"itonnes": 8.0,
+"ibUS": 5.8e-05,
+"etonnes": 1183.0,
+"ebUS": 0.001518
+},
+"belgium": {
+"itonnes": 59.0,
+"ibUS": 0.000316,
+"etonnes": 506.0,
+"ebUS": 0.0009019999999999999
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 0.0
+},
+"australia": {
+"etonnes": 9375.0,
+"ebUS": 0.029623
+},
+"spain": {
+"itonnes": 743.0,
+"ibUS": 0.00296,
+"etonnes": 2437.0,
+"ebUS": 0.004764
+},
+"hungary": {
+"itonnes": 10.0,
+"ibUS": 3.9e-05,
+"etonnes": 1390.0,
+"ebUS": 0.001929
+},
+"ghana": {
+"etonnes": 53.0,
+"ebUS": 3.7e-05
+},
+"nepal": {
+"etonnes": 5.0,
+"ebUS": 2.1e-05
+},
+"canada": {
+"etonnes": 2160.0,
+"ebUS": 0.011680999999999999
+},
+"argentina": {
+"etonnes": 456.0,
+"ebUS": 0.0017909999999999998
+}
+},
+"2016": {
+"korea": {
+"etonnes": 5113.0,
+"ebUS": 0.006853
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"algeria": {
+"ebUS": 0.000102
+},
+"greece": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 18.0,
+"ebUS": 5.1e-05
+},
+"estonia": {
+"itonnes": 2.0,
+"ibUS": 7e-06,
+"etonnes": 1148.0,
+"ebUS": 0.002497
+},
+"mexico": {
+"etonnes": 45.0,
+"ebUS": 0.000265
+},
+"romania": {
+"etonnes": 1179.0,
+"ebUS": 0.00229
+},
+"congo": {
+"etonnes": 22.0,
+"ebUS": 2.6e-05
+},
+"italy": {
+"itonnes": 52.0,
+"ibUS": 0.000178,
+"etonnes": 93392.0,
+"ebUS": 0.178114
+},
+"qatar": {
+"etonnes": 49.0,
+"ebUS": 0.000358
+},
+"india": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"germany": {
+"itonnes": 17092.0,
+"ibUS": 0.04727,
+"etonnes": 291267.0,
+"ebUS": 0.417859
+},
+"sweden": {
+"itonnes": 65.0,
+"ibUS": 0.000298,
+"etonnes": 1084.0,
+"ebUS": 0.002163
+},
+"iceland": {
+"etonnes": 61.0,
+"ebUS": 0.000272
+},
+"france": {
+"itonnes": 409.0,
+"ibUS": 0.001545,
+"etonnes": 3978.0,
+"ebUS": 0.014296999999999999
+},
+"japan": {
+"etonnes": 4227.0,
+"ebUS": 0.01906
+},
+"poland": {
+"itonnes": 940.0,
+"ibUS": 0.0028339999999999997,
+"etonnes": 114254.0,
+"ebUS": 0.19556099999999998
+},
+"uruguay": {
+"etonnes": 26.0,
+"ebUS": 8.4e-05
+},
+"kenya": {
+"etonnes": 10.0,
+"ebUS": 6.1e-05
+},
+"usa": {
+"etonnes": 16350.0,
+"ebUS": 0.088624
+},
+"greenland": {
+"etonnes": 484.0,
+"ebUS": 0.00209
+},
+"china": {
+"etonnes": 103010.0,
+"ebUS": 0.22452699999999998
+},
+"croatia": {
+"etonnes": 811.0,
+"ebUS": 0.001549
+},
+"finland": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 1075.0,
+"ebUS": 0.0031409999999999997
+},
+"bulgaria": {
+"itonnes": 18.0,
+"ibUS": 7.2e-05,
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"uk": {
+"itonnes": 460.0,
+"ibUS": 0.001653,
+"etonnes": 88445.0,
+"ebUS": 0.166374
+},
+"netherlands": {
+"itonnes": 1868.0,
+"ibUS": 0.004415,
+"etonnes": 5766.0,
+"ebUS": 0.010324
+},
+"austria": {
+"itonnes": 36.0,
+"ibUS": 0.000164,
+"etonnes": 936.0,
+"ebUS": 0.001389
+},
+"belgium": {
+"itonnes": 50.0,
+"ibUS": 0.000202,
+"etonnes": 248.0,
+"ebUS": 0.00046499999999999997
+},
+"australia": {
+"etonnes": 159.0,
+"ebUS": 0.00048499999999999997
+},
+"spain": {
+"itonnes": 719.0,
+"ibUS": 0.002437,
+"etonnes": 2685.0,
+"ebUS": 0.005516999999999999
+},
+"hungary": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 172.0,
+"ebUS": 0.00022099999999999998
+},
+"ghana": {
+"etonnes": 1.0,
+"ebUS": 6e-06
+},
+"norway": {
+"itonnes": 218.0,
+"ibUS": 0.0010019999999999999,
+"etonnes": 37.0,
+"ebUS": 7.3e-05
+},
+"canada": {
+"etonnes": 2296.0,
+"ebUS": 0.012152999999999999
+},
+"argentina": {
+"etonnes": 494.0,
+"ebUS": 0.002018
+}
+},
+"2014": {
+"korea": {
+"etonnes": 5496.0,
+"ebUS": 0.008185999999999999
+},
+"greece": {
+"itonnes": 1.0,
+"ibUS": 2e-06,
+"etonnes": 96.0,
+"ebUS": 0.000272
+},
+"cyprus": {
+"etonnes": 25.0,
+"ebUS": 7.8e-05
+},
+"norway": {
+"itonnes": 60.0,
+"ibUS": 0.000296,
+"etonnes": 109.0,
+"ebUS": 0.000459
+},
+"romania": {
+"itonnes": 2.0,
+"ibUS": 7e-06,
+"etonnes": 1033.0,
+"ebUS": 0.0026089999999999998
+},
+"congo": {
+"etonnes": 54.0,
+"ebUS": 0.000156
+},
+"italy": {
+"itonnes": 99.0,
+"ibUS": 0.000513,
+"etonnes": 98462.0,
+"ebUS": 0.245468
+},
+"malaysia": {
+"etonnes": 3.0,
+"ebUS": 8e-06
+},
+"qatar": {
+"etonnes": 28.0,
+"ebUS": 0.00025299999999999997
+},
+"portugal": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"germany": {
+"itonnes": 22332.0,
+"ibUS": 0.064647,
+"etonnes": 325001.0,
+"ebUS": 0.6300899999999999
+},
+"sweden": {
+"itonnes": 48.0,
+"ibUS": 0.000263,
+"etonnes": 2550.0,
+"ebUS": 0.010894
+},
+"iceland": {
+"etonnes": 5.0,
+"ebUS": 3.1e-05
+},
+"france": {
+"itonnes": 953.0,
+"ibUS": 0.003195,
+"etonnes": 11416.0,
+"ebUS": 0.031847
+},
+"japan": {
+"etonnes": 10455.0,
+"ebUS": 0.050073
+},
+"poland": {
+"itonnes": 969.0,
+"ibUS": 0.004338,
+"etonnes": 105223.0,
+"ebUS": 0.24465199999999998
+},
+"canada": {
+"etonnes": 2414.0,
+"ebUS": 0.013261
+},
+"azerbaijan": {
+"etonnes": 9.0,
+"ebUS": 2.9999999999999997e-05
+},
+"usa": {
+"etonnes": 22040.0,
+"ebUS": 0.107207
+},
+"greenland": {
+"etonnes": 587.0,
+"ebUS": 0.0031079999999999997
+},
+"china": {
+"etonnes": 38328.0,
+"ebUS": 0.094442
+},
+"croatia": {
+"etonnes": 542.0,
+"ebUS": 0.0014529999999999999
+},
+"finland": {
+"itonnes": 30.0,
+"ibUS": 0.000143,
+"etonnes": 988.0,
+"ebUS": 0.004391
+},
+"bulgaria": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 66.0,
+"ebUS": 6.2e-05
+},
+"uk": {
+"itonnes": 664.0,
+"ibUS": 0.003495,
+"etonnes": 57714.0,
+"ebUS": 0.14737899999999998
+},
+"netherlands": {
+"itonnes": 2238.0,
+"ibUS": 0.006225,
+"etonnes": 4473.0,
+"ebUS": 0.010541
+},
+"austria": {
+"itonnes": 6.0,
+"ibUS": 4.9999999999999996e-05,
+"etonnes": 1173.0,
+"ebUS": 0.0021479999999999997
+},
+"gabon": {
+"etonnes": 25.0,
+"ebUS": 5.4999999999999995e-05
+},
+"uruguay": {
+"etonnes": 76.0,
+"ebUS": 0.000294
+},
+"belgium": {
+"itonnes": 61.0,
+"ibUS": 0.00043299999999999995,
+"etonnes": 997.0,
+"ebUS": 0.002642
+},
+"russia": {
+"etonnes": 437.0,
+"ebUS": 0.001361
+},
+"australia": {
+"etonnes": 7035.0,
+"ebUS": 0.027663999999999998
+},
+"switzerland": {
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"spain": {
+"itonnes": 1733.0,
+"ibUS": 0.0069819999999999995,
+"etonnes": 1796.0,
+"ebUS": 0.004295
+},
+"hungary": {
+"itonnes": 1.0,
+"ibUS": 7e-06,
+"etonnes": 1161.0,
+"ebUS": 0.0027129999999999997
+},
+"estonia": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 1500.0,
+"ebUS": 0.003941
+},
+"nepal": {
+"etonnes": 9.0,
+"ebUS": 3.2999999999999996e-05
+},
+"belarus": {
+"etonnes": 278.0,
+"ebUS": 0.0008939999999999999
+},
+"argentina": {
+"etonnes": 111.0,
+"ebUS": 0.000523
+},
+"mexico": {
+"etonnes": 266.0,
+"ebUS": 0.001581
+}
+}
+},
+"canada": {
+"2015": {
+"korea": {
+"etonnes": 8096.0,
+"ebUS": 0.021755
+},
+"chile": {
+"etonnes": 1714.0,
+"ebUS": 0.0034479999999999997
+},
+"congo": {
+"etonnes": 76.0,
+"ebUS": 0.000121
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 28.0,
+"ebUS": 4.9999999999999996e-05
+},
+"malaysia": {
+"etonnes": 9.0,
+"ebUS": 9e-06
+},
+"germany": {
+"itonnes": 141.0,
+"ibUS": 0.00032399999999999996,
+"etonnes": 25.0,
+"ebUS": 3.9e-05
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 0.0,
+"etonnes": 31.0,
+"ebUS": 8.7e-05
+},
+"japan": {
+"etonnes": 7949.0,
+"ebUS": 0.028208
+},
+"cuba": {
+"etonnes": 2073.0,
+"ebUS": 0.005703
+},
+"peru": {
+"etonnes": 24.0,
+"ebUS": 3.7e-05
+},
+"angola": {
+"etonnes": 306.0,
+"ebUS": 0.000276
+},
+"usa": {
+"itonnes": 762.0,
+"ibUS": 0.002129,
+"etonnes": 96682.0,
+"ebUS": 0.204372
+},
+"mexico": {
+"etonnes": 24301.0,
+"ebUS": 0.034658999999999995
+},
+"china": {
+"etonnes": 16953.0,
+"ebUS": 0.026028
+},
+"netherlands": {
+"itonnes": 31.0,
+"ibUS": 5.4e-05,
+"etonnes": 135.0,
+"ebUS": 0.00024099999999999998
+},
+"australia": {
+"etonnes": 1004.0,
+"ebUS": 0.002117
+},
+"uruguay": {
+"etonnes": 24.0,
+"ebUS": 1.6e-05
+},
+"russia": {
+"etonnes": 26.0,
+"ebUS": 3.7999999999999995e-05
+},
+"albania": {
+"etonnes": 380.0,
+"ebUS": 0.0005909999999999999
+},
+"spain": {
+"itonnes": 14.0,
+"ibUS": 3.2e-05,
+"etonnes": 90.0,
+"ebUS": 0.000155
+},
+"colombia": {
+"etonnes": 531.0,
+"ebUS": 0.000886
+},
+"denmark": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"austria": {
+"etonnes": 24.0,
+"ebUS": 4.8e-05
+}
+},
+"2016": {
+"korea": {
+"etonnes": 9507.0,
+"ebUS": 0.031552
+},
+"mexico": {
+"etonnes": 31962.0,
+"ebUS": 0.047969
+},
+"china": {
+"etonnes": 40419.0,
+"ebUS": 0.064522
+},
+"finland": {
+"etonnes": 29.0,
+"ebUS": 5.6e-05
+},
+"chile": {
+"itonnes": 262.0,
+"ibUS": 0.00052,
+"etonnes": 1191.0,
+"ebUS": 0.002464
+},
+"netherlands": {
+"etonnes": 82.0,
+"ebUS": 0.00014199999999999998
+},
+"australia": {
+"etonnes": 652.0,
+"ebUS": 0.001398
+},
+"congo": {
+"etonnes": 128.0,
+"ebUS": 0.00016199999999999998
+},
+"italy": {
+"etonnes": 6.0,
+"ebUS": 1.1e-05
+},
+"albania": {
+"etonnes": 106.0,
+"ebUS": 0.000157
+},
+"germany": {
+"itonnes": 51.0,
+"ibUS": 0.000117,
+"etonnes": 100.0,
+"ebUS": 0.000166
+},
+"spain": {
+"itonnes": 6.0,
+"ibUS": 9.999999999999999e-06,
+"etonnes": 50.0,
+"ebUS": 7.4e-05
+},
+"usa": {
+"itonnes": 601.0,
+"ibUS": 0.0017549999999999998,
+"etonnes": 87697.0,
+"ebUS": 0.218726
+},
+"angola": {
+"etonnes": 121.0,
+"ebUS": 0.000167
+},
+"france": {
+"etonnes": 25.0,
+"ebUS": 6.9e-05
+},
+"japan": {
+"etonnes": 12567.0,
+"ebUS": 0.048747
+},
+"cuba": {
+"etonnes": 1765.0,
+"ebUS": 0.0036479999999999998
+},
+"austria": {
+"itonnes": 151.0,
+"ibUS": 0.00034399999999999996
+},
+"peru": {
+"etonnes": 52.0,
+"ebUS": 7.999999999999999e-05
+},
+"colombia": {
+"etonnes": 357.0,
+"ebUS": 0.0006839999999999999
+}
+},
+"2014": {
+"armenia": {
+"etonnes": 53.0,
+"ebUS": 0.000117
+},
+"korea": {
+"etonnes": 3046.0,
+"ebUS": 0.00823
+},
+"chile": {
+"etonnes": 1789.0,
+"ebUS": 0.00513
+},
+"romania": {
+"etonnes": 26.0,
+"ebUS": 3.4e-05
+},
+"congo": {
+"etonnes": 79.0,
+"ebUS": 0.000153
+},
+"malaysia": {
+"etonnes": 75.0,
+"ebUS": 0.000281
+},
+"azerbaijan": {
+"etonnes": 26.0,
+"ebUS": 4.2e-05
+},
+"germany": {
+"itonnes": 12.0,
+"ibUS": 3.9999999999999996e-05,
+"etonnes": 25.0,
+"ebUS": 6.1e-05
+},
+"france": {
+"itonnes": 0.0,
+"ibUS": 1e-06,
+"etonnes": 28.0,
+"ebUS": 0.000104
+},
+"japan": {
+"etonnes": 5771.0,
+"ebUS": 0.025488
+},
+"cuba": {
+"etonnes": 629.0,
+"ebUS": 0.0018299999999999998
+},
+"poland": {
+"itonnes": 46.0,
+"ibUS": 0.00017199999999999998
+},
+"peru": {
+"etonnes": 34.0,
+"ebUS": 7.599999999999999e-05
+},
+"angola": {
+"etonnes": 689.0,
+"ebUS": 0.001405
+},
+"ecuador": {
+"etonnes": 557.0,
+"ebUS": 0.001152
+},
+"usa": {
+"itonnes": 1437.0,
+"ibUS": 0.004284,
+"etonnes": 84368.0,
+"ebUS": 0.256645
+},
+"mexico": {
+"etonnes": 17034.0,
+"ebUS": 0.03948
+},
+"china": {
+"etonnes": 12573.0,
+"ebUS": 0.017029
+},
+"finland": {
+"itonnes": 11.0,
+"ibUS": 3.7999999999999995e-05
+},
+"netherlands": {
+"itonnes": 24.0,
+"ibUS": 7.599999999999999e-05,
+"etonnes": 391.0,
+"ebUS": 0.0009639999999999999
+},
+"australia": {
+"etonnes": 975.0,
+"ebUS": 0.002557
+},
+"russia": {
+"etonnes": 17159.0,
+"ebUS": 0.042942
+},
+"albania": {
+"ebUS": 6.9e-05
+},
+"spain": {
+"itonnes": 1.0,
+"ibUS": 2e-06,
+"etonnes": 50.0,
+"ebUS": 0.000112
+},
+"colombia": {
+"etonnes": 1013.0,
+"ebUS": 0.002495
+},
+"indonesia": {
+"etonnes": 102.0,
+"ebUS": 0.000194
+},
+"belarus": {
+"etonnes": 2126.0,
+"ebUS": 0.005676
+},
+"austria": {
+"itonnes": 60.0,
+"ibUS": 0.000163
+}
+}
+},
+"zimbabwe": {
+"2015": {
+"uk": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+}
+},
+"2014": {
+"china": {
+"ibUS": 0.0
+}
+}
+},
+"egypt": {
+"2015": {
+"usa": {
+"itonnes": 12.0,
+"ibUS": 4.2999999999999995e-05
+},
+"germany": {
+"itonnes": 21.0,
+"ibUS": 5.4e-05
+},
+"italy": {
+"itonnes": 0.0,
+"ibUS": 4.9999999999999996e-06
+},
+"malaysia": {
+"itonnes": 0.0,
+"ibUS": 3e-06
+}
+},
+"2016": {
+"usa": {
+"itonnes": 11.0,
+"ibUS": 3.4e-05
+},
+"germany": {
+"itonnes": 32.0,
+"ibUS": 8.2e-05
+},
+"uk": {
+"itonnes": 39.0,
+"ibUS": 3.9999999999999996e-05
+},
+"brazil": {
+"ibUS": 0.0
+}
+},
+"2014": {
+"usa": {
+"itonnes": 20.0,
+"ibUS": 4.9999999999999996e-05
+},
+"germany": {
+"itonnes": 31.0,
+"ibUS": 0.000102
+},
+"qatar": {
+"etonnes": 2.0,
+"ebUS": 4e-06
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 6e-06
+}
+}
+},
+"argentina": {
+"2015": {
+"denmark": {
+"ibUS": 1.4999999999999999e-05
+}
+},
+"2016": {
+"denmark": {
+"itonnes": 17.0,
+"ibUS": 3.9999999999999996e-05
+}
+}
+},
+"switzerland": {
+"2015": {
+"usa": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"poland": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"uk": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 4e-06
+},
+"austria": {
+"itonnes": 4.0,
+"ibUS": 5.1e-05
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 9.999999999999999e-06,
+"etonnes": 15.0,
+"ebUS": 9.2e-05
+},
+"germany": {
+"itonnes": 93.0,
+"ibUS": 0.0006039999999999999,
+"etonnes": 1.0,
+"ebUS": 3.2999999999999996e-05
+},
+"spain": {
+"itonnes": 11.0,
+"ibUS": 8.3e-05,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"hungary": {
+"itonnes": 2.0,
+"ibUS": 2.2e-05
+},
+"france": {
+"itonnes": 27.0,
+"ibUS": 0.000194,
+"etonnes": 0.0,
+"ebUS": 4e-06
+},
+"norway": {
+"itonnes": 0.0,
+"ibUS": 0.0
+},
+"portugal": {
+"itonnes": 96.0,
+"ibUS": 0.000593
+}
+},
+"2016": {
+"germany": {
+"itonnes": 90.0,
+"ibUS": 0.000484,
+"etonnes": 0.0,
+"ebUS": 2e-06
+},
+"portugal": {
+"itonnes": 108.0,
+"ibUS": 0.0006309999999999999
+},
+"hungary": {
+"itonnes": 2.0,
+"ibUS": 2.4e-05
+},
+"france": {
+"itonnes": 11.0,
+"ibUS": 6.5e-05,
+"etonnes": 0.0,
+"ebUS": 1e-06
+},
+"austria": {
+"itonnes": 4.0,
+"ibUS": 4.6e-05
+},
+"spain": {
+"itonnes": 18.0,
+"ibUS": 0.000117,
+"etonnes": 108.0,
+"ebUS": 0.0006219999999999999
+},
+"poland": {
+"itonnes": 0.0,
+"ibUS": 1e-06
+},
+"italy": {
+"itonnes": 2.0,
+"ibUS": 2.1e-05,
+"etonnes": 20.0,
+"ebUS": 0.000133
+}
+},
+"2014": {
+"usa": {
+"itonnes": 1.0,
+"ibUS": 8e-06
+},
+"germany": {
+"itonnes": 3210.0,
+"ibUS": 0.009370999999999999,
+"etonnes": 1.0,
+"ebUS": 1.4999999999999999e-05
+},
+"portugal": {
+"itonnes": 79.0,
+"ibUS": 0.0007
+},
+"hungary": {
+"itonnes": 1.0,
+"ibUS": 2.4e-05
+},
+"france": {
+"itonnes": 50.0,
+"ibUS": 0.00040699999999999997
+},
+"austria": {
+"ibUS": 0.00024599999999999996
+},
+"spain": {
+"itonnes": 5.0,
+"ibUS": 4.2e-05
+},
+"netherlands": {
+"itonnes": 0.0,
+"ibUS": 1.3e-05
+},
+"italy": {
+"itonnes": 1.0,
+"ibUS": 4.9999999999999996e-06,
+"etonnes": 8.0,
+"ebUS": 6.3e-05
+}
+}
+}
+}
