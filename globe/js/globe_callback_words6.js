@@ -3,10 +3,6 @@
 // http://www.csgnetwork.com/llinfotable.html SOUTH:- NORTH:+ and WEST:- EAST:+
 // https://theatlasofdata.github.io/ecoflow
 
-// ----- to do :
-//       country choice
-//       popups for the help
-
 console.clear();
 
 // make variables
@@ -14,7 +10,7 @@ var count=[],delta_count=[],nt=new THREE.Vector3(),pt=new THREE.Vector3(),u=new 
 var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
 const ZoomSensitivity=0.0001;
 var thetaX=0.0,thetaY=0.0;
-var vS=[],vT=[],vS_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,material,weight0=20.0,source=0,target=0;
+var vS=[],vT=[],vS_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,material,weight0=20.0,source=0,target=0,inc,inc_ball,inc_cube;
 var paths=new THREE.CurvePath();
 const segments0=16,rings0=16;
 var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2014,country='',countries,n_countries=0,country_index,index_country,theta,bn=[],bn_length;
@@ -25,7 +21,7 @@ var i_word=5,word='',n_words,words=[],buffer_words=[];
 var text='',text_buffer='',list_keywords='';
 var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,volumes=[],volume,volumes_length;
 var myButton,myButtonFontSize='10px';
-var data_json,data_json_w,data_json_trade,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_trade_links=0,max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
+var data_json,data_json_w,data_json_trade,data_json_trade_i,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],n_trade_links=0,max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
 var cylinder_height,cylinder_heights=[],cylinder_heights_length,nom,detail;
 // --- variables : FAO data
 // annual production
@@ -83,9 +79,9 @@ var label,buffer_int;
 // --- variables : trade from FAO database
 var title_FAO_trade=['chicken'+'\xa0'+'meat'+'\xa0'+'trade','eggs'+'\xa0'+'trade','maize'+'\xa0'+'trade','pig'+'\xa0'+'meat'+'\xa0'+'trade','rice'+'\xa0'+'trade','sugar'+'\xa0'+'trade'];
 var id_FAO_trade=['chicken_meat_trade','eggs_trade','maize_trade','pig_meat_trade','rice_trade','sugar_trade'];
-var b_FAO_trade=[],i_FAO_trade='';
+var b_FAO_trade=[],i_FAO_trade='',arg_trade=['etonnes','itonnes'];
 for(var i in id_FAO_trade) b_FAO_trade[i]=false;
-var d_export=[],export_i;
+var d_trade=[],import_i,export_i,max_ie;
 const radius=200,segments=128,rings=128;
 var phong=true,lambert=false,standard=false;
 var continents=['all','africa','america','asia','europa'];
@@ -227,14 +223,13 @@ function readJSON(data){
 	myButton.style.color=colors[i%n_colors];
 	myButton.style.cursor='pointer';
 	myButton.id=word;
-	myButton.innerHTML=word;
+	myButton.innerHTML=word.replace(/_/g,'\xa0');
 	myButton.style.fontSize='20px';
 	document.getElementById('keywords').appendChild(myButton);
 	document.getElementById('keywords').appendChild(document.createElement('br'));
 	document.getElementById(word).addEventListener('click',highlight,false);
     }
     word=words[i_word];
-    document.getElementById('WORD').innerHTML=word;
     // list of years
     for(var y=2000;y<=max_year;y++){
 	myButton=document.createElement('span');
@@ -255,7 +250,7 @@ function readJSON(data){
 	myButton.style.color='white';
 	myButton.style.cursor='pointer';
 	myButton.id=id_FAO[i];
-	myButton.innerHTML=title_FAO[i];
+	myButton.innerHTML=title_FAO[i].replace(/_/g,'\xa0');
 	myButton.style.fontSize='20px';
 	document.getElementById('leftFAO').appendChild(myButton);
 	document.getElementById('leftFAO').appendChild(document.createElement('br'));
@@ -348,13 +343,13 @@ function readJSON(data){
 	document.getElementById(myButton.id).addEventListener('click',change_country,false);
     }
     // Percentages buttons
-    for(var i=0;i<10;i++){
+    for(var i=0;i<20;i++){
 	myButton=document.createElement('span');
 	myButton.className='button';
 	myButton.style.color='violet';
 	myButton.style.cursor='pointer';
-	myButton.id='p'+(i*10).toString();
-	myButton.innerHTML=(i*10).toString();
+	myButton.id='p'+(i*5).toString();
+	myButton.innerHTML=(i*5).toString();
 	myButton.style.fontSize='20px';
 	document.getElementById('leftPercentage').appendChild(myButton);
 	document.getElementById('leftPercentage').appendChild(document.createElement('br'));
@@ -402,8 +397,7 @@ function readJSON(data){
 
     data_json_w=data_json[word];
     
-    list_pileups_year();
-    list_pairwize_year();
+    list_pileups_pairwize_year();
     change_FAO();
     change_FAO_trade();
     change_links_pubmed();
@@ -426,6 +420,7 @@ function change_FAO(){
 	for(var i=0;i<n_links;i++) scene.remove(scene.getObjectByName('link'+(i.toString())));
 	// clean the moving meshes
 	for(var i=0;i<n_balls;i++) scene.remove(scene.getObjectByName('ball'+(i.toString())));
+	for(var i=0;i<n_cubes;i++) scene.remove(scene.getObjectByName('cube'+(i.toString())));
 	// new FAO data (no trade ones)
 	document.getElementById('YEAR').innerHTML=year.toString();
 	document.getElementById('WORD').innerHTML='';
@@ -553,20 +548,23 @@ function change_FAO(){
 };
 
 // making the new links and the new pileups
-function change_links_pubmed(){
+function change_pubmed(){
     if(i_word!==-1 && a_FAO_i==='' && i_FAO_trade===''){
-	console.log('change_links_pubmed');
+	console.log('change_pubmed');
 	// making the pileup for each country
 	cylinder_heights_length=cylinder_heights.length;
 	vS_length=vS.length;
 	max_pileups=0.0;
 	for(var i=0;i<n_pileups_year;i++) max_pileups=Math.max(max_pileups,data_json_w['pileups'][pileups_year[i]]['value']);
-	// ???
+	// calculating the threshold
 	values=[];
 	for(var i=0;i<n_pileups_year;i++) values.push(data_json_w['pileups'][pileups_year[i]]['value']);
 	values.sort(function(a,b){return a-b});
 	lower_value=values[parseInt((plower_bound/100.0)*values.length)];
-	// ???
+	document.getElementById('YEAR').innerHTML='';
+	document.getElementById('WORD').innerHTML=word.toUpperCase()+'\xa0'+(100.0-plower_bound).toString()+'%\xa0of\xa0the\xa0highest\xa0values\xa0in\xa0'+(year.toString());
+	// looping over the pileups
+	lower_value=-1.0;
 	inc=0;
 	for(var i=0;i<n_pileups_year;i++){
 	    ii=pileups_year[i];
@@ -590,7 +588,6 @@ function change_links_pubmed(){
 		    cylinder_heights_length++;
 		}
 		vT[inc].multiplyScalar(radius+0.5*cylinder_height);
-		console.log(inc,i,source,vT[inc]);
 		nom='pileup'+(inc.toString());
 		source=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'];
 		detail=source.concat(' : ',data_json_w['pileups'][ii]['value'].toString());
@@ -635,14 +632,12 @@ function change_links_pubmed(){
 	bn_length=bn.length;
 	for(var i=0;i<(vS_length-mST_length);i++) mST.push(new THREE.Vector3());
 	for(var i=0;i<(vS_length-bn_length);i++) bn.push(new THREE.Vector3());
-	// ???
+	// calculating the threshold
 	values=[];
 	for(var i=0;i<n_pairwize_year;i++) values.push(data_json_w['links'][pairwize_year[i]]['value']);
 	values.sort(function(a,b){return a-b});
 	lower_value=values[parseInt((plower_bound/100.0)*values.length)];
-	// console.log(values);
-	// console.log(plower_bound,parseInt((plower_bound/100.0)*values.length),lower_value);
-	// ???
+	// looping over the pairwize
 	inc=0;
 	for(var i=0;i<n_pairwize_year;i++){
 	    ii=pairwize_year[i];
@@ -753,6 +748,8 @@ function change_links_pubmed(){
 function change_FAO_trade(){
     if(b_FAO_trade[i_FAO_trade]){
 	console.log('change_FAO_trade');
+	var popup=document.getElementById("myPopupTrade");
+	popup.classList.toggle("show");
 	document.getElementById('YEAR').innerHTML='';
 	document.getElementById('WORD').innerHTML=title_FAO_trade[id_FAO_trade.findIndex(function(e){return e===i_FAO_trade;})].toUpperCase()+'\xa0'+(100.0-plower_bound).toString()+'%\xa0of\xa0the\xa0highest\xa0values\xa0in\xa0'+(year.toString());
 	max_trade=0.0;
@@ -789,114 +786,141 @@ function change_FAO_trade(){
 	for(var i=0;i<(vS_length-bn_length);i++) bn.push(new THREE.Vector3());
 	console.log('change_FAO_trade',volumes.length);
 	inc=0;
+	inc_ball=0;
+	inc_cube=0;
 	for(i in data_json_trade){
 	    for(j in data_json_trade[i]){
 		if(j===year.toString()){
-		    for(k in data_json_trade[i][j]){
-			if(data_json_trade[i][j][k]['etonnes']!=null){
-			    export_i=data_json_trade[i][j][k]['etonnes'];// export de i vers k
-			    import_i=-1.0;
-			    if(data_json_trade[k][j][i]['itonnes']!=null) import_i=data_json_trade[k][j][i]['itonnes'];// import de k vers i (equiv de export de i vers k)
-			    source=data_json['LL'][country_index[i].toString()]['continent'];
-			    target=data_json['LL'][country_index[k].toString()]['continent'];
-			    if((export_i || import_i)>=lower_value && (((i===country || k===country || country==='all') && country!=='') || (country==='' && ((source===continent_1 && target===continent_2) || (source===continent_2 && target===continent_1) || continent_1==='all' || continent_2==='all')))){
-				// Starting and target points
-				index=n_countries*Math.min(country_index[i],country_index[k])+Math.max(country_index[i],country_index[k]);
-				LATi=0.5*Math.PI-data_json['LL'][country_index[i].toString()]['lat']*Math.PI/180.0;
-				LONi=0.5*Math.PI+data_json['LL'][country_index[i].toString()]['lon']*Math.PI/180.0;
-				if(inc<vS_length){
-				    vS[inc].setX(Math.sin(LATi)*Math.sin(LONi));
-				    vS[inc].setY(Math.cos(LATi));
-				    vS[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
-				    mST[inc].copy(vS[inc]);
-				}else{
-				    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-				    mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+		    data_json_trade_i=data_json_trade[i];
+		    for(k in data_json_trade_i[j]){
+			for(var a in arg_trade){
+			    if(data_json_trade_i[j][k][arg_trade[a]]!=null){
+				if(arg_trade[a]==='itonnes') import_i=data_json_trade_i[j][k]['itonnes'];
+				if(arg_trade[a]==='etonnes') export_i=data_json_trade_i[j][k]['etonnes'];// i export vers k (equiv k import de i)
+				if(a===0 && arg_trade[a]==='itonnes'){
+				    max_ie=import_i;
+				    if(data_json_trade_i[j][k]['etonnes']!=null) max_ie=Math.max(import_i,data_json_trade_i[j][k]['etonnes']);
 				}
-				LATi=0.5*Math.PI-data_json['LL'][country_index[k].toString()]['lat']*Math.PI/180.0;
-				LONi=0.5*Math.PI+data_json['LL'][country_index[k].toString()]['lon']*Math.PI/180.0;
-				if(inc<vS_length){
-				    vT[inc].setX(Math.sin(LATi)*Math.sin(LONi));
-				    vT[inc].setY(Math.cos(LATi));
-				    vT[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
-				}else{
-				    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-				    bn.push(new THREE.Vector3());
+				if(a===0 && arg_trade[a]==='etonnes'){
+				    max_ie=export_i;
+				    if(data_json_trade_i[j][k]['itonnes']!=null) max_ie=Math.max(export_i,data_json_trade_i[j][k]['itonnes']);
 				}
-				if(inc>=vS_length) vS_length++;
-				// mid-point
-				theta=Math.acos(vS[inc].x*vT[inc].x+vS[inc].y*vT[inc].y+vS[inc].z*vT[inc].z);
-				bn[inc].setX(vS[inc].y*vT[inc].z-vS[inc].z*vT[inc].y);
-				bn[inc].setY(vS[inc].z*vT[inc].x-vS[inc].x*vT[inc].z);
-				bn[inc].setZ(vS[inc].x*vT[inc].y-vS[inc].y*vT[inc].x);
-				bn[inc].normalize();
-				mST[inc].applyAxisAngle(bn[inc],0.5*theta);
-				mST[inc].multiplyScalar(radius*(1.0+theta));
-				vS[inc].multiplyScalar(radius);
-				vT[inc].multiplyScalar(radius);
-				// Bezier curves
-				if(inc<n_curves) paths.curves[inc]=new THREE.QuadraticBezierCurve3(vS[inc],mST[inc],vT[inc]);
-				else{
-				    paths.add(new THREE.QuadraticBezierCurve3(vS[inc],mST[inc],vT[inc]));
-				    n_curves++;
-				}
-				volume=weight0*Math.cbrt(3.0*export_i/(4.0*Math.PI*max_trade));
-				if(inc<n_count){
-				    // count[inc]=(country_index[i]<country_index[k])?0:n_points-1;
-				    count[inc]=1;
-				    delta_count[inc]=parseInt(volume);
-				}else{
-				    // count.push((country_index[i]<country_index[k])?0:n_points-1);
-				    count.push(1);
-				    delta_count.push(parseInt(volume));
-				    n_count++;
-				}
-				detail=i.concat(' with ',k.concat(' : ',export_i.toString()));
-				// the trade link ...
-				nom='link'+(inc.toString());
-				if((typeof scene.getObjectByName(nom))=='undefined'){
-				    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
-				    scene.children[scene.children.length-1].name=nom;
-				    n_links++;
-				}
-				scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
-				scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
-				scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
-				scene.getObjectByName(nom).material.needsUpdate=true;
-				scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
-				scene.getObjectByName(nom).material.side=THREE.DoubleSide;
-				scene.getObjectByName(nom).userData=detail;
-				// ... and the associated mesh
-				nom='ball'+(inc.toString());
-				if((typeof scene.getObjectByName(nom))=='undefined'){
-				    if(lambert) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
-				    if(phong) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshPhongMaterial({color:colors[index%n_colors],shininess:100.0})));
-				    if(standard) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
-				    scene.children[scene.children.length-1].name=nom;
-				    n_balls++;
-				}else scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
-				scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
-				scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
-				scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
-				scene.getObjectByName(nom).castShadow=true;
-				scene.getObjectByName(nom).receiveShadow=false;
-				scene.getObjectByName(nom).material.needsUpdate=true;
-				scene.getObjectByName(nom).material.side=THREE.DoubleSide;
-				scene.getObjectByName(nom).userData=detail;
-				if(inc<volumes_length){
-				    // volumes[inc]=volume;
-				}else{
-				    volumes.push(volume);
-				    volumes_length++;
-				}
-				if(inc<d_export.length){
-				    // d_export[inc]=(country_index[i]<country_index[k])?1:-1;
-				    d_export[inc]=1;
-				}else{
-				    // d_export.push((country_index[i]<country_index[k])?1:-1);
-				    d_export.push(1);
-				}
-				inc++;
+				source=data_json['LL'][country_index[i].toString()]['continent'];
+				target=data_json['LL'][country_index[k].toString()]['continent'];
+				if(export_i>=lower_value && (((i===country || k===country || country==='all') && country!=='') || (country==='' && ((source===continent_1 && target===continent_2) || (source===continent_2 && target===continent_1) || continent_1==='all' || continent_2==='all')))){
+				    // Starting and target points
+				    index=n_countries*Math.min(country_index[i],country_index[k])+Math.max(country_index[i],country_index[k]);
+				    LATi=0.5*Math.PI-data_json['LL'][country_index[i].toString()]['lat']*Math.PI/180.0;
+				    LONi=0.5*Math.PI+data_json['LL'][country_index[i].toString()]['lon']*Math.PI/180.0;
+				    if(inc<vS_length){
+					vS[inc].setX(Math.sin(LATi)*Math.sin(LONi));
+					vS[inc].setY(Math.cos(LATi));
+					vS[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
+					mST[inc].copy(vS[inc]);
+				    }else{
+					vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+					mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+				    }
+				    LATi=0.5*Math.PI-data_json['LL'][country_index[k].toString()]['lat']*Math.PI/180.0;
+				    LONi=0.5*Math.PI+data_json['LL'][country_index[k].toString()]['lon']*Math.PI/180.0;
+				    if(inc<vS_length){
+					vT[inc].setX(Math.sin(LATi)*Math.sin(LONi));
+					vT[inc].setY(Math.cos(LATi));
+					vT[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
+				    }else{
+					vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+					bn.push(new THREE.Vector3());
+				    }
+				    if(inc>=vS_length) vS_length++;
+				    // mid-point
+				    theta=Math.acos(vS[inc].x*vT[inc].x+vS[inc].y*vT[inc].y+vS[inc].z*vT[inc].z);
+				    bn[inc].setX(vS[inc].y*vT[inc].z-vS[inc].z*vT[inc].y);
+				    bn[inc].setY(vS[inc].z*vT[inc].x-vS[inc].x*vT[inc].z);
+				    bn[inc].setZ(vS[inc].x*vT[inc].y-vS[inc].y*vT[inc].x);
+				    bn[inc].normalize();
+				    mST[inc].applyAxisAngle(bn[inc],0.5*theta);
+				    mST[inc].multiplyScalar(radius*(1.0+theta));
+				    vS[inc].multiplyScalar(radius);
+				    vT[inc].multiplyScalar(radius);
+				    // Bezier curves
+				    if(inc<n_curves) paths.curves[inc]=new THREE.QuadraticBezierCurve3(vS[inc],mST[inc],vT[inc]);
+				    else{
+					paths.add(new THREE.QuadraticBezierCurve3(vS[inc],mST[inc],vT[inc]));
+					n_curves++;
+				    }
+				    if(inc<n_count){
+					if(arg_trade[a]==='etonnes') count[inc]=1;
+					if(arg_trade[a]==='itonnes') count[inc]=n_points-1;
+					delta_count[inc]=parseInt(weight0*Math.cbrt(3.0*max_ie/(4.0*Math.PI*max_trade)));
+				    }else{
+					if(arg_trade[a]==='etonnes') count.push(1);
+					if(arg_trade[a]==='itonnes') count.push(n_points-1);
+					delta_count.push(parseInt(weight0*Math.cbrt(3.0*max_ie/(4.0*Math.PI*max_trade))));
+					n_count++;
+				    }
+				    detail=i.concat(' with ',k.concat(' : ',export_i.toString()));
+				    // the trade link ...
+				    nom='link'+(inc.toString());
+				    if((typeof scene.getObjectByName(nom))=='undefined'){
+					scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
+					scene.children[scene.children.length-1].name=nom;
+					n_links++;
+				    }
+				    scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
+				    scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
+				    scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
+				    scene.getObjectByName(nom).material.needsUpdate=true;
+				    scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
+				    scene.getObjectByName(nom).material.side=THREE.DoubleSide;
+				    scene.getObjectByName(nom).userData=detail;
+				    // ... and the associated mesh
+				    volume=weight0*Math.cbrt(3.0*export_i/(4.0*Math.PI*max_trade));
+				    if(arg_trade[a]==='etonnes'){
+					nom='ball'+(inc_ball.toString());
+					if((typeof scene.getObjectByName(nom))=='undefined'){
+					    if(lambert) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
+					    if(phong) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshPhongMaterial({color:colors[index%n_colors],shininess:100.0})));
+					    if(standard) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
+					    scene.children[scene.children.length-1].name=nom;
+					    ball_mesh.push(inc);
+					    n_balls++;
+					}else{
+					    scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+					    ball_mesh[inc_ball]=inc;
+					}
+					inc_ball++;
+				    }
+				    if(arg_trade[a]==='itonnes'){
+					nom='cube'+(inc_cube.toString());
+					if((typeof scene.getObjectByName(nom))=='undefined'){
+					    if(lambert) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
+					    if(phong) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshPhongMaterial({color:colors[index%n_colors],shininess:100.0})));
+					    if(standard) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
+					    scene.children[scene.children.length-1].name=nom;
+					    cube_mesh.push(inc);
+					    n_cubes++;
+					}else{
+					    scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+					    cube_mesh[inc_cube]=inc;
+					}
+					inc_cube++;
+				    }
+				    scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
+				    scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
+				    scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
+				    scene.getObjectByName(nom).castShadow=true;
+				    scene.getObjectByName(nom).receiveShadow=false;
+				    scene.getObjectByName(nom).material.needsUpdate=true;
+				    scene.getObjectByName(nom).material.side=THREE.DoubleSide;
+				    scene.getObjectByName(nom).userData=detail;
+				    if(inc>=volumes_length){
+					volumes.push(volume);
+					volumes_length++;
+				    }
+				    if(inc<d_trade.length) d_trade[inc]=(arg_trade[a]==='etonnes')?1:-1;
+				    else d_trade.push((arg_trade[a]==='etonnes')?1:-1);
+				    inc++;
+				}// Rof arg_trade
 			    }// Fi > 0.0
 			}// Fi
 		    }// Rof k
@@ -905,8 +929,10 @@ function change_FAO_trade(){
 	}// Rof i
 	for(var i=(n_links-1);i>=inc;i--) scene.remove(scene.getObjectByName('link'+(i.toString())));
 	n_links=inc;
-	for(var i=(n_balls-1);i>=inc;i--) scene.remove(scene.getObjectByName('ball'+(i.toString())));
-	n_balls=inc;
+	for(var i=(n_balls-1);i>=inc_ball;i--) scene.remove(scene.getObjectByName('ball'+(i.toString())));
+	n_balls=inc_ball;
+	for(var i=(n_cubes-1);i>=inc_cube;i--) scene.remove(scene.getObjectByName('cube'+(i.toString())));
+	n_cubes=inc_cube;
 	// no pileups at all for the trade links
 	for(var i=(n_pileups-1);i>=0;i--) scene.remove(scene.getObjectByName('pileup'+(i.toString())));
 	n_pileups=0;
@@ -914,8 +940,15 @@ function change_FAO_trade(){
     }// Fi
 };
 
-// list the pairwize for the year
-function list_pairwize_year(){
+// list the pileups and the pairwize for the year
+function list_pileups_pairwize_year(){
+    // building the pileups
+    pileups_year=[];
+    if(i_word!==-1){
+	for(var i=0;i<pileups[i_word];i++) if(data_json_w['pileups'][i]['y']===year) pileups_year.push(i);
+    }
+    n_pileups_year=pileups_year.length;
+    // building the pairwize
     pairwize_year=[];
     if(i_word!==-1){
 	for(var i=0;i<pairwize[i_word];i++){
@@ -931,14 +964,7 @@ function list_pairwize_year(){
 	}
     }
     n_pairwize_year=pairwize_year.length;
-};
-// list the pileups for the year
-function list_pileups_year(){
-    pileups_year=[];
-    if(i_word!==-1){
-	for(var i=0;i<pileups[i_word];i++) if(data_json_w['pileups'][i]['y']===year) pileups_year.push(i);
-    }
-    n_pileups_year=pileups_year.length;
+    for(var i=0;i<n_cubes;i++) scene.remove(scene.getObjectByName('cube'+(i.toString())));
 };
 
 // On mouse ...
@@ -1011,13 +1037,21 @@ function ZoomOnMouseWheel(e){
 
 // making the render
 function render(){
+    // FAO trade
     if(i_FAO_trade!==''){
-	for(var i=0;i<n_trade_links;i++){
-	    if(count[i]>=n_points && d_export[i]===1) count[i]=0;
-	    if(count[i]<0 && d_export[i]===-1) count[i]=n_points-1;
-	    count[i]+=d_export[i];
-	    paths.curves[i].getPoint(count[i]/n_points,pt);
+	for(var i=0;i<n_balls;i++){
+	    ii=ball_mesh[i];
+	    if(count[ii]>=n_points) count[ii]=1;
+	    count[ii]++;
+	    paths.curves[ii].getPoint(count[ii]/n_points,pt);
 	    scene.getObjectByName('ball'+(i.toString())).position.set(pt.x,pt.y,pt.z);
+	}
+	for(var i=0;i<n_cubes;i++){
+	    ii=cube_mesh[i];
+	    if(count[ii]<0) count[ii]=n_points-1;
+	    count[ii]--;
+	    paths.curves[ii].getPoint(count[ii]/n_points,pt);
+	    scene.getObjectByName('cube'+(i.toString())).position.set(pt.x,pt.y,pt.z);
 	}
     }
     // pubmed data
@@ -1076,7 +1110,7 @@ function change_continents(e){
 		}
 	    }
 	}
-	list_pairwize_year();
+	list_pileups_pairwize_year();
 	change_links_pubmed();
 	change_FAO_trade();
     }
@@ -1088,7 +1122,7 @@ function change_country(e){
 	continent_1='';// clear the continent selection
 	continent_2='';// clear the continent selection
 	country=e.target.id;
-	list_pairwize_year();
+	list_pileups_pairwize_year();
 	change_links_pubmed();
 	change_FAO_trade();
     }
@@ -1097,8 +1131,7 @@ function change_country(e){
 // change the percentage
 function change_percentage(e){
     plower_bound=parseInt(e.target.innerHTML);
-    list_pileups_year();
-    list_pairwize_year();
+    list_pileups_pairwize_year();
     change_links_pubmed();
     change_FAO();
     change_FAO_trade();
@@ -1116,16 +1149,14 @@ function change_year(e){
     for(var i=0;i<global_surface_ice.length;i++){
 	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
-    list_pileups_year();
-    list_pairwize_year();
+    list_pileups_pairwize_year();
     change();
 };
 
 // change data
 function change(){
     initializing_description();
-    list_pileups_year();
-    list_pairwize_year();
+    list_pileups_pairwize_year();
     change_links_pubmed();
     change_FAO();
     change_FAO_trade();
@@ -1304,7 +1335,7 @@ function chicken_meat_FAO_trade(){
     for(var i in id_FAO_trade) b_FAO_trade[i]=false;
     i_FAO_trade='chicken_meat_trade';
     b_FAO_trade[i_FAO_trade]=true;
-    plower_bound=90.0;
+    plower_bound=95.0;
     change();
 }
 
@@ -1317,7 +1348,7 @@ function eggs_FAO_trade(){
     for(var i in id_FAO_trade) b_FAO_trade[i]=false;
     i_FAO_trade='eggs_trade';
     b_FAO_trade[i_FAO_trade]=true;
-    plower_bound=90.0;
+    plower_bound=95.0;
     change();
 }
 
@@ -1330,7 +1361,7 @@ function maize_FAO_trade(){
     for(var i in id_FAO_trade) b_FAO_trade[i]=false;
     i_FAO_trade='maize_trade';
     b_FAO_trade[i_FAO_trade]=true;
-    plower_bound=90.0;
+    plower_bound=95.0;
     change();
 }
 
@@ -1343,7 +1374,7 @@ function pig_meat_FAO_trade(){
     for(var i in id_FAO_trade) b_FAO_trade[i]=false;
     i_FAO_trade='pig_meat_trade';
     b_FAO_trade[i_FAO_trade]=true;
-    plower_bound=90.0;
+    plower_bound=95.0;
     change();
 }
 
@@ -1356,7 +1387,7 @@ function rice_FAO_trade(){
     for(var i in id_FAO_trade) b_FAO_trade[i]=false;
     i_FAO_trade='rice_trade';
     b_FAO_trade[i_FAO_trade]=true;
-    plower_bound=90.0;
+    plower_bound=95.0;
     change();
 }
 
@@ -1369,7 +1400,7 @@ function sugar_FAO_trade(){
     for(var i in id_FAO_trade) b_FAO_trade[i]=false;
     i_FAO_trade='sugar_trade';
     b_FAO_trade[i_FAO_trade]=true;
-    plower_bound=90.0;
+    plower_bound=95.0;
     change();
 }
 
@@ -1568,11 +1599,9 @@ function highlight(e){
     word=e.target.id;
     for(var i=0;i<n_words;i++) if(word===words[i]) i_word=i;
     data_json_w=data_json[word];
-    document.getElementById('WORD').innerHTML=word;
     initializing_description();
     // e.target.style.fontSize='30px';
-    list_pileups_year();
-    list_pairwize_year();
+    list_pileups_pairwize_year();
     change();
 };
 
