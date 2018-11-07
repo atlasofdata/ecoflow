@@ -1,12 +1,12 @@
 console.log([window.innerWidth,window.innerHeight]);
 
-var resX=window.innerWidth,resY=window.innerHeight,dX=parseInt(resX/8.0),dY=parseInt(resY*dX/resX),xmin=0.000001,xmax=0.007,ymin=-0.0008,ymax=-ymin;
+var resX=window.innerWidth,resY=window.innerHeight,dX=parseInt(resX/8.0),dY=parseInt(resY*dX/resX),xmin=0.000001,xmax=0.007,ymin=-0.002,ymax=-ymin;
 var resx=parseInt(resX/4),resy=parseInt(resx*resY/resX);
 var n_abstract,n_title,n_keywords,data_json,data_json_i;
 var n_year,min_year=1990,max_year=2018,year=min_year,min_radius=10000.0,max_radius=0.0,x0,y0;
 var p=[],v=[],radius=[],sort_radius=[],fRadius=160.0,indexes=[],index,p_mean=0.0,p_var=0.0,v_mean=0.0,v_var=0.0,v_min=10000.0,v_max=-v_min,p_min=10000.0,p_max=-p_min;
 var t,k,t0,k0,i0,min_distance,distance,p1;
-var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,publications=[],n_publications,words=[];
+var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,publications=[],n_publications,mean_publications=0.0,words=[];
 var word='',old_word='',old_i_word=-1;
 var stroke_width=2.5;
 var myButton,myButtonFontSize=[];
@@ -73,7 +73,7 @@ var yaxis=d3.svg.axis().scale(yscale).orient("left");
 // creating a second sub-graph
 // second sub-graph x and y axis
 var p_shift=1.5*dX;
-var v_shift=resY-dY-resy;
+var v_shift=0.5*resy;
 var pscale=d3.scale.linear().domain([xmin,xmax]).range([0,resx]);
 var vscale=d3.scale.linear().domain([ymin,ymax]).range([resy,0]);
 var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
@@ -134,7 +134,7 @@ function change_database(url){
     d3.select('#graph_x_vp').remove();
     d3.select('#graph_y_vp').remove();
     document.getElementById('keyword').innerHTML='';
-    while(document.getElementById('rightCol').hasChildNodes()) document.getElementById('rightCol').removeChild(document.getElementById('rightCol').lastChild);
+    while(document.getElementById('Year').hasChildNodes()) document.getElementById('Year').removeChild(document.getElementById('Year').lastChild);
     while(document.getElementById('leftCol').hasChildNodes()) document.getElementById('leftCol').removeChild(document.getElementById('leftCol').lastChild);
     for(var d=0;d<2;d++){
 	console.log(url,url_database[d]);
@@ -169,10 +169,8 @@ function readJSON(data){
     data_json=data;
 
     // reading the # of publications per year
-    n_publications=data_json['publications'].length;
-    for(var i=0;i<n_publications;i++) publications.push(0);
-    for(var i=0;i<n_publications;i++) if(data_json['publications'][i]['year']>=min_year) publications[data_json['publications'][i]['year']-min_year]=data_json['publications'][i]['value'];
-    document.getElementById('publications').innerHTML='# of publications : '.concat(publications[year-min_year].toString());
+    for(var y=1990;y<=2018;y++)	mean_publications+=data_json['publications'][y.toString()]/(2018-1990+1);
+    document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
 
     n_keywords=Object.keys(data_json['keywords']).length;
     console.log(data_json['keywords']);
@@ -188,16 +186,9 @@ function readJSON(data){
 	myButton.style.color=colors[data_json['keywords'][word]%n_colors];
 	myButton.style.cursor='pointer';
 	myButton.id=word;
-	myButton.innerHTML=word;
-	if(word==='biodiversity' || word==='carbon_dioxide' || word==='carbon_permafrost' || word==='climate_change' || word==='coral' || word==='drought' || word==='greenhouse_effect' || word==='greenhouse_gas' || word==='malaria' || word==='methane' || word==='methane_permafrost' || word==='mortality' || word==='morbidity' || word==='permafrost' || word==='pollution'){
-	    // myButtonFontSize[word]='20px';
-	    // myButton.style.fontSize='20px';
-	    myButtonFontSize[word]='12px';
-	    myButton.style.fontSize='12px';
-	}else{
-	    myButtonFontSize[word]='12px';
-	    myButton.style.fontSize='12px';
-	}
+	myButton.innerHTML=word.replace(/_/g,'\xa0');
+	myButtonFontSize[word]='12px';
+	myButton.style.fontSize='12px';
 	document.getElementById('leftCol').appendChild(myButton);
 	document.getElementById('leftCol').appendChild(document.createElement('br'));
 	document.getElementById(word).addEventListener('click',highlight,false);
@@ -211,8 +202,8 @@ function readJSON(data){
 	myButton.id=y.toString();
 	myButton.innerHTML=y.toString();
 	myButton.style.fontSize='12px';
-	document.getElementById('rightCol').appendChild(myButton);
-	document.getElementById('rightCol').appendChild(document.createElement('br'));
+	document.getElementById('Year').appendChild(myButton);
+	document.getElementById('Year').appendChild(document.createElement('br'));
 	document.getElementById(y.toString()).addEventListener('click',change_year,false);
     }
 
@@ -227,17 +218,18 @@ function readJSON(data){
 	forest_coverage.push(0.0);
 	n_forest_coverage.push(0);
     }
-    n_forests=data_json['forest'].length;
+    n_forests=data_json['forest_coverage'].length;
+    console.log(data_json['forest_coverage']);
     for(var i=0;i<n_forests;i++){
-	forest_coverage[data_json['forest'][i]['year']-min_year]+=data_json['forest'][i]['coverage'];
-	n_forest_coverage[data_json['forest'][i]['year']-min_year]+=1;
+	forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=data_json['forest_coverage'][i]['coverage'];
+	n_forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=1;
     }
     for(var i=0;i<n_forests;i++) forest_coverage[i]/=n_forest_coverage[i];
     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
     // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json
     global_surface_ice=data_json['ice'];
     for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
+	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
 
     n_title=data_json['title'].length;
@@ -271,8 +263,8 @@ function readJSON(data){
     for(var i=0;i<n_abstract;i++){
 	t=data_json['abstract'][i]['year']-min_year;
 	k=data_json['keywords'][data_json['abstract'][i]['keyword']];
-	// radius[t*n_keywords+k]=Math.sqrt((data_json['abstract'][i]['value']/publications[t])/Math.PI);
-	radius[t*n_keywords+k]=data_json['abstract'][i]['value']/publications[t];
+	// radius[t*n_keywords+k]=Math.sqrt((data_json['abstract'][i]['value']/data_json['publications'][year.toString()])/Math.PI);
+	radius[t*n_keywords+k]=data_json['abstract'][i]['value']/data_json['publications'][year.toString()];
 	sort_radius.push([radius[t*n_keywords+k],t*n_keywords+k]);
 	if(radius[t*n_keywords+k]>0.0) min_radius=Math.min(min_radius,radius[t*n_keywords+k]);
 	if(radius[t*n_keywords+k]>0.0) max_radius=Math.max(max_radius,radius[t*n_keywords+k]);
@@ -289,7 +281,7 @@ function readJSON(data){
     for(var i=0;i<n_title;i++){
 	t=data_json['title'][i]['year']-min_year;
 	k=data_json['keywords'][data_json['title'][i]['keyword']];
-	p[t*n_keywords+k]=data_json['title'][i]['value']/publications[t];
+	p[t*n_keywords+k]=data_json['title'][i]['value']/data_json['publications'][year.toString()];
     }
     // velocities
     for(var i=0;i<n_title;i++){
@@ -307,7 +299,7 @@ function readJSON(data){
     for(var i=0;i<n_title;i++) p_max=Math.max(p_max,p[i]+radius[i]);
     // making the new axis
     xScale.domain([0,p_mean+3.0*Math.sqrt(p_var)]);
-    yScale.domain([v_mean-3.0*Math.sqrt(v_var),v_mean+3.0*Math.sqrt(v_var)]);
+    yScale.domain([v_mean-5.0*Math.sqrt(v_var),v_mean+5.0*Math.sqrt(v_var)]);
     xAxis.scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
     yAxis.scale(yScale).orient("left");
     svgContainer.select("g.x.axis").call(xAxis);
@@ -334,37 +326,6 @@ function readJSON(data){
 	    .attr("id","c"+index.toString());
     }
 };// reading the json file
-
-// // year+1
-// document.getElementById('yearp1').addEventListener('click',function(){
-//     year+=1;
-//     if(year>2018) year=min_year;
-//     document.getElementById('year').innerHTML=year.toString();
-//     document.getElementById('publications').innerHTML='# of publications : '.concat(publications[year-min_year].toString());
-//     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
-//     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-//     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-//     for(var i=0;i<global_surface_ice.length;i++){
-// 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-//     }
-// },false);
-// // year-1
-// document.getElementById('yearm1').addEventListener('click',function(){
-//     year-=1;
-//     if(year<1990) year=2018;
-//     document.getElementById('year').innerHTML=year.toString();
-//     document.getElementById('publications').innerHTML='# of publications : '.concat(publications[year-min_year].toString());
-//     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
-//     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-//     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-//     for(var i=0;i<global_surface_ice.length;i++){
-// 	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-//     }
-// },false);
-// // all keywords
-// document.getElementById('clear_keywords').addEventListener('click',function(){
-//     cleaning(old_word);
-// },false);
 
 // writing text on mouse over
 // svgContainer.on("mouseover",function(){
@@ -424,7 +385,7 @@ svgContainer.on("click",function(){
 function change_year(e){
     document.getElementById('year').innerHTML=e.target.id;
     year=parseInt(e.target.id);
-    document.getElementById('publications').innerHTML='# of publications : '.concat(publications[year-min_year].toString());
+    document.getElementById('publications').innerHTML='# of publications : '.concat(data_json['publications'][year.toString()].toString());
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
@@ -475,7 +436,7 @@ function highlight(e){
     cleaning(old_word);
     document.getElementById(e.target.id).style.fontSize='30px';
     document.getElementById(e.target.id).style.textDecoration='underline';
-    document.getElementById('keyword').innerHTML=e.target.id;
+    document.getElementById('keyword').innerHTML=(e.target.id).replace(/_/g,'\xa0');
     document.getElementById('keyword').style.color=colors[data_json['keywords'][e.target.id]%n_colors];
     for(var i=0;i<n_title;i++){
 	if(data_json['title'][i]['keyword']===e.target.id){
@@ -669,7 +630,7 @@ function graph_vp(){
 	.call(vaxis);
     svgContainer.append('text')
 	.attr('x',p_shift)
-	.attr('y',resY-0.75*dY)
+	.attr('y',1.5*resy)
 	.style('font-size','20px')
 	.style('font-weight','bold')
 	.attr('id','text_vp')
