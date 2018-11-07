@@ -81,10 +81,10 @@
     left:-100px;
     display:block;
     position:absolute;
-    width:150px;
+    width:12%;
     overflow:hidden;
-    top:125px;
-    height:150px;
+    top:12%;
+    height:12%;
     text-align:left;
     z-index:100;
     }
@@ -93,9 +93,9 @@
     position:absolute;
     display:inline-block;
     cursor:pointer;
-    top:125px;
+    top:12%;
     left:10%;
-    width:320px;
+    width:35%;
     }
     .popupKeywords .popuptext{
     visibility:hidden;
@@ -127,17 +127,17 @@
     left:-25px;
     display:block;
     position:absolute;
-    width:150px;
+    width:12%;
     overflow:hidden;
-    top:275px;
-    height:100px;
+    top:24%;
+    height:12%;
     }
     .leftYear:hover{left:0px;overflow:scroll;}
     .popupYear{
     position:absolute;
     display:inline-block;
     cursor:pointer;
-    top:275px;
+    top:24%;
     left:200px;
     }
     .popupYear .popuptext{
@@ -171,17 +171,17 @@
     left:-100px;
     display:block;
     position:absolute;
-    width:200px;
+    width:12%;
     overflow:hidden;
-    top:375px;
-    height:100px;
+    top:36%;
+    height:12%;
     }
     .leftFAO:hover{left:0px;overflow:scroll;}
     .popupFAO{
     position:absolute;
     display:inline-block;
     cursor:pointer;
-    top:375px;
+    top:36%;
     left:200px;
     }
     .popupFAO .popuptext{
@@ -215,17 +215,17 @@
     left:-100px;
     display:block;
     position:absolute;
-    width:200px;
+    width:12%;
     overflow:hidden;
-    top:475px;
-    height:100px;
+    top:48%;
+    height:12%;
     }
     .leftContinent:hover{left:0px;overflow:scroll;}
     .popupContinent{
     position:absolute;
     display:inline-block;
     cursor:pointer;
-    top:475px;
+    top:48%;
     left:200px;
     }
     .popupContinent .popuptext{
@@ -259,17 +259,17 @@
     left:-50px;
     display:block;
     position:absolute;
-    width:200px;
+    width:12%;
     overflow:hidden;
-    top:575px;
-    height:100px;
+    top:60%;
+    height:12%;
     }
     .leftCountry:hover{left:0px;overflow:scroll;}
     .popupCountry{
     position:absolute;
     display:inline-block;
     cursor:pointer;
-    top:575px;
+    top:60%;
     left:200px;
     }
     .popupCountry .popuptext{
@@ -303,17 +303,17 @@
     left:-50px;
     display:block;
     position:absolute;
-    width:200px;
+    width:12%;
     overflow:hidden;
-    top:675px;
-    height:100px;
+    top:72%;
+    height:12%;
     }
     .leftPercentage:hover{left:0px;overflow:scroll;}
     .popupPercentage{
     position:absolute;
     display:inline-block;
     cursor:pointer;
-    top:675px;
+    top:72%;
     left:200px;
     }
     .popupPercentage .popuptext{
@@ -338,6 +338,40 @@
     border-color:#555 transparent transparent transparent;
     }
     .popupPercentage .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* The trade popup */
+    .popupTrade{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:20%;
+    left:40%;
+    }
+    .popupTrade .popuptext{
+    visibility:hidden;
+    width:500px;
+    background-color:#0af;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupTrade .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupTrade .show{
     visibility:visible;
     -webkit-animation:fadeIn 1s;
     animation:fadeIn 1s
@@ -387,8 +421,11 @@
     </div>
     <div id='leftPercentage' class='leftPercentage'>
     </div>
+    <div class="popupTrade" onclick="change_FAO_trade()">
+      <span class="popuptext" id="myPopupTrade" style="font-weight:bold;font-size:12px;color:#f00">The trade links are displayed. The ball objects represent the export value from country "i" to country "j" as "i" reported (the ball travels from "i" to "j"). The cube objects represent the country "i" import value from country "j" as "i" reported (the cube travels from "j" to "i"). We end up with four differents values for a link between "i" and "j" because they quite often do not report the same values.</span>
+    </div>
     <div class="popupPileups" onclick="myFunction()">
-      <span class="popuptext" id="myPopupPileups" style="font-weight:bold;font-size:12px;color:#f00">When you click a link, informations about it will be displayed as an history of your navigation through data.</span>
+      <span class="popuptext" id="myPopupPileups" style="font-weight:bold;font-size:12px;color:#f00">When you mouse over a link or pileup, informations about it will be displayed as an history of your navigation through data.</span>
     </div>
     <div class="popupYear" onclick="myFunction()">
       <span class="popuptext" id="myPopupYear">Click the year you want to change for. The choice is between 2000 and 2018 by step of 1.</span>
@@ -400,10 +437,10 @@
       <span class="popuptext" id="myPopupCountry">Click the country you want to study. If you click the 'all' button you will get all the countries and their links. If you click 'france' you will get all the links involving France. The country selection erases the continent pairwize selection.</span>
     </div>
     <div class="popupFAO" onclick="myFunction()">
-      <span class="popuptext" id="myPopupFAO">Click the FAO dataset you want to study.</span>
+      <span class="popuptext" id="myPopupFAO">Click the FAO dataset you want to study. The history on the right of the screen will display the quantities and the associated colors you might interested in.</span>
     </div>
     <div class="popupKeywords" onclick="myFunction()">
-      <span class="popuptext" id="myPopupKeywords">Click the keyword request to pubmed database. It will show you the links between countries. A link is drawn if the number of publications with keyword in the title between institution in country A with institution in country B is non-zero.</span>
+      <span class="popuptext" id="myPopupKeywords">Click the keyword request to pubmed database. It will show you the links between countries. A link is drawn if the number of publications with keyword in the title between institution in country A with institution in country B is non-zero. The values are normalized by the total number of publications (of the database) for the year. The volume and the speed of travelling balls are directly related to the strength of collaboration.</span>
     </div>
     <div class="popupPercentage" onclick="myFunction()">
       <span class="popuptext" id="myPopupPercentage">Click the cut-off you want to apply to the displayed values. A lower-bound of 25 % will discard the 25 % of the lowest values.</span>
