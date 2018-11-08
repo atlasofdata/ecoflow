@@ -34,7 +34,7 @@
     .pileups{
     position:absolute;
     left:74%;
-    top:125px;
+    top:12%;
     width:25%;
     height:50%;
     text-align:left;
@@ -48,11 +48,10 @@
     cursor:pointer;
     top:600px;
     left:74%;
-    width:320px;
+    width:25%;
     }
     .popupPileups .popuptext{
     visibility:hidden;
-    width:320px;
     background-color:#00f;
     color:#000;
     text-align:center;
@@ -138,11 +137,11 @@
     display:inline-block;
     cursor:pointer;
     top:24%;
+    width:20%;
     left:200px;
     }
     .popupYear .popuptext{
     visibility:hidden;
-    width:160px;
     background-color:#dd0;
     color:#000;
     text-align:center;
@@ -182,11 +181,11 @@
     display:inline-block;
     cursor:pointer;
     top:36%;
+    width:20%;
     left:200px;
     }
     .popupFAO .popuptext{
     visibility:hidden;
-    width:160px;
     background-color:#555;
     color:#fff;
     text-align:center;
@@ -226,11 +225,11 @@
     display:inline-block;
     cursor:pointer;
     top:48%;
+    width:20%;
     left:200px;
     }
     .popupContinent .popuptext{
     visibility:hidden;
-    width:300px;
     background-color:#555;
     color:#fff;
     text-align:center;
@@ -270,11 +269,11 @@
     display:inline-block;
     cursor:pointer;
     top:60%;
+    width:20%;
     left:200px;
     }
     .popupCountry .popuptext{
     visibility:hidden;
-    width:400px;
     background-color:#f99;
     color:#fff;
     text-align:center;
@@ -300,7 +299,7 @@
     }
     /* The percentage div */
     .leftPercentage{
-    left:-50px;
+    left:-5px;
     display:block;
     position:absolute;
     width:12%;
@@ -314,11 +313,11 @@
     display:inline-block;
     cursor:pointer;
     top:72%;
+    width:20%;
     left:200px;
     }
     .popupPercentage .popuptext{
     visibility:hidden;
-    width:300px;
     background-color:#0af;
     color:#fff;
     text-align:center;
@@ -397,7 +396,7 @@
     <a href="http://www.fao.org/faostat/en/#data/" target="_blank" rel="noopener" style='color:violet;font-weight:bold;cursor:pointer;text-decoration:underline'>FAO data</a>
     <a href="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57735/land_ocean_ice_cloud_2048.jpg" target="_blank" rel="noopener" style='color:grey;font-weight:bold;cursor:pointer;text-decoration:underline'>NASA world map</a>
     <br>drag to spin the globe, wheel to zoom in/out, <a id="myPopup" title="click me to get some help !" style='color:#fff;font-weight:bold' href="#" onclick="myFunction();return false;">click me to get some help !</a>
-    <br><span id="WORD" style="font-size:40px;color:#00f"></span>
+    <br><span id="WORD" style="font-size:40px;color:#faa"></span>
     <span id="YEAR" style="font-size:40px;color:#00f"></span>
     </div>
     <div id='pileups' class='pileups'>
@@ -422,10 +421,10 @@
     <div id='leftPercentage' class='leftPercentage'>
     </div>
     <div class="popupTrade" onclick="change_FAO_trade()">
-      <span class="popuptext" id="myPopupTrade" style="font-weight:bold;font-size:12px;color:#f00">The trade links are displayed. The ball objects represent the export value from country "i" to country "j" as "i" reported (the ball travels from "i" to "j"). The cube objects represent the country "i" import value from country "j" as "i" reported (the cube travels from "j" to "i"). We end up with four differents values for a link between "i" and "j" because they quite often do not report the same values.</span>
+      <span class="popuptext" id="myPopupTrade" style="font-weight:bold;font-size:12px;color:#fff">The trade links are displayed. The ball objects represent the export value from country "i" to country "j" as "i" reported (the ball travels from "i" to "j"). The cube objects represent the country "i" import value from country "j" as "i" reported (the cube travels from "j" to "i"). We end up with four differents values for a link between "i" and "j" because they quite often do not report the same values.</span>
     </div>
     <div class="popupPileups" onclick="myFunction()">
-      <span class="popuptext" id="myPopupPileups" style="font-weight:bold;font-size:12px;color:#f00">When you mouse over a link or pileup, informations about it will be displayed as an history of your navigation through data.</span>
+      <span class="popuptext" id="myPopupPileups" style="font-weight:bold;font-size:12px;color:#fff">When you mouse over a link or pileup, informations about it will be displayed as an history of your navigation through data.</span>
     </div>
     <div class="popupYear" onclick="myFunction()">
       <span class="popuptext" id="myPopupYear">Click the year you want to change for. The choice is between 2000 and 2018 by step of 1.</span>
