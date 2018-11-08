@@ -10,7 +10,7 @@ var count=[],delta_count=[],nt=new THREE.Vector3(),pt=new THREE.Vector3(),u=new 
 var PreviousMouseX=0.0,PreviousMouseY=0.0,DraggingMouse=false;
 const ZoomSensitivity=0.0001;
 var thetaX=0.0,thetaY=0.0;
-var vS=[],vT=[],vS_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,material,weight0=20.0,source=0,target=0,inc,inc_ball,inc_cube;
+var vS=[],vT=[],vS_length,vT_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,material,weight0=20.0,source=0,target=0,inc,inc_ball,inc_cube;
 var paths=new THREE.CurvePath();
 const segments0=16,rings0=16;
 var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2014,country='',countries,n_countries=0,country_index,index_country,theta,bn=[],bn_length;
@@ -21,7 +21,7 @@ var i_word=28,word='',n_words,words=[],buffer_words=[];
 var text='',text_buffer='',list_keywords='';
 var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,volumes=[],volume,volumes_length;
 var myButton,myButtonFontSize='10px';
-var data_json,data_json_w,data_json_trade,data_json_trade_i,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
+var data_json,data_json_w,data_json_trade,data_json_trade_i,data_json_trade_i_j,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
 var cylinder_height,cylinder_heights=[],cylinder_heights_length,nom,detail;
 // --- variables : FAO data
 // annual production
@@ -584,7 +584,8 @@ function change_pubmed(){
 		    vS_length++;
 		}
 		cylinder_height=data_json_w['pileups'][ii]['value']*radius/max_pileups;
-		if(inc>=cylinder_heights_length){
+		if(inc<cylinder_heights_length) cylinder_heights[inc]=cylinder_height;
+		else{
 		    cylinder_heights.push(cylinder_height);
 		    cylinder_heights_length++;
 		}
@@ -598,7 +599,10 @@ function change_pubmed(){
 		    if(standard) scene.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshStandardMaterial({color:'white',metalness:0.5})));
 		    scene.children[scene.children.length-1].name=nom;
 		    n_pileups++;
-		}else scene.getObjectByName(nom).scale.set(1.0,cylinder_height/cylinder_heights[inc],1.0);
+		}else{
+		    // scene.getObjectByName(nom).scale.set(1.0,cylinder_height/cylinder_heights[inc],1.0);
+		    scene.getObjectByName(nom).geometry=new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32);
+		}
 		scene.getObjectByName(nom).rotation.order='YXZ';
 		scene.getObjectByName(nom).rotation.x=LATi;
 		scene.getObjectByName(nom).rotation.y=LONi;
@@ -629,9 +633,11 @@ function change_pubmed(){
 	n_curves=paths.curves.length;
 	n_count=count.length;
 	volumes_length=volumes.length;
+	vT_length=vT.length;
+	for(var i=0;i<(vS_length-vT_length);i++) vT.push(new THREE.Vector3());
 	mST_length=mST.length;
-	bn_length=bn.length;
 	for(var i=0;i<(vS_length-mST_length);i++) mST.push(new THREE.Vector3());
+	bn_length=bn.length;
 	for(var i=0;i<(vS_length-bn_length);i++) bn.push(new THREE.Vector3());
 	// calculating the threshold
 	values=[];
@@ -659,18 +665,19 @@ function change_pubmed(){
 		}else{
 		    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 		    mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+		    vS_length++;
 		}
 		LATi=0.5*Math.PI-target['lat']*Math.PI/180.0;
 		LONi=0.5*Math.PI+target['lon']*Math.PI/180.0;
-		if(inc<vS_length){
+		if(inc<vT_length){
 		    vT[inc].setX(Math.sin(LATi)*Math.sin(LONi));
 		    vT[inc].setY(Math.cos(LATi));
 		    vT[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
 		}else{
 		    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 		    bn.push(new THREE.Vector3());
+		    vT_length++;
 		}
-		if(inc>=vS_length) vS_length++;
 		// mid-point
 		theta=Math.acos(vS[inc].x*vT[inc].x+vS[inc].y*vT[inc].y+vS[inc].z*vT[inc].z);
 		bn[inc].setX(vS[inc].y*vT[inc].z-vS[inc].z*vT[inc].y);
@@ -731,7 +738,6 @@ function change_pubmed(){
 		scene.getObjectByName(nom).material.needsUpdate=true;
 		scene.getObjectByName(nom).material.side=THREE.DoubleSide;
 		scene.getObjectByName(nom).userData=detail;
-		console.log(scene.getObjectByName(nom));
 		if(inc<volumes_length){
 		    volumes[inc]=volume;
 		}else{
@@ -766,8 +772,7 @@ function change_FAO_trade(){
 		}
 	    }
 	}
-	console.log(max_trade);
-	// ???
+	// calculating the threshold
 	values=[];
 	for(i in data_json_trade){
 	    for(j in data_json_trade[i]){
@@ -778,17 +783,15 @@ function change_FAO_trade(){
 	}
 	values.sort(function(a,b){return a-b});
 	lower_value=values[parseInt((plower_bound/100.0)*values.length)];
-	// ???
 	// making the links trade
 	n_curves=paths.curves.length;
 	n_count=count.length;
 	volumes_length=volumes.length;
 	vS_length=vS.length;
 	mST_length=mST.length;
-	bn_length=bn.length;
 	for(var i=0;i<(vS_length-mST_length);i++) mST.push(new THREE.Vector3());
-	for(var i=0;i<(vS_length-bn_length);i++) bn.push(new THREE.Vector3());
-	console.log('change_FAO_trade',volumes.length);
+	vT_length=vT.length;
+	for(var i=0;i<(vS_length-vT_length);i++) vT.push(new THREE.Vector3());
 	inc=0;
 	inc_ball=0;
 	inc_cube=0;
@@ -797,25 +800,26 @@ function change_FAO_trade(){
 		if(j===year.toString()){
 		    data_json_trade_i=data_json_trade[i];
 		    for(k in data_json_trade_i[j]){
+			data_json_trade_i_j=data_json_trade_i[j];
 			import_i=-1.0;
 			export_i=-1.0;
 			for(var a in arg_trade){
-			    if(data_json_trade_i[j][k][arg_trade[a]]!=null){
-				if(arg_trade[a]==='itonnes') import_i=data_json_trade_i[j][k]['itonnes'];
-				if(arg_trade[a]==='etonnes') export_i=data_json_trade_i[j][k]['etonnes'];// i export vers k (equiv k import de i)
+			    if(data_json_trade_i_j[k][arg_trade[a]]!=null){
+				if(arg_trade[a]==='itonnes') import_i=data_json_trade_i_j[k]['itonnes'];
+				if(arg_trade[a]==='etonnes') export_i=data_json_trade_i_j[k]['etonnes'];// i export vers k (equiv k import de i)
 				if(a===0 && arg_trade[a]==='itonnes'){
 				    max_ie=import_i;
-				    if(data_json_trade_i[j][k]['etonnes']!=null) max_ie=Math.max(import_i,data_json_trade_i[j][k]['etonnes']);
+				    if(data_json_trade_i_j[k]['etonnes']!=null) max_ie=Math.max(import_i,data_json_trade_i_j[k]['etonnes']);
 				}
 				if(a===0 && arg_trade[a]==='etonnes'){
 				    max_ie=export_i;
-				    if(data_json_trade_i[j][k]['itonnes']!=null) max_ie=Math.max(export_i,data_json_trade_i[j][k]['itonnes']);
+				    if(data_json_trade_i_j[k]['itonnes']!=null) max_ie=Math.max(export_i,data_json_trade_i_j[k]['itonnes']);
 				}
 				source=data_json['LL'][country_index[i].toString()]['continent'];
 				target=data_json['LL'][country_index[k].toString()]['continent'];
 				if((import_i>=lower_value || export_i>=lower_value) && (((i===country || k===country || country==='all') && country!=='') || (country==='' && ((source===continent_1 && target===continent_2) || (source===continent_2 && target===continent_1) || continent_1==='all' || continent_2==='all')))){
 				    // Starting and target points
-				    index=n_countries*Math.min(country_index[i],country_index[k])+Math.max(country_index[i],country_index[k]);
+				    index=(n_countries*Math.min(country_index[i],country_index[k])+Math.max(country_index[i],country_index[k]))%n_colors;
 				    LATi=0.5*Math.PI-data_json['LL'][country_index[i].toString()]['lat']*Math.PI/180.0;
 				    LONi=0.5*Math.PI+data_json['LL'][country_index[i].toString()]['lon']*Math.PI/180.0;
 				    if(inc<vS_length){
@@ -823,21 +827,22 @@ function change_FAO_trade(){
 					vS[inc].setY(Math.cos(LATi));
 					vS[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
 					mST[inc].copy(vS[inc]);
+					vS_length++;
 				    }else{
 					vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 					mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 				    }
 				    LATi=0.5*Math.PI-data_json['LL'][country_index[k].toString()]['lat']*Math.PI/180.0;
 				    LONi=0.5*Math.PI+data_json['LL'][country_index[k].toString()]['lon']*Math.PI/180.0;
-				    if(inc<vS_length){
+				    if(inc<vT_length){
 					vT[inc].setX(Math.sin(LATi)*Math.sin(LONi));
 					vT[inc].setY(Math.cos(LATi));
 					vT[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
+					vT_length++;
 				    }else{
 					vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 					bn.push(new THREE.Vector3());
 				    }
-				    if(inc>=vS_length) vS_length++;
 				    // mid-point
 				    theta=Math.acos(vS[inc].x*vT[inc].x+vS[inc].y*vT[inc].y+vS[inc].z*vT[inc].z);
 				    bn[inc].setX(vS[inc].y*vT[inc].z-vS[inc].z*vT[inc].y);
@@ -857,30 +862,24 @@ function change_FAO_trade(){
 				    if(inc<n_count){
 					if(arg_trade[a]==='etonnes') count[inc]=1;
 					if(arg_trade[a]==='itonnes') count[inc]=n_points-1;
-					delta_count[inc]=parseInt(weight0*Math.cbrt(3.0*max_ie/(4.0*Math.PI*max_trade)));
 				    }else{
 					if(arg_trade[a]==='etonnes') count.push(1);
 					if(arg_trade[a]==='itonnes') count.push(n_points-1);
-					delta_count.push(parseInt(weight0*Math.cbrt(3.0*max_ie/(4.0*Math.PI*max_trade))));
 					n_count++;
 				    }
-				    if(arg_trade[a]==='itonnes') detail=(i.concat(' with ',k.concat(' : ',(import_i.toPrecision(3)).toString()))).concat(' tonnes');
-				    if(arg_trade[a]==='etonnes') detail=(i.concat(' with ',k.concat(' : ',(export_i.toPrecision(3)).toString()))).concat(' tonnes');
+				    if(arg_trade[a]==='itonnes') detail=(i.concat(' with ',k.concat(' : ',(import_i.toPrecision(3)).toString()))).concat(' tonnes of import');
+				    if(arg_trade[a]==='etonnes') detail=(i.concat(' with ',k.concat(' : ',(export_i.toPrecision(3)).toString()))).concat(' tonnes of export');
 				    // the trade link ...
 				    nom='link'+(inc.toString());
 				    if((typeof scene.getObjectByName(nom))=='undefined'){
-					scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
+					scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index]})));
 					scene.children[scene.children.length-1].name=nom;
 					n_links++;
-				    }else{
-					// scene.getObjectByName(nom)=new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]}));
-					scene.getObjectByName(nom).geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points));//scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
-					// console.log(scene.getObjectByName(nom).geometry);
-				    }
+				    }else scene.getObjectByName(nom).geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points));
 				    scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
 				    scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
 				    scene.getObjectByName(nom).material.needsUpdate=true;
-				    scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
+				    scene.getObjectByName(nom).material.color.set(colors[index]);
 				    scene.getObjectByName(nom).material.side=THREE.DoubleSide;
 				    scene.getObjectByName(nom).userData=detail;
 				    // ... and the associated mesh
@@ -888,34 +887,34 @@ function change_FAO_trade(){
 					volume=weight0*Math.cbrt(3.0*export_i/(4.0*Math.PI*max_trade));
 					nom='ball'+(inc_ball.toString());
 					if((typeof scene.getObjectByName(nom))=='undefined'){
-					    if(lambert) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
-					    if(phong) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshPhongMaterial({color:colors[index%n_colors],shininess:100.0})));
-					    if(standard) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
+					    if(lambert) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshLambertMaterial({color:colors[index]})));
+					    if(phong) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshPhongMaterial({color:colors[index],shininess:100.0})));
+					    if(standard) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshStandardMaterial({color:colors[index],metalness:0.5})));
 					    scene.children[scene.children.length-1].name=nom;
-					    ball_mesh.push(inc);
 					    n_balls++;
 					}else{
 					    // scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
 					    scene.getObjectByName(nom).geometry=new THREE.SphereGeometry(volume,segments0,rings0);
-					    ball_mesh[inc_ball]=inc;
 					}
+					if(inc_ball<ball_mesh.length) ball_mesh[inc_ball]=inc;
+					else ball_mesh.push(inc);
 					inc_ball++;
 				    }
 				    if(arg_trade[a]==='itonnes'){
 					volume=weight0*Math.cbrt(3.0*import_i/(4.0*Math.PI*max_trade));
 					nom='cube'+(inc_cube.toString());
 					if((typeof scene.getObjectByName(nom))=='undefined'){
-					    if(lambert) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
-					    if(phong) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshPhongMaterial({color:colors[index%n_colors],shininess:100.0})));
-					    if(standard) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
+					    if(lambert) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshLambertMaterial({color:colors[index]})));
+					    if(phong) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshPhongMaterial({color:colors[index],shininess:100.0})));
+					    if(standard) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshStandardMaterial({color:colors[index],metalness:0.5})));
 					    scene.children[scene.children.length-1].name=nom;
-					    cube_mesh.push(inc);
 					    n_cubes++;
 					}else{
 					    // scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
 					    scene.getObjectByName(nom).geometry=new THREE.BoxGeometry(volume,volume,volume);
-					    cube_mesh[inc_cube]=inc;
 					}
+					if(inc_cube<cube_mesh.length) cube_mesh[inc_cube]=inc;
+					else cube_mesh.push(inc);
 					inc_cube++;
 				    }
 				    scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
@@ -940,6 +939,9 @@ function change_FAO_trade(){
 		}// Fi year
 	    }// Rof j
 	}// Rof i
+	console.log(inc_ball,n_balls);
+	console.log(inc_cube,n_cubes);
+	console.log(inc,n_curves,n_count);
 	for(var i=(n_links-1);i>=inc;i--) scene.remove(scene.getObjectByName('link'+(i.toString())));
 	n_links=inc;
 	for(var i=(n_balls-1);i>=inc_ball;i--) scene.remove(scene.getObjectByName('ball'+(i.toString())));
@@ -1082,7 +1084,6 @@ function render(){
 	intersects=raycaster.intersectObjects(scene.children,true);
 	ifIntersect=false;
 	if(intersects.length>0){
-	    // console.log(intersects.length,intersects);
 	    for(var i=0;i<intersects.length;i++){
 		if(INTERSECTED!=intersects[i].object && !intersects[i].object.material.isLineBasicMaterial && intersects[i].object.name!=='globe' && !ifIntersect){
 		    if(INTERSECTED && !INTERSECTED.material.isLineBasicMaterial){
