@@ -17,11 +17,11 @@ var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2014,country='',
 var loader_font=new THREE.FontLoader();
 var continent_1='all',continent_2='all',country,country_color=[],publications=[],mean_publications=0,plower_bound=0,lower_value,values;
 var rC=new THREE.Vector3(),LATi=0.0,LONi=0.0,index;
-var i_word=5,word='',n_words,words=[],buffer_words=[];
+var i_word=28,word='',n_words,words=[],buffer_words=[];
 var text='',text_buffer='',list_keywords='';
 var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,volumes=[],volume,volumes_length;
 var myButton,myButtonFontSize='10px';
-var data_json,data_json_w,data_json_trade,data_json_trade_i,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],n_trade_links=0,max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
+var data_json,data_json_w,data_json_trade,data_json_trade_i,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
 var cylinder_height,cylinder_heights=[],cylinder_heights_length,nom,detail;
 // --- variables : FAO data
 // annual production
@@ -81,13 +81,14 @@ var title_FAO_trade=['chicken'+'\xa0'+'meat'+'\xa0'+'trade','eggs'+'\xa0'+'trade
 var id_FAO_trade=['chicken_meat_trade','eggs_trade','maize_trade','pig_meat_trade','rice_trade','sugar_trade'];
 var b_FAO_trade=[],i_FAO_trade='',arg_trade=['etonnes','itonnes'];
 for(var i in id_FAO_trade) b_FAO_trade[i]=false;
-var d_trade=[],import_i,export_i,max_ie;
+var import_i,export_i,max_ie;
 const radius=200,segments=128,rings=128;
 var phong=true,lambert=false,standard=false;
 var continents=['all','africa','america','asia','europa'];
 var mouse2D=new THREE.Vector2(0.0,0.0);
 var raycaster=new THREE.Raycaster(),intersects,ifIntersect,INTERSECTED;
 var ifBoundingBox=false,BoundingBox;
+var popup;
 
 initializing_description();
 
@@ -328,7 +329,7 @@ function readJSON(data){
     for(var i=-1;i<countries.length;i++){
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color='pink';
+	myButton.style.color='cyan';
 	myButton.style.cursor='pointer';
 	if(i===-1){
 	    myButton.id='all';
@@ -346,7 +347,7 @@ function readJSON(data){
     for(var i=0;i<20;i++){
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color='violet';
+	myButton.style.color='pink';
 	myButton.style.cursor='pointer';
 	myButton.id='p'+(i*5).toString();
 	myButton.innerHTML=(i*5).toString();
@@ -400,7 +401,7 @@ function readJSON(data){
     list_pileups_pairwize_year();
     change_FAO();
     change_FAO_trade();
-    change_links_pubmed();
+    change_pubmed();
     camera.updateProjectionMatrix();
     camera.updateMatrixWorld();
     update();
@@ -562,7 +563,7 @@ function change_pubmed(){
 	values.sort(function(a,b){return a-b});
 	lower_value=values[parseInt((plower_bound/100.0)*values.length)];
 	document.getElementById('YEAR').innerHTML='';
-	document.getElementById('WORD').innerHTML=word.toUpperCase()+'\xa0'+(100.0-plower_bound).toString()+'%\xa0of\xa0the\xa0highest\xa0values\xa0in\xa0'+(year.toString());
+	document.getElementById('WORD').innerHTML=((word.toUpperCase()).replace(/_/g,'\xa0'))+'\xa0'+(100.0-plower_bound).toString()+'%\xa0of\xa0the\xa0highest\xa0values\xa0in\xa0'+(year.toString());
 	// looping over the pileups
 	lower_value=-1.0;
 	inc=0;
@@ -590,7 +591,7 @@ function change_pubmed(){
 		vT[inc].multiplyScalar(radius+0.5*cylinder_height);
 		nom='pileup'+(inc.toString());
 		source=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'];
-		detail=source.concat(' : ',data_json_w['pileups'][ii]['value'].toString());
+		detail=source.concat(' : ',(data_json_w['pileups'][ii]['value'].toPrecision(3)).toString());
 		if((typeof scene.getObjectByName(nom))=='undefined'){
 		    if(lambert) scene.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshLambertMaterial({color:'white'})));
 		    if(phong) scene.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshPhongMaterial({color:'white',shininess:100.0})));
@@ -697,15 +698,14 @@ function change_pubmed(){
 		}
 		source=data_json['index_country'][data_json_w['links'][ii]['s']];
 		target=data_json['index_country'][data_json_w['links'][ii]['t']];
-		detail=source.concat(' with ',target.concat(' : ',data_json_w['links'][ii]['value'].toString()));
+		detail=source.concat(' with ',target.concat(' : ',(data_json_w['links'][ii]['value'].toPrecision(3)).toString()));
 		// the link ...
 		nom='link'+(inc.toString());
 		if((typeof scene.getObjectByName(nom))=='undefined'){
 		    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
 		    scene.children[scene.children.length-1].name=nom;
 		    n_links++;
-		}
-		scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
+		}else scene.getObjectByName(nom).geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points));// scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
 		scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
 		scene.getObjectByName(nom).material.needsUpdate=true;
 		scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
@@ -719,7 +719,10 @@ function change_pubmed(){
 		    if(standard) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshStandardMaterial({color:colors[index%n_colors],metalness:0.5})));
 		    scene.children[scene.children.length-1].name=nom;
 		    n_balls++;
-		}else scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+		}else{
+		    scene.getObjectByName(nom).geometry=new THREE.SphereGeometry(volume,segments0,rings0);
+		    // scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+		}
 		scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
 		scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
 		scene.getObjectByName(nom).material.color.set(colors[index%n_colors]);
@@ -728,14 +731,15 @@ function change_pubmed(){
 		scene.getObjectByName(nom).material.needsUpdate=true;
 		scene.getObjectByName(nom).material.side=THREE.DoubleSide;
 		scene.getObjectByName(nom).userData=detail;
+		console.log(scene.getObjectByName(nom));
 		if(inc<volumes_length){
-		    // volumes[inc]=volume;
+		    volumes[inc]=volume;
 		}else{
 		    volumes.push(volume);
 		    volumes_length++;
 		}
 		inc++;
-	    }
+	    }// Fi lower value
 	}// Rof pairwize
 	for(var i=(n_links-1);i>=inc;i--) scene.remove(scene.getObjectByName('link'+(i.toString())));
 	n_links=inc;
@@ -748,7 +752,7 @@ function change_pubmed(){
 function change_FAO_trade(){
     if(b_FAO_trade[i_FAO_trade]){
 	console.log('change_FAO_trade');
-	var popup=document.getElementById("myPopupTrade");
+	popup=document.getElementById("myPopupTrade");
 	popup.classList.toggle("show");
 	document.getElementById('YEAR').innerHTML='';
 	document.getElementById('WORD').innerHTML=title_FAO_trade[id_FAO_trade.findIndex(function(e){return e===i_FAO_trade;})].toUpperCase()+'\xa0'+(100.0-plower_bound).toString()+'%\xa0of\xa0the\xa0highest\xa0values\xa0in\xa0'+(year.toString());
@@ -793,6 +797,8 @@ function change_FAO_trade(){
 		if(j===year.toString()){
 		    data_json_trade_i=data_json_trade[i];
 		    for(k in data_json_trade_i[j]){
+			import_i=-1.0;
+			export_i=-1.0;
 			for(var a in arg_trade){
 			    if(data_json_trade_i[j][k][arg_trade[a]]!=null){
 				if(arg_trade[a]==='itonnes') import_i=data_json_trade_i[j][k]['itonnes'];
@@ -807,7 +813,7 @@ function change_FAO_trade(){
 				}
 				source=data_json['LL'][country_index[i].toString()]['continent'];
 				target=data_json['LL'][country_index[k].toString()]['continent'];
-				if(export_i>=lower_value && (((i===country || k===country || country==='all') && country!=='') || (country==='' && ((source===continent_1 && target===continent_2) || (source===continent_2 && target===continent_1) || continent_1==='all' || continent_2==='all')))){
+				if((import_i>=lower_value || export_i>=lower_value) && (((i===country || k===country || country==='all') && country!=='') || (country==='' && ((source===continent_1 && target===continent_2) || (source===continent_2 && target===continent_1) || continent_1==='all' || continent_2==='all')))){
 				    // Starting and target points
 				    index=n_countries*Math.min(country_index[i],country_index[k])+Math.max(country_index[i],country_index[k]);
 				    LATi=0.5*Math.PI-data_json['LL'][country_index[i].toString()]['lat']*Math.PI/180.0;
@@ -858,15 +864,19 @@ function change_FAO_trade(){
 					delta_count.push(parseInt(weight0*Math.cbrt(3.0*max_ie/(4.0*Math.PI*max_trade))));
 					n_count++;
 				    }
-				    detail=i.concat(' with ',k.concat(' : ',export_i.toString()));
+				    if(arg_trade[a]==='itonnes') detail=(i.concat(' with ',k.concat(' : ',(import_i.toPrecision(3)).toString()))).concat(' tonnes');
+				    if(arg_trade[a]==='etonnes') detail=(i.concat(' with ',k.concat(' : ',(export_i.toPrecision(3)).toString()))).concat(' tonnes');
 				    // the trade link ...
 				    nom='link'+(inc.toString());
 				    if((typeof scene.getObjectByName(nom))=='undefined'){
 					scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]})));
 					scene.children[scene.children.length-1].name=nom;
 					n_links++;
+				    }else{
+					// scene.getObjectByName(nom)=new THREE.Line(new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points)),new THREE.LineBasicMaterial({color:colors[index%n_colors]}));
+					scene.getObjectByName(nom).geometry=new THREE.BufferGeometry().setFromPoints(paths.curves[inc].getPoints(n_points));//scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
+					// console.log(scene.getObjectByName(nom).geometry);
 				    }
-				    scene.getObjectByName(nom).geometry.setFromPoints(paths.curves[inc].getPoints(n_points));
 				    scene.getObjectByName(nom).matrixWorldNeedsUpdate=true;
 				    scene.getObjectByName(nom).geometry.verticesNeedUpdate=true;
 				    scene.getObjectByName(nom).material.needsUpdate=true;
@@ -874,8 +884,8 @@ function change_FAO_trade(){
 				    scene.getObjectByName(nom).material.side=THREE.DoubleSide;
 				    scene.getObjectByName(nom).userData=detail;
 				    // ... and the associated mesh
-				    volume=weight0*Math.cbrt(3.0*export_i/(4.0*Math.PI*max_trade));
 				    if(arg_trade[a]==='etonnes'){
+					volume=weight0*Math.cbrt(3.0*export_i/(4.0*Math.PI*max_trade));
 					nom='ball'+(inc_ball.toString());
 					if((typeof scene.getObjectByName(nom))=='undefined'){
 					    if(lambert) scene.add(new THREE.Mesh(new THREE.SphereGeometry(volume,segments0,rings0),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
@@ -885,12 +895,14 @@ function change_FAO_trade(){
 					    ball_mesh.push(inc);
 					    n_balls++;
 					}else{
-					    scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+					    // scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+					    scene.getObjectByName(nom).geometry=new THREE.SphereGeometry(volume,segments0,rings0);
 					    ball_mesh[inc_ball]=inc;
 					}
 					inc_ball++;
 				    }
 				    if(arg_trade[a]==='itonnes'){
+					volume=weight0*Math.cbrt(3.0*import_i/(4.0*Math.PI*max_trade));
 					nom='cube'+(inc_cube.toString());
 					if((typeof scene.getObjectByName(nom))=='undefined'){
 					    if(lambert) scene.add(new THREE.Mesh(new THREE.BoxGeometry(volume,volume,volume),new THREE.MeshLambertMaterial({color:colors[index%n_colors]})));
@@ -900,7 +912,8 @@ function change_FAO_trade(){
 					    cube_mesh.push(inc);
 					    n_cubes++;
 					}else{
-					    scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+					    // scene.getObjectByName(nom).scale.set(volume/volumes[inc],volume/volumes[inc],volume/volumes[inc]);
+					    scene.getObjectByName(nom).geometry=new THREE.BoxGeometry(volume,volume,volume);
 					    cube_mesh[inc_cube]=inc;
 					}
 					inc_cube++;
@@ -913,12 +926,12 @@ function change_FAO_trade(){
 				    scene.getObjectByName(nom).material.needsUpdate=true;
 				    scene.getObjectByName(nom).material.side=THREE.DoubleSide;
 				    scene.getObjectByName(nom).userData=detail;
-				    if(inc>=volumes_length){
+				    if(inc<volumes_length){
+					volumes[inc]=volume;
+				    }else{
 					volumes.push(volume);
 					volumes_length++;
 				    }
-				    if(inc<d_trade.length) d_trade[inc]=(arg_trade[a]==='etonnes')?1:-1;
-				    else d_trade.push((arg_trade[a]==='etonnes')?1:-1);
 				    inc++;
 				}// Rof arg_trade
 			    }// Fi > 0.0
@@ -936,7 +949,6 @@ function change_FAO_trade(){
 	// no pileups at all for the trade links
 	for(var i=(n_pileups-1);i>=0;i--) scene.remove(scene.getObjectByName('pileup'+(i.toString())));
 	n_pileups=0;
-	n_trade_links=inc;
     }// Fi
 };
 
@@ -1026,7 +1038,7 @@ function RotateOnMouseMove(e){
     }
 };
 function ZoomOnMouseWheel(e){
-    if(e.clientX>(.1*window.innerWidth) && e.clientX<(.9*window.innerWidth)){
+    if(e.clientX>(.3*window.innerWidth) && e.clientX<(.7*window.innerWidth)){
 	Rcamera=Math.min(10.0*radius,Math.max(2.0*radius,Rcamera-e.wheelDelta));
 	camera.position.set(Rcamera*radial.x,Rcamera*radial.y,Rcamera*radial.z);
 	camera.lookAt(new THREE.Vector3(0,0,0));
@@ -1111,7 +1123,7 @@ function change_continents(e){
 	    }
 	}
 	list_pileups_pairwize_year();
-	change_links_pubmed();
+	change_pubmed();
 	change_FAO_trade();
     }
 };
@@ -1123,7 +1135,7 @@ function change_country(e){
 	continent_2='';// clear the continent selection
 	country=e.target.id;
 	list_pileups_pairwize_year();
-	change_links_pubmed();
+	change_pubmed();
 	change_FAO_trade();
     }
 };
@@ -1131,8 +1143,7 @@ function change_country(e){
 // change the percentage
 function change_percentage(e){
     plower_bound=parseInt(e.target.innerHTML);
-    list_pileups_pairwize_year();
-    change_links_pubmed();
+    change_pubmed();
     change_FAO();
     change_FAO_trade();
 };
@@ -1157,7 +1168,7 @@ function change_year(e){
 function change(){
     initializing_description();
     list_pileups_pairwize_year();
-    change_links_pubmed();
+    change_pubmed();
     change_FAO();
     change_FAO_trade();
 };
@@ -1539,6 +1550,12 @@ function initializing_description(){
 	FAO_arg=temperature_change_arg;
 	FAO_title=temperature_change_title;
     }
+    if(i_FAO_trade==='chicken_meat_trade') description='chicken meat trade, FAO ('+(year.toString())+') :';
+    if(i_FAO_trade==='eggs_trade') description='eggs trade, FAO ('+(year.toString())+') :';
+    if(i_FAO_trade==='maize_trade') description='maize trade, FAO ('+(year.toString())+') :';
+    if(i_FAO_trade==='pig_meat_trade') description='pig meat trade, FAO ('+(year.toString())+') :';
+    if(i_FAO_trade==='rice_trade') description='rice (milled equivalent) trade, FAO ('+(year.toString())+') :';
+    if(i_FAO_trade==='sugar_trade') description='sugar trade, FAO ('+(year.toString())+') :';
     buffer_int=document.getElementById('pileups').children.length;
     for(var i=(buffer_int-1);i>=0;i--) document.getElementById('pileups').removeChild(document.getElementById('pileups').children[i]);
     if(i_word===-1){
@@ -1568,14 +1585,11 @@ function initializing_description(){
 	}
 	// trade FAO data ?
 	if(i_FAO_trade!==''){
-	    if(i_FAO_trade==='chicken_meat_trade') description='chicken meat trade, FAO ('+(year.toString())+') :';
-	    if(i_FAO_trade==='eggs_trade') description='eggs trade, FAO ('+(year.toString())+') :';
-	    if(i_FAO_trade==='maize_trade') description='maize trade, FAO ('+(year.toString())+') :';
-	    if(i_FAO_trade==='pig_meat_trade') description='pig meat trade, FAO ('+(year.toString())+') :';
-	    if(i_FAO_trade==='rice_trade') description='rice (milled equivalent) trade, FAO ('+(year.toString())+') :';
-	    if(i_FAO_trade==='sugar_trade') description='sugar trade, FAO ('+(year.toString())+') :';
 	    text=(description.concat('<br>')).concat('<br>');
-	    document.getElementById('pileups').innerHTML=text;
+	    label=document.createElement('span');
+	    label.style.color='white';
+	    label.innerHTML=text;
+	    document.getElementById('pileups').appendChild(label);
 	}
     }else{
 	// pubmed data
@@ -1607,7 +1621,7 @@ function highlight(e){
 
 // When the user clicks on <div>, open the popup
 function myFunction(){
-    var popup=document.getElementById("myPopupPileups");
+    popup=document.getElementById("myPopupPileups");
     popup.classList.toggle("show");
     popup=document.getElementById("myPopupYear");
     popup.classList.toggle("show");
