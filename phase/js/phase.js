@@ -173,7 +173,6 @@ function readJSON(data){
     document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
 
     n_keywords=Object.keys(data_json['keywords']).length;
-    console.log(data_json['keywords']);
 
     // list of keywords
     myButtonFontSize=[];
@@ -219,7 +218,6 @@ function readJSON(data){
 	n_forest_coverage.push(0);
     }
     n_forests=data_json['forest_coverage'].length;
-    console.log(data_json['forest_coverage']);
     for(var i=0;i<n_forests;i++){
 	forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=data_json['forest_coverage'][i]['coverage'];
 	n_forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=1;
@@ -229,13 +227,13 @@ function readJSON(data){
     // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json
     global_surface_ice=data_json['ice'];
     for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
+	if(global_surface_ice[i]['y']===year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
 
     n_title=data_json['title'].length;
     n_abstract=data_json['abstract'].length;
-    // for(var i=0;i<n_title;i++) min_year=Math.min(min_year,data_json['title'][i]['year']);
-    // for(var i=0;i<n_title;i++) max_year=Math.max(max_year,data_json['title'][i]['year']);
+    // for(var i=0;i<n_title;i++) min_year=Math.min(min_year,data_json['title'][i]['y']);
+    // for(var i=0;i<n_title;i++) max_year=Math.max(max_year,data_json['title'][i]['y']);
     n_year=max_year-min_year+1;
     p=[];
     v=[];
@@ -261,7 +259,7 @@ function readJSON(data){
     // radius
     sort_radius=[];
     for(var i=0;i<n_abstract;i++){
-	t=data_json['abstract'][i]['year']-min_year;
+	t=data_json['abstract'][i]['y']-min_year;
 	k=data_json['keywords'][data_json['abstract'][i]['keyword']];
 	// radius[t*n_keywords+k]=Math.sqrt((data_json['abstract'][i]['value']/data_json['publications'][year.toString()])/Math.PI);
 	radius[t*n_keywords+k]=data_json['abstract'][i]['value']/data_json['publications'][year.toString()];
@@ -273,19 +271,19 @@ function readJSON(data){
     indexes=[];
     sort_radius.sort(function(a,b){return b[0]<a[0]?-1:1;});
     for(var i=0;i<n_abstract;i++){
-	t=data_json['abstract'][i]['year']-min_year;
+	t=data_json['abstract'][i]['y']-min_year;
 	k=data_json['keywords'][data_json['abstract'][i]['keyword']];
 	indexes.push(sort_radius[i][1]);
     }
     // positions
     for(var i=0;i<n_title;i++){
-	t=data_json['title'][i]['year']-min_year;
+	t=data_json['title'][i]['y']-min_year;
 	k=data_json['keywords'][data_json['title'][i]['keyword']];
 	p[t*n_keywords+k]=data_json['title'][i]['value']/data_json['publications'][year.toString()];
     }
     // velocities
     for(var i=0;i<n_title;i++){
-	t=data_json['title'][i]['year']-min_year;
+	t=data_json['title'][i]['y']-min_year;
 	k=data_json['keywords'][data_json['title'][i]['keyword']];
 	if(t>0) v[t*n_keywords+k]=p[t*n_keywords+k]-p[(t-1)*n_keywords+k];
     }
@@ -316,7 +314,6 @@ function readJSON(data){
     // drawing the circles
     for(var i=0;i<n_abstract;i++){
 	index=indexes[i];
-	// console.log(p[index],v[index]);
 	svgContainer.append("circle")
 	    .attr("cx",xScale(p[index]))
 	    .attr("cy",yScale(v[index]))
@@ -327,8 +324,6 @@ function readJSON(data){
     }
 };// reading the json file
 
-// writing text on mouse over
-// svgContainer.on("mouseover",function(){
 // writing text on mouse click
 svgContainer.on("click",function(){
     cleaning(old_word);
@@ -338,7 +333,7 @@ svgContainer.on("click",function(){
     t0=-1;
     i0=-1;
     for(var i=0;i<n_title;i++){
-	t=data_json['title'][i]['year']-min_year;
+	t=data_json['title'][i]['y']-min_year;
 	k=data_json['keywords'][data_json['title'][i]['keyword']];
 	index=t*n_keywords+k;
 	x0=xScale(p[index]);
@@ -360,27 +355,6 @@ svgContainer.on("click",function(){
     }// Fi k0 t0 min_distance
 });
 
-// // deleting text on mouse out	      
-// svgContainer.on("mouseout",function(){
-//     if(k0!=-1 && t0!=-1){
-// 	cleaning(old_word);
-// 	for(var i=0;i<n_title;i++){
-// 	    k=data_json['keywords'][data_json['title'][i]['keyword']];
-// 	    if(k===k0){
-// 		t=data_json['title'][i]['year']-min_year;
-// 		index=t*n_keywords+k;
-// 		d3.select("#t"+t+"k"+k).remove();
-// 		d3.select('#sc'+(index.toString())).remove();
-// 		d3.select('#sct'+(index.toString())).remove();
-// 	    }else{
-// 		t=data_json['title'][i]['year']-min_year;
-// 		index=t*n_keywords+k;
-// 		d3.select('#c'+(index.toString())).style("fill",colors[(index%n_keywords)%n_colors]);
-// 	    }
-// 	}
-//     }
-// });
-
 // change year on mouse click
 function change_year(e){
     document.getElementById('year').innerHTML=e.target.id;
@@ -390,7 +364,7 @@ function change_year(e){
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
     document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
     for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['year']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
+	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
     }
 }
 
@@ -432,7 +406,6 @@ function Rg2_vp(p,v,w,W){
 
 // highlighting a keyword on mouse click
 function highlight(e){
-    console.log(e.target.id);
     cleaning(old_word);
     document.getElementById(e.target.id).style.fontSize='30px';
     document.getElementById(e.target.id).style.textDecoration='underline';
@@ -441,7 +414,7 @@ function highlight(e){
     for(var i=0;i<n_title;i++){
 	if(data_json['title'][i]['keyword']===e.target.id){
 	    k=data_json['keywords'][e.target.id];
-	    t=data_json['title'][i]['year']-min_year;
+	    t=data_json['title'][i]['y']-min_year;
 	    index=t*n_keywords+k;
 	    transition[t]=index;
 	    pi[t]=p[index];
@@ -464,7 +437,7 @@ function highlight(e){
 		    x:xScale(p[index]),
 		    y:yScale(v[index])
 		});
-		// .text((data_json['title'][i]['value'].toString()).concat(' in ',data_json['title'][i]['year'].toString()));
+		// .text((data_json['title'][i]['value'].toString()).concat(' in ',data_json['title'][i]['y'].toString()));
 	}// Fi target
     }// Rof i
     // creating the v(p) and the p(t) graphs
@@ -666,6 +639,12 @@ function cleaning(w){
 	d3.select('#text_pt').remove();
 	d3.select('#text_vp').remove();
     }
+};
+
+// When the user clicks on <div>, open the popup
+function ShowMyPopups(){
+    var popup=document.getElementById("myPopupPhase");
+    popup.classList.toggle("show");
 };
 
 requestJSON(readJSON,url_database[0]);
