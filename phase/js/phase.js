@@ -1,18 +1,19 @@
-console.log([window.innerWidth,window.innerHeight]);
+console.log(window.innerWidth,window.innerHeight);
 
 var resX=window.innerWidth,resY=window.innerHeight,dX=parseInt(resX/8.0),dY=parseInt(resY*dX/resX),xmin=0.000001,xmax=0.007,ymin=-0.002,ymax=-ymin;
 var resx=parseInt(resX/4),resy=parseInt(resx*resY/resX);
-var n_abstract,n_title,n_keywords,data_json,data_json_i;
-var n_year,min_year=1990,max_year=2018,year=min_year,min_radius=10000.0,max_radius=0.0,x0,y0;
+var n_titles,n_keywords,data_json,data_json_i;
+var n_years,min_year=1990,max_year=2018,year=min_year,min_radius=10000.0,max_radius=0.0,x0,y0;
 var p=[],v=[],radius=[],sort_radius=[],fRadius=160.0,indexes=[],index,p_mean=0.0,p_var=0.0,v_mean=0.0,v_var=0.0,v_min=10000.0,v_max=-v_min,p_min=10000.0,p_max=-p_min;
-var t,k,t0,k0,i0,min_distance,distance,p1;
-var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,publications=[],n_publications,mean_publications=0.0,words=[];
-var word='',old_word='',old_i_word=-1;
+var Y,t,k,t0,k0,i0,min_distance,distance,p1;
+var forest_coverage,global_ice,publications=[],n_publications,words=[];
+var word='',old_word='';
 var stroke_width=2.5;
 var myButton,myButtonFontSize=[];
 var transition=[],pi=[],vi=[],wi=[],Rg2,angle,inc;
 var x_scale_min,x_scale_max,y_scale_min,y_scale_max;
 var p_scale_min,p_scale_max,v_scale_min,v_scale_max;
+var p_min_zw,p_max_zw,v_min_zw,v_max_zw;
 var url_database=['./data/title_abstract_pubmed.json','./data/title_abstract_scopus.json'];
 var database=['pubmed','scopus'];
 
@@ -101,14 +102,11 @@ for(var d=0;d<2;d++){
 
 // passing url to xml http request
 function change_database(url){
+    cleaning(old_word);
     d3.selectAll('line').remove();
     d3.selectAll('circle').remove();
-    for(var i=0;i<n_keywords;i++){
-	word=words[i];
-	document.getElementById(word).remove();
-    }
+    for(var i=0;i<n_keywords;i++) document.getElementById(words[i]).remove();
     for(var y=min_year;y<=max_year;y++) document.getElementById(y.toString()).remove();
-    old_i_word=-1;
     old_word='';
     word='';
     year=1990;
@@ -137,8 +135,8 @@ function change_database(url){
     while(document.getElementById('Year').hasChildNodes()) document.getElementById('Year').removeChild(document.getElementById('Year').lastChild);
     while(document.getElementById('leftCol').hasChildNodes()) document.getElementById('leftCol').removeChild(document.getElementById('leftCol').lastChild);
     for(var d=0;d<2;d++){
-	console.log(url,url_database[d]);
-	console.log(document.getElementById(url_database[d]));
+	// console.log(url,url_database[d]);
+	// console.log(document.getElementById(url_database[d]));
 	if(url===url_database[d]){
 	    document.getElementById(url_database[d]).style.fontSize='30px';
 	    document.getElementById(url_database[d]).style.textDecoration='underline';
@@ -167,22 +165,25 @@ function requestJSON(callback,url){
 function readJSON(data){
 
     data_json=data;
-
+    forest_coverage=data_json['forest_coverage'];
+    global_surface_ice=data_json['ice_coverage'];
+    
     // reading the # of publications per year
-    for(var y=1990;y<=2018;y++)	mean_publications+=data_json['publications'][y.toString()]/(2018-1990+1);
+    min_year=data_json['years']['0'];
+    max_year=data_json['years'][(data_json['n_years']-1).toString()];
     document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
 
-    n_keywords=Object.keys(data_json['keywords']).length;
-
     // list of keywords
+    n_keywords=data_json['n_keywords'];
     myButtonFontSize=[];
-    words=Object.keys(data_json['keywords']);
+    words=[]
+    for(var i=0;i<n_keywords;i++) words.push(data_json['i_keywords'][i.toString()]);
     words.sort();
     for(var i=0;i<n_keywords;i++){
 	word=words[i];
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color=colors[data_json['keywords'][word]%n_colors];
+	myButton.style.color=colors[data_json['keywords_i'][word]%n_colors];
 	myButton.style.cursor='pointer';
 	myButton.id=word;
 	myButton.innerHTML=word.replace(/_/g,'\xa0');
@@ -193,17 +194,20 @@ function readJSON(data){
 	document.getElementById(word).addEventListener('click',highlight,false);
     }
     // list of years
-    for(var y=min_year;y<=max_year;y++){
+    n_years=data_json['n_years'];
+    for(var y=0;y<n_years;y++){
+	min_year=Math.min(min_year,data_json['years'][y.toString()]);
+	max_year=Math.max(max_year,data_json['years'][y.toString()]);
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color=colors[(y-min_year)%n_colors];
+	myButton.style.color=colors[y%n_colors];
 	myButton.style.cursor='pointer';
-	myButton.id=y.toString();
-	myButton.innerHTML=y.toString();
+	myButton.id=data_json['years'][y.toString()].toString();
+	myButton.innerHTML=data_json['years'][y.toString()];
 	myButton.style.fontSize='12px';
 	document.getElementById('Year').appendChild(myButton);
 	document.getElementById('Year').appendChild(document.createElement('br'));
-	document.getElementById(y.toString()).addEventListener('click',change_year,false);
+	document.getElementById(data_json['years'][y.toString()].toString()).addEventListener('click',change_year,false);
     }
 
     // temperatures anomalies
@@ -211,34 +215,15 @@ function readJSON(data){
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
     // calculing the forest coverage
-    forest_coverage=[];
-    n_forest_coverage=[];
-    for(var i=0;i<(2019-min_year);i++){
-	forest_coverage.push(0.0);
-	n_forest_coverage.push(0);
-    }
-    n_forests=data_json['forest_coverage'].length;
-    for(var i=0;i<n_forests;i++){
-	forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=data_json['forest_coverage'][i]['coverage'];
-	n_forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=1;
-    }
-    for(var i=0;i<n_forests;i++) forest_coverage[i]/=n_forest_coverage[i];
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
+    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year.toString()].toPrecision(3)).toString());
     // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json
-    global_surface_ice=data_json['ice'];
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['y']===year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
+    document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[year.toString()].toPrecision(3)).toString(),' million of km2');
 
-    n_title=data_json['title'].length;
-    n_abstract=data_json['abstract'].length;
-    // for(var i=0;i<n_title;i++) min_year=Math.min(min_year,data_json['title'][i]['y']);
-    // for(var i=0;i<n_title;i++) max_year=Math.max(max_year,data_json['title'][i]['y']);
-    n_year=max_year-min_year+1;
+    n_titles=data_json['n_titles'];
     p=[];
     v=[];
     radius=[];
-    for(var i=0;i<n_title;i++){
+    for(var i=0;i<n_titles;i++){
 	p.push(0.0);
 	v.push(0.0);
 	radius.push(0.0);
@@ -247,61 +232,49 @@ function readJSON(data){
     pi=[];
     vi=[];
     wi=[];
-    for(var i=0;i<n_year;i++){
+    for(var i=0;i<n_years;i++){
 	transition.push(0);
 	pi.push(0.0);
 	vi.push(0.0);
 	wi.push(0.0);
     }
-    console.log(n_title);
-    console.log(min_year);
-    console.log(max_year);
     // radius
     sort_radius=[];
-    for(var i=0;i<n_abstract;i++){
-	t=data_json['abstract'][i]['y']-min_year;
-	k=data_json['keywords'][data_json['abstract'][i]['keyword']];
-	// radius[t*n_keywords+k]=Math.sqrt((data_json['abstract'][i]['value']/data_json['publications'][year.toString()])/Math.PI);
-	radius[t*n_keywords+k]=data_json['abstract'][i]['value']/data_json['publications'][year.toString()];
+    for(var i=0;i<n_titles;i++){
+	Y=data_json['title'][i]['y'];
+	t=Y-min_year;
+	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
+	radius[t*n_keywords+k]=data_json['title'][i]['abstract']/data_json['publications'][Y.toString()];
 	sort_radius.push([radius[t*n_keywords+k],t*n_keywords+k]);
 	if(radius[t*n_keywords+k]>0.0) min_radius=Math.min(min_radius,radius[t*n_keywords+k]);
 	if(radius[t*n_keywords+k]>0.0) max_radius=Math.max(max_radius,radius[t*n_keywords+k]);
     }
-    // sorting radius
+    // sorting radius & positions
     indexes=[];
-    sort_radius.sort(function(a,b){return b[0]<a[0]?-1:1;});
-    for(var i=0;i<n_abstract;i++){
-	t=data_json['abstract'][i]['y']-min_year;
-	k=data_json['keywords'][data_json['abstract'][i]['keyword']];
-	indexes.push(sort_radius[i][1]);
-    }
-    // positions
-    for(var i=0;i<n_title;i++){
-	t=data_json['title'][i]['y']-min_year;
-	k=data_json['keywords'][data_json['title'][i]['keyword']];
-	p[t*n_keywords+k]=data_json['title'][i]['value']/data_json['publications'][year.toString()];
+    // sort_radius.sort(function(a,b){return b[0]<a[0]?-1:1;});
+    for(var i=0;i<n_titles;i++){
+	// indexes.push(sort_radius[i][1]);
+	indexes.push(i);
+	Y=data_json['title'][i]['y'];
+	t=Y-min_year;
+	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
+	p[t*n_keywords+k]=data_json['title'][i]['value']/data_json['publications'][Y.toString()];
+	if(data_json['title'][i]['keyword']==='mortality') console.log(p[t*n_keywords+k]);
     }
     // velocities
-    for(var i=0;i<n_title;i++){
+    for(var i=0;i<n_titles;i++){
 	t=data_json['title'][i]['y']-min_year;
-	k=data_json['keywords'][data_json['title'][i]['keyword']];
+	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
 	if(t>0) v[t*n_keywords+k]=p[t*n_keywords+k]-p[(t-1)*n_keywords+k];
     }
-    for(var i=0;i<n_title;i++) v_mean+=Math.abs(v[i])/n_title;
-    for(var i=0;i<n_title;i++) v_var+=(v[i]-v_mean)*(v[i]-v_mean)/n_title;
-    for(var i=0;i<n_title;i++) v_min=Math.min(v_min,v[i]-radius[i]);
-    for(var i=0;i<n_title;i++) v_max=Math.max(v_max,v[i]+radius[i]);
-    for(var i=0;i<n_title;i++) p_mean+=p[i]/n_title;
-    for(var i=0;i<n_title;i++) p_var+=(p[i]-p_mean)*(p[i]-p_mean)/n_title;
-    for(var i=0;i<n_title;i++) p_min=Math.min(p_min,p[i]-radius[i]);
-    for(var i=0;i<n_title;i++) p_max=Math.max(p_max,p[i]+radius[i]);
-    // making the new axis
-    xScale.domain([0,p_mean+3.0*Math.sqrt(p_var)]);
-    yScale.domain([v_mean-5.0*Math.sqrt(v_var),v_mean+5.0*Math.sqrt(v_var)]);
-    xAxis.scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
-    yAxis.scale(yScale).orient("left");
-    svgContainer.select("g.x.axis").call(xAxis);
-    svgContainer.select("g.y.axis").call(yAxis);
+    for(var i=0;i<n_titles;i++) v_mean+=Math.abs(v[i])/n_titles;
+    for(var i=0;i<n_titles;i++) v_var+=(v[i]-v_mean)*(v[i]-v_mean)/n_titles;
+    for(var i=0;i<n_titles;i++) v_min=Math.min(v_min,v[i]);
+    for(var i=0;i<n_titles;i++) v_max=Math.max(v_max,v[i]);
+    for(var i=0;i<n_titles;i++) p_mean+=p[i]/n_titles;
+    for(var i=0;i<n_titles;i++) p_var+=(p[i]-p_mean)*(p[i]-p_mean)/n_titles;
+    for(var i=0;i<n_titles;i++) p_min=Math.min(p_min,p[i]);
+    for(var i=0;i<n_titles;i++) p_max=Math.max(p_max,p[i]);
     console.log('p(min):'.concat(p_min.toString()));
     console.log('p(mean):'.concat(p_mean.toString()));
     console.log('p(sd):'.concat((Math.sqrt(p_var)).toString()));
@@ -310,18 +283,19 @@ function readJSON(data){
     console.log('v(mean):'.concat(v_mean.toString()));
     console.log('v(sd):'.concat((Math.sqrt(v_var)).toString()));
     console.log('v(max):'.concat(v_max.toString()));
-    console.log([n_abstract,n_title,n_keywords*n_year]);
-    // drawing the circles
-    for(var i=0;i<n_abstract;i++){
-	index=indexes[i];
-	svgContainer.append("circle")
-	    .attr("cx",xScale(p[index]))
-	    .attr("cy",yScale(v[index]))
-	    .attr("r",xScale(radius[index])/fRadius)
-	    .style("fill",colors[(index%n_keywords)%n_colors])
-	    .style("opacity",0.5)
-	    .attr("id","c"+index.toString());
-    }
+    // making the new axis
+    p_min=0.0;
+    xScale.domain([p_min,p_max]);
+    yScale.domain([v_min,v_max]);
+    xAxis.scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
+    yAxis.scale(yScale).orient("left");
+    svgContainer.select("g.x.axis").call(xAxis);
+    svgContainer.select("g.y.axis").call(yAxis);
+    p_min_zw=0.0;
+    p_max_zw=p_max;
+    v_min_zw=v_min;
+    v_max_zw=v_max;
+    drawning_circles(p_min,p_max,v_min,v_max);
 };// reading the json file
 
 // writing text on mouse click
@@ -332,9 +306,9 @@ svgContainer.on("click",function(){
     k0=-1;
     t0=-1;
     i0=-1;
-    for(var i=0;i<n_title;i++){
+    for(var i=0;i<n_titles;i++){
 	t=data_json['title'][i]['y']-min_year;
-	k=data_json['keywords'][data_json['title'][i]['keyword']];
+	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
 	index=t*n_keywords+k;
 	x0=xScale(p[index]);
 	y0=yScale(v[index]);
@@ -362,10 +336,8 @@ function change_year(e){
     document.getElementById('publications').innerHTML='# of publications : '.concat(data_json['publications'][year.toString()].toString());
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
+    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year.toString()].toPrecision(3)).toString());
+    document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[year.toString()].toPrecision(3)).toString(),' million of km2');
 }
 
 // calculating the gyration tensor in (v,p) space
@@ -410,10 +382,10 @@ function highlight(e){
     document.getElementById(e.target.id).style.fontSize='30px';
     document.getElementById(e.target.id).style.textDecoration='underline';
     document.getElementById('keyword').innerHTML=(e.target.id).replace(/_/g,'\xa0');
-    document.getElementById('keyword').style.color=colors[data_json['keywords'][e.target.id]%n_colors];
-    for(var i=0;i<n_title;i++){
+    document.getElementById('keyword').style.color=colors[data_json['keywords_i'][e.target.id]%n_colors];
+    for(var i=0;i<n_titles;i++){
 	if(data_json['title'][i]['keyword']===e.target.id){
-	    k=data_json['keywords'][e.target.id];
+	    k=data_json['keywords_i'][e.target.id];
 	    t=data_json['title'][i]['y']-min_year;
 	    index=t*n_keywords+k;
 	    transition[t]=index;
@@ -441,8 +413,8 @@ function highlight(e){
 	}// Fi target
     }// Rof i
     // creating the v(p) and the p(t) graphs
-    year_publications(transition,n_year);
-    publications_velocities(transition,n_year);
+    year_publications(transition,n_years);
+    publications_velocities(transition,n_years);
     // drawing the gyration tensor in the (p,v) space
     Rg2=Rg2_vp(pi,vi,wi,0);
     angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
@@ -501,7 +473,6 @@ function highlight(e){
 	.style('stroke-width',3)
 	.attr('id','sl4');
     old_word=e.target.id;
-    for(var i=0;i<n_keywords;i++) if(Object.keys(data_json['keywords'])[i]===old_word) old_word_i=i;
 };
 
 // # of publications as a function of year
@@ -612,7 +583,7 @@ function graph_vp(){
 
 function cleaning(w){
     if(w!=''){
-	k=data_json['keywords'][w];
+	k=data_json['keywords_i'][w];
 	document.getElementById(w).style.fontSize=myButtonFontSize[w];
 	document.getElementById(w).style.textDecoration='none';
 	for(var i=min_year;i<=max_year;i++){
@@ -645,6 +616,52 @@ function cleaning(w){
 function ShowMyPopups(){
     var popup=document.getElementById("myPopupPhase");
     popup.classList.toggle("show");
+};
+
+// zooming in/out on mouse wheel
+document.addEventListener('mousewheel',ZoomOnMouseWheel);
+function ZoomOnMouseWheel(e){
+    var invX=xScale.invert(e.clientX);
+    var invY=yScale.invert(e.clientY);
+    // console.log(invX,invY);
+    // console.log(e.clientX,e.clientY);
+    if(invX>p_min_zw && invX<p_max_zw && invY>v_min_zw && invY<v_max_zw){
+	p_min_zw=Math.min(p_max,Math.max(p_min,p_min_zw+0.05*Math.sign(e.wheelDelta)*(invX-p_min_zw)));
+	p_max_zw=Math.max(p_min,Math.min(p_max,p_max_zw-0.05*Math.sign(e.wheelDelta)*(p_max_zw-invX)));
+	v_min_zw=Math.min(v_max,Math.max(v_min,v_min_zw+0.05*Math.sign(e.wheelDelta)*(invY-v_min_zw)));
+	v_max_zw=Math.max(v_min,Math.min(v_max,v_max_zw-0.05*Math.sign(e.wheelDelta)*(v_max_zw-invY)));
+	xScale.domain([p_min_zw,p_max_zw]);
+	yScale.domain([v_min_zw,v_max_zw]);
+	xAxis.scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
+	yAxis.scale(yScale).orient("left");
+	svgContainer.select("g.x.axis").call(xAxis);
+	svgContainer.select("g.y.axis").call(yAxis);
+	d3.selectAll('line').remove();
+	d3.selectAll('circle').remove();
+	d3.select('#graph_x_pt').remove();
+	d3.select('#graph_y_pt').remove();
+	d3.select('#graph_x_vp').remove();
+	d3.select('#graph_y_vp').remove();
+	d3.select('#text_pt').remove();
+	d3.select('#text_vp').remove();
+	drawning_circles(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
+    }
+};
+
+// drawning the circles
+function drawning_circles(x,X,y,Y){
+    for(var i=0;i<n_titles;i++){
+	index=indexes[i];
+	if(p[index]>=x && p[index]<=X && v[index]>=y && v[index]<=Y){
+	    svgContainer.append("circle")
+		.attr("cx",xScale(p[index]))
+		.attr("cy",yScale(v[index]))
+		.attr("r",xScale(radius[index])/fRadius)
+		.style("fill",colors[(index%n_keywords)%n_colors])
+		.style("opacity",0.5)
+		.attr("id","c"+index.toString());
+	}
+    }
 };
 
 requestJSON(readJSON,url_database[0]);
