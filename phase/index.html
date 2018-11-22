@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8">
-  <header><title>phase first try</title></header>
+  <header><title>phase</title></header>
   <!-- <svg width="1024" height="728"></svg> -->
   <style>
     canvas{width:100%;height:100%}
@@ -56,6 +56,49 @@
     overflow:hidden;
     top:600px;
     }
+    /* The help popup */
+    .popupPhase{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:10%;
+    left:20%;
+    width:60%;
+    }
+    .popupPhase .popuptext{
+    visibility:hidden;
+    background-color:#aaa;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupPhase .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupPhase .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn{
+    from {opacity:0;}
+    to {opacity:1;}
+    }
+    @keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+    }
   </style>
   <body>
     <div id="info">
@@ -66,6 +109,8 @@
       <a href="https://www.ncdc.noaa.gov/snow-and-ice" target="_blank" rel="noopener" style='color:#00f;font-weight:bold;cursor:pointer;text-decoration:underline'>ice surface data</a>
       <a href="https://www.worldbank.org" target="_blank" rel="noopener" style='color:darkgreen;font-weight:bold;cursor:pointer;text-decoration:underline'>forest coverage data</a>
       <a href="https://www.ncdc.noaa.gov" target="_blank" rel="noopener" style='color:#f00;font-weight:bold;cursor:pointer;text-decoration:underline'>temperatures anomalies data</a>
+      <a style='color:#f90;font-weight:bold;cursor:pointer'>(Use the mouse wheel (or pad) to zoom in/out)</a>
+      <a id="myPopup" title="click me to get some help !" style='color:#666;font-weight:bold' href="#" onclick="ShowMyPopups();return false;">click me to get some help !</a>
       <br><span id="keyword" style="font-size:20px;color:#000"></span>
     </div>
     <footer id="footer">
@@ -81,6 +126,9 @@
     <div id='Year' class='Year'>
     </div>
     <div id='rightColbis' class='rightColbis'>
+    </div>
+    <div class="popupPhase" onclick="ShowMyPopups()">
+      <span class="popuptext" id="myPopupPhase" style="font-weight:bold;font-size:12px;color:#000">You are looking at a phase portrait of the publications with keyword from IPCC (the list is displayed when hovering the left part of the screen) in the title of database like pubmed and scopus (you can swich from one to another at the bottom right corner). The diameter of each circle is directly related to the number of publications with keyword in the abstract. The "x" axis is the number of publications while the "y" is the velocity of publications. It has been normalized by the total number of publications for the year "y" (you can swich from one to another at the bottom right corner). A phase portrait does not explicitly express a timeline. So, by clicking on a circle make appears a zoom on the selected keyword phase portrait and its number of publications timeline evolution.</span>
     </div>
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <!-- <script type="text/javascript" src="https://d3js.org/d3-selection-multi.v1.min.js"></script> -->
