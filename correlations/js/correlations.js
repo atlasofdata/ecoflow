@@ -1,13 +1,16 @@
+// https://github.com/theatlasofdata/ecoflow
+// https://theatlasofdata.github.io/ecoflow
+
 console.log(window.innerWidth,window.innerHeight);
 
 var resX=window.innerWidth,resY=window.innerHeight,dX=parseInt(resX/8.0),dY=parseInt(resY*dX/resX),xmin=0.000001,xmax=0.007,ymin=-0.002,ymax=-ymin;
 var resx=parseInt(resX/4),resy=parseInt(resx*resY/resX);
-var n_titles,n_double_titles,n_keywords,n_main_keywords,n_correlations_keywords,data_json,data_json_i;
+var n_titles,n_double_titles,n_keywords,n_main_keywords,n_correlations_keywords,data_json,data_json_i,count;
 var n_years,min_year=1990,max_year=2018,year=1990,min_radius=10000.0,max_radius=0.0,x0,y0;
 var p=[],v=[],radius=[],sort_radius=[],thickness=[],fRadius=160.0,indexes,index,index1,index2,p_mean=0.0,p_var=0.0,v_mean=0.0,v_var=0.0,v_min=10000.0,v_max=-v_min,p_min=10000.0,p_max=-p_min;
 var Y,t,k,t0,k0,i0,min_distance,distance,p1;
 var forest_coverage,global_ice,publications=[],n_publications,words=[],correlations_words;
-var word='',old_word='';
+var word='',cword='',mword='',old_word='';
 var stroke_width=2.5;
 var myButton,myButtonFontSize=[];
 var transition=[],pi=[],vi=[],wi=[],Rg2,angle,inc;
@@ -16,7 +19,7 @@ var p_scale_min,p_scale_max,v_scale_min,v_scale_max;
 var p_min_zw,p_max_zw,v_min_zw,v_max_zw;
 var url_database=['./data/title_abstract_pubmed.json','./data/title_abstract_scopus.json'];
 var database=['pubmed','scopus'];
-var n_cut=100,draw_i,mean_publications_per_year;
+var draw_i,mean_publications_per_year;
 
 // var colors=["#f2d9d9","#d6e0f5","#ffcce0","#ffeecc","#ccffcc","#ffffcc","#ffe6cc","#ccccff","#e6ccff","#d6f5d6","#ffebcc","#ccddff","#ffccff","#cce6ff"];
 var colors=["#6666ff","#d98c8c","#66ff66","#ff66a3","#66ccff","#ffc266","#996600","#ffb366","#8585e0","#ff66ff","#a3a3c2","#ff8c66","#b366ff","#006699","#cc99ff","#669900","#ccccff","#ff5050","#9933ff","#33cc33","#0099cc"];
@@ -109,6 +112,8 @@ function change_database(url){
     for(var y=min_year;y<=max_year;y++) document.getElementById(y.toString()).remove();
     old_word='';
     word='';
+    cword='';
+    mword='';
     year=1990;
     p=[];
     v=[];
@@ -172,6 +177,7 @@ function readJSON(data){
     max_year=data_json['years'][(data_json['n_years']-1).toString()];
     document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
 
+    n_years=data_json['n_years'];
     n_keywords=data_json['n_keywords'];
     n_main_keywords=data_json['n_main_keywords'];
     n_correlations_keywords=data_json['n_correlations_keywords'];
@@ -181,19 +187,22 @@ function readJSON(data){
     // display only the hottest topics
     draw_i=[];
     for(var i=0;i<n_titles;i++){
-	if(data_json['title'][i]['value']>=mean_publications_per_year[data_json['title'][i]['y'].toString()]) draw_i.push(true);
+	data_json_i=data_json['title'][i];
+	if(data_json_i['value']>=mean_publications_per_year[data_json_i['y'].toString()]) draw_i.push(true);
 	else{
 	    draw_i.push(false);
-	    word=data_json['title'][i]['keyword'];
+	    word=data_json_i['keyword'];
 	    for(var j=0;j<n_main_keywords;j++){
 		if(data_json['i_main_keywords'][j.toString()]===word){
-		    // console.log(data_json['title'][i]);
-		    draw_i[i]=true;
+		    // console.log(data_json_i);
+		    // draw_i[i]=true;
 		}
 	    }
 	}
-	// if(data_json['title'][i]['keyword']==='malaria') console.log(draw_i[i]);
     }
+    count=0;
+    for(var i=0;i<n_titles;i++) count+=draw_i[i];
+    console.log(count,n_main_keywords*n_years,n_titles);
 
     // list of keywords
     myButtonFontSize=[];
@@ -214,26 +223,43 @@ function readJSON(data){
 	document.getElementById('Keywords').appendChild(document.createElement('br'));
 	document.getElementById(word).addEventListener('click',highlight,false);
     }
+    // list of main keywords
+    mwords=[];
+    for(var i=0;i<n_main_keywords;i++) mwords.push(data_json['i_main_keywords'][i.toString()]);
+    mwords.sort();
+    for(var i=0;i<n_main_keywords;i++){
+	mword=mwords[i];
+	myButton=document.createElement('span');
+	myButton.className='button';
+	myButton.style.color=colors[data_json['main_keywords_i'][mword]%n_colors];
+	myButton.style.cursor='pointer';
+	myButton.id='m'+mword;
+	myButton.innerHTML=mword.replace(/_/g,'\xa0');
+	myButtonFontSize['m'+mword]='12px';
+	myButton.style.fontSize='12px';
+	document.getElementById('mainKeywords').appendChild(myButton);
+	document.getElementById('mainKeywords').appendChild(document.createElement('br'));
+	document.getElementById('m'+mword).addEventListener('click',mhighlight,false);
+    }
     // list of correlations keywords
     correlations_words=[];
     for(var i=0;i<n_correlations_keywords;i++) correlations_words.push(data_json['i_correlations_keywords'][i.toString()]);
     correlations_words.sort();
     for(var i=0;i<n_correlations_keywords;i++){
-	word=correlations_words[i];
+	cword=correlations_words[i];
 	myButton=document.createElement('span');
 	myButton.className='button';
-	myButton.style.color=colors[data_json['correlations_keywords_i'][word]%n_colors];
+	myButton.style.color=colors[data_json['correlations_keywords_i'][cword]%n_colors];
 	myButton.style.cursor='pointer';
-	myButton.id=word;
-	myButton.innerHTML=word.replace(/_/g,'\xa0');
-	myButtonFontSize[word]='12px';
+	myButton.id=cword;
+	myButton.innerHTML=cword.replace(/_/g,'\xa0');
+	myButtonFontSize[cword]='12px';
 	myButton.style.fontSize='12px';
 	document.getElementById('Correlations').appendChild(myButton);
 	document.getElementById('Correlations').appendChild(document.createElement('br'));
-	document.getElementById(word).addEventListener('click',chighlight,false);
+	document.getElementById(cword).addEventListener('click',chighlight,false);
     }
     // list of years
-    n_years=data_json['n_years'];
     for(var y=0;y<n_years;y++){
 	min_year=Math.min(min_year,data_json['years'][y.toString()]);
 	max_year=Math.max(max_year,data_json['years'][y.toString()]);
@@ -248,7 +274,9 @@ function readJSON(data){
 	document.getElementById('Year').appendChild(document.createElement('br'));
 	document.getElementById(data_json['years'][y.toString()].toString()).addEventListener('click',change_year,false);
     }
-
+    word='';
+    cword='';
+    mword='';
     // temperatures anomalies
     document.getElementById('year').innerHTML=year.toString();
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
@@ -291,17 +319,18 @@ function readJSON(data){
     // sort_radius.sort(function(a,b){return b[0]<a[0]?-1:1;});//.push(sort_radius[i][1]);
     indexes=[];
     for(var i=0;i<n_titles;i++){
-	Y=data_json['title'][i]['y'];
+	data_json_i=data_json['title'][i];
+	Y=data_json_i['y'];
 	t=Y-min_year;
-	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
-	p[t*n_keywords+k]=data_json['title'][i]['value']/data_json['publications'][Y.toString()];
+	k=data_json['keywords_i'][data_json_i['keyword']];
+	p[t*n_keywords+k]=data_json_i['value']/data_json['publications'][Y.toString()];
 	indexes.push(t*n_keywords+k);
     }
     // link thickness
     thickness=[];
     for(var i=0;i<n_double_titles;i++){
 	Y=data_json['double_title'][i]['y'];
-	thickness.push(10000.0*data_json['double_title'][i]['value']/data_json['publications'][Y.toString()]);
+	thickness.push(20000.0*data_json['double_title'][i]['value']/data_json['publications'][Y.toString()]);
     }
     // velocities
     for(var i=0;i<n_titles;i++){
@@ -337,12 +366,14 @@ function readJSON(data){
     p_max_zw=p_max;
     v_min_zw=v_min;
     v_max_zw=v_max;
-    drawning_circles(p_min,p_max,v_min,v_max);
+    drawing_circles(p_min,p_max,v_min,v_max);
 };// reading the json file
 
 // writing text on mouse click
 svgContainer.on("click",function(){
     cleaning(old_word);
+    cword='';
+    mword='';
     p1=d3.mouse(this);
     min_distance=10000000.0;
     k0=-1;
@@ -368,9 +399,19 @@ svgContainer.on("click",function(){
 	index=t0*n_keywords+k0;
 	if(min_distance<=(xScale(radius[index])/fRadius)){
 	    event.target.id=data_json['title'][i0]['keyword'];
+	    word=data_json['title'][i0]['keyword'];
 	    highlight(event);
+	    // old_word=event.target.id;
+	}else{
+	    word='';
+	    // d3.selectAll('circle').remove();
+	    d3.selectAll('line').remove();
 	}
-    }// Fi k0 t0 min_distance
+    }else{// Fi k0 t0 min_distance
+	word='';
+	// d3.selectAll('circle').remove();
+	d3.selectAll('line').remove();
+    }
 });
 
 // change year on mouse click
@@ -423,13 +464,16 @@ function Rg2_vp(p,v,w,W){
 // highlighting a keyword on mouse click
 function highlight(e){
     cleaning(old_word);
-    document.getElementById(e.target.id).style.fontSize='30px';
-    document.getElementById(e.target.id).style.textDecoration='underline';
-    document.getElementById('keyword').innerHTML=(e.target.id).replace(/_/g,'\xa0');
-    document.getElementById('keyword').style.color=colors[data_json['keywords_i'][e.target.id]%n_colors];
+    word=e.target.id;
+    cword='';
+    mword='';
+    k=data_json['keywords_i'][word];
+    document.getElementById(word).style.fontSize='30px';
+    document.getElementById(word).style.textDecoration='underline';
+    document.getElementById('keyword').innerHTML=word.replace(/_/g,'\xa0');
+    document.getElementById('keyword').style.color=colors[k%n_colors];
     for(var i=0;i<n_titles;i++){
-	if(data_json['title'][i]['keyword']===e.target.id){
-	    k=data_json['keywords_i'][e.target.id];
+	if(data_json['title'][i]['keyword']===word){
 	    t=data_json['title'][i]['y']-min_year;
 	    index=t*n_keywords+k;
 	    transition[t]=index;
@@ -519,15 +563,32 @@ function highlight(e){
     old_word=e.target.id;
 };
 
-// highlighting a correlation between two keywords on mouse click
-function chighlight(e){
+// highlighting the correlations with the main keyword you click for
+function mhighlight(e){
+    word='';
+    cword='';
+    mword=((e.target.id).indexOf('m')===0)?(e.target.id).substring(1):e.target.id;
     cleaning(old_word);
     document.getElementById(e.target.id).style.fontSize='30px';
     document.getElementById(e.target.id).style.textDecoration='underline';
-    document.getElementById('keyword').innerHTML=(e.target.id).replace(/_/g,'\xa0');
-    document.getElementById('keyword').style.color=colors[data_json['correlations_keywords_i'][e.target.id]%n_colors];
-    drawning_links(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
+    document.getElementById('keyword').innerHTML=mword.replace(/_/g,'\xa0');
+    document.getElementById('keyword').style.color=colors[data_json['main_keywords_i'][mword]%n_colors];
+    drawing_mlinks(p_min_zw,p_max_zw,v_min_zw,v_max_zw,mword);
     old_word=e.target.id;
+};
+
+// highlighting a correlation between two keywords on mouse click
+function chighlight(e){
+    word='';
+    mword='';
+    cword=e.target.id;
+    cleaning(old_word);
+    document.getElementById(e.target.id).style.fontSize='30px';
+    document.getElementById(e.target.id).style.textDecoration='underline';
+    document.getElementById('keyword').innerHTML=cword.replace(/_/g,'\xa0');
+    document.getElementById('keyword').style.color=colors[data_json['correlations_keywords_i'][cword]%n_colors];
+    drawing_links(p_min_zw,p_max_zw,v_min_zw,v_max_zw,cword);
+    old_word=cword;
 };
 
 // # of publications as a function of year
@@ -545,8 +606,8 @@ function year_publications(list,n_list){
     graph_pt();
     for(var i=0;i<n_list;i++){
 	index=list[i];
-	t=(index-index%n_keywords)/n_keywords;
 	k=index%n_keywords;
+	t=(index-k)/n_keywords;
 	svgContainer.append("circle")
 	    .attr("cx",x_shift+xscale(t+min_year))
 	    .attr("cy",y_shift+yscale(p[index]))
@@ -566,8 +627,8 @@ function publications_velocities(list,n_list){
     v_scale_max=-v_scale_min;
     for(var i=0;i<n_list;i++){
 	index=list[i];
-	t=(index-index%n_keywords)/n_keywords;
 	k=index%n_keywords;
+	t=(index-k)/n_keywords;
 	p_scale_min=Math.min(p_scale_min,p[index]);
 	p_scale_max=Math.max(p_scale_max,p[index]);
 	v_scale_min=Math.min(v_scale_min,v[index]);
@@ -578,8 +639,9 @@ function publications_velocities(list,n_list){
     graph_vp();
     for(var i=0;i<n_list;i++){
 	index=list[i];
-	t=(index-index%n_keywords)/n_keywords;
 	k=index%n_keywords;
+	t=(index-k)/n_keywords;
+	console.log(index);
 	svgContainer.append("circle")
 	    .attr("cx",p_shift+pscale(p[index]))
 	    .attr("cy",v_shift+vscale(v[index]))
@@ -639,13 +701,20 @@ function graph_vp(){
 function cleaning(w){
     if(w!=''){
 	if(typeof data_json['keywords_i'][w]!=='undefined') k=data_json['keywords_i'][w];
-	if(typeof data_json['correlations_keywords_i'][w]!=='undefined') k=data_json['correlations_keywords_i'][w];
+	else{
+	    if(typeof data_json['main_keywords_i'][w]!=='undefined') k=data_json['main_keywords_i'][w];
+	    else{
+		if(typeof data_json['correlations_keywords_i'][w]!=='undefined') k=data_json['correlations_keywords_i'][w];
+	    }
+	}
+	console.log(w,k);
 	document.getElementById(w).style.fontSize=myButtonFontSize[w];
 	document.getElementById(w).style.textDecoration='none';
 	for(var i=min_year;i<=max_year;i++){
 	    t=i-min_year;
 	    index=t*n_keywords+k;
-	    document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
+	    console.log(-1,index);
+	    // document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
 	    d3.select('#t'+(index.toString())).remove();
 	    d3.select('#sc'+(index.toString())).remove();
 	    d3.select('#sct'+(index.toString())).remove();
@@ -702,19 +771,18 @@ function ZoomOnMouseWheel(e){
 	d3.select('#graph_y_vp').remove();
 	d3.select('#text_pt').remove();
 	d3.select('#text_vp').remove();
-	drawning_circles(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
-	drawning_links(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
+	drawing_circles(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
+	drawing_links(p_min_zw,p_max_zw,v_min_zw,v_max_zw,cword);
 	cleaning(old_word);
     }
 };
 
-// drawning the circles
-function drawning_circles(x,X,y,Y){
+// drawing the circles
+function drawing_circles(x,X,y,Y){
     for(var i=0;i<n_titles;i++){
 	index=indexes[i];
 	var p_index=p[index];
 	var v_index=v[index];
-	// if(draw_i[i] && data_json['title'][i]['keyword']==='malaria') console.log(i);
 	if(draw_i[i] && p_index>=x && p_index<=X && v_index>=y && v_index<=Y){
 	    svgContainer.append("circle")
 		.attr("cx",xScale(p_index))
@@ -727,11 +795,12 @@ function drawning_circles(x,X,y,Y){
     }
 };
 
-// drawning the links
-function drawning_links(x,X,y,Y){
+// drawing the links
+function drawing_links(x,X,y,Y,id){
+    d3.selectAll('line').remove();
     for(var i=0;i<n_double_titles;i++){
 	data_json_i=data_json['double_title'][i];
-	if(data_json_i['value']>0.0){
+	if(data_json_i['value']>0.0 && data_json_i['keywords']===id){
 	    Y=data_json_i['y'];
 	    k=data_json['keywords_i'][data_json_i['w1']];
 	    t=Y-min_year;
@@ -753,9 +822,48 @@ function drawning_links(x,X,y,Y){
     			.attr('x2',xScale(p_index2))
 			.attr('y2',yScale(v_index2))
 			.style('stroke','black')
+			// .style('stroke',colors[(Y-min_year)%n_colors])
 			.style('stroke-width',thickness[i])
 			.style("opacity",0.5)
 			.attr('id','link_'+index1+'_'+index2);
+		}
+	    }
+	}
+    }// Rof i
+};
+
+// drawing the links
+function drawing_mlinks(x,X,y,Y,id){
+    d3.selectAll('line').remove();
+    for(var i=0;i<n_double_titles;i++){
+	data_json_i=data_json['double_title'][i];
+	if(data_json_i['value']>0.0 && (data_json_i['w1']===id || data_json_i['w2']===id)){
+	    console.log('ok');
+	    Y=data_json_i['y'];
+	    k=data_json['keywords_i'][data_json_i['w1']];
+	    t=Y-min_year;
+	    index1=t*n_keywords+k;
+	    k=data_json['keywords_i'][data_json_i['w2']];
+	    t=Y-min_year;
+	    index2=t*n_keywords+k;
+	    // drawing the links
+	    var p_index1=p[index1];
+	    var p_index2=p[index2];
+	    var v_index1=v[index1];
+	    var v_index2=v[index2];
+	    d3.select('#mlink_'+index1+'_'+index2).remove();// ???
+	    if(p_index1>=x && p_index1<=X && p_index2>=x && p_index2<=X){
+		if(v_index1>=y && v_index1<=Y && v_index2>=y && v_index2<=Y){
+		    svgContainer.append('line')
+			.attr('x1',xScale(p_index1))
+			.attr('y1',yScale(v_index1))
+    			.attr('x2',xScale(p_index2))
+			.attr('y2',yScale(v_index2))
+			.style('stroke','black')
+			// .style('stroke',colors[(Y-min_year)%n_colors])
+			.style('stroke-width',thickness[i])
+			.style("opacity",0.5)
+			.attr('id','mlink_'+index1+'_'+index2);
 		}
 	    }
 	}
