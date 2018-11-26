@@ -49,6 +49,39 @@
     height:20%;
     }
     .mainKeywords:hover{left:0px;overflow:scroll;}
+    .popupMain{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:35%;
+    left:7%;
+    width:20%;
+    }
+    .popupMain .popuptext{
+    visibility:hidden;
+    background-color:#aaa;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupMain .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupMain .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
     .Correlations{
     left:-50px;
     display:block;
@@ -59,6 +92,39 @@
     height:20%;
     }
     .Correlations:hover{left:0px;overflow:scroll;}
+    .popupCorrelations{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    top:60%;
+    left:7%;
+    width:20%;
+    }
+    .popupCorrelations .popuptext{
+    visibility:hidden;
+    background-color:#aaa;
+    color:#fff;
+    text-align:center;
+    border-radius:6px;
+    padding:px 0;
+    position:absolute;
+    z-index:1;
+    }
+    .popupCorrelations .popuptext::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:#555 transparent transparent transparent;
+    }
+    .popupCorrelations .show{
+    visibility:visible;
+    -webkit-animation:fadeIn 1s;
+    animation:fadeIn 1s
+    }
     .Year{
     left:97%;
     display:block;
@@ -82,7 +148,7 @@
     display:inline-block;
     cursor:pointer;
     top:10%;
-    left:20%;
+    left:7%;
     width:60%;
     }
     .popupPhase .popuptext{
@@ -153,6 +219,12 @@
     </div>
     <div class="popupPhase" onclick="ShowMyPopups()">
       <span class="popuptext" id="myPopupPhase" style="font-weight:bold;font-size:12px;color:#000">You are looking at a phase portrait of the publications with keyword from IPCC (the list is displayed when hovering the left part of the screen) in the title of database like pubmed and scopus (you can swich from one to another at the bottom right corner). The diameter of each circle is directly related to the number of publications with keyword in the abstract. The "x" axis is the number of publications while the "y" is the velocity of publications. It has been normalized by the total number of publications for the year "y" (you can swich from one to another at the bottom right corner). We display only the hottest topics from IPCC. It means we display only the keywords with a number of publications greater than the average over the IPCC keywords per year. If a keyword is an hottest topic for only one year we still consider it as an hottest topic over year. A phase portrait does not explicitly express a timeline. So, by clicking on a circle make appears a zoom on the selected keyword phase portrait and its number of publications timeline evolution. The left bottom panel is a list of the correlations between two keywords. On click you will display the links (the thickness is directly related to the number of "common" publications).</span>
+    </div>
+    <div class="popupMain" onclick="ShowMyPopups()">
+      <span class="popuptext" id="myPopupMain" style="font-weight:bold;font-size:12px;color:#000">The main topics defined by the International Panel on Climatic Change (IPCC). On click, the selected topic will be displayed as well as the link it makes with the others hottest topics. The links are no more that the number of publications we found with the two keywords in the title. </span>
+    </div>
+    <div class="popupCorrelations" onclick="ShowMyPopups()">
+      <span class="popuptext" id="myPopupCorrelations" style="font-weight:bold;font-size:12px;color:#000">The correlations of two of the hottest topics. The topics have been defined by the International Panel on Climatic Change (IPCC). On click, the correlation between two keywords will be displayed as a graph. The links are no more that the number of publications we found with the two keywords in the title. </span>
     </div>
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <!-- <script type="text/javascript" src="https://d3js.org/d3-selection-multi.v1.min.js"></script> -->
