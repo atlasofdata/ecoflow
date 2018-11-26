@@ -209,55 +209,94 @@ function readJSON(data){
     words=[];
     for(var i=0;i<n_keywords;i++) words.push(data_json['i_keywords'][i.toString()]);
     words.sort();
-    for(var i=0;i<n_keywords;i++){
-	word=words[i];
-	myButton=document.createElement('span');
-	myButton.className='button';
-	myButton.style.color=colors[data_json['keywords_i'][word]%n_colors];
-	myButton.style.cursor='pointer';
-	myButton.id=word;
-	myButton.innerHTML=word.replace(/_/g,'\xa0');
-	myButtonFontSize[word]='12px';
-	myButton.style.fontSize='12px';
-	document.getElementById('Keywords').appendChild(myButton);
-	document.getElementById('Keywords').appendChild(document.createElement('br'));
-	document.getElementById(word).addEventListener('click',highlight,false);
+    for(var i=-1;i<n_keywords;i++){
+	if(i===-1){
+	    myButton=document.createElement('span');
+	    myButton.className='button';
+	    myButton.style.color='black';
+	    myButton.style.cursor='pointer';
+	    myButton.id='KEYWORDS';
+	    myButton.innerHTML='KEYWORDS\xa0:';
+	    myButtonFontSize[word]='14px';
+	    myButton.style.fontSize='14px';
+	    document.getElementById('Keywords').appendChild(myButton);
+	    document.getElementById('Keywords').appendChild(document.createElement('br'));
+	}else{
+	    word=words[i];
+	    myButton=document.createElement('span');
+	    myButton.className='button';
+	    myButton.style.color=colors[data_json['keywords_i'][word]%n_colors];
+	    myButton.style.cursor='pointer';
+	    myButton.id=word;
+	    myButton.innerHTML=word.replace(/_/g,'\xa0');
+	    myButtonFontSize[word]='12px';
+	    myButton.style.fontSize='12px';
+	    document.getElementById('Keywords').appendChild(myButton);
+	    document.getElementById('Keywords').appendChild(document.createElement('br'));
+	    document.getElementById(word).addEventListener('click',highlight,false);
+	}
     }
     // list of main keywords
     mwords=[];
     for(var i=0;i<n_main_keywords;i++) mwords.push(data_json['i_main_keywords'][i.toString()]);
     mwords.sort();
-    for(var i=0;i<n_main_keywords;i++){
-	mword=mwords[i];
-	myButton=document.createElement('span');
-	myButton.className='button';
-	myButton.style.color=colors[data_json['main_keywords_i'][mword]%n_colors];
-	myButton.style.cursor='pointer';
-	myButton.id='m'+mword;
-	myButton.innerHTML=mword.replace(/_/g,'\xa0');
-	myButtonFontSize['m'+mword]='12px';
-	myButton.style.fontSize='12px';
-	document.getElementById('mainKeywords').appendChild(myButton);
-	document.getElementById('mainKeywords').appendChild(document.createElement('br'));
-	document.getElementById('m'+mword).addEventListener('click',mhighlight,false);
+    for(var i=-1;i<n_main_keywords;i++){
+	if(i===-1){
+	    myButton=document.createElement('span');
+	    myButton.className='button';
+	    myButton.style.color='black';
+	    myButton.style.cursor='pointer';
+	    myButton.id='MAIN_KEYWORDS';
+	    myButton.innerHTML='MAIN\xa0KEYWORDS\xa0:';
+	    myButtonFontSize[word]='14px';
+	    myButton.style.fontSize='14px';
+	    document.getElementById('mainKeywords').appendChild(myButton);
+	    document.getElementById('mainKeywords').appendChild(document.createElement('br'));
+	}else{
+	    mword=mwords[i];
+	    myButton=document.createElement('span');
+	    myButton.className='button';
+	    myButton.style.color=colors[data_json['keywords_i'][mword]%n_colors];
+	    myButton.style.cursor='pointer';
+	    myButton.id='m'+mword;
+	    myButton.innerHTML=mword.replace(/_/g,'\xa0');
+	    myButtonFontSize['m'+mword]='12px';
+	    myButton.style.fontSize='12px';
+	    document.getElementById('mainKeywords').appendChild(myButton);
+	    document.getElementById('mainKeywords').appendChild(document.createElement('br'));
+	    document.getElementById('m'+mword).addEventListener('click',mhighlight,false);
+	}
     }
     // list of correlations keywords
     correlations_words=[];
     for(var i=0;i<n_correlations_keywords;i++) correlations_words.push(data_json['i_correlations_keywords'][i.toString()]);
     correlations_words.sort();
-    for(var i=0;i<n_correlations_keywords;i++){
-	cword=correlations_words[i];
-	myButton=document.createElement('span');
-	myButton.className='button';
-	myButton.style.color=colors[data_json['correlations_keywords_i'][cword]%n_colors];
-	myButton.style.cursor='pointer';
-	myButton.id=cword;
-	myButton.innerHTML=cword.replace(/_/g,'\xa0');
-	myButtonFontSize[cword]='12px';
-	myButton.style.fontSize='12px';
-	document.getElementById('Correlations').appendChild(myButton);
-	document.getElementById('Correlations').appendChild(document.createElement('br'));
-	document.getElementById(cword).addEventListener('click',chighlight,false);
+    for(var i=-1;i<n_correlations_keywords;i++){
+	if(i===-1){
+	    myButton=document.createElement('span');
+	    myButton.className='button';
+	    myButton.style.color='black';
+	    myButton.style.cursor='pointer';
+	    myButton.id='CORRELATIONS';
+	    myButton.innerHTML='CORRELATIONS\xa0:';
+	    myButtonFontSize[word]='14px';
+	    myButton.style.fontSize='14px';
+	    document.getElementById('Correlations').appendChild(myButton);
+	    document.getElementById('Correlations').appendChild(document.createElement('br'));
+	}else{
+	    cword=correlations_words[i];
+	    myButton=document.createElement('span');
+	    myButton.className='button';
+	    myButton.style.color=colors[data_json['correlations_keywords_i'][cword]%n_colors];
+	    myButton.style.cursor='pointer';
+	    myButton.id=cword;
+	    myButton.innerHTML=cword.replace(/_/g,'\xa0');
+	    myButtonFontSize[cword]='12px';
+	    myButton.style.fontSize='12px';
+	    document.getElementById('Correlations').appendChild(myButton);
+	    document.getElementById('Correlations').appendChild(document.createElement('br'));
+	    document.getElementById(cword).addEventListener('click',chighlight,false);
+	}
     }
     // list of years
     for(var y=0;y<n_years;y++){
@@ -463,104 +502,106 @@ function Rg2_vp(p,v,w,W){
 
 // highlighting a keyword on mouse click
 function highlight(e){
-    cleaning(old_word);
-    word=e.target.id;
-    cword='';
-    mword='';
-    k=data_json['keywords_i'][word];
-    document.getElementById(word).style.fontSize='30px';
-    document.getElementById(word).style.textDecoration='underline';
-    document.getElementById('keyword').innerHTML=word.replace(/_/g,'\xa0');
-    document.getElementById('keyword').style.color=colors[k%n_colors];
-    for(var i=0;i<n_titles;i++){
-	if(data_json['title'][i]['keyword']===word){
-	    t=data_json['title'][i]['y']-min_year;
-	    index=t*n_keywords+k;
-	    transition[t]=index;
-	    pi[t]=p[index];
-	    vi[t]=v[index];
-	    wi[t]=radius[index];
-	    // stroking the selection
-	    svgContainer.append("circle")
-		.attr("cx",xScale(p[index]))
-		.attr("cy",yScale(v[index]))
-		.attr("r",xScale(radius[index])/fRadius)
-		.style("fill",colors[k%n_colors])
-		.style("opacity",0.5)
-		.style("stroke","black")
-		.style("stroke-width",stroke_width)
-		.attr("id",'sc'+(index.toString()));
-	    // drawing the # of publications
-	    svgContainer.append("text")
-		.attr({
-		    id:'t'+(index.toString()),
-		    x:xScale(p[index]),
-		    y:yScale(v[index])
-		});
+    if(word!==''){
+	cleaning(old_word);
+	word=e.target.id;
+	cword='';
+	mword='';
+	k=data_json['keywords_i'][word];
+	document.getElementById(word).style.fontSize='30px';
+	document.getElementById(word).style.textDecoration='underline';
+	document.getElementById('keyword').innerHTML=word.replace(/_/g,'\xa0');
+	document.getElementById('keyword').style.color=colors[k%n_colors];
+	for(var i=0;i<n_titles;i++){
+	    if(data_json['title'][i]['keyword']===word){
+		t=data_json['title'][i]['y']-min_year;
+		index=t*n_keywords+k;
+		transition[t]=index;
+		pi[t]=p[index];
+		vi[t]=v[index];
+		wi[t]=radius[index];
+		// stroking the selection
+		svgContainer.append("circle")
+		    .attr("cx",xScale(p[index]))
+		    .attr("cy",yScale(v[index]))
+		    .attr("r",xScale(radius[index])/fRadius)
+		    .style("fill",colors[k%n_colors])
+		    .style("opacity",0.5)
+		    .style("stroke","black")
+		    .style("stroke-width",stroke_width)
+		    .attr("id",'sc'+(index.toString()));
+		// drawing the # of publications
+		svgContainer.append("text")
+		    .attr({
+			id:'t'+(index.toString()),
+			x:xScale(p[index]),
+			y:yScale(v[index])
+		    });
 		// .text((data_json['title'][i]['value'].toString()).concat(' in ',data_json['title'][i]['y'].toString()));
-	}// Fi target
-    }// Rof i
-    // creating the v(p) and the p(t) graphs
-    year_publications(transition,n_years);
-    publications_velocities(transition,n_years);
-    // drawing the gyration tensor in the (p,v) space
-    Rg2=Rg2_vp(pi,vi,wi,0);
-    angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
-    var n1=-Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min);
-    var x1=n1*Math.cos(angle);
-    var y1=n1*Math.sin(angle);
-    var x2=-n1*Math.cos(angle);
-    var y2=-n1*Math.sin(angle);
-    svgContainer.append('line')
-	.attr('x1',p_shift+pscale(Rg2[0])+x1)
-        .attr('y1',v_shift+vscale(Rg2[1])+y1)
-    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
-        .attr('y2',v_shift+vscale(Rg2[1])+y2)
-	.style('stroke',colors[k%n_colors])
-	.style('stroke-width',3)
-	.attr('id','sl1');
-    n1=Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min);
-    x1=-n1*Math.sin(angle);
-    y1=n1*Math.cos(angle);
-    x2=n1*Math.sin(angle);
-    y2=-n1*Math.cos(angle);
-    svgContainer.append('line')
-	.attr('x1',p_shift+pscale(Rg2[0])+x1)
-        .attr('y1',v_shift+vscale(Rg2[1])+y1)
-    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
-        .attr('y2',v_shift+vscale(Rg2[1])+y2)
-	.style('stroke',colors[k%n_colors])
-	.style('stroke-width',3)
-	.attr('id','sl2');
-    Rg2=Rg2_vp(pi,vi,wi,1);
-    angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
-    var n1=-Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min);
-    var x1=n1*Math.cos(angle);
-    var y1=n1*Math.sin(angle);
-    var x2=-n1*Math.cos(angle);
-    var y2=-n1*Math.sin(angle);
-    svgContainer.append('line')
-	.attr('x1',p_shift+pscale(Rg2[0])+x1)
-        .attr('y1',v_shift+vscale(Rg2[1])+y1)
-    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
-        .attr('y2',v_shift+vscale(Rg2[1])+y2)
-	.style('stroke','black')
-	.style('stroke-width',3)
-	.attr('id','sl3');
-    n1=Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min);
-    x1=-n1*Math.sin(angle);
-    y1=n1*Math.cos(angle);
-    x2=n1*Math.sin(angle);
-    y2=-n1*Math.cos(angle);
-    svgContainer.append('line')
-	.attr('x1',p_shift+pscale(Rg2[0])+x1)
-        .attr('y1',v_shift+vscale(Rg2[1])+y1)
-    	.attr('x2',p_shift+pscale(Rg2[0])+x2)
-        .attr('y2',v_shift+vscale(Rg2[1])+y2)
-	.style('stroke','black')
-	.style('stroke-width',3)
-	.attr('id','sl4');
-    old_word=e.target.id;
+	    }// Fi target
+	}// Rof i
+	// creating the v(p) and the p(t) graphs
+	year_publications(transition,n_years);
+	publications_velocities(transition,n_years);
+	// drawing the gyration tensor in the (p,v) space
+	Rg2=Rg2_vp(pi,vi,wi,0);
+	angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
+	var n1=-Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min);
+	var x1=n1*Math.cos(angle);
+	var y1=n1*Math.sin(angle);
+	var x2=-n1*Math.cos(angle);
+	var y2=-n1*Math.sin(angle);
+	svgContainer.append('line')
+	    .attr('x1',p_shift+pscale(Rg2[0])+x1)
+            .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	    .attr('x2',p_shift+pscale(Rg2[0])+x2)
+            .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	    .style('stroke',colors[k%n_colors])
+	    .style('stroke-width',3)
+	    .attr('id','sl1');
+	n1=Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min);
+	x1=-n1*Math.sin(angle);
+	y1=n1*Math.cos(angle);
+	x2=n1*Math.sin(angle);
+	y2=-n1*Math.cos(angle);
+	svgContainer.append('line')
+	    .attr('x1',p_shift+pscale(Rg2[0])+x1)
+            .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	    .attr('x2',p_shift+pscale(Rg2[0])+x2)
+            .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	    .style('stroke',colors[k%n_colors])
+	    .style('stroke-width',3)
+	    .attr('id','sl2');
+	Rg2=Rg2_vp(pi,vi,wi,1);
+	angle=Math.acos(Rg2[3]/Math.sqrt(Rg2[3]*Rg2[3]+Rg2[4]*Rg2[4]));
+	var n1=-Math.sqrt(Rg2[2])*resx/(p_scale_max-p_scale_min);
+	var x1=n1*Math.cos(angle);
+	var y1=n1*Math.sin(angle);
+	var x2=-n1*Math.cos(angle);
+	var y2=-n1*Math.sin(angle);
+	svgContainer.append('line')
+	    .attr('x1',p_shift+pscale(Rg2[0])+x1)
+            .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	    .attr('x2',p_shift+pscale(Rg2[0])+x2)
+            .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	    .style('stroke','black')
+	    .style('stroke-width',3)
+	    .attr('id','sl3');
+	n1=Math.sqrt(Rg2[5])*resy/(v_scale_max-v_scale_min);
+	x1=-n1*Math.sin(angle);
+	y1=n1*Math.cos(angle);
+	x2=n1*Math.sin(angle);
+	y2=-n1*Math.cos(angle);
+	svgContainer.append('line')
+	    .attr('x1',p_shift+pscale(Rg2[0])+x1)
+            .attr('y1',v_shift+vscale(Rg2[1])+y1)
+    	    .attr('x2',p_shift+pscale(Rg2[0])+x2)
+            .attr('y2',v_shift+vscale(Rg2[1])+y2)
+	    .style('stroke','black')
+	    .style('stroke-width',3)
+	    .attr('id','sl4');
+	old_word=e.target.id;
+    }
 };
 
 // highlighting the correlations with the main keyword you click for
@@ -572,7 +613,7 @@ function mhighlight(e){
     document.getElementById(e.target.id).style.fontSize='30px';
     document.getElementById(e.target.id).style.textDecoration='underline';
     document.getElementById('keyword').innerHTML=mword.replace(/_/g,'\xa0');
-    document.getElementById('keyword').style.color=colors[data_json['main_keywords_i'][mword]%n_colors];
+    document.getElementById('keyword').style.color=colors[data_json['keywords_i'][mword]%n_colors];
     drawing_mlinks(p_min_zw,p_max_zw,v_min_zw,v_max_zw,mword);
     old_word=e.target.id;
 };
@@ -641,7 +682,6 @@ function publications_velocities(list,n_list){
 	index=list[i];
 	k=index%n_keywords;
 	t=(index-k)/n_keywords;
-	console.log(index);
 	svgContainer.append("circle")
 	    .attr("cx",p_shift+pscale(p[index]))
 	    .attr("cy",v_shift+vscale(v[index]))
@@ -707,13 +747,11 @@ function cleaning(w){
 		if(typeof data_json['correlations_keywords_i'][w]!=='undefined') k=data_json['correlations_keywords_i'][w];
 	    }
 	}
-	console.log(w,k);
 	document.getElementById(w).style.fontSize=myButtonFontSize[w];
 	document.getElementById(w).style.textDecoration='none';
 	for(var i=min_year;i<=max_year;i++){
 	    t=i-min_year;
 	    index=t*n_keywords+k;
-	    console.log(-1,index);
 	    // document.getElementById(old_word).style.fontSize=myButtonFontSize[old_word];
 	    d3.select('#t'+(index.toString())).remove();
 	    d3.select('#sc'+(index.toString())).remove();
@@ -738,6 +776,10 @@ function cleaning(w){
 function ShowMyPopups(){
     var popup=document.getElementById("myPopupPhase");
     popup.classList.toggle("show");
+    popup=document.getElementById("myPopupMain");
+    popup.classList.toggle("show");
+    popup=document.getElementById("myPopupCorrelations");
+    popup.classList.toggle("show");
 };
 
 // zooming in/out on mouse wheel
@@ -745,14 +787,11 @@ document.addEventListener('mousewheel',ZoomOnMouseWheel);
 function ZoomOnMouseWheel(e){
     var invX=xScale.invert(e.clientX);
     var invY=yScale.invert(e.clientY);
-    // console.log(invX,invY);
-    // console.log(e.clientX,e.clientY);
     if(invX>p_min_zw && invX<p_max_zw && invY>v_min_zw && invY<v_max_zw){
 	p_min_zw=Math.min(p_max,Math.max(p_min,p_min_zw+0.05*Math.sign(e.wheelDelta)*(invX-p_min_zw)));
 	p_max_zw=Math.max(p_min,Math.min(p_max,p_max_zw-0.05*Math.sign(e.wheelDelta)*(p_max_zw-invX)));
 	v_min_zw=Math.min(v_max,Math.max(v_min,v_min_zw+0.05*Math.sign(e.wheelDelta)*(invY-v_min_zw)));
 	v_max_zw=Math.max(v_min,Math.min(v_max,v_max_zw-0.05*Math.sign(e.wheelDelta)*(v_max_zw-invY)));
-	// console.log(p_min_zw,p_max_zw);
 	xScale.domain([p_min_zw,p_max_zw]);
 	yScale.domain([v_min_zw,v_max_zw]);
 	xAxis.scale(xScale).orient("bottom").ticks(12,d3.format(",d"));
@@ -771,9 +810,11 @@ function ZoomOnMouseWheel(e){
 	d3.select('#graph_y_vp').remove();
 	d3.select('#text_pt').remove();
 	d3.select('#text_vp').remove();
+	event.target.id=word;// pseudo-event
+	highlight(event);
 	drawing_circles(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
 	drawing_links(p_min_zw,p_max_zw,v_min_zw,v_max_zw,cword);
-	cleaning(old_word);
+	drawing_mlinks(p_min_zw,p_max_zw,v_min_zw,v_max_zw,mword);
     }
 };
 
@@ -838,7 +879,6 @@ function drawing_mlinks(x,X,y,Y,id){
     for(var i=0;i<n_double_titles;i++){
 	data_json_i=data_json['double_title'][i];
 	if(data_json_i['value']>0.0 && (data_json_i['w1']===id || data_json_i['w2']===id)){
-	    console.log('ok');
 	    Y=data_json_i['y'];
 	    k=data_json['keywords_i'][data_json_i['w1']];
 	    t=Y-min_year;
