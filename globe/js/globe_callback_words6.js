@@ -13,16 +13,15 @@ var thetaX=0.0,thetaY=0.0;
 var vS=[],vT=[],vS_length,vT_length,mST=[],mST_length,cvS_length,cvT_length,cvS=[],cvT=[],geometry,material,weight0=20.0,source=0,target=0,inc,inc_ball,inc_cube;
 var paths=new THREE.CurvePath();
 const segments0=16,rings0=16;
-var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2014,country='',countries,n_countries=0,country_index,index_country,theta,bn=[],bn_length;
+var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2014,country='',countries,n_countries,country_index,index_country,theta,bn=[],bn_length;
 var loader_font=new THREE.FontLoader();
 var continent_1='all',continent_2='all',country,country_color=[],publications=[],mean_publications=0,plower_bound=0,lower_value,values;
 var rC=new THREE.Vector3(),LATi=0.0,LONi=0.0,index;
-var i_word,word,n_words,words=[],buffer_words=[];
-var text='',text_buffer='',list_keywords='';
+var i_word,word,n_words,words=[],text='';
 var n_forests,forest_coverage,volumes=[],volume,volumes_length;
 var myButton,myButtonFontSize='10px';
 var data_json,data_json_w,data_json_trade,data_json_trade_i,data_json_trade_i_j,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],max_pileups,max_trade=0.0,ii,n_curves,n_count;
-var cylinder_height,cylinder_heights=[],cylinder_heights_length,nom,detail;
+var cylinder_height,cylinder_heights=[],cylinder_heights_length,nom,detail,ok;
 // --- variables : FAO data
 // annual production
 var annual_population_arg=['total','urban_rural','female_male'],annual_population_title=['millions of persons','ratio urban/rural','ratio female/male'],n_annual_population=annual_population_arg.length
@@ -360,7 +359,6 @@ function readJSON(data){
     // calculating the number of links and the pileups that are non zero
     for(var w=0;w<n_words;w++){
 	if(typeof data_json[words[w]]!='undefined'){
-	    buffer_words.push(words[w]);
 	    pairwize.push(data_json[words[w]]['links'].length);
 	    pileups.push(data_json[words[w]]['pileups'].length);
 	}else{
@@ -484,6 +482,7 @@ function change_FAO(){
 		LONi=0.5*Math.PI+source['lon']*Math.PI/180.0;
 		sqrt_n_FAO_i=0;
 		while((sqrt_n_FAO_i*sqrt_n_FAO_i)<n_FAO_i) sqrt_n_FAO_i++;
+		ok=false;
 		for(var j=0;j<n_FAO_i;j++){
 		    cylinder_height=data_FAO[i][FAO_arg[j]]*radius/max_FAO_i[j];
 		    if(cylinder_height>0.0){
@@ -491,26 +490,26 @@ function change_FAO(){
 			    vS[inc].setX(Math.sin(LATi)*Math.sin(LONi));
 			    vS[inc].setY(Math.cos(LATi));
 			    vS[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
-			    vT[inc].copy(vS[inc]);
 			}else{
 			    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-			    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 			    vS_length++;
 			}
 			u.copy(vS[inc]);
+			u.multiplyScalar(0.5*cylinder_height);
 			vS[inc].multiplyScalar(radius);
-			if(j===0){
+			if(!ok){
 			    nt.setX(Math.cos(LATi)*Math.sin(LONi));
 			    nt.setY(-Math.sin(LATi));
 			    nt.setZ(Math.cos(LATi)*Math.cos(LONi));
 			    pt.setX(Math.cos(LONi));
 			    pt.setY(0.0);
 			    pt.setZ(-Math.sin(LONi));
+			    ok=true;
 			}
 			if(inc>=cylinder_heights_length){
 			    cylinder_heights.push(cylinder_height);
 			    cylinder_heights_length++;
-			}
+			}//else cylinder_heights[inc]=cylinder_height;
 			nom='pileup'+(inc.toString());
 			if((typeof scene.getObjectByName(nom))=='undefined'){
 			    if(lambert) scene.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshLambertMaterial({color:'white',emissive:'black',emissiveIntensity:1.0,opacity:1.0})));
@@ -518,7 +517,10 @@ function change_FAO(){
 			    if(standard) scene.add(new THREE.Mesh(new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32),new THREE.MeshStandardMaterial({color:'white',metalness:0.5})));
 			    scene.children[scene.children.length-1].name=nom;
 			    n_pileups++;
-			}else scene.getObjectByName(nom).scale.y=cylinder_height/cylinder_heights[inc];
+			}else{
+			    // scene.getObjectByName(nom).scale.y=cylinder_height/cylinder_heights[inc];
+			    scene.getObjectByName(nom).geometry=new THREE.CylinderGeometry(FAO_radius,FAO_radius,cylinder_height,32);
+			}
 			scene.getObjectByName(nom).rotation.order='YXZ';
 			scene.getObjectByName(nom).rotation.x=LATi;
 			scene.getObjectByName(nom).rotation.y=LONi;
@@ -527,7 +529,6 @@ function change_FAO(){
 			scene.getObjectByName(nom).castShadow=true;
 			scene.getObjectByName(nom).receiveShadow=false;
 			scene.getObjectByName(nom).material.needsUpdate=true;
-			u.multiplyScalar(0.5*cylinder_height);
 			scene.getObjectByName(nom).position.set(vS[inc].x+2.0*FAO_radius*((j%sqrt_n_FAO_i)*pt.x+((j-j%sqrt_n_FAO_i)/sqrt_n_FAO_i)*nt.x)+u.x,vS[inc].y+2.0*FAO_radius*((j%sqrt_n_FAO_i)*pt.y+((j-j%sqrt_n_FAO_i)/sqrt_n_FAO_i)*nt.y)+u.y,vS[inc].z+2.0*FAO_radius*((j%sqrt_n_FAO_i)*pt.z+((j-j%sqrt_n_FAO_i)/sqrt_n_FAO_i)*nt.z)+u.z);
 			scene.getObjectByName(nom).userData=source['id']+' : '+((data_FAO[i][FAO_arg[j]].toPrecision(3)).toString())+' '+FAO_title[j];
 			inc++;
@@ -579,11 +580,10 @@ function change_pubmed(){
 		    vT_length++;
 		}
 		cylinder_height=data_json_w['pileups'][ii]['value']*radius/max_pileups;
-		if(inc<cylinder_heights_length) cylinder_heights[inc]=cylinder_height;
-		else{
+		if(inc>=cylinder_heights_length){
 		    cylinder_heights.push(cylinder_height);
 		    cylinder_heights_length++;
-		}
+		}//else cylinder_heights[inc]=cylinder_height;
 		vT[inc].multiplyScalar(radius+0.5*cylinder_height);
 		nom='pileup'+(inc.toString());
 		source=data_json['LL'][data_json_w['pileups'][ii]['country']]['id'];
