@@ -17,17 +17,17 @@ var min_year=1990,max_year=2018,n_year=max_year-min_year+1,year=2014,country='',
 var loader_font=new THREE.FontLoader();
 var continent_1='all',continent_2='all',country,country_color=[],publications=[],mean_publications=0,plower_bound=0,lower_value,values;
 var rC=new THREE.Vector3(),LATi=0.0,LONi=0.0,index;
-var i_word=28,word='',n_words,words=[],buffer_words=[];
+var i_word,word,n_words,words=[],buffer_words=[];
 var text='',text_buffer='',list_keywords='';
-var n_forests,forest_coverage=[],n_forest_coverage=[],global_ice,volumes=[],volume,volumes_length;
+var n_forests,forest_coverage,volumes=[],volume,volumes_length;
 var myButton,myButtonFontSize='10px';
-var data_json,data_json_w,data_json_trade,data_json_trade_i,data_json_trade_i_j,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],max_pileups=0.0,max_trade=0.0,ii,n_curves,n_count;
+var data_json,data_json_w,data_json_trade,data_json_trade_i,data_json_trade_i_j,pairwize_year=[],n_pairwize_year=0,pileups_year=[],n_pileups_year=0,n_pileups=0,n_links=0,n_balls=0,n_cubes=0,ball_mesh=[],cube_mesh=[],max_pileups,max_trade=0.0,ii,n_curves,n_count;
 var cylinder_height,cylinder_heights=[],cylinder_heights_length,nom,detail;
 // --- variables : FAO data
 // annual production
 var annual_population_arg=['total','urban_rural','female_male'],annual_population_title=['millions of persons','ratio urban/rural','ratio female/male'],n_annual_population=annual_population_arg.length
 // burning crop residues
-var burning_crop_residues_arg=['mCO2eq','rCO2eq','sCO2eq','wCO2eq','burning_savana_CO2eq','burning_humid_tropical_forest_CO2eq','burning_other_forest_CO2eq','burning_organic_soils_CO2eq'],burning_crop_residues_title=['CO2(eq) emissions (burning maize dry matter)','CO2(eq) emissions (burning rice dry matter)','CO2(eq) emissions (burning sugar cane dry matter)','CO2(eq) emissions (burning wheat dry matter)','burning savana CO2(eq) emissions','burning humid tropical forest CO2(eq)','burning other forest CO2(eq)','burning organic soils CO2(eq)'],n_burning_crop_residues=burning_crop_residues_arg.length;
+var burning_crop_residues_arg=['r_mCO2eq','r_rCO2eq','r_sCO2eq','r_wCO2eq','burning_savana_CO2eq_to_tonnes','burning_humid_tropical_forest_CO2eq_to_tonnes','burning_other_forest_CO2eq_to_tonnes','burning_organic_soils_CO2eq_to_tonnes'],burning_crop_residues_title=['CO2(eq) emissions to burning maize dry matter','CO2(eq) emissions to burning rice dry matter','CO2(eq) emissions to burning sugar cane dry matter','CO2(eq) emissions to burning wheat dry matter','CO2(eq) emissions to burning savana','CO2(eq) emissions to burning humid tropical forest','CO2(eq) emissions to burning other forest','CO2(eq) emissions to burning organic soils'],n_burning_crop_residues=burning_crop_residues_arg.length;
 // crops average yield
 var crops_average_yield_arg=['VP_t_ha','FP_t_ha','cereals_t_ha','sugar_t_ha'],n_crops_average_yield=crops_average_yield_arg.length,crops_average_yield_title=['vegetables primary average yield in tonnes per ha','fruits primary average yield in tonnes per ha','cereals average yield in tonnes per ha','sugar(beet and can) average yield in tonnes per ha'];
 // crops livestock
@@ -211,12 +211,11 @@ function readJSON(data){
     data_json=data;
     
     // reading the # of publications per year
-    for(var y=1990;y<=2018;y++)	mean_publications+=data_json['publications'][y.toString()]/(2018-1990+1);
     document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
     
     // reading the keywords
-    n_words=data_json['keywords'].length;
-    for(var i=0;i<n_words;i++) words.push(data_json['keywords'][i]['id']);
+    n_words=data_json['n_keywords'];
+    for(var i=0;i<n_words;i++) words.push(data_json['i_keywords'][i.toString()]);
     for(var i=0;i<n_words;i++){
 	word=words[i];
 	myButton=document.createElement('span');
@@ -230,6 +229,7 @@ function readJSON(data){
 	document.getElementById('keywords').appendChild(document.createElement('br'));
 	document.getElementById(word).addEventListener('click',highlight,false);
     }
+    i_word=data_json['keywords_i']['climate'];
     word=words[i_word];
     // list of years
     for(var y=2000;y<=max_year;y++){
@@ -373,27 +373,20 @@ function readJSON(data){
     document.getElementById('YEAR').innerHTML=year.toString();
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    // calculing the forest coverage
-    for(var i=0;i<n_year;i++){
-	forest_coverage.push(0.0);
-	n_forest_coverage.push(0);
-    }
-    n_forests=data_json['forest_coverage'].length;
-    for(var i=0;i<n_forests;i++){
-	forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=data_json['forest_coverage'][i]['coverage'];
-	n_forest_coverage[data_json['forest_coverage'][i]['y']-min_year]+=1;
-    }
-    for(var i=0;i<n_year;i++) forest_coverage[i]/=n_forest_coverage[i];
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
+    // forest coverage
+    forest_coverage=data_json['forest_coverage'];
+    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year.toString()].toPrecision(3)).toString());
     // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json
-    global_surface_ice=data_json['ice'];
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
+    global_surface_ice=data_json['ice_coverage'];
+    document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[year.toString()].toPrecision(3)).toString(),' million of km2');
 
+    max_pileups=0.0;
     for(var i=0;i<n_words;i++){
-	for(var j=0;j<pairwize[i];j++) data_json[words[i]]['links'][j]['value']*=mean_publications/data_json['publications'][year.toString()];
-	for(var j=0;j<pileups[i];j++) data_json[words[i]]['pileups'][j]['value']*=mean_publications/data_json['publications'][year.toString()];
+	for(var j=0;j<pairwize[i];j++) data_json[words[i]]['links'][j]['value']*=data_json['publications']['2017']/data_json['publications'][year.toString()];
+	for(var j=0;j<pileups[i];j++){
+	    data_json[words[i]]['pileups'][j]['value']*=data_json['publications']['2017']/data_json['publications'][year.toString()];
+	    max_pileups=Math.max(max_pileups,data_json[words[i]]['pileups'][j]['value']);
+	}
     }
 
     data_json_w=data_json[word];
@@ -555,8 +548,7 @@ function change_pubmed(){
 	// making the pileup for each country
 	cylinder_heights_length=cylinder_heights.length;
 	vS_length=vS.length;
-	max_pileups=0.0;
-	for(var i=0;i<n_pileups_year;i++) max_pileups=Math.max(max_pileups,data_json_w['pileups'][pileups_year[i]]['value']);
+	vT_length=vT.length;
 	// calculating the threshold
 	values=[];
 	for(var i=0;i<n_pileups_year;i++) values.push(data_json_w['pileups'][pileups_year[i]]['value']);
@@ -577,11 +569,14 @@ function change_pubmed(){
 		    vS[inc].setX(Math.sin(LATi)*Math.sin(LONi));
 		    vS[inc].setY(Math.cos(LATi));
 		    vS[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
-		    vT[inc].copy(vS[inc]);
 		}else{
 		    vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
-		    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 		    vS_length++;
+		}
+		if(inc<vT_length) vT[inc].copy(vS[inc]);
+		else{
+		    vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+		    vT_length++;
 		}
 		cylinder_height=data_json_w['pileups'][ii]['value']*radius/max_pileups;
 		if(inc<cylinder_heights_length) cylinder_heights[inc]=cylinder_height;
@@ -633,8 +628,6 @@ function change_pubmed(){
 	n_curves=paths.curves.length;
 	n_count=count.length;
 	volumes_length=volumes.length;
-	vT_length=vT.length;
-	for(var i=0;i<(vS_length-vT_length);i++) vT.push(new THREE.Vector3());
 	mST_length=mST.length;
 	for(var i=0;i<(vS_length-mST_length);i++) mST.push(new THREE.Vector3());
 	bn_length=bn.length;
@@ -758,8 +751,6 @@ function change_pubmed(){
 function change_FAO_trade(){
     if(b_FAO_trade[i_FAO_trade]){
 	console.log('change_FAO_trade');
-	popup=document.getElementById("myPopupTrade");
-	popup.classList.toggle("show");
 	document.getElementById('YEAR').innerHTML='';
 	document.getElementById('WORD').innerHTML=title_FAO_trade[id_FAO_trade.findIndex(function(e){return e===i_FAO_trade;})].toUpperCase()+'\xa0'+(100.0-plower_bound).toString()+'%\xa0of\xa0the\xa0highest\xa0values\xa0in\xa0'+(year.toString());
 	max_trade=0.0;
@@ -827,10 +818,10 @@ function change_FAO_trade(){
 					vS[inc].setY(Math.cos(LATi));
 					vS[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
 					mST[inc].copy(vS[inc]);
-					vS_length++;
 				    }else{
 					vS.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 					mST.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
+					vS_length++;
 				    }
 				    LATi=0.5*Math.PI-data_json['LL'][country_index[k].toString()]['lat']*Math.PI/180.0;
 				    LONi=0.5*Math.PI+data_json['LL'][country_index[k].toString()]['lon']*Math.PI/180.0;
@@ -838,10 +829,10 @@ function change_FAO_trade(){
 					vT[inc].setX(Math.sin(LATi)*Math.sin(LONi));
 					vT[inc].setY(Math.cos(LATi));
 					vT[inc].setZ(Math.sin(LATi)*Math.cos(LONi));
-					vT_length++;
 				    }else{
 					vT.push(new THREE.Vector3(Math.sin(LATi)*Math.sin(LONi),Math.cos(LATi),Math.sin(LATi)*Math.cos(LONi)));
 					bn.push(new THREE.Vector3());
+					vT_length++;
 				    }
 				    // mid-point
 				    theta=Math.acos(vS[inc].x*vT[inc].x+vS[inc].y*vT[inc].y+vS[inc].z*vT[inc].z);
@@ -1157,10 +1148,8 @@ function change_year(e){
     document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
     document.getElementById('tanom_land').innerHTML='temperature anomaly land : '.concat(temp_anom_land['data'][year.toString()]);
     document.getElementById('tanom_ocean').innerHTML='temperature anomaly ocean : '.concat(temp_anom_ocean['data'][year.toString()]);
-    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year-min_year].toPrecision(3)).toString());
-    for(var i=0;i<global_surface_ice.length;i++){
-	if(global_surface_ice[i]['y']==year) document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[i]['surface'].toPrecision(3)).toString(),' million of km2');
-    }
+    document.getElementById('forest_coverage').innerHTML='forest coverage : '.concat((forest_coverage[year.toString()].toPrecision(3)).toString());
+    document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[year.toString()].toPrecision(3)).toString(),' million of km2');
     list_pileups_pairwize_year();
     change();
 };
@@ -1418,7 +1407,7 @@ function sugar_FAO_trade(){
 
 // initializing description
 function initializing_description(){
-    description='# publications*mean(2010-2018)/publications('+(year.toString())+') :';
+    description='# publications*publications(2017)/publications('+(year.toString())+') :';
     if(b_FAO['annual_population']){
 	description='annual population (female, male, rural and urban), FAO ('+(year.toString())+') :';
 	n_FAO_i=n_annual_population;
@@ -1426,13 +1415,13 @@ function initializing_description(){
 	FAO_title=annual_population_title;
     }
     if(b_FAO['burning_crop_residues']){
-	description='burning crop residues (in kg of CO2 emissions), FAO ('+(year.toString())+') :';
+	description='ratio CO2(eq) to burning matter, FAO ('+(year.toString())+') :';
 	n_FAO_i=n_burning_crop_residues;
 	FAO_arg=burning_crop_residues_arg;
 	FAO_title=burning_crop_residues_title;
     }
     if(b_FAO['crops_average_yield']){
-	description='crops_average yield, FAO ('+(year.toString())+') :';
+	description='crops average yield, FAO ('+(year.toString())+') :';
 	n_FAO_i=n_crops_average_yield;
 	FAO_arg=crops_average_yield_arg;
 	FAO_title=crops_average_yield_title;
@@ -1636,6 +1625,10 @@ function myFunction(){
     popup.classList.toggle("show");
     popup=document.getElementById("myPopupPercentage");
     popup.classList.toggle("show");
+    if(b_FAO_trade[i_FAO_trade]){
+	popup=document.getElementById("myPopupTrade");
+	popup.classList.toggle("show");
+    }
 };
 
 requestJSON(readJSON);
