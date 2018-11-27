@@ -40,7 +40,7 @@ var rice_and_organic_soils_emissions_intensities_arg=['rCO2','oCO2'],rice_and_or
 // environment fertilizers
 var environment_fertilizers_arg=['N','P2O5','K2O'],environment_fertilizers_title=['N tonnes per ha of cropland','P2O5 tonnes per ha of cropland','K2O tonnes per ha of cropland'],n_environment_fertilizers=environment_fertilizers_arg.length;
 // enteric fermentation
-var enteric_fermentation_arg=['CH4','CO2eq'],enteric_fermentation_title=['CH4(kg per head) emission from enteric fermentation','C02eq(kg per head) emission from enteric fermentation'],n_enteric_fermentation=enteric_fermentation_arg.length;
+var enteric_fermentation_arg=['CO2eq'],enteric_fermentation_title=['C02eq(kg per head) emission from enteric fermentation'],n_enteric_fermentation=enteric_fermentation_arg.length;
 // fertilizers production, import/export
 var fertilizers_nutrient_arg=['N_production_import','N_import_export','P2O5_production_import','P2O5_import_export','K2O_production_import','K2O_import_export'],fertilizers_nutrient_title=['N production/import','N import/export','P2O5 production/import','P2O5 import/export','K2O production/import','K2O import/export'],n_fertilizers_nutrient=fertilizers_nutrient_arg.length;
 // fertilizers (production+import)/export
