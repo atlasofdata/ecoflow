@@ -4,7 +4,7 @@ var resX=window.innerWidth,resY=window.innerHeight,dX=parseInt(resX/8.0),dY=pars
 var resx=parseInt(resX/4),resy=parseInt(resx*resY/resX);
 var n_titles,n_keywords,data_json,data_json_i;
 var n_years,min_year=1990,max_year=2018,year=min_year,min_radius=10000.0,max_radius=0.0,x0,y0;
-var p=[],v=[],radius=[],sort_radius=[],fRadius=160.0,indexes=[],index,p_mean=0.0,p_var=0.0,v_mean=0.0,v_var=0.0,v_min=10000.0,v_max=-v_min,p_min=10000.0,p_max=-p_min;
+var p,v,radius,sort_radius,fRadius=160.0,indexes=[],index,p_mean=0.0,p_var=0.0,v_mean=0.0,v_var=0.0,v_min=10000.0,v_max=-v_min,p_min=10000.0,p_max=-p_min;
 var Y,t,k,t0,k0,i0,min_distance,distance,p1;
 var forest_coverage,global_ice,publications=[],n_publications,words=[];
 var word='',old_word='';
@@ -74,7 +74,7 @@ var yaxis=d3.svg.axis().scale(yscale).orient("left");
 // creating a second sub-graph
 // second sub-graph x and y axis
 var p_shift=1.5*dX;
-var v_shift=0.5*resy;
+var v_shift=resY-dY-resy;
 var pscale=d3.scale.linear().domain([xmin,xmax]).range([0,resx]);
 var vscale=d3.scale.linear().domain([ymin,ymax]).range([resy,0]);
 var paxis=d3.svg.axis().scale(pscale).orient("top").ticks(4,d3.format(",d"));
@@ -173,6 +173,9 @@ function readJSON(data){
     max_year=data_json['years'][(data_json['n_years']-1).toString()];
     document.getElementById('publications').innerHTML='# publications : '.concat(data_json['publications'][year.toString()].toString());
 
+    n_titles=data_json['n_titles'];
+    n_keywords=data_json['n_keywords'];
+    
     // list of keywords
     n_keywords=data_json['n_keywords'];
     myButtonFontSize=[];
@@ -219,11 +222,10 @@ function readJSON(data){
     // https://www.ncdc.noaa.gov/snow-and-ice/extent/sea-ice/G/0.json
     document.getElementById('ice surface (million of km2)').innerHTML='ice surface : '.concat((global_surface_ice[year.toString()].toPrecision(3)).toString(),' million of km2');
 
-    n_titles=data_json['n_titles'];
     p=[];
     v=[];
     radius=[];
-    for(var i=0;i<n_titles;i++){
+    for(var i=0;i<(n_titles*n_years);i++){
 	p.push(0.0);
 	v.push(0.0);
 	radius.push(0.0);
@@ -250,16 +252,14 @@ function readJSON(data){
 	if(radius[t*n_keywords+k]>0.0) max_radius=Math.max(max_radius,radius[t*n_keywords+k]);
     }
     // sorting radius & positions
+    // sort_radius.sort(function(a,b){return b[0]<a[0]?-1:1;});//.push(sort_radius[i][1]);
     indexes=[];
-    // sort_radius.sort(function(a,b){return b[0]<a[0]?-1:1;});
     for(var i=0;i<n_titles;i++){
-	// indexes.push(sort_radius[i][1]);
-	indexes.push(i);
 	Y=data_json['title'][i]['y'];
 	t=Y-min_year;
 	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
 	p[t*n_keywords+k]=data_json['title'][i]['value']/data_json['publications'][Y.toString()];
-	if(data_json['title'][i]['keyword']==='mortality') console.log(p[t*n_keywords+k]);
+	indexes.push(t*n_keywords+k);
     }
     // velocities
     for(var i=0;i<n_titles;i++){
@@ -574,7 +574,7 @@ function graph_vp(){
 	.call(vaxis);
     svgContainer.append('text')
 	.attr('x',p_shift)
-	.attr('y',1.5*resy)
+	.attr('y',resY-0.75*dY)
 	.style('font-size','20px')
 	.style('font-weight','bold')
 	.attr('id','text_vp')
@@ -599,9 +599,6 @@ function cleaning(w){
 	d3.select('#graph_y_pt').remove();
 	d3.select('#graph_x_vp').remove();
 	d3.select('#graph_y_vp').remove();
-	d3.select('#se1').remove();
-	d3.select('#se2').remove();
-	d3.select('#se3').remove();
 	d3.selectAll('line').remove();
 	// d3.select('#sl1').remove();
 	// d3.select('#sl2').remove();
@@ -645,6 +642,7 @@ function ZoomOnMouseWheel(e){
 	d3.select('#text_pt').remove();
 	d3.select('#text_vp').remove();
 	drawning_circles(p_min_zw,p_max_zw,v_min_zw,v_max_zw);
+	cleaning(old_word);
     }
 };
 
