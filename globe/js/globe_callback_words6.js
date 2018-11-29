@@ -34,19 +34,19 @@ var crops_livestock_arg=['ibUS','ebUS','p_ibUS','p_ebUS','f_ibUS','f_ebUS'],n_cr
 // crops processed
 var crops_processed_arg=['tonnes','tonnes_processed'],n_crops_processed=crops_processed_arg.length,crops_processed_title=['tonnes of crops production','tonnes of crops processed'];
 // emissions intensities : eggs, meat, milk and rice
-var environment_emissions_intensities_arg=['eggs','meat','milk','rice'],environment_emissions_intensities_title=['eggs, hen in shell production/CO2','meat production/CO2','milk production/CO2','rice production/CO2'],n_environment_emissions_intensities=environment_emissions_intensities_arg.length;
+var environment_emissions_intensities_arg=['eggs','meat','milk','rice'],environment_emissions_intensities_title=['eggs, hen in shell production/CO2(eq)','meat production/CO2(eq)','milk production/CO2(eq)','rice production/CO2(eq)'],n_environment_emissions_intensities=environment_emissions_intensities_arg.length;
 // emissions intensities : rice production and organic soils
 var rice_and_organic_soils_emissions_intensities_arg=['rCO2','oCO2'],rice_and_organic_soils_emissions_intensities_title=['rice CO2(in tonnes) per ha','cultivated organic soils CO2(in tonnes) per ha'],n_rice_and_organic_soils_emissions_intensities=rice_and_organic_soils_emissions_intensities_arg.length;
 // environment fertilizers
 var environment_fertilizers_arg=['N','P2O5','K2O'],environment_fertilizers_title=['N tonnes per ha of cropland','P2O5 tonnes per ha of cropland','K2O tonnes per ha of cropland'],n_environment_fertilizers=environment_fertilizers_arg.length;
 // enteric fermentation
 var enteric_fermentation_arg=['CO2eq'],enteric_fermentation_title=['C02eq(kg per head) emission from enteric fermentation'],n_enteric_fermentation=enteric_fermentation_arg.length;
-// fertilizers production, import/export
-var fertilizers_nutrient_arg=['N_production_import','N_import_export','P2O5_production_import','P2O5_import_export','K2O_production_import','K2O_import_export'],fertilizers_nutrient_title=['N production/import','N import/export','P2O5 production/import','P2O5 import/export','K2O production/import','K2O import/export'],n_fertilizers_nutrient=fertilizers_nutrient_arg.length;
 // fertilizers (production+import)/export
 var fertilizers_nutrient_arg=['N_production_import','P2O5_production_import','K2O_production_import'],fertilizers_nutrient_title=['N (production+import)/export','P2O5 (production+import)/export','K2O (production+import)/export'],n_fertilizers_nutrient=fertilizers_nutrient_arg.length;
+// fertilizers (production+import)/agricultural use
+var fertilizers_nutrient_pagricultural_use_arg=['N_pagricultural_use','P2O5_pagricultural_use','K2O_pagricultural_use'],fertilizers_nutrient_pagricultural_use_title=['N (production+import)/agricultural use','P2O5 (production+import)/agricultural use','K2O (production+import)/agricultural use'],n_fertilizers_nutrient_pagricultural_use=fertilizers_nutrient_pagricultural_use_arg.length;
 // fertilizers agricultural use
-var fertilizers_nutrient_agricultural_use_arg=['N_agricultural_use','P2O5_agricultural_use','K2O_agricultural_use'],fertilizers_nutrient_agricultural_use_title=['N tonnes per ha of agricultural use','P2O5 tonnes per ha of agricultural use','K2O tonnes per ha of agricultural use'],n_fertilizers_nutrient_agricultural_use=fertilizers_nutrient_agricultural_use_arg.length;
+var fertilizers_nutrient_agricultural_use_arg=['N_t_ha','P2O5_t_ha','K2O_t_ha'],fertilizers_nutrient_agricultural_use_title=['N tonnes per ha of agricultural use','P2O5 tonnes per ha of agricultural use','K2O tonnes per ha of agricultural use'],n_fertilizers_nutrient_agricultural_use=fertilizers_nutrient_agricultural_use_arg.length;
 // food supply
 var food_supply_arg=['food','protein','fat'],food_supply_title=['food kcal/capita/day','proteins g/capita/day','fat g/capita/day'],n_food_supply=food_supply_arg.length;
 // forestry production
@@ -70,8 +70,8 @@ var pesticides_arg=['ibUS','ebUS','f_ibUS','f_ebUS','tonnes_ha'],pesticides_titl
 // temperature change
 var temperature_change_arg=['change','sd'],temperature_change_title=['temperature change','standard deviation'],n_temperature_change=temperature_change_arg.length;
 var data_FAO,b_FAO=[];
-var title_FAO=['annual'+'\xa0'+'population','burning'+'\xa0'+'crop'+'\xa0'+'residues','crops'+'\xa0'+'average'+'\xa0'+'yield','crops'+'\xa0'+'livestock','crops'+'\xa0'+'processed','enteric'+'\xa0'+'fermentation','environment'+'\xa0'+'emissions'+'\xa0'+'intensities','environment'+'\xa0'+'fertilizers','fertilizers'+'\xa0'+'nutrient','fertilizers'+'\xa0'+'nutrient'+'\xa0'+'agricultural'+'\xa0'+'use','food'+'\xa0'+'supply','forestry'+'\xa0'+'production','GHG','irrigation','land'+'\xa0'+'use','livestock'+'\xa0'+'heads','livestock'+'\xa0'+'manure','livestock'+'\xa0'+'production','manure'+'\xa0'+'left'+'\xa0'+'on'+'\xa0'+'pasture'+'\xa0'+'and'+'\xa0'+'applied'+'\xa0'+'to'+'\xa0'+'soils','pesticides','rice'+'\xa0'+'and'+'\xa0'+'organic'+'\xa0'+'soils'+'\xa0'+'emissions'+'\xa0'+'intensities','temperature'+'\xa0'+'change'];
-var id_FAO=['annual_population','burning_crop_residues','crops_average_yield','crops_livestock','crops_processed','enteric_fermentation','environment_emissions_intensities','environment_fertilizers','fertilizers_nutrient','fertilizers_nutrient_agricultural_use','food_supply','forestry_production','GHG','irrigation','land_use','livestock_heads','livestock_manure','livestock_production','manure_left_on_pasture_and_applied_to_soils','pesticides','rice_and_organic_soils_emissions_intensities','temperature_change'];
+var title_FAO=['annual'+'\xa0'+'population','burning'+'\xa0'+'crop'+'\xa0'+'residues','crops'+'\xa0'+'average'+'\xa0'+'yield','crops'+'\xa0'+'livestock','crops'+'\xa0'+'processed','enteric'+'\xa0'+'fermentation','environment'+'\xa0'+'emissions'+'\xa0'+'intensities','environment'+'\xa0'+'fertilizers','fertilizers'+'\xa0'+'nutrient','fertilizers'+'\xa0'+'nutrient'+'\xa0'+'pagricultural'+'\xa0'+'use','fertilizers'+'\xa0'+'nutrient'+'\xa0'+'agricultural'+'\xa0'+'use','food'+'\xa0'+'supply','forestry'+'\xa0'+'production','GHG','irrigation','land'+'\xa0'+'use','livestock'+'\xa0'+'heads','livestock'+'\xa0'+'manure','livestock'+'\xa0'+'production','manure'+'\xa0'+'left'+'\xa0'+'on'+'\xa0'+'pasture'+'\xa0'+'and'+'\xa0'+'applied'+'\xa0'+'to'+'\xa0'+'soils','pesticides','rice'+'\xa0'+'and'+'\xa0'+'organic'+'\xa0'+'soils'+'\xa0'+'emissions'+'\xa0'+'intensities','temperature'+'\xa0'+'change'];
+var id_FAO=['annual_population','burning_crop_residues','crops_average_yield','crops_livestock','crops_processed','enteric_fermentation','environment_emissions_intensities','environment_fertilizers','fertilizers_nutrient','fertilizers_nutrient_pagricultural_use','fertilizers_nutrient_agricultural_use','food_supply','forestry_production','GHG','irrigation','land_use','livestock_heads','livestock_manure','livestock_production','manure_left_on_pasture_and_applied_to_soils','pesticides','rice_and_organic_soils_emissions_intensities','temperature_change'];
 var n_FAO=title_FAO.length,n_FAO_i,FAO_title,max_FAO_i,I,a_FAO_i='',FAO_radius=5.0;
 for(var i=0;i<n_FAO;i++) b_FAO[id_FAO[i]]=false;
 var label,buffer_int;
@@ -265,6 +265,7 @@ function readJSON(data){
     document.getElementById('environment_emissions_intensities').addEventListener('click',environment_emissions_intensities,false);
     document.getElementById('environment_fertilizers').addEventListener('click',environment_fertilizers,false);
     document.getElementById('fertilizers_nutrient').addEventListener('click',fertilizers_nutrient,false);
+    document.getElementById('fertilizers_nutrient_pagricultural_use').addEventListener('click',fertilizers_nutrient_pagricultural_use,false);
     document.getElementById('fertilizers_nutrient_agricultural_use').addEventListener('click',fertilizers_nutrient_agricultural_use,false);
     document.getElementById('food_supply').addEventListener('click',food_supply,false);
     document.getElementById('forestry_production').addEventListener('click',forestry_production,false);
@@ -416,7 +417,8 @@ function change_FAO(){
 	// new FAO data (no trade ones)
 	document.getElementById('YEAR').innerHTML=year.toString();
 	document.getElementById('WORD').innerHTML='';
-	data_FAO=data_json[a_FAO_i];
+	if(a_FAO_i==='fertilizers_nutrient_agricultural_use' || a_FAO_i==='fertilizers_nutrient_pagricultural_use') data_FAO=data_json['fertilizers_nutrient'];
+	else data_FAO=data_json[a_FAO_i];
 	max_FAO_i=[];
 	for(var j=0;j<n_FAO_i;j++){
 	    max_FAO_i.push(0.0);
@@ -1219,14 +1221,21 @@ function environment_fertilizers(){
     change();
 };
 
-// draw the fertilizers nutrient
+// draw the fertilizers nutrient (production+import)/export
 function fertilizers_nutrient(){
     a_FAO_i='fertilizers_nutrient';
     initializing_change();
     change();
 };
 
-// draw the fertilizers nutrient agricultural use
+// draw the fertilizers nutrient (production+import)/agricultural use
+function fertilizers_nutrient_pagricultural_use(){
+    a_FAO_i='fertilizers_nutrient_pagricultural_use';
+    initializing_change();
+    change();
+};
+
+// draw the fertilizers nutrient agricultural use in tonnes per ha
 function fertilizers_nutrient_agricultural_use(){
     a_FAO_i='fertilizers_nutrient_agricultural_use';
     initializing_change();
@@ -1407,6 +1416,7 @@ function sugar_FAO_trade(){
 
 // initializing description
 function initializing_description(){
+    console.log(b_FAO);
     description='# publications*publications(2017)/publications('+(year.toString())+') :';
     if(b_FAO['annual_population']){
 	description='annual population (female, male, rural and urban), FAO ('+(year.toString())+') :';
@@ -1457,10 +1467,16 @@ function initializing_description(){
 	FAO_title=environment_fertilizers_title;
     }
     if(b_FAO['fertilizers_nutrient']){
-	description='fertilizers nutrient, FAO ('+(year.toString())+') :';
+	description='fertilizers nutrient (production+import)/export, FAO ('+(year.toString())+') :';
 	n_FAO_i=n_fertilizers_nutrient;
 	FAO_arg=fertilizers_nutrient_arg;
 	FAO_title=fertilizers_nutrient_title;
+    }
+    if(b_FAO['fertilizers_nutrient_pagricultural_use']){
+	description='fertilizers nutrient (production+import)/agricultural use, FAO ('+(year.toString())+') :';
+	n_FAO_i=n_fertilizers_nutrient_pagricultural_use;
+	FAO_arg=fertilizers_nutrient_pagricultural_use_arg;
+	FAO_title=fertilizers_nutrient_pagricultural_use_title;
     }
     if(b_FAO['fertilizers_nutrient_agricultural_use']){
 	description='fertilizers nutrient agricultural use, FAO ('+(year.toString())+') :';
