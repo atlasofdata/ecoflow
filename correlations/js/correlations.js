@@ -137,7 +137,9 @@ function change_database(url){
     d3.select('#graph_y_vp').remove();
     document.getElementById('keyword').innerHTML='';
     while(document.getElementById('Year').hasChildNodes()) document.getElementById('Year').removeChild(document.getElementById('Year').lastChild);
-    while(document.getElementById('leftCol').hasChildNodes()) document.getElementById('leftCol').removeChild(document.getElementById('leftCol').lastChild);
+    while(document.getElementById('Keywords').hasChildNodes()) document.getElementById('Keywords').removeChild(document.getElementById('Keywords').lastChild);
+    while(document.getElementById('mainKeywords').hasChildNodes()) document.getElementById('mainKeywords').removeChild(document.getElementById('mainKeywords').lastChild);
+    while(document.getElementById('Correlations').hasChildNodes()) document.getElementById('Correlations').removeChild(document.getElementById('Correlations').lastChild);
     for(var d=0;d<2;d++){
 	// console.log(url,url_database[d]);
 	// console.log(document.getElementById(url_database[d]));
@@ -349,7 +351,7 @@ function readJSON(data){
 	Y=data_json['title'][i]['y'];
 	t=Y-min_year;
 	k=data_json['keywords_i'][data_json['title'][i]['keyword']];
-	radius[t*n_keywords+k]=data_json['title'][i]['abstract']/data_json['publications'][Y.toString()];
+	radius[t*n_keywords+k]=(data_json['title'][i]['abstract']>0.0)?0.2*Math.sqrt((data_json['title'][i]['abstract']/data_json['publications'][Y.toString()])/Math.PI):0.0;
 	sort_radius.push([radius[t*n_keywords+k],t*n_keywords+k]);
 	if(radius[t*n_keywords+k]>0.0) min_radius=Math.min(min_radius,radius[t*n_keywords+k]);
 	if(radius[t*n_keywords+k]>0.0) max_radius=Math.max(max_radius,radius[t*n_keywords+k]);
